@@ -9,15 +9,27 @@ import {
   Tooltip,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import MarkerClusterGroup from "react-leaflet-cluster";
 import { DEFAULT_CITY } from "@/config/cities";
 import adminBoundary from "@/data/jinju-boundary.json";
 import legalBoundary from "@/data/jinju-legal-boundary.json";
 import pollingStations from "@/data/jinju-polling-stations.json";
+import busStops from "@/data/jinju-bus-stops.json";
 import electionResults from "@/data/jinju-election-results.json";
 import districtData from "@/data/jinju-districts.json";
 import PopulationPanel from "./PopulationPanel";
 import ElectionPanel from "./ElectionPanel";
+import TransitUsagePanel from "./TransitUsagePanel";
+import TransitLayer, { TRANSIT_LEGEND } from "./TransitLayer";
+import CommerceLayer, { COMMERCE_LEGEND } from "./CommerceLayer";
+import transitUsageData from "@/data/jinju-transit-usage.json";
 import type { Layer, PathOptions } from "leaflet";
+
+// 정류장 ID로 이용량 데이터 검색 (48 + 우리ID = API sttn_id)
+const usageById: Record<string, any> = {};
+(transitUsageData as any[]).forEach((s) => {
+  usageById[s.sttn_id] = s;
+});
 
 // 선거구별 색상
 const DISTRICT_COLORS = [
@@ -93,10 +105,14 @@ export default function MapContainer() {
   const [showLegal, setShowLegal] = useState(false);
   const [showPopulation, setShowPopulation] = useState(false);
   const [showPolling, setShowPolling] = useState(false);
+  const [showBusStops, setShowBusStops] = useState(false);
+  const [showTransit, setShowTransit] = useState(false);
+  const [showCommerce, setShowCommerce] = useState(false);
   const [showDistricts, setShowDistricts] = useState(false);
   const [electionType, setElectionType] = useState<"local" | "provincial" | "mayor">("local");
   const [selectedDong, setSelectedDong] = useState<SelectedDong>(null);
   const [selectedDistrict, setSelectedDistrict] = useState<string | null>(null);
+  const [selectedBusStop, setSelectedBusStop] = useState<any>(null);
 
   const dongToDistrict = buildDongMapping(electionType);
   const currentDistricts = (districtData as any).types[electionType].districts;
@@ -122,7 +138,7 @@ export default function MapContainer() {
       });
       layer.on("click", () => {
         setSelectedDong(null);
-        setSelectedDistrict(info.name);
+        setSelectedDistrict(name); // 동 이름을 전달 (선거구 이름 대신)
       });
     }
   }
@@ -224,6 +240,57 @@ export default function MapContainer() {
               </Tooltip>
             </CircleMarker>
           ))}
+        {showCommerce && (
+          <CommerceLayer boundaryData={adminBoundary} />
+        )}
+        {showTransit && (
+          <TransitLayer boundaryData={adminBoundary} />
+        )}
+        {showBusStops && (
+          <MarkerClusterGroup
+            chunkedLoading
+            maxClusterRadius={50}
+            spiderfyOnMaxZoom
+            showCoverageOnHover={false}
+          >
+            {(busStops as any[]).map((st, i) => {
+              const apiId = `48${String(st.id).padStart(5, "0")}`;
+              const usage = usageById[apiId];
+              const hasUsage = !!usage;
+              return (
+                <CircleMarker
+                  key={`bus-${i}`}
+                  center={[st.lat, st.lng]}
+                  radius={hasUsage ? 5 : 4}
+                  pathOptions={{
+                    color: hasUsage ? "#1D4ED8" : "#0E7490",
+                    fillColor: hasUsage ? "#3B82F6" : "#06B6D4",
+                    fillOpacity: 0.7,
+                    weight: 1,
+                  }}
+                  eventHandlers={{
+                    click: () => {
+                      const data = usage || { sttn_id: apiId, name: st.name, dong: "", totalRide: 0, totalGoff: 0, hourly: {}, byDow: {} };
+                      if (usage) data.name = st.name; // 정류장명 보충
+                      setSelectedBusStop(data);
+                      setSelectedDong(null);
+                      setSelectedDistrict(null);
+                    },
+                  }}
+                >
+                  <Tooltip>
+                    <strong>{st.name}</strong>
+                    <br />
+                    <span style={{ fontSize: "11px", color: "#666" }}>
+                      ID: {st.id}
+                      {usage ? ` · 승차 ${usage.totalRide.toLocaleString()}` : ""}
+                    </span>
+                  </Tooltip>
+                </CircleMarker>
+              );
+            })}
+          </MarkerClusterGroup>
+        )}
       </LeafletMap>
 
       {/* Layer toggle panel */}
@@ -263,7 +330,7 @@ export default function MapContainer() {
             onChange={(e) => setShowDistricts(e.target.checked)}
             className="accent-purple-600"
           />
-          선거구
+          선거결과
         </label>
         <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
           <input
@@ -274,11 +341,68 @@ export default function MapContainer() {
           />
           투표소 (86개)
         </label>
+        <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
+          <input
+            type="checkbox"
+            checked={showBusStops}
+            onChange={(e) => setShowBusStops(e.target.checked)}
+            className="accent-cyan-600"
+          />
+          버스정류장 (1,962개)
+        </label>
+        <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
+          <input
+            type="checkbox"
+            checked={showTransit}
+            onChange={(e) => setShowTransit(e.target.checked)}
+            className="accent-sky-600"
+          />
+          교통 밀집도
+        </label>
+        <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
+          <input
+            type="checkbox"
+            checked={showCommerce}
+            onChange={(e) => setShowCommerce(e.target.checked)}
+            className="accent-green-600"
+          />
+          상권 밀집도
+        </label>
 
         {showPopulation && (
           <div className="mt-2 border-t pt-2">
             <p className="text-xs text-gray-500 mb-1">인구수 (2025.01)</p>
             {POP_LEGEND.map((item) => (
+              <div key={item.label} className="flex items-center gap-1.5 text-xs text-gray-600">
+                <span
+                  className="inline-block w-3 h-3 rounded-sm"
+                  style={{ backgroundColor: item.color }}
+                />
+                {item.label}
+              </div>
+            ))}
+          </div>
+        )}
+
+        {showCommerce && (
+          <div className="mt-2 border-t pt-2">
+            <p className="text-xs text-gray-500 mb-1">상가 수 (19,076개)</p>
+            {COMMERCE_LEGEND.map((item) => (
+              <div key={item.label} className="flex items-center gap-1.5 text-xs text-gray-600">
+                <span
+                  className="inline-block w-3 h-3 rounded-sm"
+                  style={{ backgroundColor: item.color }}
+                />
+                {item.label}
+              </div>
+            ))}
+          </div>
+        )}
+
+        {showTransit && (
+          <div className="mt-2 border-t pt-2">
+            <p className="text-xs text-gray-500 mb-1">정류장 수 (stcis)</p>
+            {TRANSIT_LEGEND.map((item) => (
               <div key={item.label} className="flex items-center gap-1.5 text-xs text-gray-600">
                 <span
                   className="inline-block w-3 h-3 rounded-sm"
@@ -339,11 +463,20 @@ export default function MapContainer() {
       )}
 
       {/* Election result panel */}
-      <ElectionPanel
-        district={selectedDistrict}
-        electionType={electionType}
-        onClose={() => setSelectedDistrict(null)}
-      />
+      {showDistricts && selectedDistrict && (
+        <ElectionPanel
+          dongName={selectedDistrict}
+          onClose={() => setSelectedDistrict(null)}
+        />
+      )}
+
+      {/* Transit usage panel */}
+      {showBusStops && selectedBusStop && (
+        <TransitUsagePanel
+          station={selectedBusStop}
+          onClose={() => setSelectedBusStop(null)}
+        />
+      )}
     </div>
   );
 }

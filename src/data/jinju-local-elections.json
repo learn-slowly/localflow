@@ -1,0 +1,787 @@
+[
+  {
+    "sgId": "20220601",
+    "sgTypecode": "4",
+    "label": "2022 지선 (제8회) 시장",
+    "date": "2022.06.01",
+    "subType": "시장",
+    "results": [
+      {
+        "district": "진주시",
+        "voters": 292168,
+        "turnout": 155189,
+        "valid": 152346,
+        "invalid": 2843,
+        "candidates": [
+          {
+            "name": "한경호",
+            "party": "더불어민주당",
+            "votes": 42152
+          },
+          {
+            "name": "조규일",
+            "party": "국민의힘",
+            "votes": 110194
+          }
+        ]
+      }
+    ],
+    "votersByDong": [],
+    "dongResults": []
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "6",
+    "label": "2022 지선 (제8회) 기초의원",
+    "date": "2022.06.01",
+    "subType": "기초의원",
+    "results": [
+      {
+        "district": "진주시가선거구",
+        "voters": 43491,
+        "turnout": 23078,
+        "valid": 21989,
+        "invalid": 1089,
+        "candidates": [
+          {
+            "name": "박재식",
+            "party": "더불어민주당",
+            "votes": 7110
+          },
+          {
+            "name": "박종규",
+            "party": "국민의힘",
+            "votes": 9301
+          },
+          {
+            "name": "강묘영",
+            "party": "국민의힘",
+            "votes": 4004
+          },
+          {
+            "name": "전옥희",
+            "party": "진보당",
+            "votes": 1574
+          }
+        ]
+      },
+      {
+        "district": "진주시나선거구",
+        "voters": 33147,
+        "turnout": 18425,
+        "valid": 17440,
+        "invalid": 985,
+        "candidates": [
+          {
+            "name": "전종현",
+            "party": "더불어민주당",
+            "votes": 4861
+          },
+          {
+            "name": "신현국",
+            "party": "국민의힘",
+            "votes": 7749
+          },
+          {
+            "name": "구자경",
+            "party": "국민의힘",
+            "votes": 4830
+          }
+        ]
+      },
+      {
+        "district": "진주시다선거구",
+        "voters": 32722,
+        "turnout": 17339,
+        "valid": 16576,
+        "invalid": 763,
+        "candidates": [
+          {
+            "name": "이규섭",
+            "party": "더불어민주당",
+            "votes": 4879
+          },
+          {
+            "name": "황진선",
+            "party": "국민의힘",
+            "votes": 7527
+          },
+          {
+            "name": "최미선",
+            "party": "국민의힘",
+            "votes": 3079
+          },
+          {
+            "name": "이영실",
+            "party": "정의당",
+            "votes": 1091
+          }
+        ]
+      },
+      {
+        "district": "진주시라선거구",
+        "voters": 58325,
+        "turnout": 29875,
+        "valid": 28344,
+        "invalid": 1531,
+        "candidates": [
+          {
+            "name": "윤성관",
+            "party": "더불어민주당",
+            "votes": 6911
+          },
+          {
+            "name": "김형석",
+            "party": "국민의힘",
+            "votes": 12014
+          },
+          {
+            "name": "박미경",
+            "party": "국민의힘",
+            "votes": 5212
+          },
+          {
+            "name": "류재수",
+            "party": "진보당",
+            "votes": 4207
+          }
+        ]
+      },
+      {
+        "district": "진주시마선거구",
+        "voters": 24990,
+        "turnout": 14004,
+        "valid": 13596,
+        "invalid": 408,
+        "candidates": [
+          {
+            "name": "박철홍",
+            "party": "더불어민주당",
+            "votes": 3337
+          },
+          {
+            "name": "최민국",
+            "party": "국민의힘",
+            "votes": 4880
+          },
+          {
+            "name": "정용학",
+            "party": "국민의힘",
+            "votes": 3815
+          },
+          {
+            "name": "박금자",
+            "party": "무소속",
+            "votes": 1564
+          }
+        ]
+      },
+      {
+        "district": "진주시바선거구",
+        "voters": 48150,
+        "turnout": 24285,
+        "valid": 23471,
+        "invalid": 814,
+        "candidates": [
+          {
+            "name": "최지원",
+            "party": "더불어민주당",
+            "votes": 5404
+          },
+          {
+            "name": "오경훈",
+            "party": "국민의힘",
+            "votes": 10761
+          },
+          {
+            "name": "임기향",
+            "party": "국민의힘",
+            "votes": 5138
+          },
+          {
+            "name": "하삼봉",
+            "party": "무소속",
+            "votes": 2168
+          }
+        ]
+      },
+      {
+        "district": "진주시사선거구",
+        "voters": 28844,
+        "turnout": 16262,
+        "valid": 15565,
+        "invalid": 697,
+        "candidates": [
+          {
+            "name": "서정인",
+            "party": "더불어민주당",
+            "votes": 4810
+          },
+          {
+            "name": "최신용",
+            "party": "국민의힘",
+            "votes": 5231
+          },
+          {
+            "name": "강갑중",
+            "party": "국민의힘",
+            "votes": 3042
+          },
+          {
+            "name": "이현욱",
+            "party": "무소속",
+            "votes": 2482
+          }
+        ]
+      },
+      {
+        "district": "진주시아선거구",
+        "voters": 22499,
+        "turnout": 11893,
+        "valid": 11185,
+        "invalid": 708,
+        "candidates": [
+          {
+            "name": "이진수",
+            "party": "더불어민주당",
+            "votes": 2202
+          },
+          {
+            "name": "백승흥",
+            "party": "국민의힘",
+            "votes": 5540
+          },
+          {
+            "name": "강진철",
+            "party": "국민의힘",
+            "votes": 2715
+          },
+          {
+            "name": "최외숙",
+            "party": "무소속",
+            "votes": 728
+          }
+        ]
+      }
+    ],
+    "votersByDong": [],
+    "dongResults": []
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "5",
+    "label": "2022 지선 (제8회) 도의원",
+    "date": "2022.06.01",
+    "subType": "도의원",
+    "results": [
+      {
+        "district": "진주시제1선거구",
+        "voters": 43491,
+        "turnout": 23078,
+        "valid": 22646,
+        "invalid": 432,
+        "candidates": [
+          {
+            "name": "이동섭",
+            "party": "더불어민주당",
+            "votes": 8300
+          },
+          {
+            "name": "정재욱",
+            "party": "국민의힘",
+            "votes": 14346
+          }
+        ]
+      },
+      {
+        "district": "진주시제2선거구",
+        "voters": 65869,
+        "turnout": 35762,
+        "valid": 35119,
+        "invalid": 643,
+        "candidates": [
+          {
+            "name": "이준부",
+            "party": "더불어민주당",
+            "votes": 9921
+          },
+          {
+            "name": "박성도",
+            "party": "국민의힘",
+            "votes": 23262
+          },
+          {
+            "name": "이정옥",
+            "party": "녹색당",
+            "votes": 1936
+          }
+        ]
+      },
+      {
+        "district": "진주시제3선거구",
+        "voters": 58325,
+        "turnout": 29873,
+        "valid": 28814,
+        "invalid": 1059,
+        "candidates": [
+          {
+            "name": "조현신",
+            "party": "국민의힘",
+            "votes": 21216
+          },
+          {
+            "name": "김용국",
+            "party": "정의당",
+            "votes": 7598
+          }
+        ]
+      },
+      {
+        "district": "진주시제5선거구",
+        "voters": 51343,
+        "turnout": 28154,
+        "valid": 27500,
+        "invalid": 654,
+        "candidates": [
+          {
+            "name": "노정민",
+            "party": "더불어민주당",
+            "votes": 8120
+          },
+          {
+            "name": "김진부",
+            "party": "국민의힘",
+            "votes": 19380
+          }
+        ]
+      }
+    ],
+    "votersByDong": [],
+    "dongResults": []
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "4",
+    "label": "2018 지선 (제7회) 시장",
+    "date": "2018.06.13",
+    "subType": "시장",
+    "results": [
+      {
+        "district": "진주시",
+        "voters": 282049,
+        "turnout": 190838,
+        "valid": 186055,
+        "invalid": 4783,
+        "candidates": [
+          {
+            "name": "갈상돈",
+            "party": "더불어민주당",
+            "votes": 85040
+          },
+          {
+            "name": "조규일",
+            "party": "자유한국당",
+            "votes": 97021
+          },
+          {
+            "name": "김동우",
+            "party": "대한애국당",
+            "votes": 3994
+          }
+        ]
+      }
+    ],
+    "votersByDong": [],
+    "dongResults": []
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "6",
+    "label": "2018 지선 (제7회) 기초의원",
+    "date": "2018.06.13",
+    "subType": "기초의원",
+    "results": [
+      {
+        "district": "진주시가선거구",
+        "voters": 28743,
+        "turnout": 20441,
+        "valid": 19987,
+        "invalid": 454,
+        "candidates": [
+          {
+            "name": "정인후",
+            "party": "더불어민주당",
+            "votes": 8095
+          },
+          {
+            "name": "정재욱",
+            "party": "자유한국당",
+            "votes": 4127
+          },
+          {
+            "name": "정영재",
+            "party": "자유한국당",
+            "votes": 3914
+          },
+          {
+            "name": "이정수",
+            "party": "바른미래당",
+            "votes": 1748
+          },
+          {
+            "name": "최임식",
+            "party": "무소속",
+            "votes": 2103
+          }
+        ]
+      },
+      {
+        "district": "진주시나선거구",
+        "voters": 53130,
+        "turnout": 34955,
+        "valid": 33906,
+        "invalid": 1049,
+        "candidates": [
+          {
+            "name": "윤성관",
+            "party": "더불어민주당",
+            "votes": 12314
+          },
+          {
+            "name": "조현신",
+            "party": "자유한국당",
+            "votes": 10086
+          },
+          {
+            "name": "김민균",
+            "party": "자유한국당",
+            "votes": 2952
+          },
+          {
+            "name": "박미경",
+            "party": "자유한국당",
+            "votes": 4241
+          },
+          {
+            "name": "류재수",
+            "party": "민중당",
+            "votes": 4313
+          }
+        ]
+      },
+      {
+        "district": "진주시다선거구",
+        "voters": 35491,
+        "turnout": 24574,
+        "valid": 23968,
+        "invalid": 606,
+        "candidates": [
+          {
+            "name": "허정림",
+            "party": "더불어민주당",
+            "votes": 9104
+          },
+          {
+            "name": "박성도",
+            "party": "자유한국당",
+            "votes": 9491
+          },
+          {
+            "name": "구자경",
+            "party": "무소속",
+            "votes": 5373
+          }
+        ]
+      },
+      {
+        "district": "진주시라선거구",
+        "voters": 33848,
+        "turnout": 23350,
+        "valid": 22747,
+        "invalid": 603,
+        "candidates": [
+          {
+            "name": "서은애",
+            "party": "더불어민주당",
+            "votes": 12224
+          },
+          {
+            "name": "황진선",
+            "party": "자유한국당",
+            "votes": 6568
+          },
+          {
+            "name": "이성환",
+            "party": "자유한국당",
+            "votes": 3955
+          }
+        ]
+      },
+      {
+        "district": "진주시마선거구",
+        "voters": 19903,
+        "turnout": 13635,
+        "valid": 13245,
+        "invalid": 390,
+        "candidates": [
+          {
+            "name": "박철홍",
+            "party": "더불어민주당",
+            "votes": 3673
+          },
+          {
+            "name": "박금자",
+            "party": "자유한국당",
+            "votes": 3494
+          },
+          {
+            "name": "정철규",
+            "party": "자유한국당",
+            "votes": 2615
+          },
+          {
+            "name": "하정우",
+            "party": "민중당",
+            "votes": 1479
+          },
+          {
+            "name": "이재호",
+            "party": "무소속",
+            "votes": 1984
+          }
+        ]
+      },
+      {
+        "district": "진주시바선거구",
+        "voters": 42296,
+        "turnout": 27289,
+        "valid": 26537,
+        "invalid": 752,
+        "candidates": [
+          {
+            "name": "윤갑수",
+            "party": "더불어민주당",
+            "votes": 6167
+          },
+          {
+            "name": "임기향",
+            "party": "자유한국당",
+            "votes": 5497
+          },
+          {
+            "name": "하삼봉",
+            "party": "자유한국당",
+            "votes": 2891
+          },
+          {
+            "name": "강민아",
+            "party": "정의당",
+            "votes": 5161
+          },
+          {
+            "name": "심광영",
+            "party": "무소속",
+            "votes": 1640
+          },
+          {
+            "name": "강갑중",
+            "party": "무소속",
+            "votes": 3226
+          },
+          {
+            "name": "배정오",
+            "party": "무소속",
+            "votes": 1955
+          }
+        ]
+      },
+      {
+        "district": "진주시사선거구",
+        "voters": 43305,
+        "turnout": 30732,
+        "valid": 29447,
+        "invalid": 1285,
+        "candidates": [
+          {
+            "name": "제상희",
+            "party": "더불어민주당",
+            "votes": 7806
+          },
+          {
+            "name": "이준부",
+            "party": "더불어민주당",
+            "votes": 2753
+          },
+          {
+            "name": "이현욱",
+            "party": "자유한국당",
+            "votes": 4425
+          },
+          {
+            "name": "김홍규",
+            "party": "자유한국당",
+            "votes": 3357
+          },
+          {
+            "name": "김창연",
+            "party": "자유한국당",
+            "votes": 3053
+          },
+          {
+            "name": "김미영",
+            "party": "민중당",
+            "votes": 2849
+          },
+          {
+            "name": "서정인",
+            "party": "무소속",
+            "votes": 5204
+          }
+        ]
+      },
+      {
+        "district": "진주시아선거구",
+        "voters": 25333,
+        "turnout": 15817,
+        "valid": 15171,
+        "invalid": 646,
+        "candidates": [
+          {
+            "name": "이상영",
+            "party": "더불어민주당",
+            "votes": 5655
+          },
+          {
+            "name": "허경순",
+            "party": "자유한국당",
+            "votes": 4246
+          },
+          {
+            "name": "백승흥",
+            "party": "자유한국당",
+            "votes": 4259
+          },
+          {
+            "name": "이동철",
+            "party": "무소속",
+            "votes": 1011
+          }
+        ]
+      }
+    ],
+    "votersByDong": [],
+    "dongResults": []
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "5",
+    "label": "2018 지선 (제7회) 도의원",
+    "date": "2018.06.13",
+    "subType": "도의원",
+    "results": [
+      {
+        "district": "진주시제1선거구",
+        "voters": 81873,
+        "turnout": 55397,
+        "valid": 53973,
+        "invalid": 1424,
+        "candidates": [
+          {
+            "name": "장규석",
+            "party": "더불어민주당",
+            "votes": 26526
+          },
+          {
+            "name": "양해영",
+            "party": "자유한국당",
+            "votes": 22517
+          },
+          {
+            "name": "고경국",
+            "party": "무소속",
+            "votes": 4930
+          }
+        ]
+      },
+      {
+        "district": "진주시제2선거구",
+        "voters": 69339,
+        "turnout": 47930,
+        "valid": 46883,
+        "invalid": 1047,
+        "candidates": [
+          {
+            "name": "성연석",
+            "party": "더불어민주당",
+            "votes": 19754
+          },
+          {
+            "name": "정인태",
+            "party": "자유한국당",
+            "votes": 15958
+          },
+          {
+            "name": "정연해",
+            "party": "바른미래당",
+            "votes": 2989
+          },
+          {
+            "name": "최진덕",
+            "party": "무소속",
+            "votes": 7384
+          },
+          {
+            "name": "백미희",
+            "party": "무소속",
+            "votes": 798
+          }
+        ]
+      },
+      {
+        "district": "진주시제3선거구",
+        "voters": 62199,
+        "turnout": 40926,
+        "valid": 39714,
+        "invalid": 1212,
+        "candidates": [
+          {
+            "name": "천진수",
+            "party": "더불어민주당",
+            "votes": 18548
+          },
+          {
+            "name": "강민국",
+            "party": "자유한국당",
+            "votes": 21166
+          }
+        ]
+      },
+      {
+        "district": "진주시제4선거구",
+        "voters": 68638,
+        "turnout": 46550,
+        "valid": 45278,
+        "invalid": 1272,
+        "candidates": [
+          {
+            "name": "양도근",
+            "party": "더불어민주당",
+            "votes": 17471
+          },
+          {
+            "name": "김진부",
+            "party": "자유한국당",
+            "votes": 18673
+          },
+          {
+            "name": "남정만",
+            "party": "무소속",
+            "votes": 9134
+          }
+        ]
+      }
+    ],
+    "votersByDong": [],
+    "dongResults": []
+  }
+]

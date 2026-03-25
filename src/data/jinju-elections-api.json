@@ -1,0 +1,1639 @@
+[
+  {
+    "sgId": "20250603",
+    "sgTypecode": "1",
+    "label": "2025 대선 (제21대)",
+    "date": "2025.06.03",
+    "results": [
+      {
+        "district": "진주시",
+        "voters": 289796,
+        "turnout": 231564,
+        "valid": 229518,
+        "invalid": 2046,
+        "candidates": [
+          {
+            "name": "이재명",
+            "party": "더불어민주당",
+            "votes": 80491
+          },
+          {
+            "name": "김문수",
+            "party": "국민의힘",
+            "votes": 127358
+          },
+          {
+            "name": "이준석",
+            "party": "개혁신당",
+            "votes": 19197
+          },
+          {
+            "name": "권영국",
+            "party": "민주노동당",
+            "votes": 2198
+          },
+          {
+            "name": "송진호",
+            "party": "무소속",
+            "votes": 274
+          }
+        ]
+      }
+    ],
+    "votersByDong": [
+      {
+        "dong": "문산읍",
+        "voters": 6953,
+        "population": 7510,
+        "maleVoters": 3421,
+        "femaleVoters": 3532
+      },
+      {
+        "dong": "내동면",
+        "voters": 3334,
+        "population": 3901,
+        "maleVoters": 1637,
+        "femaleVoters": 1697
+      },
+      {
+        "dong": "정촌면",
+        "voters": 7226,
+        "population": 8648,
+        "maleVoters": 3674,
+        "femaleVoters": 3552
+      },
+      {
+        "dong": "금곡면",
+        "voters": 1914,
+        "population": 2014,
+        "maleVoters": 914,
+        "femaleVoters": 1000
+      },
+      {
+        "dong": "진성면",
+        "voters": 1685,
+        "population": 1748,
+        "maleVoters": 853,
+        "femaleVoters": 832
+      },
+      {
+        "dong": "일반성면",
+        "voters": 2172,
+        "population": 2353,
+        "maleVoters": 1063,
+        "femaleVoters": 1109
+      },
+      {
+        "dong": "이반성면",
+        "voters": 1444,
+        "population": 1476,
+        "maleVoters": 725,
+        "femaleVoters": 719
+      },
+      {
+        "dong": "사봉면",
+        "voters": 1303,
+        "population": 1363,
+        "maleVoters": 643,
+        "femaleVoters": 660
+      },
+      {
+        "dong": "지수면",
+        "voters": 1254,
+        "population": 1318,
+        "maleVoters": 640,
+        "femaleVoters": 614
+      },
+      {
+        "dong": "대곡면",
+        "voters": 2762,
+        "population": 2868,
+        "maleVoters": 1370,
+        "femaleVoters": 1392
+      },
+      {
+        "dong": "금산면",
+        "voters": 16273,
+        "population": 19647,
+        "maleVoters": 8023,
+        "femaleVoters": 8250
+      },
+      {
+        "dong": "집현면",
+        "voters": 3918,
+        "population": 4312,
+        "maleVoters": 1984,
+        "femaleVoters": 1934
+      },
+      {
+        "dong": "미천면",
+        "voters": 1423,
+        "population": 1467,
+        "maleVoters": 714,
+        "femaleVoters": 709
+      },
+      {
+        "dong": "명석면",
+        "voters": 3542,
+        "population": 3742,
+        "maleVoters": 1740,
+        "femaleVoters": 1802
+      },
+      {
+        "dong": "대평면",
+        "voters": 903,
+        "population": 947,
+        "maleVoters": 433,
+        "femaleVoters": 470
+      },
+      {
+        "dong": "수곡면",
+        "voters": 1991,
+        "population": 2081,
+        "maleVoters": 986,
+        "femaleVoters": 1005
+      },
+      {
+        "dong": "천전동",
+        "voters": 23967,
+        "population": 26602,
+        "maleVoters": 11626,
+        "femaleVoters": 12341
+      },
+      {
+        "dong": "성북동",
+        "voters": 8671,
+        "population": 9433,
+        "maleVoters": 4290,
+        "femaleVoters": 4381
+      },
+      {
+        "dong": "중앙동",
+        "voters": 9443,
+        "population": 10071,
+        "maleVoters": 4480,
+        "femaleVoters": 4963
+      },
+      {
+        "dong": "상봉동",
+        "voters": 11662,
+        "population": 12654,
+        "maleVoters": 5707,
+        "femaleVoters": 5955
+      },
+      {
+        "dong": "상대동",
+        "voters": 16233,
+        "population": 17863,
+        "maleVoters": 7985,
+        "femaleVoters": 8248
+      },
+      {
+        "dong": "하대동",
+        "voters": 20017,
+        "population": 22354,
+        "maleVoters": 9934,
+        "femaleVoters": 10083
+      },
+      {
+        "dong": "상평동",
+        "voters": 9296,
+        "population": 10518,
+        "maleVoters": 4710,
+        "femaleVoters": 4586
+      },
+      {
+        "dong": "초장동",
+        "voters": 21174,
+        "population": 27375,
+        "maleVoters": 10389,
+        "femaleVoters": 10785
+      },
+      {
+        "dong": "평거동",
+        "voters": 21629,
+        "population": 25183,
+        "maleVoters": 10118,
+        "femaleVoters": 11511
+      },
+      {
+        "dong": "신안동",
+        "voters": 9784,
+        "population": 10940,
+        "maleVoters": 4577,
+        "femaleVoters": 5207
+      },
+      {
+        "dong": "이현동",
+        "voters": 8757,
+        "population": 9883,
+        "maleVoters": 4234,
+        "femaleVoters": 4523
+      },
+      {
+        "dong": "판문동",
+        "voters": 15871,
+        "population": 19910,
+        "maleVoters": 7454,
+        "femaleVoters": 8417
+      },
+      {
+        "dong": "가호동",
+        "voters": 30581,
+        "population": 36143,
+        "maleVoters": 15490,
+        "femaleVoters": 15091
+      },
+      {
+        "dong": "충무공동",
+        "voters": 24614,
+        "population": 33638,
+        "maleVoters": 12034,
+        "femaleVoters": 12580
+      }
+    ]
+  },
+  {
+    "sgId": "20240410",
+    "sgTypecode": "2",
+    "label": "2024 총선 (제22대)",
+    "date": "2024.04.10",
+    "results": [
+      {
+        "district": "진주시갑",
+        "voters": 167725,
+        "turnout": 115510,
+        "valid": 113789,
+        "invalid": 1721,
+        "candidates": [
+          {
+            "name": "갈상돈",
+            "party": "더불어민주당",
+            "votes": 47450
+          },
+          {
+            "name": "박대출",
+            "party": "국민의힘",
+            "votes": 66339
+          }
+        ]
+      },
+      {
+        "district": "진주시을",
+        "voters": 121959,
+        "turnout": 82267,
+        "valid": 81214,
+        "invalid": 1053,
+        "candidates": [
+          {
+            "name": "한경호",
+            "party": "더불어민주당",
+            "votes": 24540
+          },
+          {
+            "name": "강민국",
+            "party": "국민의힘",
+            "votes": 45590
+          },
+          {
+            "name": "김병규",
+            "party": "무소속",
+            "votes": 11084
+          }
+        ]
+      }
+    ],
+    "votersByDong": [
+      {
+        "dong": "문산읍",
+        "voters": 7122,
+        "population": 7807,
+        "maleVoters": 3503,
+        "femaleVoters": 3619
+      },
+      {
+        "dong": "내동면",
+        "voters": 3344,
+        "population": 3948,
+        "maleVoters": 1651,
+        "femaleVoters": 1693
+      },
+      {
+        "dong": "정촌면",
+        "voters": 7292,
+        "population": 8784,
+        "maleVoters": 3738,
+        "femaleVoters": 3554
+      },
+      {
+        "dong": "금곡면",
+        "voters": 1977,
+        "population": 2083,
+        "maleVoters": 955,
+        "femaleVoters": 1022
+      },
+      {
+        "dong": "진성면",
+        "voters": 1724,
+        "population": 1799,
+        "maleVoters": 869,
+        "femaleVoters": 855
+      },
+      {
+        "dong": "일반성면",
+        "voters": 2243,
+        "population": 2440,
+        "maleVoters": 1099,
+        "femaleVoters": 1144
+      },
+      {
+        "dong": "이반성면",
+        "voters": 1473,
+        "population": 1509,
+        "maleVoters": 738,
+        "femaleVoters": 735
+      },
+      {
+        "dong": "사봉면",
+        "voters": 1371,
+        "population": 1430,
+        "maleVoters": 660,
+        "femaleVoters": 711
+      },
+      {
+        "dong": "지수면",
+        "voters": 1277,
+        "population": 1350,
+        "maleVoters": 650,
+        "femaleVoters": 627
+      },
+      {
+        "dong": "대곡면",
+        "voters": 2862,
+        "population": 2976,
+        "maleVoters": 1418,
+        "femaleVoters": 1444
+      },
+      {
+        "dong": "금산면",
+        "voters": 16569,
+        "population": 20261,
+        "maleVoters": 8153,
+        "femaleVoters": 8416
+      },
+      {
+        "dong": "집현면",
+        "voters": 3957,
+        "population": 4419,
+        "maleVoters": 1999,
+        "femaleVoters": 1958
+      },
+      {
+        "dong": "미천면",
+        "voters": 1469,
+        "population": 1519,
+        "maleVoters": 740,
+        "femaleVoters": 729
+      },
+      {
+        "dong": "명석면",
+        "voters": 3577,
+        "population": 3789,
+        "maleVoters": 1764,
+        "femaleVoters": 1813
+      },
+      {
+        "dong": "대평면",
+        "voters": 923,
+        "population": 975,
+        "maleVoters": 443,
+        "femaleVoters": 480
+      },
+      {
+        "dong": "수곡면",
+        "voters": 2046,
+        "population": 2151,
+        "maleVoters": 999,
+        "femaleVoters": 1047
+      },
+      {
+        "dong": "천전동",
+        "voters": 24402,
+        "population": 27363,
+        "maleVoters": 11940,
+        "femaleVoters": 12462
+      },
+      {
+        "dong": "성북동",
+        "voters": 8982,
+        "population": 9809,
+        "maleVoters": 4435,
+        "femaleVoters": 4547
+      },
+      {
+        "dong": "중앙동",
+        "voters": 9796,
+        "population": 10532,
+        "maleVoters": 4644,
+        "femaleVoters": 5152
+      },
+      {
+        "dong": "상봉동",
+        "voters": 11959,
+        "population": 13103,
+        "maleVoters": 5827,
+        "femaleVoters": 6132
+      },
+      {
+        "dong": "상대동",
+        "voters": 16809,
+        "population": 18662,
+        "maleVoters": 8238,
+        "femaleVoters": 8571
+      },
+      {
+        "dong": "하대동",
+        "voters": 20758,
+        "population": 23377,
+        "maleVoters": 10275,
+        "femaleVoters": 10483
+      },
+      {
+        "dong": "상평동",
+        "voters": 9625,
+        "population": 10966,
+        "maleVoters": 4858,
+        "femaleVoters": 4767
+      },
+      {
+        "dong": "초장동",
+        "voters": 20071,
+        "population": 26035,
+        "maleVoters": 9845,
+        "femaleVoters": 10226
+      },
+      {
+        "dong": "평거동",
+        "voters": 22212,
+        "population": 26182,
+        "maleVoters": 10398,
+        "femaleVoters": 11814
+      },
+      {
+        "dong": "신안동",
+        "voters": 9901,
+        "population": 11180,
+        "maleVoters": 4613,
+        "femaleVoters": 5288
+      },
+      {
+        "dong": "이현동",
+        "voters": 9562,
+        "population": 10884,
+        "maleVoters": 4646,
+        "femaleVoters": 4916
+      },
+      {
+        "dong": "판문동",
+        "voters": 16143,
+        "population": 20439,
+        "maleVoters": 7588,
+        "femaleVoters": 8555
+      },
+      {
+        "dong": "가호동",
+        "voters": 25913,
+        "population": 30342,
+        "maleVoters": 13085,
+        "femaleVoters": 12828
+      },
+      {
+        "dong": "충무공동",
+        "voters": 24703,
+        "population": 33990,
+        "maleVoters": 12083,
+        "femaleVoters": 12620
+      }
+    ]
+  },
+  {
+    "sgId": "20220309",
+    "sgTypecode": "1",
+    "label": "2022 대선 (제20대)",
+    "date": "2022.03.09",
+    "results": [
+      {
+        "district": "진주시",
+        "voters": 292842,
+        "turnout": 228238,
+        "valid": 225760,
+        "invalid": 2478,
+        "candidates": [
+          {
+            "name": "이재명",
+            "party": "더불어민주당",
+            "votes": 74975
+          },
+          {
+            "name": "윤석열",
+            "party": "국민의힘",
+            "votes": 141433
+          },
+          {
+            "name": "심상정",
+            "party": "정의당",
+            "votes": 5578
+          },
+          {
+            "name": "오준호",
+            "party": "기본소득당",
+            "votes": 105
+          },
+          {
+            "name": "허경영",
+            "party": "국가혁명당",
+            "votes": 2573
+          },
+          {
+            "name": "이백윤",
+            "party": "노동당",
+            "votes": 76
+          },
+          {
+            "name": "옥은호",
+            "party": "새누리당",
+            "votes": 40
+          },
+          {
+            "name": "김경재",
+            "party": "신자유민주연합",
+            "votes": 33
+          },
+          {
+            "name": "조원진",
+            "party": "우리공화당",
+            "votes": 184
+          },
+          {
+            "name": "김재연",
+            "party": "진보당",
+            "votes": 500
+          },
+          {
+            "name": "이경희",
+            "party": "통일한국당",
+            "votes": 125
+          },
+          {
+            "name": "김민찬",
+            "party": "한류연합당",
+            "votes": 138
+          }
+        ]
+      }
+    ],
+    "votersByDong": [
+      {
+        "dong": "문산읍",
+        "voters": 7299,
+        "population": 8066,
+        "maleVoters": 3617,
+        "femaleVoters": 3682
+      },
+      {
+        "dong": "내동면",
+        "voters": 3316,
+        "population": 3999,
+        "maleVoters": 1653,
+        "femaleVoters": 1663
+      },
+      {
+        "dong": "정촌면",
+        "voters": 7304,
+        "population": 8723,
+        "maleVoters": 3749,
+        "femaleVoters": 3555
+      },
+      {
+        "dong": "금곡면",
+        "voters": 2063,
+        "population": 2186,
+        "maleVoters": 975,
+        "femaleVoters": 1088
+      },
+      {
+        "dong": "진성면",
+        "voters": 1789,
+        "population": 1869,
+        "maleVoters": 880,
+        "femaleVoters": 909
+      },
+      {
+        "dong": "일반성면",
+        "voters": 2332,
+        "population": 2556,
+        "maleVoters": 1132,
+        "femaleVoters": 1200
+      },
+      {
+        "dong": "이반성면",
+        "voters": 1519,
+        "population": 1575,
+        "maleVoters": 751,
+        "femaleVoters": 768
+      },
+      {
+        "dong": "사봉면",
+        "voters": 1414,
+        "population": 1483,
+        "maleVoters": 687,
+        "femaleVoters": 727
+      },
+      {
+        "dong": "지수면",
+        "voters": 1334,
+        "population": 1424,
+        "maleVoters": 672,
+        "femaleVoters": 662
+      },
+      {
+        "dong": "대곡면",
+        "voters": 3037,
+        "population": 3178,
+        "maleVoters": 1508,
+        "femaleVoters": 1529
+      },
+      {
+        "dong": "금산면",
+        "voters": 16703,
+        "population": 20870,
+        "maleVoters": 8237,
+        "femaleVoters": 8466
+      },
+      {
+        "dong": "집현면",
+        "voters": 4099,
+        "population": 4629,
+        "maleVoters": 2055,
+        "femaleVoters": 2044
+      },
+      {
+        "dong": "미천면",
+        "voters": 1510,
+        "population": 1569,
+        "maleVoters": 745,
+        "femaleVoters": 765
+      },
+      {
+        "dong": "명석면",
+        "voters": 3735,
+        "population": 3987,
+        "maleVoters": 1831,
+        "femaleVoters": 1904
+      },
+      {
+        "dong": "대평면",
+        "voters": 980,
+        "population": 1031,
+        "maleVoters": 470,
+        "femaleVoters": 510
+      },
+      {
+        "dong": "수곡면",
+        "voters": 2078,
+        "population": 2188,
+        "maleVoters": 1005,
+        "femaleVoters": 1073
+      },
+      {
+        "dong": "천전동",
+        "voters": 24455,
+        "population": 27750,
+        "maleVoters": 11841,
+        "femaleVoters": 12614
+      },
+      {
+        "dong": "성북동",
+        "voters": 9325,
+        "population": 10242,
+        "maleVoters": 4571,
+        "femaleVoters": 4754
+      },
+      {
+        "dong": "중앙동",
+        "voters": 10156,
+        "population": 10971,
+        "maleVoters": 4849,
+        "femaleVoters": 5307
+      },
+      {
+        "dong": "상봉동",
+        "voters": 12493,
+        "population": 13773,
+        "maleVoters": 6100,
+        "femaleVoters": 6393
+      },
+      {
+        "dong": "상대동",
+        "voters": 17153,
+        "population": 19215,
+        "maleVoters": 8440,
+        "femaleVoters": 8713
+      },
+      {
+        "dong": "하대동",
+        "voters": 21153,
+        "population": 24140,
+        "maleVoters": 10445,
+        "femaleVoters": 10708
+      },
+      {
+        "dong": "상평동",
+        "voters": 9995,
+        "population": 11452,
+        "maleVoters": 5115,
+        "femaleVoters": 4880
+      },
+      {
+        "dong": "초장동",
+        "voters": 20417,
+        "population": 26838,
+        "maleVoters": 10050,
+        "femaleVoters": 10367
+      },
+      {
+        "dong": "평거동",
+        "voters": 22790,
+        "population": 27300,
+        "maleVoters": 10756,
+        "femaleVoters": 12034
+      },
+      {
+        "dong": "신안동",
+        "voters": 10122,
+        "population": 11522,
+        "maleVoters": 4730,
+        "femaleVoters": 5392
+      },
+      {
+        "dong": "이현동",
+        "voters": 10253,
+        "population": 11804,
+        "maleVoters": 4969,
+        "femaleVoters": 5284
+      },
+      {
+        "dong": "판문동",
+        "voters": 16301,
+        "population": 20940,
+        "maleVoters": 7645,
+        "femaleVoters": 8656
+      },
+      {
+        "dong": "가호동",
+        "voters": 23847,
+        "population": 28279,
+        "maleVoters": 12005,
+        "femaleVoters": 11842
+      },
+      {
+        "dong": "충무공동",
+        "voters": 23870,
+        "population": 32979,
+        "maleVoters": 11729,
+        "femaleVoters": 12141
+      }
+    ]
+  },
+  {
+    "sgId": "20200415",
+    "sgTypecode": "2",
+    "label": "2020 총선 (제21대)",
+    "date": "2020.04.15",
+    "results": [
+      {
+        "district": "진주시갑",
+        "voters": 160833,
+        "turnout": 111197,
+        "valid": 109781,
+        "invalid": 1416,
+        "candidates": [
+          {
+            "name": "정영훈",
+            "party": "더불어민주당",
+            "votes": 42241
+          },
+          {
+            "name": "박대출",
+            "party": "미래통합당",
+            "votes": 60112
+          },
+          {
+            "name": "김준형",
+            "party": "민중당",
+            "votes": 1503
+          },
+          {
+            "name": "오필남",
+            "party": "국가혁명배당금당",
+            "votes": 614
+          },
+          {
+            "name": "최승제",
+            "party": "무소속",
+            "votes": 2496
+          },
+          {
+            "name": "김유근",
+            "party": "무소속",
+            "votes": 2815
+          }
+        ]
+      },
+      {
+        "district": "진주시을",
+        "voters": 129775,
+        "turnout": 86523,
+        "valid": 85074,
+        "invalid": 1449,
+        "candidates": [
+          {
+            "name": "한경호",
+            "party": "더불어민주당",
+            "votes": 28779
+          },
+          {
+            "name": "강민국",
+            "party": "미래통합당",
+            "votes": 50217
+          },
+          {
+            "name": "김동우",
+            "party": "우리공화당",
+            "votes": 670
+          },
+          {
+            "name": "김봉준",
+            "party": "국가혁명배당금당",
+            "votes": 690
+          },
+          {
+            "name": "이창희",
+            "party": "무소속",
+            "votes": 4718
+          }
+        ]
+      }
+    ],
+    "votersByDong": [
+      {
+        "dong": "문산읍",
+        "voters": 7581,
+        "population": 8455,
+        "maleVoters": 3769,
+        "femaleVoters": 3812
+      },
+      {
+        "dong": "내동면",
+        "voters": 3442,
+        "population": 4226,
+        "maleVoters": 1704,
+        "femaleVoters": 1738
+      },
+      {
+        "dong": "정촌면",
+        "voters": 5827,
+        "population": 6940,
+        "maleVoters": 2978,
+        "femaleVoters": 2849
+      },
+      {
+        "dong": "금곡면",
+        "voters": 2162,
+        "population": 2306,
+        "maleVoters": 1018,
+        "femaleVoters": 1144
+      },
+      {
+        "dong": "진성면",
+        "voters": 1892,
+        "population": 1993,
+        "maleVoters": 919,
+        "femaleVoters": 973
+      },
+      {
+        "dong": "일반성면",
+        "voters": 2419,
+        "population": 2676,
+        "maleVoters": 1168,
+        "femaleVoters": 1251
+      },
+      {
+        "dong": "이반성면",
+        "voters": 1568,
+        "population": 1644,
+        "maleVoters": 773,
+        "femaleVoters": 795
+      },
+      {
+        "dong": "사봉면",
+        "voters": 1455,
+        "population": 1527,
+        "maleVoters": 717,
+        "femaleVoters": 738
+      },
+      {
+        "dong": "지수면",
+        "voters": 1392,
+        "population": 1494,
+        "maleVoters": 703,
+        "femaleVoters": 689
+      },
+      {
+        "dong": "대곡면",
+        "voters": 3143,
+        "population": 3340,
+        "maleVoters": 1549,
+        "femaleVoters": 1594
+      },
+      {
+        "dong": "금산면",
+        "voters": 17006,
+        "population": 21667,
+        "maleVoters": 8406,
+        "femaleVoters": 8600
+      },
+      {
+        "dong": "집현면",
+        "voters": 4228,
+        "population": 4855,
+        "maleVoters": 2104,
+        "femaleVoters": 2124
+      },
+      {
+        "dong": "미천면",
+        "voters": 1595,
+        "population": 1657,
+        "maleVoters": 771,
+        "femaleVoters": 824
+      },
+      {
+        "dong": "명석면",
+        "voters": 3854,
+        "population": 4163,
+        "maleVoters": 1910,
+        "femaleVoters": 1944
+      },
+      {
+        "dong": "대평면",
+        "voters": 1050,
+        "population": 1117,
+        "maleVoters": 505,
+        "femaleVoters": 545
+      },
+      {
+        "dong": "수곡면",
+        "voters": 2122,
+        "population": 2255,
+        "maleVoters": 1019,
+        "femaleVoters": 1103
+      },
+      {
+        "dong": "천전동",
+        "voters": 24664,
+        "population": 28371,
+        "maleVoters": 11954,
+        "femaleVoters": 12710
+      },
+      {
+        "dong": "성북동",
+        "voters": 9886,
+        "population": 10986,
+        "maleVoters": 4818,
+        "femaleVoters": 5068
+      },
+      {
+        "dong": "중앙동",
+        "voters": 10743,
+        "population": 11735,
+        "maleVoters": 5160,
+        "femaleVoters": 5583
+      },
+      {
+        "dong": "상봉동",
+        "voters": 13138,
+        "population": 14676,
+        "maleVoters": 6343,
+        "femaleVoters": 6795
+      },
+      {
+        "dong": "상대동",
+        "voters": 18160,
+        "population": 20625,
+        "maleVoters": 8952,
+        "femaleVoters": 9208
+      },
+      {
+        "dong": "하대동",
+        "voters": 22163,
+        "population": 25798,
+        "maleVoters": 11012,
+        "femaleVoters": 11151
+      },
+      {
+        "dong": "상평동",
+        "voters": 10416,
+        "population": 12162,
+        "maleVoters": 5327,
+        "femaleVoters": 5089
+      },
+      {
+        "dong": "초장동",
+        "voters": 20462,
+        "population": 27181,
+        "maleVoters": 10090,
+        "femaleVoters": 10372
+      },
+      {
+        "dong": "평거동",
+        "voters": 23368,
+        "population": 28480,
+        "maleVoters": 11062,
+        "femaleVoters": 12306
+      },
+      {
+        "dong": "신안동",
+        "voters": 10592,
+        "population": 12197,
+        "maleVoters": 4968,
+        "femaleVoters": 5624
+      },
+      {
+        "dong": "이현동",
+        "voters": 10775,
+        "population": 12580,
+        "maleVoters": 5234,
+        "femaleVoters": 5541
+      },
+      {
+        "dong": "판문동",
+        "voters": 16789,
+        "population": 21930,
+        "maleVoters": 7958,
+        "femaleVoters": 8831
+      },
+      {
+        "dong": "가호동",
+        "voters": 20995,
+        "population": 25312,
+        "maleVoters": 10480,
+        "femaleVoters": 10515
+      },
+      {
+        "dong": "충무공동",
+        "voters": 18072,
+        "population": 25204,
+        "maleVoters": 8906,
+        "femaleVoters": 9166
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "4",
+    "label": "2018 지선 시장 (제7회)",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "진주시",
+        "voters": 282049,
+        "turnout": 190838,
+        "valid": 186055,
+        "invalid": 4783,
+        "candidates": [
+          {
+            "name": "갈상돈",
+            "party": "더불어민주당",
+            "votes": 85040
+          },
+          {
+            "name": "조규일",
+            "party": "자유한국당",
+            "votes": 97021
+          },
+          {
+            "name": "김동우",
+            "party": "대한애국당",
+            "votes": 3994
+          }
+        ]
+      }
+    ],
+    "votersByDong": [
+      {
+        "dong": "문산읍",
+        "voters": 7273,
+        "population": 8707,
+        "maleVoters": 3639,
+        "femaleVoters": 3634
+      },
+      {
+        "dong": "내동면",
+        "voters": 3420,
+        "population": 4345,
+        "maleVoters": 1685,
+        "femaleVoters": 1735
+      },
+      {
+        "dong": "정촌면",
+        "voters": 3555,
+        "population": 4094,
+        "maleVoters": 1820,
+        "femaleVoters": 1735
+      },
+      {
+        "dong": "금곡면",
+        "voters": 2231,
+        "population": 2431,
+        "maleVoters": 1056,
+        "femaleVoters": 1175
+      },
+      {
+        "dong": "진성면",
+        "voters": 1977,
+        "population": 2109,
+        "maleVoters": 966,
+        "femaleVoters": 1011
+      },
+      {
+        "dong": "일반성면",
+        "voters": 2513,
+        "population": 2879,
+        "maleVoters": 1205,
+        "femaleVoters": 1308
+      },
+      {
+        "dong": "이반성면",
+        "voters": 1610,
+        "population": 1708,
+        "maleVoters": 778,
+        "femaleVoters": 832
+      },
+      {
+        "dong": "사봉면",
+        "voters": 1521,
+        "population": 1615,
+        "maleVoters": 736,
+        "femaleVoters": 785
+      },
+      {
+        "dong": "지수면",
+        "voters": 1464,
+        "population": 1592,
+        "maleVoters": 729,
+        "femaleVoters": 735
+      },
+      {
+        "dong": "대곡면",
+        "voters": 3275,
+        "population": 3548,
+        "maleVoters": 1601,
+        "femaleVoters": 1674
+      },
+      {
+        "dong": "금산면",
+        "voters": 17011,
+        "population": 22772,
+        "maleVoters": 8371,
+        "femaleVoters": 8640
+      },
+      {
+        "dong": "집현면",
+        "voters": 4351,
+        "population": 5175,
+        "maleVoters": 2166,
+        "femaleVoters": 2185
+      },
+      {
+        "dong": "미천면",
+        "voters": 1640,
+        "population": 1739,
+        "maleVoters": 793,
+        "femaleVoters": 847
+      },
+      {
+        "dong": "명석면",
+        "voters": 4011,
+        "population": 4460,
+        "maleVoters": 1973,
+        "femaleVoters": 2038
+      },
+      {
+        "dong": "대평면",
+        "voters": 1107,
+        "population": 1189,
+        "maleVoters": 536,
+        "femaleVoters": 571
+      },
+      {
+        "dong": "수곡면",
+        "voters": 2167,
+        "population": 2367,
+        "maleVoters": 1038,
+        "femaleVoters": 1129
+      },
+      {
+        "dong": "천전동",
+        "voters": 25713,
+        "population": 30714,
+        "maleVoters": 12574,
+        "femaleVoters": 13139
+      },
+      {
+        "dong": "성북동",
+        "voters": 10317,
+        "population": 11791,
+        "maleVoters": 5004,
+        "femaleVoters": 5313
+      },
+      {
+        "dong": "중앙동",
+        "voters": 11455,
+        "population": 12732,
+        "maleVoters": 5531,
+        "femaleVoters": 5924
+      },
+      {
+        "dong": "상봉동",
+        "voters": 13878,
+        "population": 15942,
+        "maleVoters": 6714,
+        "femaleVoters": 7164
+      },
+      {
+        "dong": "상대동",
+        "voters": 19012,
+        "population": 22347,
+        "maleVoters": 9330,
+        "femaleVoters": 9682
+      },
+      {
+        "dong": "하대동",
+        "voters": 23284,
+        "population": 28238,
+        "maleVoters": 11561,
+        "femaleVoters": 11723
+      },
+      {
+        "dong": "상평동",
+        "voters": 10818,
+        "population": 12982,
+        "maleVoters": 5524,
+        "femaleVoters": 5294
+      },
+      {
+        "dong": "초장동",
+        "voters": 17028,
+        "population": 23216,
+        "maleVoters": 8356,
+        "femaleVoters": 8672
+      },
+      {
+        "dong": "평거동",
+        "voters": 23008,
+        "population": 29372,
+        "maleVoters": 10832,
+        "femaleVoters": 12176
+      },
+      {
+        "dong": "신안동",
+        "voters": 10840,
+        "population": 12955,
+        "maleVoters": 5077,
+        "femaleVoters": 5763
+      },
+      {
+        "dong": "이현동",
+        "voters": 11205,
+        "population": 13617,
+        "maleVoters": 5418,
+        "femaleVoters": 5787
+      },
+      {
+        "dong": "판문동",
+        "voters": 17001,
+        "population": 22997,
+        "maleVoters": 8025,
+        "femaleVoters": 8976
+      },
+      {
+        "dong": "가호동",
+        "voters": 17100,
+        "population": 21132,
+        "maleVoters": 8529,
+        "femaleVoters": 8571
+      },
+      {
+        "dong": "충무공동",
+        "voters": 12264,
+        "population": 17558,
+        "maleVoters": 6070,
+        "femaleVoters": 6194
+      }
+    ]
+  },
+  {
+    "sgId": "20170509",
+    "sgTypecode": "1",
+    "label": "2017 대선 (제19대)",
+    "date": "2017.05.09",
+    "results": [
+      {
+        "district": "진주시",
+        "voters": 281105,
+        "turnout": 222813,
+        "valid": 221617,
+        "invalid": 1196,
+        "candidates": [
+          {
+            "name": "문재인",
+            "party": "더불어민주당",
+            "votes": 73929
+          },
+          {
+            "name": "홍준표",
+            "party": "자유한국당",
+            "votes": 93751
+          },
+          {
+            "name": "안철수",
+            "party": "국민의당",
+            "votes": 26687
+          },
+          {
+            "name": "유승민",
+            "party": "바른정당",
+            "votes": 14735
+          },
+          {
+            "name": "심상정",
+            "party": "정의당",
+            "votes": 11243
+          },
+          {
+            "name": "조원진",
+            "party": "새누리당",
+            "votes": 212
+          },
+          {
+            "name": "오영국",
+            "party": "경제애국당",
+            "votes": 44
+          },
+          {
+            "name": "장성민",
+            "party": "국민대통합당",
+            "votes": 111
+          },
+          {
+            "name": "이재오",
+            "party": "늘푸른한국당",
+            "votes": 92
+          },
+          {
+            "name": "김선동",
+            "party": "민중연합당",
+            "votes": 182
+          },
+          {
+            "name": "이경희",
+            "party": "한국국민당",
+            "votes": 83
+          },
+          {
+            "name": "윤홍식",
+            "party": "홍익당",
+            "votes": 240
+          },
+          {
+            "name": "김민찬",
+            "party": "무소속",
+            "votes": 308
+          }
+        ]
+      }
+    ],
+    "votersByDong": [
+      {
+        "dong": "문산읍",
+        "voters": 7909,
+        "population": 8873,
+        "maleVoters": 3919,
+        "femaleVoters": 3990
+      },
+      {
+        "dong": "내동면",
+        "voters": 3414,
+        "population": 4351,
+        "maleVoters": 1670,
+        "femaleVoters": 1744
+      },
+      {
+        "dong": "정촌면",
+        "voters": 2839,
+        "population": 3140,
+        "maleVoters": 1468,
+        "femaleVoters": 1371
+      },
+      {
+        "dong": "금곡면",
+        "voters": 2243,
+        "population": 2467,
+        "maleVoters": 1060,
+        "femaleVoters": 1183
+      },
+      {
+        "dong": "진성면",
+        "voters": 1983,
+        "population": 2145,
+        "maleVoters": 969,
+        "femaleVoters": 1014
+      },
+      {
+        "dong": "일반성면",
+        "voters": 2564,
+        "population": 2950,
+        "maleVoters": 1235,
+        "femaleVoters": 1329
+      },
+      {
+        "dong": "이반성면",
+        "voters": 1651,
+        "population": 1755,
+        "maleVoters": 796,
+        "femaleVoters": 855
+      },
+      {
+        "dong": "사봉면",
+        "voters": 1540,
+        "population": 1638,
+        "maleVoters": 748,
+        "femaleVoters": 792
+      },
+      {
+        "dong": "지수면",
+        "voters": 1488,
+        "population": 1651,
+        "maleVoters": 735,
+        "femaleVoters": 753
+      },
+      {
+        "dong": "대곡면",
+        "voters": 3350,
+        "population": 3659,
+        "maleVoters": 1636,
+        "femaleVoters": 1714
+      },
+      {
+        "dong": "금산면",
+        "voters": 17161,
+        "population": 23196,
+        "maleVoters": 8447,
+        "femaleVoters": 8714
+      },
+      {
+        "dong": "집현면",
+        "voters": 4362,
+        "population": 5217,
+        "maleVoters": 2170,
+        "femaleVoters": 2192
+      },
+      {
+        "dong": "미천면",
+        "voters": 1641,
+        "population": 1763,
+        "maleVoters": 796,
+        "femaleVoters": 845
+      },
+      {
+        "dong": "명석면",
+        "voters": 4017,
+        "population": 4511,
+        "maleVoters": 1997,
+        "femaleVoters": 2020
+      },
+      {
+        "dong": "대평면",
+        "voters": 1106,
+        "population": 1195,
+        "maleVoters": 537,
+        "femaleVoters": 569
+      },
+      {
+        "dong": "수곡면",
+        "voters": 2187,
+        "population": 2411,
+        "maleVoters": 1053,
+        "femaleVoters": 1134
+      },
+      {
+        "dong": "천전동",
+        "voters": 26093,
+        "population": 31490,
+        "maleVoters": 12759,
+        "femaleVoters": 13334
+      },
+      {
+        "dong": "성북동",
+        "voters": 10528,
+        "population": 12125,
+        "maleVoters": 5112,
+        "femaleVoters": 5416
+      },
+      {
+        "dong": "중앙동",
+        "voters": 11770,
+        "population": 13202,
+        "maleVoters": 5652,
+        "femaleVoters": 6118
+      },
+      {
+        "dong": "상봉동",
+        "voters": 14016,
+        "population": 16220,
+        "maleVoters": 6759,
+        "femaleVoters": 7257
+      },
+      {
+        "dong": "상대동",
+        "voters": 19216,
+        "population": 22787,
+        "maleVoters": 9389,
+        "femaleVoters": 9827
+      },
+      {
+        "dong": "하대동",
+        "voters": 23467,
+        "population": 28863,
+        "maleVoters": 11606,
+        "femaleVoters": 11861
+      },
+      {
+        "dong": "상평동",
+        "voters": 11041,
+        "population": 13316,
+        "maleVoters": 5642,
+        "femaleVoters": 5399
+      },
+      {
+        "dong": "초장동",
+        "voters": 16771,
+        "population": 23060,
+        "maleVoters": 8262,
+        "femaleVoters": 8509
+      },
+      {
+        "dong": "평거동",
+        "voters": 22521,
+        "population": 29184,
+        "maleVoters": 10589,
+        "femaleVoters": 11932
+      },
+      {
+        "dong": "신안동",
+        "voters": 11103,
+        "population": 13412,
+        "maleVoters": 5227,
+        "femaleVoters": 5876
+      },
+      {
+        "dong": "이현동",
+        "voters": 11316,
+        "population": 13881,
+        "maleVoters": 5483,
+        "femaleVoters": 5833
+      },
+      {
+        "dong": "판문동",
+        "voters": 16933,
+        "population": 23097,
+        "maleVoters": 7994,
+        "femaleVoters": 8939
+      },
+      {
+        "dong": "가호동",
+        "voters": 17228,
+        "population": 21584,
+        "maleVoters": 8579,
+        "femaleVoters": 8649
+      },
+      {
+        "dong": "충무공동",
+        "voters": 9647,
+        "population": 13851,
+        "maleVoters": 4788,
+        "femaleVoters": 4859
+      }
+    ]
+  }
+]
