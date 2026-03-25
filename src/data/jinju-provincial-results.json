@@ -1,0 +1,87 @@
+[
+  {
+    "district": "진주시제1선거구",
+    "voters": 43491,
+    "turnout": 23078,
+    "valid": 22646,
+    "invalid": 432,
+    "turnoutRate": 53.1,
+    "candidates": [
+      {
+        "name": "이동섭",
+        "party": "더불어민주당",
+        "votes": 8300
+      },
+      {
+        "name": "정재욱",
+        "party": "국민의힘",
+        "votes": 14346
+      }
+    ]
+  },
+  {
+    "district": "진주시제2선거구",
+    "voters": 65869,
+    "turnout": 35762,
+    "valid": 35119,
+    "invalid": 643,
+    "turnoutRate": 54.3,
+    "candidates": [
+      {
+        "name": "이준부",
+        "party": "더불어민주당",
+        "votes": 9921
+      },
+      {
+        "name": "박성도",
+        "party": "국민의힘",
+        "votes": 23262
+      },
+      {
+        "name": "이정옥",
+        "party": "녹색당",
+        "votes": 1936
+      }
+    ]
+  },
+  {
+    "district": "진주시제3선거구",
+    "voters": 58325,
+    "turnout": 29873,
+    "valid": 28814,
+    "invalid": 1059,
+    "turnoutRate": 51.2,
+    "candidates": [
+      {
+        "name": "조현신",
+        "party": "국민의힘",
+        "votes": 21216
+      },
+      {
+        "name": "김용국",
+        "party": "정의당",
+        "votes": 7598
+      }
+    ]
+  },
+  {
+    "district": "진주시제5선거구",
+    "voters": 51343,
+    "turnout": 28154,
+    "valid": 27500,
+    "invalid": 654,
+    "turnoutRate": 54.8,
+    "candidates": [
+      {
+        "name": "노정민",
+        "party": "더불어민주당",
+        "votes": 8120
+      },
+      {
+        "name": "김진부",
+        "party": "국민의힘",
+        "votes": 19380
+      }
+    ]
+  }
+]

@@ -20,6 +20,9 @@ npm-debug.log*
 # vercel
 .vercel
 
+# large data files
+src/data/nationwide-boundary.json
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

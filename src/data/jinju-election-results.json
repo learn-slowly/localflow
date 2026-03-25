@@ -1,0 +1,237 @@
+[
+  {
+    "district": "진주시가선거구",
+    "voters": 43491,
+    "turnout": 23078,
+    "valid": 21989,
+    "invalid": 1089,
+    "turnoutRate": 53.1,
+    "candidates": [
+      {
+        "name": "박재식",
+        "party": "더불어민주당",
+        "votes": 7110
+      },
+      {
+        "name": "박종규",
+        "party": "국민의힘",
+        "votes": 9301
+      },
+      {
+        "name": "강묘영",
+        "party": "국민의힘",
+        "votes": 4004
+      },
+      {
+        "name": "전옥희",
+        "party": "진보당",
+        "votes": 1574
+      }
+    ]
+  },
+  {
+    "district": "진주시나선거구",
+    "voters": 33147,
+    "turnout": 18425,
+    "valid": 17440,
+    "invalid": 985,
+    "turnoutRate": 55.6,
+    "candidates": [
+      {
+        "name": "전종현",
+        "party": "더불어민주당",
+        "votes": 4861
+      },
+      {
+        "name": "신현국",
+        "party": "국민의힘",
+        "votes": 7749
+      },
+      {
+        "name": "구자경",
+        "party": "국민의힘",
+        "votes": 4830
+      }
+    ]
+  },
+  {
+    "district": "진주시다선거구",
+    "voters": 32722,
+    "turnout": 17339,
+    "valid": 16576,
+    "invalid": 763,
+    "turnoutRate": 53.0,
+    "candidates": [
+      {
+        "name": "이규섭",
+        "party": "더불어민주당",
+        "votes": 4879
+      },
+      {
+        "name": "황진선",
+        "party": "국민의힘",
+        "votes": 7527
+      },
+      {
+        "name": "최미선",
+        "party": "국민의힘",
+        "votes": 3079
+      },
+      {
+        "name": "이영실",
+        "party": "정의당",
+        "votes": 1091
+      }
+    ]
+  },
+  {
+    "district": "진주시라선거구",
+    "voters": 58325,
+    "turnout": 29875,
+    "valid": 28344,
+    "invalid": 1531,
+    "turnoutRate": 51.2,
+    "candidates": [
+      {
+        "name": "윤성관",
+        "party": "더불어민주당",
+        "votes": 6911
+      },
+      {
+        "name": "김형석",
+        "party": "국민의힘",
+        "votes": 12014
+      },
+      {
+        "name": "박미경",
+        "party": "국민의힘",
+        "votes": 5212
+      },
+      {
+        "name": "류재수",
+        "party": "진보당",
+        "votes": 4207
+      }
+    ]
+  },
+  {
+    "district": "진주시마선거구",
+    "voters": 24990,
+    "turnout": 14004,
+    "valid": 13596,
+    "invalid": 408,
+    "turnoutRate": 56.0,
+    "candidates": [
+      {
+        "name": "박철홍",
+        "party": "더불어민주당",
+        "votes": 3337
+      },
+      {
+        "name": "최민국",
+        "party": "국민의힘",
+        "votes": 4880
+      },
+      {
+        "name": "정용학",
+        "party": "국민의힘",
+        "votes": 3815
+      },
+      {
+        "name": "박금자",
+        "party": "무소속",
+        "votes": 1564
+      }
+    ]
+  },
+  {
+    "district": "진주시바선거구",
+    "voters": 48150,
+    "turnout": 24285,
+    "valid": 23471,
+    "invalid": 814,
+    "turnoutRate": 50.4,
+    "candidates": [
+      {
+        "name": "최지원",
+        "party": "더불어민주당",
+        "votes": 5404
+      },
+      {
+        "name": "오경훈",
+        "party": "국민의힘",
+        "votes": 10761
+      },
+      {
+        "name": "임기향",
+        "party": "국민의힘",
+        "votes": 5138
+      },
+      {
+        "name": "하삼봉",
+        "party": "무소속",
+        "votes": 2168
+      }
+    ]
+  },
+  {
+    "district": "진주시사선거구",
+    "voters": 28844,
+    "turnout": 16262,
+    "valid": 15565,
+    "invalid": 697,
+    "turnoutRate": 56.4,
+    "candidates": [
+      {
+        "name": "서정인",
+        "party": "더불어민주당",
+        "votes": 4810
+      },
+      {
+        "name": "최신용",
+        "party": "국민의힘",
+        "votes": 5231
+      },
+      {
+        "name": "강갑중",
+        "party": "국민의힘",
+        "votes": 3042
+      },
+      {
+        "name": "이현욱",
+        "party": "무소속",
+        "votes": 2482
+      }
+    ]
+  },
+  {
+    "district": "진주시아선거구",
+    "voters": 22499,
+    "turnout": 11893,
+    "valid": 11185,
+    "invalid": 708,
+    "turnoutRate": 52.9,
+    "candidates": [
+      {
+        "name": "이진수",
+        "party": "더불어민주당",
+        "votes": 2202
+      },
+      {
+        "name": "백승흥",
+        "party": "국민의힘",
+        "votes": 5540
+      },
+      {
+        "name": "강진철",
+        "party": "국민의힘",
+        "votes": 2715
+      },
+      {
+        "name": "최외숙",
+        "party": "무소속",
+        "votes": 728
+      }
+    ]
+  }
+]

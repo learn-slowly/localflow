@@ -1,0 +1,20 @@
+{
+  "district": "진주시장",
+  "voters": 292168,
+  "turnout": 155189,
+  "valid": 152346,
+  "invalid": 2843,
+  "turnoutRate": 53.1,
+  "candidates": [
+    {
+      "name": "한경호",
+      "party": "더불어민주당",
+      "votes": 42152
+    },
+    {
+      "name": "조규일",
+      "party": "국민의힘",
+      "votes": 110194
+    }
+  ]
+}

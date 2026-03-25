@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>LocalFlow — 카카오맵 적용 화면</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+  .header {
+    background: #FACC15;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  .header h1 { font-size: 20px; color: #1E293B; }
+  .header span { font-size: 14px; color: #64748B; }
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 52px;
+    width: 280px;
+    height: calc(100vh - 52px);
+    background: white;
+    border-right: 1px solid #E2E8F0;
+    padding: 16px;
+    z-index: 10;
+  }
+  .sidebar h2 { font-size: 14px; color: #64748B; margin-bottom: 12px; }
+  .layer-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-bottom: 4px;
+    font-size: 14px;
+    color: #334155;
+  }
+  .layer-item.active { background: #FEF9C3; }
+  .toggle {
+    width: 36px;
+    height: 20px;
+    border-radius: 10px;
+    background: #CBD5E1;
+    position: relative;
+  }
+  .toggle.on { background: #FACC15; }
+  .toggle::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: white;
+    top: 2px;
+    left: 2px;
+    transition: 0.2s;
+  }
+  .toggle.on::after { left: 18px; }
+  .map-area {
+    margin-left: 280px;
+    margin-top: 52px;
+    height: calc(100vh - 52px);
+    background: #F1F5F9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .map-placeholder {
+    width: 100%;
+    height: 100%;
+    background:
+      linear-gradient(rgba(200,210,220,0.3) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200,210,220,0.3) 1px, transparent 1px),
+      linear-gradient(135deg, #E8F0FE 25%, #F0F4F8 50%, #E8F0FE 75%);
+    background-size: 60px 60px, 60px 60px, 100% 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .map-label {
+    background: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #475569;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .pin {
+    position: absolute;
+    width: 24px;
+    height: 32px;
+    background: #EF4444;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+  }
+  .pin::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 7px;
+    left: 7px;
+  }
+  .pin1 { top: 30%; left: 45%; }
+  .pin2 { top: 50%; left: 60%; }
+  .pin3 { top: 40%; left: 35%; }
+  .pin4 { top: 60%; left: 50%; }
+  .district {
+    position: absolute;
+    border: 2px solid rgba(250, 204, 21, 0.6);
+    background: rgba(250, 204, 21, 0.1);
+    border-radius: 30% 70% 50% 40%;
+  }
+  .d1 { top: 25%; left: 30%; width: 200px; height: 150px; }
+  .d2 { top: 45%; left: 45%; width: 180px; height: 130px; border-color: rgba(96,165,250,0.6); background: rgba(96,165,250,0.1); }
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>LocalFlow</h1>
+    <span>진주시 기초의원 선거 유동인구 분석</span>
+  </div>
+  <div class="sidebar">
+    <h2>데이터 레이어</h2>
+    <div class="layer-item active">
+      <div class="toggle on"></div>
+      행정동 경계
+    </div>
+    <div class="layer-item active">
+      <div class="toggle on"></div>
+      인구 밀도
+    </div>
+    <div class="layer-item">
+      <div class="toggle on"></div>
+      투표소 위치
+    </div>
+    <div class="layer-item">
+      <div class="toggle"></div>
+      버스 정류장
+    </div>
+    <div class="layer-item">
+      <div class="toggle"></div>
+      상권 밀집도
+    </div>
+    <div class="layer-item">
+      <div class="toggle"></div>
+      유동인구 (교통카드)
+    </div>
+  </div>
+  <div class="map-area">
+    <div class="map-placeholder">
+      <div class="district d1"></div>
+      <div class="district d2"></div>
+      <div class="pin pin1"></div>
+      <div class="pin pin2"></div>
+      <div class="pin pin3"></div>
+      <div class="pin pin4"></div>
+      <div class="map-label">카카오맵 — 진주시 중심</div>
+    </div>
+  </div>
+</body>
+</html>

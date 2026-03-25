@@ -1,0 +1,58 @@
+{
+  "localPR": {
+    "label": "기초의원 비례대표",
+    "voters": 292168,
+    "turnout": 155162,
+    "valid": 152508,
+    "invalid": 2654,
+    "turnoutRate": 53.1,
+    "parties": [
+      {
+        "party": "국민의힘",
+        "votes": 101266
+      },
+      {
+        "party": "더불어민주당",
+        "votes": 43417
+      },
+      {
+        "party": "정의당",
+        "votes": 7825
+      }
+    ]
+  },
+  "provincialPR": {
+    "label": "도의원 비례대표",
+    "voters": 292168,
+    "turnout": 155165,
+    "valid": 153049,
+    "invalid": 2116,
+    "turnoutRate": 53.1,
+    "parties": [
+      {
+        "party": "국민의힘",
+        "votes": 100950
+      },
+      {
+        "party": "더불어민주당",
+        "votes": 42457
+      },
+      {
+        "party": "정의당",
+        "votes": 6327
+      },
+      {
+        "party": "진보당",
+        "votes": 1473
+      },
+      {
+        "party": "녹색당",
+        "votes": 1316
+      },
+      {
+        "party": "기본소득당",
+        "votes": 526
+      }
+    ]
+  }
+}
