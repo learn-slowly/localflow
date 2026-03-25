@@ -1,34 +1,44 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   MapContainer as LeafletMap,
   TileLayer,
   GeoJSON,
   CircleMarker,
   Tooltip,
+  useMap,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import MarkerClusterGroup from "react-leaflet-cluster";
-import { DEFAULT_CITY } from "@/config/cities";
-import adminBoundary from "@/data/jinju-boundary.json";
-import legalBoundary from "@/data/jinju-legal-boundary.json";
-import pollingStations from "@/data/jinju-polling-stations.json";
-import busStops from "@/data/jinju-bus-stops.json";
-import electionResults from "@/data/jinju-election-results.json";
-import districtData from "@/data/jinju-districts.json";
+import { cities, DEFAULT_CITY, GYEONGNAM_VIEW } from "@/config/cities";
+import type { CityConfig } from "@/config/cities";
+// 진주 전용 데이터 (다른 도시 확장 시 동적 로딩으로 전환)
+import jinjuBoundary from "@/data/jinju-boundary.json";
+import jinjuLegalBoundary from "@/data/jinju-legal-boundary.json";
+import jinjuPollingStations from "@/data/jinju-polling-stations.json";
+import jinjuBusStops from "@/data/jinju-bus-stops.json";
+import jinjuDistrictData from "@/data/jinju-districts.json";
 import PopulationPanel from "./PopulationPanel";
 import ElectionPanel from "./ElectionPanel";
 import TransitUsagePanel from "./TransitUsagePanel";
-import TransitLayer, { TRANSIT_LEGEND } from "./TransitLayer";
 import CommerceLayer, { COMMERCE_LEGEND } from "./CommerceLayer";
-import transitUsageData from "@/data/jinju-transit-usage.json";
+import jinjuTransitUsage from "@/data/jinju-transit-usage.json";
 import type { Layer, PathOptions } from "leaflet";
 
-// 정류장 ID로 이용량 데이터 검색 (48 + 우리ID = API sttn_id)
-const usageById: Record<string, any> = {};
-(transitUsageData as any[]).forEach((s) => {
-  usageById[s.sttn_id] = s;
+// 경계 데이터를 API에서 fetch
+async function fetchBoundaryData(sggCode?: string): Promise<any> {
+  const params = sggCode
+    ? `type=cached&sggCode=${sggCode}`
+    : `type=cached&sidoCode=48`;
+  const res = await fetch(`/api/boundary?${params}`);
+  return res.json();
+}
+
+// 진주 전용: 정류장 ID로 이용량 데이터 검색
+const jinjuUsageById: Record<string, any> = {};
+(jinjuTransitUsage as any[]).forEach((s) => {
+  jinjuUsageById[s.sttn_id] = s;
 });
 
 // 선거구별 색상
@@ -39,7 +49,8 @@ const DISTRICT_COLORS = [
 
 function buildDongMapping(electionType: string) {
   const mapping: Record<string, { name: string; color: string }> = {};
-  const districts = (districtData as any).types[electionType].districts;
+  const districts = (jinjuDistrictData as any).types[electionType]?.districts;
+  if (!districts) return mapping;
   districts.forEach((d: any, i: number) => {
     d.dongs.forEach((dong: string) => {
       mapping[dong] = { name: d.name, color: DISTRICT_COLORS[i % DISTRICT_COLORS.length] };
@@ -82,6 +93,15 @@ const legalStyle: PathOptions = {
   dashArray: "5 5",
 };
 
+// 경남 전체 보기용 스타일: 시군구별 다른 색상
+const SGG_COLORS = [
+  "#3B82F6", "#EF4444", "#10B981", "#F59E0B", "#8B5CF6",
+  "#EC4899", "#06B6D4", "#F97316", "#6366F1", "#14B8A6",
+  "#E11D48", "#84CC16", "#0EA5E9", "#D946EF", "#FB923C",
+  "#22D3EE", "#A855F7", "#4ADE80", "#F43F5E", "#2DD4BF",
+  "#818CF8", "#FBBF24",
+];
+
 const POP_LEGEND = [
   { label: "3만+", color: "#7F1D1D" },
   { label: "2만+", color: "#DC2626" },
@@ -99,14 +119,36 @@ type SelectedDong = {
   female: number;
 } | null;
 
+// 지도 뷰 변경 컴포넌트
+function MapViewUpdater({ center, zoom }: { center: [number, number]; zoom: number }) {
+  const map = useMap();
+  const prevRef = useRef({ center, zoom });
+  useEffect(() => {
+    if (prevRef.current.center !== center || prevRef.current.zoom !== zoom) {
+      map.flyTo(center, zoom, { duration: 1 });
+      prevRef.current = { center, zoom };
+    }
+  }, [map, center, zoom]);
+  return null;
+}
+
+// 시군구 코드 → 색상 인덱스 매핑
+const sggColorMap: Record<string, string> = {};
+Object.values(cities).forEach((city, i) => {
+  sggColorMap[city.code] = SGG_COLORS[i % SGG_COLORS.length];
+});
+
 export default function MapContainer() {
-  const city = DEFAULT_CITY;
+  const [selectedCityKey, setSelectedCityKey] = useState<string | null>("jinju");
+  const selectedCity = selectedCityKey ? cities[selectedCityKey] : null;
+  const isJinju = selectedCityKey === "jinju";
+
+  // 레이어 토글
   const [showAdmin, setShowAdmin] = useState(true);
   const [showLegal, setShowLegal] = useState(false);
   const [showPopulation, setShowPopulation] = useState(false);
   const [showPolling, setShowPolling] = useState(false);
   const [showBusStops, setShowBusStops] = useState(false);
-  const [showTransit, setShowTransit] = useState(false);
   const [showCommerce, setShowCommerce] = useState(false);
   const [showDistricts, setShowDistricts] = useState(false);
   const [electionType, setElectionType] = useState<"local" | "provincial" | "mayor">("local");
@@ -114,12 +156,64 @@ export default function MapContainer() {
   const [selectedDistrict, setSelectedDistrict] = useState<string | null>(null);
   const [selectedBusStop, setSelectedBusStop] = useState<any>(null);
 
-  const dongToDistrict = buildDongMapping(electionType);
-  const currentDistricts = (districtData as any).types[electionType].districts;
+  // 경계 데이터 (API에서 동적 로딩)
+  const [boundaryData, setBoundaryData] = useState<any>(null);
+  const [boundaryLoading, setBoundaryLoading] = useState(true);
+
+  // 도시 변경 시 패널·선택 초기화 + 경계 데이터 로딩
+  useEffect(() => {
+    setSelectedDong(null);
+    setSelectedDistrict(null);
+    setSelectedBusStop(null);
+    setBoundaryLoading(true);
+    fetchBoundaryData(selectedCity?.code).then((data) => {
+      setBoundaryData(data);
+      setBoundaryLoading(false);
+    });
+  }, [selectedCityKey]);
+
+  // 지도 중심·줌
+  const mapCenter = selectedCity ? selectedCity.center : GYEONGNAM_VIEW.center;
+  const mapZoom = selectedCity ? selectedCity.zoom : GYEONGNAM_VIEW.zoom;
+
+  // 진주 전용: 선거구 매핑
+  const dongToDistrict = isJinju ? buildDongMapping(electionType) : {};
+  const currentDistricts = isJinju
+    ? (jinjuDistrictData as any).types[electionType]?.districts || []
+    : [];
+
+  // 경남 전체 보기 스타일
+  function gyeongnamStyle(feature: any): PathOptions {
+    const sgg = feature?.properties?.sgg;
+    const color = sggColorMap[sgg] || "#999";
+    return {
+      color,
+      weight: 1.5,
+      fillColor: color,
+      fillOpacity: 0.15,
+    };
+  }
+
+  function onGyeongnamFeature(feature: any, layer: Layer) {
+    const adm = feature?.properties?.adm_nm || "";
+    const sggnm = feature?.properties?.sggnm || "";
+    const dongName = adm.replace(`경상남도 ${sggnm} `, "");
+    layer.bindTooltip(`<strong>${sggnm}</strong><br/>${dongName}`, {
+      direction: "center",
+    });
+    // 클릭 시 해당 도시로 이동
+    const sgg = feature?.properties?.sgg;
+    layer.on("click", () => {
+      const cityEntry = Object.entries(cities).find(([, c]) => c.code === sgg);
+      if (cityEntry) {
+        setSelectedCityKey(cityEntry[0]);
+      }
+    });
+  }
 
   function districtStyle(feature: any): PathOptions {
-    const name = feature?.properties?.name;
-    const info = dongToDistrict[name];
+    const name = feature?.properties?.name || feature?.properties?.adm_nm?.split(" ").pop();
+    const info = dongToDistrict[name || ""];
     const isSelected = selectedDistrict && info?.name === selectedDistrict;
     return {
       color: info?.color || "#999",
@@ -130,15 +224,15 @@ export default function MapContainer() {
   }
 
   function onDistrictFeature(feature: any, layer: Layer) {
-    const name = feature?.properties?.name;
-    const info = dongToDistrict[name];
+    const name = feature?.properties?.name || feature?.properties?.adm_nm?.split(" ").pop();
+    const info = dongToDistrict[name || ""];
     if (info) {
       layer.bindTooltip(`<strong>${name}</strong><br/>${info.name}`, {
         direction: "center",
       });
       layer.on("click", () => {
         setSelectedDong(null);
-        setSelectedDistrict(name); // 동 이름을 전달 (선거구 이름 대신)
+        setSelectedDistrict(name || null);
       });
     }
   }
@@ -163,60 +257,90 @@ export default function MapContainer() {
   }
 
   function onBoundaryFeature(feature: any, layer: Layer) {
-    const name = feature.properties?.name || feature.properties?.fullName;
+    const name = feature.properties?.name || feature.properties?.adm_nm?.split(" ").pop();
     if (name) {
       layer.bindTooltip(name, { permanent: false, direction: "center" });
     }
   }
 
-  // Group polling stations by district for the selector
-  const districts = (electionResults as any[]).map((r) => r.district);
+  // 도시 선택 옵션 (경남 전체 + 22개 시군구)
+  const cityOptions = [
+    { key: "", label: "경남 전체" },
+    ...Object.entries(cities).map(([key, city]) => ({
+      key,
+      label: city.name,
+    })),
+  ];
+
+  // 진주 전용 데이터가 있는 레이어인지 확인
+  const hasDetailData = isJinju;
 
   return (
     <div className="relative h-screen w-full">
       <LeafletMap
-        center={city.center}
-        zoom={city.zoom}
+        center={mapCenter}
+        zoom={mapZoom}
         className="h-full w-full"
       >
+        <MapViewUpdater center={mapCenter} zoom={mapZoom} />
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {showAdmin && !showPopulation && (
+
+        {/* 경남 전체 보기 */}
+        {!selectedCity && showAdmin && boundaryData && (
           <GeoJSON
-            key="admin"
-            data={adminBoundary as any}
+            key="gyeongnam-all"
+            data={boundaryData as any}
+            style={gyeongnamStyle}
+            onEachFeature={onGyeongnamFeature}
+          />
+        )}
+
+        {/* 개별 도시: 행정동 경계 */}
+        {selectedCity && showAdmin && !showPopulation && boundaryData && (
+          <GeoJSON
+            key={`admin-${selectedCity.code}`}
+            data={boundaryData as any}
             style={adminStyle}
             onEachFeature={onBoundaryFeature}
           />
         )}
-        {showPopulation && (
+
+        {/* 진주 전용: 인구 밀도 (진주 경계에 population 포함) */}
+        {isJinju && showPopulation && (
           <GeoJSON
             key="population"
-            data={adminBoundary as any}
+            data={jinjuBoundary as any}
             style={populationStyle}
             onEachFeature={onPopulationFeature}
           />
         )}
-        {showLegal && (
+
+        {/* 진주 전용: 법정동 경계 */}
+        {isJinju && showLegal && (
           <GeoJSON
             key="legal"
-            data={legalBoundary as any}
+            data={jinjuLegalBoundary as any}
             style={legalStyle}
             onEachFeature={onBoundaryFeature}
           />
         )}
-        {showDistricts && (
+
+        {/* 진주 전용: 선거구 */}
+        {isJinju && showDistricts && (
           <GeoJSON
-            key={`districts-${electionType}-${selectedDistrict || 'all'}`}
-            data={adminBoundary as any}
+            key={`districts-${electionType}-${selectedDistrict || "all"}`}
+            data={jinjuBoundary as any}
             style={districtStyle}
             onEachFeature={onDistrictFeature}
           />
         )}
-        {showPolling &&
-          (pollingStations as any[]).map((st, i) => (
+
+        {/* 진주 전용: 투표소 */}
+        {isJinju && showPolling &&
+          (jinjuPollingStations as any[]).map((st, i) => (
             <CircleMarker
               key={i}
               center={[st.lat, st.lng]}
@@ -240,22 +364,23 @@ export default function MapContainer() {
               </Tooltip>
             </CircleMarker>
           ))}
-        {showCommerce && (
-          <CommerceLayer boundaryData={adminBoundary} />
+
+        {/* 진주 전용: 상권/교통 밀집도 */}
+        {isJinju && showCommerce && (
+          <CommerceLayer boundaryData={jinjuBoundary} />
         )}
-        {showTransit && (
-          <TransitLayer boundaryData={adminBoundary} />
-        )}
-        {showBusStops && (
+
+        {/* 진주 전용: 버스정류장 */}
+        {isJinju && showBusStops && (
           <MarkerClusterGroup
             chunkedLoading
             maxClusterRadius={50}
             spiderfyOnMaxZoom
             showCoverageOnHover={false}
           >
-            {(busStops as any[]).map((st, i) => {
+            {(jinjuBusStops as any[]).map((st, i) => {
               const apiId = `48${String(st.id).padStart(5, "0")}`;
-              const usage = usageById[apiId];
+              const usage = jinjuUsageById[apiId];
               const hasUsage = !!usage;
               return (
                 <CircleMarker
@@ -271,7 +396,7 @@ export default function MapContainer() {
                   eventHandlers={{
                     click: () => {
                       const data = usage || { sttn_id: apiId, name: st.name, dong: "", totalRide: 0, totalGoff: 0, hourly: {}, byDow: {} };
-                      if (usage) data.name = st.name; // 정류장명 보충
+                      if (usage) data.name = st.name;
                       setSelectedBusStop(data);
                       setSelectedDong(null);
                       setSelectedDistrict(null);
@@ -293,8 +418,21 @@ export default function MapContainer() {
         )}
       </LeafletMap>
 
-      {/* Layer toggle panel */}
-      <div className="absolute top-4 right-4 z-[1000] rounded-lg bg-white p-3 shadow-lg">
+      {/* 도시 선택 + 레이어 패널 */}
+      <div className="absolute top-4 right-4 z-[1000] rounded-lg bg-white p-3 shadow-lg max-h-[90vh] overflow-y-auto">
+        {/* 도시 선택 */}
+        <select
+          value={selectedCityKey || ""}
+          onChange={(e) => setSelectedCityKey(e.target.value || null)}
+          className="w-full mb-2 text-sm border rounded px-2 py-1.5 text-gray-700 bg-white focus:outline-none focus:ring-1 focus:ring-blue-500"
+        >
+          {cityOptions.map((opt) => (
+            <option key={opt.key} value={opt.key}>
+              {opt.label}
+            </option>
+          ))}
+        </select>
+
         <h3 className="mb-2 text-sm font-bold text-gray-700">레이어</h3>
         <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600">
           <input
@@ -305,71 +443,76 @@ export default function MapContainer() {
           />
           행정동 경계
         </label>
-        <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
-          <input
-            type="checkbox"
-            checked={showLegal}
-            onChange={(e) => setShowLegal(e.target.checked)}
-            className="accent-red-600"
-          />
-          법정동 경계
-        </label>
-        <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
-          <input
-            type="checkbox"
-            checked={showPopulation}
-            onChange={(e) => setShowPopulation(e.target.checked)}
-            className="accent-rose-600"
-          />
-          인구 밀도
-        </label>
-        <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
-          <input
-            type="checkbox"
-            checked={showDistricts}
-            onChange={(e) => setShowDistricts(e.target.checked)}
-            className="accent-purple-600"
-          />
-          선거결과
-        </label>
-        <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
-          <input
-            type="checkbox"
-            checked={showPolling}
-            onChange={(e) => setShowPolling(e.target.checked)}
-            className="accent-violet-600"
-          />
-          투표소 (86개)
-        </label>
-        <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
-          <input
-            type="checkbox"
-            checked={showBusStops}
-            onChange={(e) => setShowBusStops(e.target.checked)}
-            className="accent-cyan-600"
-          />
-          버스정류장 (1,962개)
-        </label>
-        <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
-          <input
-            type="checkbox"
-            checked={showTransit}
-            onChange={(e) => setShowTransit(e.target.checked)}
-            className="accent-sky-600"
-          />
-          교통 밀집도
-        </label>
-        <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
-          <input
-            type="checkbox"
-            checked={showCommerce}
-            onChange={(e) => setShowCommerce(e.target.checked)}
-            className="accent-green-600"
-          />
-          상권 밀집도
-        </label>
 
-        {showPopulation && (
+        {/* 진주 전용 레이어 */}
+        {hasDetailData && (
+          <>
+            <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
+              <input
+                type="checkbox"
+                checked={showLegal}
+                onChange={(e) => setShowLegal(e.target.checked)}
+                className="accent-red-600"
+              />
+              법정동 경계
+            </label>
+            <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
+              <input
+                type="checkbox"
+                checked={showPopulation}
+                onChange={(e) => setShowPopulation(e.target.checked)}
+                className="accent-rose-600"
+              />
+              인구정보
+            </label>
+            <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
+              <input
+                type="checkbox"
+                checked={showDistricts}
+                onChange={(e) => setShowDistricts(e.target.checked)}
+                className="accent-purple-600"
+              />
+              선거결과
+            </label>
+            <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
+              <input
+                type="checkbox"
+                checked={showPolling}
+                onChange={(e) => setShowPolling(e.target.checked)}
+                className="accent-violet-600"
+              />
+              투표소
+            </label>
+            <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
+              <input
+                type="checkbox"
+                checked={showBusStops}
+                onChange={(e) => setShowBusStops(e.target.checked)}
+                className="accent-cyan-600"
+              />
+              버스정류장
+            </label>
+            <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
+              <input
+                type="checkbox"
+                checked={showCommerce}
+                onChange={(e) => setShowCommerce(e.target.checked)}
+                className="accent-green-600"
+              />
+              상권 밀집도
+            </label>
+          </>
+        )}
+
+        {/* 진주 전용이 아닌 경우 안내 */}
+        {selectedCity && !hasDetailData && (
+          <p className="mt-2 text-xs text-gray-400">
+            상세 레이어는 진주시만 지원 (확장 예정)
+          </p>
+        )}
+
+        {/* 범례 */}
+        {hasDetailData && showPopulation && (
           <div className="mt-2 border-t pt-2">
             <p className="text-xs text-gray-500 mb-1">인구수 (2025.01)</p>
             {POP_LEGEND.map((item) => (
@@ -384,9 +527,9 @@ export default function MapContainer() {
           </div>
         )}
 
-        {showCommerce && (
+        {hasDetailData && showCommerce && (
           <div className="mt-2 border-t pt-2">
-            <p className="text-xs text-gray-500 mb-1">상가 수 (19,076개)</p>
+            <p className="text-xs text-gray-500 mb-1">상가 수</p>
             {COMMERCE_LEGEND.map((item) => (
               <div key={item.label} className="flex items-center gap-1.5 text-xs text-gray-600">
                 <span
@@ -399,23 +542,8 @@ export default function MapContainer() {
           </div>
         )}
 
-        {showTransit && (
-          <div className="mt-2 border-t pt-2">
-            <p className="text-xs text-gray-500 mb-1">정류장 수 (stcis)</p>
-            {TRANSIT_LEGEND.map((item) => (
-              <div key={item.label} className="flex items-center gap-1.5 text-xs text-gray-600">
-                <span
-                  className="inline-block w-3 h-3 rounded-sm"
-                  style={{ backgroundColor: item.color }}
-                />
-                {item.label}
-              </div>
-            ))}
-          </div>
-        )}
-
-        {/* 선거구 선택 */}
-        {showDistricts && (
+        {/* 선거구 선택 (진주 전용) */}
+        {hasDetailData && showDistricts && (
           <div className="mt-2 border-t pt-2">
             <div className="flex gap-1 mb-1 flex-wrap">
               {([
@@ -454,24 +582,20 @@ export default function MapContainer() {
         )}
       </div>
 
-      {/* Population detail panel */}
-      {showPopulation && selectedDong && (
+      {/* 패널들 (진주 전용) */}
+      {isJinju && showPopulation && selectedDong && (
         <PopulationPanel
           data={selectedDong}
           onClose={() => setSelectedDong(null)}
         />
       )}
-
-      {/* Election result panel */}
-      {showDistricts && selectedDistrict && (
+      {isJinju && showDistricts && selectedDistrict && (
         <ElectionPanel
           dongName={selectedDistrict}
           onClose={() => setSelectedDistrict(null)}
         />
       )}
-
-      {/* Transit usage panel */}
-      {showBusStops && selectedBusStop && (
+      {isJinju && showBusStops && selectedBusStop && (
         <TransitUsagePanel
           station={selectedBusStop}
           onClose={() => setSelectedBusStop(null)}

@@ -4,6 +4,7 @@ import { useState } from "react";
 import electionsData from "@/data/jinju-elections.json";
 import localElectionsData from "@/data/jinju-local-elections.json";
 import districtData from "@/data/jinju-districts.json";
+import proportionalData from "@/data/jinju-proportional-results.json";
 
 const PARTY_COLORS: Record<string, string> = {
   "더불어민주당": "#1D6CE0",
@@ -15,6 +16,10 @@ const PARTY_COLORS: Record<string, string> = {
   "개혁신당": "#FF6600",
   "바른정당": "#00BFBF",
   "바른미래당": "#00BFBF",
+  "민주평화당": "#007F3E",
+  "민중당": "#E8340A",
+  "기본소득당": "#82C8B0",
+  "녹색당": "#55B54A",
   "정의당": "#FFCC00",
   "민주노동당": "#FFCC00",
   "진보당": "#D6001C",
@@ -200,6 +205,46 @@ function DongRateBar({
   );
 }
 
+function ProportionalBar({
+  label,
+  data,
+}: {
+  label: string;
+  data: { voters: number; turnout: number; valid: number; parties: { party: string; votes: number }[] };
+}) {
+  const sorted = [...data.parties].sort((a, b) => b.votes - a.votes);
+  const maxVotes = sorted[0]?.votes || 1;
+  return (
+    <div className="mt-3 pt-3 border-t">
+      <h4 className="text-sm font-bold text-gray-600 mb-1">{label}</h4>
+      <div className="text-sm text-gray-500 mb-2">
+        유효 <strong>{data.valid.toLocaleString()}</strong>표
+      </div>
+      <div className="space-y-1.5">
+        {sorted.map((p, i) => {
+          const pct = ((p.votes / data.valid) * 100).toFixed(1);
+          const barPct = (p.votes / maxVotes) * 100;
+          const color = PARTY_COLORS[p.party] || "#999";
+          return (
+            <div key={i}>
+              <div className="flex items-center justify-between text-sm">
+                <span>
+                  <span className="inline-block w-2 h-2 rounded-full mr-1" style={{ backgroundColor: color }} />
+                  <strong>{p.party}</strong>
+                </span>
+                <span className="font-medium">{p.votes.toLocaleString()}표 ({pct}%)</span>
+              </div>
+              <div className="h-1.5 bg-gray-100 rounded-full mt-0.5">
+                <div className="h-1.5 rounded-full" style={{ width: `${barPct}%`, backgroundColor: color }} />
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 interface ElectionPanelProps {
   dongName: string | null;
   onClose: () => void;
@@ -230,11 +275,17 @@ export default function ElectionPanel({ dongName, onClose }: ElectionPanelProps)
   if (entry.subType) {
     // 지선: 동 → 선거구 매핑
     const typeKey = entry.subType === "시장" ? "mayor" : entry.subType === "기초의원" ? "local" : "provincial";
-    const districtName = DONG_DISTRICT_MAP[typeKey]?.[dongName];
-    if (districtName) {
-      districtResult = entry.results.find((r) => r.district === districtName);
-      const distInfo = (districtData as any).types[typeKey]?.districts.find((d: any) => d.name === districtName);
-      districtSeats = distInfo?.seats || 1;
+    if (typeKey === "mayor") {
+      // 시장은 시 전체가 하나의 선거구 — results[0] 사용
+      districtResult = entry.results[0];
+      districtSeats = 1;
+    } else {
+      const districtName = DONG_DISTRICT_MAP[typeKey]?.[dongName];
+      if (districtName) {
+        districtResult = entry.results.find((r) => r.district === districtName);
+        const distInfo = (districtData as any).types[typeKey]?.districts.find((d: any) => d.name === districtName);
+        districtSeats = distInfo?.seats || 1;
+      }
     }
   } else if (entry.results.length > 1) {
     // 총선: 동 → 갑/을
@@ -314,6 +365,24 @@ export default function ElectionPanel({ dongName, onClose }: ElectionPanelProps)
           </div>
           <CandidateBar candidates={districtResult.candidates} validVotes={districtResult.valid} seats={districtSeats} />
         </div>
+      )}
+
+      {/* 비례대표 (지선 시장 탭에서 표시) */}
+      {entry.subType === "시장" && (
+        <>
+          {(proportionalData as any)[`localPR_${entry.date}`] && (
+            <ProportionalBar
+              label="기초의원 비례대표"
+              data={(proportionalData as any)[`localPR_${entry.date}`]}
+            />
+          )}
+          {(proportionalData as any)[`provincialPR_${entry.date}`] && (
+            <ProportionalBar
+              label="도의원 비례대표"
+              data={(proportionalData as any)[`provincialPR_${entry.date}`]}
+            />
+          )}
+        </>
       )}
 
       {!dongResult && !districtResult && (
