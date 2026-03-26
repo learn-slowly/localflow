@@ -3,9 +3,16 @@
 
 import json
 import urllib.request
+import ssl
 import time
 import os
 from collections import defaultdict
+from datetime import datetime
+
+# data.go.kr SSL 인증서 이슈 대응
+ssl_ctx = ssl.create_default_context()
+ssl_ctx.check_hostname = False
+ssl_ctx.verify_mode = ssl.CERT_NONE
 
 API_KEY = "3af0565a2348db0197d4b06f1b8c0bf1e3974057f9d68d2b821db87260d07d34"
 BASE = "https://apis.data.go.kr/1613000/StopbyRouteTripVolume/getDailyStopbyRouteTripVolume"
@@ -33,7 +40,7 @@ def fetch_page(date, page):
            f"&ctpv_cd=48&sgg_cd=48170")
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
     try:
-        with urllib.request.urlopen(req, timeout=15) as resp:
+        with urllib.request.urlopen(req, timeout=15, context=ssl_ctx) as resp:
             data = json.loads(resp.read())
         body = data.get("Response", {}).get("body", {})
         items = body.get("items", {}).get("item", [])
@@ -50,8 +57,14 @@ def main():
     # 정류장별 집계: sttn_id → {info, by_dow_hour}
     stations = {}
 
+    # 날짜 → 요일 매핑
+    DOW_NAMES = ["월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일"]
+
     for date in DATES:
-        print(f"\n[{date}] 수집 시작...")
+        # 날짜로부터 요일 계산 (API의 dow_nm 필드가 비어있는 경우 대비)
+        date_dow = DOW_NAMES[datetime.strptime(date, "%Y%m%d").weekday()]
+        print(f"\n[{date} {date_dow}] 수집 시작...")
+
         items, total = fetch_page(date, 1)
         if not items:
             print(f"  데이터 없음")
@@ -90,7 +103,8 @@ def main():
                     "total_goff": 0,
                 }
 
-            dow = item.get("dow_nm", "")
+            # API의 dow_nm이 비어있으면 날짜로부터 계산한 요일 사용
+            dow = item.get("dow_nm", "") or date_dow
             hour = item.get("tzon", "")
             key = f"{dow}_{hour}"
 

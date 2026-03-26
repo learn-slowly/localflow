@@ -163,6 +163,7 @@ export default function MapContainer() {
   const [selectedBusStop, setSelectedBusStop] = useState<any>(null);
   const [transitDow, setTransitDow] = useState("전체");
   const [transitHour, setTransitHour] = useState("전체");
+  const [panelCollapsed, setPanelCollapsed] = useState(false);
 
   // 경계 데이터 (API에서 동적 로딩)
   const [boundaryData, setBoundaryData] = useState<any>(null);
@@ -393,20 +394,30 @@ export default function MapContainer() {
       </LeafletMap>
 
       {/* 도시 선택 + 레이어 패널 */}
-      <div className="absolute top-4 right-4 z-[1000] rounded-lg bg-white p-3 shadow-lg max-h-[90vh] overflow-y-auto">
-        {/* 도시 선택 */}
-        <select
-          value={selectedCityKey || ""}
-          onChange={(e) => setSelectedCityKey(e.target.value || null)}
-          className="w-full mb-2 text-sm border rounded px-2 py-1.5 text-gray-700 bg-white focus:outline-none focus:ring-1 focus:ring-blue-500"
-        >
-          {cityOptions.map((opt) => (
-            <option key={opt.key} value={opt.key}>
-              {opt.label}
-            </option>
-          ))}
-        </select>
+      <div className="absolute top-4 right-4 z-[1000] rounded-lg bg-white shadow-lg max-h-[90vh] overflow-y-auto">
+        {/* 헤더: 도시 선택 + 접기 버튼 */}
+        <div className="flex items-center gap-2 p-3 pb-0">
+          <select
+            value={selectedCityKey || ""}
+            onChange={(e) => setSelectedCityKey(e.target.value || null)}
+            className="flex-1 text-sm border rounded px-2 py-1.5 text-gray-700 bg-white focus:outline-none focus:ring-1 focus:ring-blue-500"
+          >
+            {cityOptions.map((opt) => (
+              <option key={opt.key} value={opt.key}>
+                {opt.label}
+              </option>
+            ))}
+          </select>
+          <button
+            onClick={() => setPanelCollapsed(!panelCollapsed)}
+            className="text-gray-400 hover:text-gray-700 text-lg leading-none px-1"
+            title={panelCollapsed ? "패널 펼치기" : "패널 접기"}
+          >
+            {panelCollapsed ? "▼" : "▲"}
+          </button>
+        </div>
 
+        {!panelCollapsed && <div className="p-3 pt-2">
         <h3 className="mb-2 text-sm font-bold text-gray-700">레이어</h3>
         <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600">
           <input
@@ -613,6 +624,7 @@ export default function MapContainer() {
             ))}
           </div>
         )}
+        </div>}
       </div>
 
       {/* 패널들 (진주 전용) */}
