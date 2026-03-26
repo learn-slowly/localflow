@@ -112,8 +112,8 @@ function groupElections(): ElectionGroup[] {
       label: `${year} 지선`,
       date,
       entries: entries.sort((a, b) => {
-        const order = ["시장", "기초의원", "도의원"];
-        return order.indexOf(a.subType || "") - order.indexOf(b.subType || "");
+        const order = ["시장", "시도지사", "기초의원", "도의원", "교육감", "기초비례", "광역비례"];
+        return (order.indexOf(a.subType || "") === -1 ? 99 : order.indexOf(a.subType || "")) - (order.indexOf(b.subType || "") === -1 ? 99 : order.indexOf(b.subType || ""));
       }),
     });
   }
@@ -274,12 +274,13 @@ export default function ElectionPanel({ dongName, onClose }: ElectionPanelProps)
 
   if (entry.subType) {
     // 지선: 동 → 선거구 매핑
-    const typeKey = entry.subType === "시장" ? "mayor" : entry.subType === "기초의원" ? "local" : "provincial";
-    if (typeKey === "mayor") {
-      // 시장은 시 전체가 하나의 선거구 — results[0] 사용
+    const singleDistrictTypes = ["시장", "시도지사", "교육감", "광역비례", "기초비례"];
+    if (singleDistrictTypes.includes(entry.subType)) {
+      // 시/도/전체 단위 선거 — results[0] 사용
       districtResult = entry.results[0];
       districtSeats = 1;
     } else {
+      const typeKey = entry.subType === "기초의원" ? "local" : "provincial";
       const districtName = DONG_DISTRICT_MAP[typeKey]?.[dongName];
       if (districtName) {
         districtResult = entry.results.find((r) => r.district === districtName);
