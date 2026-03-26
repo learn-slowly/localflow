@@ -20,7 +20,7 @@ CITY_CODE_MAP = {
     "거창군": "48880", "합천군": "48890",
 }
 
-SKIP_DONGS = {"합계", "거소·선상투표", "거소투표", "관외사전투표", "재외투표", ""}
+SKIP_DONGS = {"합계", "거소·선상투표", "거소투표", "관외사전투표", "재외투표", "", "계"}
 
 
 def clean_num(v):
@@ -39,7 +39,9 @@ def parse_candidates_from_header(row):
     candidates = []
     for cell in row:
         if cell and "\n" in str(cell):
-            parts = str(cell).split("\n")
+            # _x000D_ 제거 (2018 형식)
+            text = str(cell).replace("_x000D_", "").replace("\r", "")
+            parts = text.split("\n")
             party = parts[0].strip()
             name = parts[1].strip() if len(parts) > 1 else ""
             if name:
@@ -289,6 +291,116 @@ def parse_local_election(filepath, sub_type, label, date):
     return city_dong_results
 
 
+# ===== 2018 지선 파싱 (구조가 2022와 다름) =====
+
+def parse_local_2018(filepath, sub_type, label, date):
+    """2018 지선 xlsx 파싱
+    시장/기초/도의원: 선거종류(0) | 시도(1) | 선거구명(2) | 시도명(3) | 구시군명(4) | 읍면동명(5) | 구분(6) | 선거인수(7) | 투표수(8) | 후보(9~)
+    시도지사/교육감/비례: 선거종류(0) | 시도(1) | 선거구명(2) | 구시군명(3) | 읍면동명(4) | 구분(5) | 선거인수(6) | 투표수(7) | 후보(8~)
+    """
+    print(f"  파싱: {label} ({sub_type})")
+    wb = openpyxl.load_workbook(filepath, read_only=True)
+    ws = wb.active
+    rows = list(ws.iter_rows(max_col=30, values_only=True))
+    wb.close()
+
+    # 시도 단위 선거는 열 구조가 다름
+    is_sido_level = sub_type in ("시도지사", "교육감", "광역비례")
+    if is_sido_level:
+        COL_SIGUN = 3
+        COL_DONG = 4
+        COL_GUBUN = 5
+        COL_VOTERS = 6
+        COL_TURNOUT = 7
+        COL_CAND_START = 8
+    else:
+        COL_SIGUN = 4
+        COL_DONG = 5
+        COL_GUBUN = 6
+        COL_VOTERS = 7
+        COL_TURNOUT = 8
+        COL_CAND_START = 9
+
+    city_dong_results = {}
+    current_city = None
+    current_district = None
+    current_candidates = []
+
+    for i, row in enumerate(rows):
+        r = [str(v or "").strip() for v in row]
+
+        # 행0 = 헤더, 건너뜀
+        if i == 0:
+            continue
+
+        sido = r[1]
+        sgg = r[2]
+        sigun = r[COL_SIGUN] if len(r) > COL_SIGUN else ""
+        dong = r[COL_DONG] if len(r) > COL_DONG else ""
+        gubun = r[COL_GUBUN] if len(r) > COL_GUBUN else ""
+
+        # 후보자 정보 행 감지
+        has_cand = sum(1 for c in row[COL_CAND_START:] if c and "\n" in str(c))
+        if has_cand >= 2:
+            current_candidates = parse_candidates_from_header(row[COL_CAND_START:])
+            if sgg:
+                current_district = sgg
+            if is_sido_level:
+                # 시도 단위: 선거구명이 시도명
+                current_city = None  # 행마다 구시군에서 갱신
+            else:
+                for city_name in sorted(CITY_CODE_MAP.keys(), key=len, reverse=True):
+                    if sgg.startswith(city_name):
+                        current_city = city_name
+                        break
+            continue
+
+        # 경남 아니면 건너뜀
+        if sido and "경상남도" not in sido and sgg and "경상남도" not in sgg:
+            current_city = None
+            continue
+
+        # 시군구 갱신
+        if sigun and sigun in CITY_CODE_MAP:
+            current_city = sigun
+        elif not is_sido_level and sgg and sgg != current_district:
+            current_district = sgg
+            for city_name in sorted(CITY_CODE_MAP.keys(), key=len, reverse=True):
+                if sgg.startswith(city_name):
+                    current_city = city_name
+                    break
+
+        if not current_city or current_city not in CITY_CODE_MAP:
+            continue
+        if not current_candidates:
+            continue
+
+        # 읍면동 소계 행
+        if dong and dong not in SKIP_DONGS and gubun == "소계":
+            voters = clean_num(row[COL_VOTERS] if len(row) > COL_VOTERS else 0)
+            turnout = clean_num(row[COL_TURNOUT] if len(row) > COL_TURNOUT else 0)
+            votes_list = []
+            for k in range(len(current_candidates)):
+                idx = COL_CAND_START + k
+                votes_list.append(clean_num(row[idx] if len(row) > idx else 0))
+
+            if sum(votes_list) == 0:
+                continue
+
+            if current_city not in city_dong_results:
+                city_dong_results[current_city] = []
+
+            district = current_district if not is_sido_level else current_city
+            city_dong_results[current_city].append(
+                make_dong_result(dong, district, voters, turnout, current_candidates, votes_list)
+            )
+
+    for city, dongs in city_dong_results.items():
+        print(f"    {city}: {len(dongs)}개 읍면동")
+
+    return city_dong_results
+
+
 # ===== 총선 파싱 =====
 
 def parse_assembly_2024(filepath, label, date):
@@ -522,7 +634,7 @@ def main():
             results = parse_local_election(filepath, sub_type, label, "2022.06.01")
             all_local_results[label] = results
 
-    # 제7회 지선 (2018) 읍면동별
+    # 제7회 지선 (2018) 읍면동별 — 2018은 구조가 다름
     local7_dir = os.path.join(EXTRACT_DIR, "2018전국동시지방선거 개표결과(제7회)")
     local7_files = [
         ("20180619-7지선-02-(구시군의장)_읍면동별개표자료.xlsx", "시장", "2018 지선 (제7회) 시장"),
@@ -537,7 +649,7 @@ def main():
     for fname, sub_type, label in local7_files:
         filepath = os.path.join(local7_dir, fname)
         if os.path.exists(filepath):
-            results = parse_local_election(filepath, sub_type, label, "2018.06.13")
+            results = parse_local_2018(filepath, sub_type, label, "2018.06.13")
             all_local_results[label] = results
 
     # 도시별 JSON에 dongResults 병합
