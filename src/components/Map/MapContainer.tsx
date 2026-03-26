@@ -23,6 +23,12 @@ import PopulationPanel from "./PopulationPanel";
 import ElectionPanel from "./ElectionPanel";
 import TransitUsagePanel from "./TransitUsagePanel";
 import CommerceLayer, { COMMERCE_LEGEND } from "./CommerceLayer";
+import TransitHeatmapLayer, {
+  DOW_OPTIONS,
+  DOW_SHORT,
+  HOUR_OPTIONS,
+  HEATMAP_LEGEND,
+} from "./TransitHeatmapLayer";
 import jinjuTransitUsage from "@/data/jinju-transit-usage.json";
 import type { Layer, PathOptions } from "leaflet";
 
@@ -155,6 +161,8 @@ export default function MapContainer() {
   const [selectedDong, setSelectedDong] = useState<SelectedDong>(null);
   const [selectedDistrict, setSelectedDistrict] = useState<string | null>(null);
   const [selectedBusStop, setSelectedBusStop] = useState<any>(null);
+  const [transitDow, setTransitDow] = useState("전체");
+  const [transitHour, setTransitHour] = useState("전체");
 
   // 경계 데이터 (API에서 동적 로딩)
   const [boundaryData, setBoundaryData] = useState<any>(null);
@@ -370,51 +378,17 @@ export default function MapContainer() {
           <CommerceLayer boundaryData={jinjuBoundary} />
         )}
 
-        {/* 진주 전용: 버스정류장 */}
+        {/* 진주 전용: 대중교통 히트맵 */}
         {isJinju && showBusStops && (
-          <MarkerClusterGroup
-            chunkedLoading
-            maxClusterRadius={50}
-            spiderfyOnMaxZoom
-            showCoverageOnHover={false}
-          >
-            {(jinjuBusStops as any[]).map((st, i) => {
-              const apiId = `48${String(st.id).padStart(5, "0")}`;
-              const usage = jinjuUsageById[apiId];
-              const hasUsage = !!usage;
-              return (
-                <CircleMarker
-                  key={`bus-${i}`}
-                  center={[st.lat, st.lng]}
-                  radius={hasUsage ? 5 : 4}
-                  pathOptions={{
-                    color: hasUsage ? "#1D4ED8" : "#0E7490",
-                    fillColor: hasUsage ? "#3B82F6" : "#06B6D4",
-                    fillOpacity: 0.7,
-                    weight: 1,
-                  }}
-                  eventHandlers={{
-                    click: () => {
-                      const data = usage || { sttn_id: apiId, name: st.name, dong: "", totalRide: 0, totalGoff: 0, hourly: {}, byDow: {} };
-                      if (usage) data.name = st.name;
-                      setSelectedBusStop(data);
-                      setSelectedDong(null);
-                      setSelectedDistrict(null);
-                    },
-                  }}
-                >
-                  <Tooltip>
-                    <strong>{st.name}</strong>
-                    <br />
-                    <span style={{ fontSize: "11px", color: "#666" }}>
-                      ID: {st.id}
-                      {usage ? ` · 승차 ${usage.totalRide.toLocaleString()}` : ""}
-                    </span>
-                  </Tooltip>
-                </CircleMarker>
-              );
-            })}
-          </MarkerClusterGroup>
+          <TransitHeatmapLayer
+            selectedDow={transitDow}
+            selectedHour={transitHour}
+            onStationClick={(s) => {
+              setSelectedBusStop(s);
+              setSelectedDong(null);
+              setSelectedDistrict(null);
+            }}
+          />
         )}
       </LeafletMap>
 
@@ -490,7 +464,7 @@ export default function MapContainer() {
                 onChange={(e) => setShowBusStops(e.target.checked)}
                 className="accent-cyan-600"
               />
-              버스정류장
+              대중교통
             </label>
             <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
               <input
@@ -534,6 +508,65 @@ export default function MapContainer() {
               <div key={item.label} className="flex items-center gap-1.5 text-xs text-gray-600">
                 <span
                   className="inline-block w-3 h-3 rounded-sm"
+                  style={{ backgroundColor: item.color }}
+                />
+                {item.label}
+              </div>
+            ))}
+          </div>
+        )}
+
+        {hasDetailData && showBusStops && (
+          <div className="mt-2 border-t pt-2">
+            <p className="text-xs text-gray-500 mb-1">요일</p>
+            <div className="flex gap-0.5 flex-wrap mb-2">
+              {DOW_OPTIONS.map((dow) => (
+                <button
+                  key={dow}
+                  className={`text-xs px-1.5 py-0.5 rounded ${
+                    transitDow === dow
+                      ? "bg-cyan-700 text-white"
+                      : "bg-gray-100 text-gray-500"
+                  }`}
+                  onClick={() => setTransitDow(dow)}
+                >
+                  {DOW_SHORT[dow]}
+                </button>
+              ))}
+            </div>
+
+            <p className="text-xs text-gray-500 mb-1">시간대</p>
+            <div className="flex gap-0.5 flex-wrap mb-2">
+              <button
+                className={`text-xs px-1.5 py-0.5 rounded ${
+                  transitHour === "전체"
+                    ? "bg-cyan-700 text-white"
+                    : "bg-gray-100 text-gray-500"
+                }`}
+                onClick={() => setTransitHour("전체")}
+              >
+                전체
+              </button>
+              {HOUR_OPTIONS.filter((h) => h !== "전체").map((h) => (
+                <button
+                  key={h}
+                  className={`text-xs px-1.5 py-0.5 rounded ${
+                    transitHour === h
+                      ? "bg-cyan-700 text-white"
+                      : "bg-gray-100 text-gray-500"
+                  }`}
+                  onClick={() => setTransitHour(h)}
+                >
+                  {parseInt(h)}
+                </button>
+              ))}
+            </div>
+
+            <p className="text-xs text-gray-500 mb-1">승하차량</p>
+            {HEATMAP_LEGEND.map((item) => (
+              <div key={item.label} className="flex items-center gap-1.5 text-xs text-gray-600">
+                <span
+                  className="inline-block w-3 h-3 rounded-full"
                   style={{ backgroundColor: item.color }}
                 />
                 {item.label}
