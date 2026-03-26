@@ -168,17 +168,27 @@ export default function MapContainer() {
   // 경계 데이터 (API에서 동적 로딩)
   const [boundaryData, setBoundaryData] = useState<any>(null);
   const [boundaryLoading, setBoundaryLoading] = useState(true);
+  // 인구 데이터 (도시별 정적 파일 로딩)
+  const [populationData, setPopulationData] = useState<any>(null);
 
-  // 도시 변경 시 패널·선택 초기화 + 경계 데이터 로딩
+  // 도시 변경 시 패널·선택 초기화 + 경계·인구 데이터 로딩
   useEffect(() => {
     setSelectedDong(null);
     setSelectedDistrict(null);
     setSelectedBusStop(null);
     setBoundaryLoading(true);
+    setPopulationData(null);
     fetchBoundaryData(selectedCity?.code).then((data) => {
       setBoundaryData(data);
       setBoundaryLoading(false);
     });
+    // 인구 데이터 로딩
+    if (selectedCity) {
+      fetch(`/data/population/${selectedCity.code}-population.json`)
+        .then((res) => res.ok ? res.json() : null)
+        .then((data) => setPopulationData(data))
+        .catch(() => setPopulationData(null));
+    }
   }, [selectedCityKey]);
 
   // 지도 중심·줌
@@ -317,11 +327,11 @@ export default function MapContainer() {
           />
         )}
 
-        {/* 진주 전용: 인구 밀도 (진주 경계에 population 포함) */}
-        {isJinju && showPopulation && (
+        {/* 인구정보 (전 도시 지원) */}
+        {selectedCity && showPopulation && populationData && (
           <GeoJSON
-            key="population"
-            data={jinjuBoundary as any}
+            key={`population-${selectedCity.code}`}
+            data={populationData as any}
             style={populationStyle}
             onEachFeature={onPopulationFeature}
           />
@@ -429,6 +439,19 @@ export default function MapContainer() {
           행정동 경계
         </label>
 
+        {/* 인구정보 (전 도시 지원) */}
+        {selectedCity && (
+          <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
+            <input
+              type="checkbox"
+              checked={showPopulation}
+              onChange={(e) => setShowPopulation(e.target.checked)}
+              className="accent-rose-600"
+            />
+            인구정보
+          </label>
+        )}
+
         {/* 진주 전용 레이어 */}
         {hasDetailData && (
           <>
@@ -440,15 +463,6 @@ export default function MapContainer() {
                 className="accent-red-600"
               />
               법정동 경계
-            </label>
-            <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
-              <input
-                type="checkbox"
-                checked={showPopulation}
-                onChange={(e) => setShowPopulation(e.target.checked)}
-                className="accent-rose-600"
-              />
-              인구정보
             </label>
             <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
               <input
@@ -497,7 +511,7 @@ export default function MapContainer() {
         )}
 
         {/* 범례 */}
-        {hasDetailData && showPopulation && (
+        {selectedCity && showPopulation && (
           <div className="mt-2 border-t pt-2">
             <p className="text-xs text-gray-500 mb-1">인구수 (2025.01)</p>
             {POP_LEGEND.map((item) => (
@@ -628,7 +642,7 @@ export default function MapContainer() {
       </div>
 
       {/* 패널들 (진주 전용) */}
-      {isJinju && showPopulation && selectedDong && (
+      {selectedCity && showPopulation && selectedDong && (
         <PopulationPanel
           data={selectedDong}
           onClose={() => setSelectedDong(null)}
