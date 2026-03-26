@@ -1,0 +1,257 @@
+[
+  {
+    "sgId": "20250603",
+    "label": "2025 대선 (제21대)",
+    "date": "2025.06.03",
+    "results": [
+      {
+        "district": "창원시진해구",
+        "voters": 157266,
+        "turnout": 122023,
+        "valid": 121055,
+        "invalid": 968,
+        "candidates": [
+          {
+            "name": "이재명",
+            "party": "더불어민주당",
+            "votes": 49732
+          },
+          {
+            "name": "김문수",
+            "party": "국민의힘",
+            "votes": 60152
+          },
+          {
+            "name": "이준석",
+            "party": "개혁신당",
+            "votes": 9813
+          },
+          {
+            "name": "권영국",
+            "party": "민주노동당",
+            "votes": 1213
+          },
+          {
+            "name": "송진호",
+            "party": "무소속",
+            "votes": 145
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220309",
+    "label": "2022 대선 (제20대)",
+    "date": "2022.03.09",
+    "results": [
+      {
+        "district": "창원시진해구",
+        "voters": 159611,
+        "turnout": 119212,
+        "valid": 117794,
+        "invalid": 1418,
+        "candidates": [
+          {
+            "name": "이재명",
+            "party": "더불어민주당",
+            "votes": 45890
+          },
+          {
+            "name": "윤석열",
+            "party": "국민의힘",
+            "votes": 66298
+          },
+          {
+            "name": "심상정",
+            "party": "정의당",
+            "votes": 3075
+          },
+          {
+            "name": "오준호",
+            "party": "기본소득당",
+            "votes": 53
+          },
+          {
+            "name": "허경영",
+            "party": "국가혁명당",
+            "votes": 1956
+          },
+          {
+            "name": "이백윤",
+            "party": "노동당",
+            "votes": 41
+          },
+          {
+            "name": "옥은호",
+            "party": "새누리당",
+            "votes": 21
+          },
+          {
+            "name": "김경재",
+            "party": "신자유민주연합",
+            "votes": 36
+          },
+          {
+            "name": "조원진",
+            "party": "우리공화당",
+            "votes": 90
+          },
+          {
+            "name": "김재연",
+            "party": "진보당",
+            "votes": 214
+          },
+          {
+            "name": "이경희",
+            "party": "통일한국당",
+            "votes": 46
+          },
+          {
+            "name": "김민찬",
+            "party": "한류연합당",
+            "votes": 74
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20170509",
+    "label": "2017 대선 (제19대)",
+    "date": "2017.05.09",
+    "results": [
+      {
+        "district": "창원시진해구",
+        "voters": 146938,
+        "turnout": 114779,
+        "valid": 114215,
+        "invalid": 564,
+        "candidates": [
+          {
+            "name": "문재인",
+            "party": "더불어민주당",
+            "votes": 41249
+          },
+          {
+            "name": "홍준표",
+            "party": "자유한국당",
+            "votes": 40049
+          },
+          {
+            "name": "안철수",
+            "party": "국민의당",
+            "votes": 17435
+          },
+          {
+            "name": "유승민",
+            "party": "바른정당",
+            "votes": 8732
+          },
+          {
+            "name": "심상정",
+            "party": "정의당",
+            "votes": 6186
+          },
+          {
+            "name": "조원진",
+            "party": "새누리당",
+            "votes": 108
+          },
+          {
+            "name": "오영국",
+            "party": "경제애국당",
+            "votes": 17
+          },
+          {
+            "name": "장성민",
+            "party": "국민대통합당",
+            "votes": 73
+          },
+          {
+            "name": "이재오",
+            "party": "늘푸른한국당",
+            "votes": 38
+          },
+          {
+            "name": "김선동",
+            "party": "민중연합당",
+            "votes": 53
+          },
+          {
+            "name": "이경희",
+            "party": "한국국민당",
+            "votes": 31
+          },
+          {
+            "name": "윤홍식",
+            "party": "홍익당",
+            "votes": 63
+          },
+          {
+            "name": "김민찬",
+            "party": "무소속",
+            "votes": 181
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20240410",
+    "label": "2024 총선 (제22대)",
+    "date": "2024.04.10",
+    "results": [
+      {
+        "district": "창원시진해구",
+        "voters": 158141,
+        "turnout": 102928,
+        "valid": 101703,
+        "invalid": 1225,
+        "candidates": [
+          {
+            "name": "황기철",
+            "party": "더불어민주당",
+            "votes": 50603
+          },
+          {
+            "name": "이종욱",
+            "party": "국민의힘",
+            "votes": 51100
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20200415",
+    "label": "2020 총선 (제21대)",
+    "date": "2020.04.15",
+    "results": [
+      {
+        "district": "창원시진해구",
+        "voters": 155692,
+        "turnout": 105737,
+        "valid": 103542,
+        "invalid": 2195,
+        "candidates": [
+          {
+            "name": "황기철",
+            "party": "더불어민주당",
+            "votes": 50595
+          },
+          {
+            "name": "이달곤",
+            "party": "미래통합당",
+            "votes": 52000
+          },
+          {
+            "name": "유재철",
+            "party": "국가혁명배당금당",
+            "votes": 947
+          }
+        ]
+      }
+    ]
+  }
+]

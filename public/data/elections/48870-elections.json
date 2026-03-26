@@ -1,0 +1,277 @@
+[
+  {
+    "sgId": "20250603",
+    "label": "2025 대선 (제21대)",
+    "date": "2025.06.03",
+    "results": [
+      {
+        "district": "함양군",
+        "voters": 32702,
+        "turnout": 25848,
+        "valid": 25568,
+        "invalid": 280,
+        "candidates": [
+          {
+            "name": "이재명",
+            "party": "더불어민주당",
+            "votes": 8489
+          },
+          {
+            "name": "김문수",
+            "party": "국민의힘",
+            "votes": 15503
+          },
+          {
+            "name": "이준석",
+            "party": "개혁신당",
+            "votes": 1321
+          },
+          {
+            "name": "권영국",
+            "party": "민주노동당",
+            "votes": 219
+          },
+          {
+            "name": "송진호",
+            "party": "무소속",
+            "votes": 36
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220309",
+    "label": "2022 대선 (제20대)",
+    "date": "2022.03.09",
+    "results": [
+      {
+        "district": "함양군",
+        "voters": 34459,
+        "turnout": 26955,
+        "valid": 26616,
+        "invalid": 339,
+        "candidates": [
+          {
+            "name": "이재명",
+            "party": "더불어민주당",
+            "votes": 8526
+          },
+          {
+            "name": "윤석열",
+            "party": "국민의힘",
+            "votes": 16957
+          },
+          {
+            "name": "심상정",
+            "party": "정의당",
+            "votes": 528
+          },
+          {
+            "name": "오준호",
+            "party": "기본소득당",
+            "votes": 23
+          },
+          {
+            "name": "허경영",
+            "party": "국가혁명당",
+            "votes": 340
+          },
+          {
+            "name": "이백윤",
+            "party": "노동당",
+            "votes": 17
+          },
+          {
+            "name": "옥은호",
+            "party": "새누리당",
+            "votes": 14
+          },
+          {
+            "name": "김경재",
+            "party": "신자유민주연합",
+            "votes": 11
+          },
+          {
+            "name": "조원진",
+            "party": "우리공화당",
+            "votes": 39
+          },
+          {
+            "name": "김재연",
+            "party": "진보당",
+            "votes": 67
+          },
+          {
+            "name": "이경희",
+            "party": "통일한국당",
+            "votes": 65
+          },
+          {
+            "name": "김민찬",
+            "party": "한류연합당",
+            "votes": 29
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20170509",
+    "label": "2017 대선 (제19대)",
+    "date": "2017.05.09",
+    "results": [
+      {
+        "district": "함양군",
+        "voters": 34899,
+        "turnout": 26640,
+        "valid": 26364,
+        "invalid": 276,
+        "candidates": [
+          {
+            "name": "문재인",
+            "party": "더불어민주당",
+            "votes": 7388
+          },
+          {
+            "name": "홍준표",
+            "party": "자유한국당",
+            "votes": 13008
+          },
+          {
+            "name": "안철수",
+            "party": "국민의당",
+            "votes": 3203
+          },
+          {
+            "name": "유승민",
+            "party": "바른정당",
+            "votes": 1315
+          },
+          {
+            "name": "심상정",
+            "party": "정의당",
+            "votes": 1118
+          },
+          {
+            "name": "조원진",
+            "party": "새누리당",
+            "votes": 44
+          },
+          {
+            "name": "오영국",
+            "party": "경제애국당",
+            "votes": 14
+          },
+          {
+            "name": "장성민",
+            "party": "국민대통합당",
+            "votes": 32
+          },
+          {
+            "name": "이재오",
+            "party": "늘푸른한국당",
+            "votes": 16
+          },
+          {
+            "name": "김선동",
+            "party": "민중연합당",
+            "votes": 27
+          },
+          {
+            "name": "이경희",
+            "party": "한국국민당",
+            "votes": 27
+          },
+          {
+            "name": "윤홍식",
+            "party": "홍익당",
+            "votes": 111
+          },
+          {
+            "name": "김민찬",
+            "party": "무소속",
+            "votes": 61
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20240410",
+    "label": "2024 총선 (제22대)",
+    "date": "2024.04.10",
+    "results": [
+      {
+        "district": "산청군함양군거창군합천군",
+        "voters": 33200,
+        "turnout": 23291,
+        "valid": 22871,
+        "invalid": 420,
+        "candidates": [
+          {
+            "name": "김기태",
+            "party": "더불어민주당",
+            "votes": 7273
+          },
+          {
+            "name": "신성범",
+            "party": "국민의힘",
+            "votes": 15598
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20200415",
+    "label": "2020 총선 (제21대)",
+    "date": "2020.04.15",
+    "results": [
+      {
+        "district": "산청군함양군거창군합천군",
+        "voters": 35175,
+        "turnout": 25500,
+        "valid": 25019,
+        "invalid": 481,
+        "candidates": [
+          {
+            "name": "서필상",
+            "party": "더불어민주당",
+            "votes": 5660
+          },
+          {
+            "name": "강석진",
+            "party": "미래통합당",
+            "votes": 7843
+          },
+          {
+            "name": "김운향",
+            "party": "민생당",
+            "votes": 143
+          },
+          {
+            "name": "박영주",
+            "party": "우리공화당",
+            "votes": 154
+          },
+          {
+            "name": "전성기",
+            "party": "민중당",
+            "votes": 310
+          },
+          {
+            "name": "김태영",
+            "party": "국가혁명배당금당",
+            "votes": 274
+          },
+          {
+            "name": "김태호",
+            "party": "무소속",
+            "votes": 10635
+          }
+        ]
+      }
+    ]
+  }
+]

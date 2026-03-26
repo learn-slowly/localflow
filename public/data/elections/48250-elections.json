@@ -1,0 +1,315 @@
+[
+  {
+    "sgId": "20250603",
+    "label": "2025 대선 (제21대)",
+    "date": "2025.06.03",
+    "results": [
+      {
+        "district": "김해시",
+        "voters": 448630,
+        "turnout": 347546,
+        "valid": 344833,
+        "invalid": 2713,
+        "candidates": [
+          {
+            "name": "이재명",
+            "party": "더불어민주당",
+            "votes": 164796
+          },
+          {
+            "name": "김문수",
+            "party": "국민의힘",
+            "votes": 147543
+          },
+          {
+            "name": "이준석",
+            "party": "개혁신당",
+            "votes": 28524
+          },
+          {
+            "name": "권영국",
+            "party": "민주노동당",
+            "votes": 3539
+          },
+          {
+            "name": "송진호",
+            "party": "무소속",
+            "votes": 431
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220309",
+    "label": "2022 대선 (제20대)",
+    "date": "2022.03.09",
+    "results": [
+      {
+        "district": "김해시",
+        "voters": 444342,
+        "turnout": 328521,
+        "valid": 325158,
+        "invalid": 3363,
+        "candidates": [
+          {
+            "name": "이재명",
+            "party": "더불어민주당",
+            "votes": 150338
+          },
+          {
+            "name": "윤석열",
+            "party": "국민의힘",
+            "votes": 160401
+          },
+          {
+            "name": "심상정",
+            "party": "정의당",
+            "votes": 8587
+          },
+          {
+            "name": "오준호",
+            "party": "기본소득당",
+            "votes": 162
+          },
+          {
+            "name": "허경영",
+            "party": "국가혁명당",
+            "votes": 4534
+          },
+          {
+            "name": "이백윤",
+            "party": "노동당",
+            "votes": 75
+          },
+          {
+            "name": "옥은호",
+            "party": "새누리당",
+            "votes": 48
+          },
+          {
+            "name": "김경재",
+            "party": "신자유민주연합",
+            "votes": 67
+          },
+          {
+            "name": "조원진",
+            "party": "우리공화당",
+            "votes": 251
+          },
+          {
+            "name": "김재연",
+            "party": "진보당",
+            "votes": 418
+          },
+          {
+            "name": "이경희",
+            "party": "통일한국당",
+            "votes": 106
+          },
+          {
+            "name": "김민찬",
+            "party": "한류연합당",
+            "votes": 171
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20170509",
+    "label": "2017 대선 (제19대)",
+    "date": "2017.05.09",
+    "results": [
+      {
+        "district": "김해시",
+        "voters": 414018,
+        "turnout": 318253,
+        "valid": 316685,
+        "invalid": 1568,
+        "candidates": [
+          {
+            "name": "문재인",
+            "party": "더불어민주당",
+            "votes": 147972
+          },
+          {
+            "name": "홍준표",
+            "party": "자유한국당",
+            "votes": 82880
+          },
+          {
+            "name": "안철수",
+            "party": "국민의당",
+            "votes": 45126
+          },
+          {
+            "name": "유승민",
+            "party": "바른정당",
+            "votes": 21936
+          },
+          {
+            "name": "심상정",
+            "party": "정의당",
+            "votes": 17441
+          },
+          {
+            "name": "조원진",
+            "party": "새누리당",
+            "votes": 291
+          },
+          {
+            "name": "오영국",
+            "party": "경제애국당",
+            "votes": 52
+          },
+          {
+            "name": "장성민",
+            "party": "국민대통합당",
+            "votes": 158
+          },
+          {
+            "name": "이재오",
+            "party": "늘푸른한국당",
+            "votes": 79
+          },
+          {
+            "name": "김선동",
+            "party": "민중연합당",
+            "votes": 157
+          },
+          {
+            "name": "이경희",
+            "party": "한국국민당",
+            "votes": 83
+          },
+          {
+            "name": "윤홍식",
+            "party": "홍익당",
+            "votes": 123
+          },
+          {
+            "name": "김민찬",
+            "party": "무소속",
+            "votes": 387
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20240410",
+    "label": "2024 총선 (제22대)",
+    "date": "2024.04.10",
+    "results": [
+      {
+        "district": "김해시갑",
+        "voters": 222271,
+        "turnout": 142487,
+        "valid": 140822,
+        "invalid": 1665,
+        "candidates": [
+          {
+            "name": "민홍철",
+            "party": "더불어민주당",
+            "votes": 73901
+          },
+          {
+            "name": "박성호",
+            "party": "국민의힘",
+            "votes": 66921
+          }
+        ]
+      },
+      {
+        "district": "김해시을",
+        "voters": 223355,
+        "turnout": 145317,
+        "valid": 143599,
+        "invalid": 1718,
+        "candidates": [
+          {
+            "name": "김정호",
+            "party": "더불어민주당",
+            "votes": 80695
+          },
+          {
+            "name": "조해진",
+            "party": "국민의힘",
+            "votes": 62904
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20200415",
+    "label": "2020 총선 (제21대)",
+    "date": "2020.04.15",
+    "results": [
+      {
+        "district": "김해시갑",
+        "voters": 219863,
+        "turnout": 139008,
+        "valid": 137266,
+        "invalid": 1742,
+        "candidates": [
+          {
+            "name": "민홍철",
+            "party": "더불어민주당",
+            "votes": 70094
+          },
+          {
+            "name": "홍태용",
+            "party": "미래통합당",
+            "votes": 61890
+          },
+          {
+            "name": "하대용",
+            "party": "정의당",
+            "votes": 3935
+          },
+          {
+            "name": "김선심",
+            "party": "국가혁명배당금당",
+            "votes": 1347
+          }
+        ]
+      },
+      {
+        "district": "김해시을",
+        "voters": 223167,
+        "turnout": 145744,
+        "valid": 144200,
+        "invalid": 1544,
+        "candidates": [
+          {
+            "name": "김정호",
+            "party": "더불어민주당",
+            "votes": 71634
+          },
+          {
+            "name": "장기표",
+            "party": "미래통합당",
+            "votes": 60003
+          },
+          {
+            "name": "배주임",
+            "party": "정의당",
+            "votes": 7272
+          },
+          {
+            "name": "안종규",
+            "party": "국가혁명배당금당",
+            "votes": 788
+          },
+          {
+            "name": "이영철",
+            "party": "무소속",
+            "votes": 4503
+          }
+        ]
+      }
+    ]
+  }
+]

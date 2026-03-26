@@ -1,0 +1,718 @@
+[
+  {
+    "sgId": "20220601",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2022 지선 (제8회) 시장",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "거창군",
+        "voters": 52803,
+        "turnout": 34765,
+        "valid": 33423,
+        "invalid": 1342,
+        "candidates": [
+          {
+            "name": "구인모",
+            "party": "국민의힘",
+            "votes": 20203
+          },
+          {
+            "name": "이홍기",
+            "party": "무소속",
+            "votes": 13220
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2022 지선 (제8회) 시도지사",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "거창군",
+        "voters": 52803,
+        "turnout": 34758,
+        "valid": 33307,
+        "invalid": 1451,
+        "candidates": [
+          {
+            "name": "양문석",
+            "party": "더불어민주당",
+            "votes": 7534
+          },
+          {
+            "name": "박완수",
+            "party": "국민의힘",
+            "votes": 23781
+          },
+          {
+            "name": "여영국",
+            "party": "정의당",
+            "votes": 1177
+          },
+          {
+            "name": "최진석",
+            "party": "통일한국당",
+            "votes": 815
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2022 지선 (제8회) 기초의원",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "거창군가선거구",
+        "voters": 27345,
+        "turnout": 16682,
+        "valid": 15946,
+        "invalid": 736,
+        "candidates": [
+          {
+            "name": "김홍섭",
+            "party": "더불어민주당",
+            "votes": 2293
+          },
+          {
+            "name": "최정환",
+            "party": "더불어민주당",
+            "votes": 1836
+          },
+          {
+            "name": "신중양",
+            "party": "국민의힘",
+            "votes": 4578
+          },
+          {
+            "name": "김향란",
+            "party": "국민의힘",
+            "votes": 3022
+          },
+          {
+            "name": "김진우",
+            "party": "국민의힘",
+            "votes": 1212
+          },
+          {
+            "name": "김병길",
+            "party": "무소속",
+            "votes": 826
+          },
+          {
+            "name": "표주숙",
+            "party": "무소속",
+            "votes": 2179
+          }
+        ]
+      },
+      {
+        "district": "거창군나선거구",
+        "voters": 15735,
+        "turnout": 10942,
+        "valid": 10511,
+        "invalid": 431,
+        "candidates": [
+          {
+            "name": "권순모",
+            "party": "더불어민주당",
+            "votes": 1838
+          },
+          {
+            "name": "최준규",
+            "party": "국민의힘",
+            "votes": 2846
+          },
+          {
+            "name": "이홍희",
+            "party": "국민의힘",
+            "votes": 2430
+          },
+          {
+            "name": "신재화",
+            "party": "국민의힘",
+            "votes": 2124
+          },
+          {
+            "name": "심재수",
+            "party": "무소속",
+            "votes": 1273
+          }
+        ]
+      },
+      {
+        "district": "거창군다선거구",
+        "voters": 9723,
+        "turnout": 7129,
+        "valid": 6705,
+        "invalid": 424,
+        "candidates": [
+          {
+            "name": "권재경",
+            "party": "국민의힘",
+            "votes": 1865
+          },
+          {
+            "name": "박수자",
+            "party": "국민의힘",
+            "votes": 2412
+          },
+          {
+            "name": "이재운",
+            "party": "무소속",
+            "votes": 2428
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "5",
+    "subType": "도의원",
+    "label": "2022 지선 (제8회) 도의원",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "거창군제1선거구",
+        "voters": 27345,
+        "turnout": 16679,
+        "valid": 16043,
+        "invalid": 636,
+        "candidates": [
+          {
+            "name": "박주언",
+            "party": "국민의힘",
+            "votes": 8367
+          },
+          {
+            "name": "김기범",
+            "party": "무소속",
+            "votes": 7676
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2022 지선 (제8회) 교육감",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "거창군",
+        "voters": 52803,
+        "turnout": 34759,
+        "valid": 32716,
+        "invalid": 2043,
+        "candidates": [
+          {
+            "name": "김상권",
+            "party": "",
+            "votes": 17031
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 15685
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "9",
+    "subType": "기초비례",
+    "label": "2022 지선 (제8회) 기초비례",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "거창군",
+        "voters": 52803,
+        "turnout": 34746,
+        "valid": 33251,
+        "invalid": 1495,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 9261
+          },
+          {
+            "name": "국민의힘",
+            "party": "국민의힘",
+            "votes": 23990
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2022 지선 (제8회) 광역비례",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "거창군",
+        "voters": 52803,
+        "turnout": 34752,
+        "valid": 33233,
+        "invalid": 1519,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 8100
+          },
+          {
+            "name": "국민의힘",
+            "party": "국민의힘",
+            "votes": 22929
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 1253
+          },
+          {
+            "name": "기본소득당",
+            "party": "기본소득당",
+            "votes": 416
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 156
+          },
+          {
+            "name": "진보당",
+            "party": "진보당",
+            "votes": 379
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2018 지선 (제7회) 시장",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "거창군",
+        "voters": 53061,
+        "turnout": 39556,
+        "valid": 38298,
+        "invalid": 1258,
+        "candidates": [
+          {
+            "name": "김기범",
+            "party": "더불어민주당",
+            "votes": 11619
+          },
+          {
+            "name": "구인모",
+            "party": "자유한국당",
+            "votes": 16652
+          },
+          {
+            "name": "조성진",
+            "party": "무소속",
+            "votes": 1304
+          },
+          {
+            "name": "안철우",
+            "party": "무소속",
+            "votes": 8723
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2018 지선 (제7회) 시도지사",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "거창군",
+        "voters": 53061,
+        "turnout": 39547,
+        "valid": 38348,
+        "invalid": 1199,
+        "candidates": [
+          {
+            "name": "김경수",
+            "party": "더불어민주당",
+            "votes": 13919
+          },
+          {
+            "name": "김태호",
+            "party": "자유한국당",
+            "votes": 23022
+          },
+          {
+            "name": "김유근",
+            "party": "바른미래당",
+            "votes": 1407
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2018 지선 (제7회) 기초의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "거창군가선거구",
+        "voters": 26509,
+        "turnout": 19014,
+        "valid": 18407,
+        "invalid": 607,
+        "candidates": [
+          {
+            "name": "최정환",
+            "party": "더불어민주당",
+            "votes": 3848
+          },
+          {
+            "name": "김봉석",
+            "party": "자유한국당",
+            "votes": 2282
+          },
+          {
+            "name": "이수원",
+            "party": "자유한국당",
+            "votes": 893
+          },
+          {
+            "name": "표주숙",
+            "party": "자유한국당",
+            "votes": 2702
+          },
+          {
+            "name": "김석태",
+            "party": "바른미래당",
+            "votes": 1399
+          },
+          {
+            "name": "김병길",
+            "party": "무소속",
+            "votes": 540
+          },
+          {
+            "name": "김향란",
+            "party": "무소속",
+            "votes": 2756
+          },
+          {
+            "name": "백영도",
+            "party": "무소속",
+            "votes": 1171
+          },
+          {
+            "name": "성창헌",
+            "party": "무소속",
+            "votes": 490
+          },
+          {
+            "name": "신중양",
+            "party": "무소속",
+            "votes": 2326
+          }
+        ]
+      },
+      {
+        "district": "거창군나선거구",
+        "voters": 11567,
+        "turnout": 8663,
+        "valid": 8373,
+        "invalid": 290,
+        "candidates": [
+          {
+            "name": "심재수",
+            "party": "더불어민주당",
+            "votes": 2456
+          },
+          {
+            "name": "김종두",
+            "party": "자유한국당",
+            "votes": 2909
+          },
+          {
+            "name": "손권모",
+            "party": "자유한국당",
+            "votes": 1715
+          },
+          {
+            "name": "형남현",
+            "party": "무소속",
+            "votes": 1293
+          }
+        ]
+      },
+      {
+        "district": "거창군다선거구",
+        "voters": 6167,
+        "turnout": 4970,
+        "valid": 4730,
+        "invalid": 240,
+        "candidates": [
+          {
+            "name": "이병채",
+            "party": "더불어민주당",
+            "votes": 940
+          },
+          {
+            "name": "이홍희",
+            "party": "자유한국당",
+            "votes": 2071
+          },
+          {
+            "name": "신재화",
+            "party": "자유한국당",
+            "votes": 1105
+          },
+          {
+            "name": "변상원",
+            "party": "무소속",
+            "votes": 614
+          }
+        ]
+      },
+      {
+        "district": "거창군라선거구",
+        "voters": 8818,
+        "turnout": 6905,
+        "valid": 6555,
+        "invalid": 350,
+        "candidates": [
+          {
+            "name": "신종인",
+            "party": "더불어민주당",
+            "votes": 1197
+          },
+          {
+            "name": "이재운",
+            "party": "자유한국당",
+            "votes": 1601
+          },
+          {
+            "name": "임창원",
+            "party": "자유한국당",
+            "votes": 945
+          },
+          {
+            "name": "권재경",
+            "party": "무소속",
+            "votes": 1485
+          },
+          {
+            "name": "이성복",
+            "party": "무소속",
+            "votes": 1327
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "5",
+    "subType": "도의원",
+    "label": "2018 지선 (제7회) 도의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "거창군제1선거구",
+        "voters": 26509,
+        "turnout": 19013,
+        "valid": 18441,
+        "invalid": 572,
+        "candidates": [
+          {
+            "name": "홍정희",
+            "party": "더불어민주당",
+            "votes": 4836
+          },
+          {
+            "name": "박주언",
+            "party": "자유한국당",
+            "votes": 6561
+          },
+          {
+            "name": "강철우",
+            "party": "무소속",
+            "votes": 7044
+          }
+        ]
+      },
+      {
+        "district": "거창군제2선거구",
+        "voters": 26552,
+        "turnout": 20539,
+        "valid": 19079,
+        "invalid": 1460,
+        "candidates": [
+          {
+            "name": "이곤섭",
+            "party": "더불어민주당",
+            "votes": 6677
+          },
+          {
+            "name": "김일수",
+            "party": "자유한국당",
+            "votes": 12402
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2018 지선 (제7회) 교육감",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "거창군",
+        "voters": 53061,
+        "turnout": 39554,
+        "valid": 36744,
+        "invalid": 2810,
+        "candidates": [
+          {
+            "name": "이효환",
+            "party": "",
+            "votes": 3570
+          },
+          {
+            "name": "김선유",
+            "party": "",
+            "votes": 8011
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 16645
+          },
+          {
+            "name": "박성호",
+            "party": "",
+            "votes": 8518
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "9",
+    "subType": "기초비례",
+    "label": "2018 지선 (제7회) 기초비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "거창군",
+        "voters": 53061,
+        "turnout": 39551,
+        "valid": 37673,
+        "invalid": 1878,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 14605
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 18299
+          },
+          {
+            "name": "바른미래당",
+            "party": "바른미래당",
+            "votes": 4769
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2018 지선 (제7회) 광역비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "거창군",
+        "voters": 53061,
+        "turnout": 39548,
+        "valid": 37713,
+        "invalid": 1835,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 13251
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 17544
+          },
+          {
+            "name": "바른미래당",
+            "party": "바른미래당",
+            "votes": 3475
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 1889
+          },
+          {
+            "name": "민중당",
+            "party": "민중당",
+            "votes": 486
+          },
+          {
+            "name": "대한애국당",
+            "party": "대한애국당",
+            "votes": 600
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 468
+          }
+        ]
+      }
+    ]
+  }
+]

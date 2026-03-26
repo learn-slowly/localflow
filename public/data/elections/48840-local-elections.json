@@ -1,0 +1,673 @@
+[
+  {
+    "sgId": "20220601",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2022 지선 (제8회) 시장",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "남해군",
+        "voters": 38538,
+        "turnout": 27220,
+        "valid": 26369,
+        "invalid": 851,
+        "candidates": [
+          {
+            "name": "장충남",
+            "party": "더불어민주당",
+            "votes": 14804
+          },
+          {
+            "name": "박영일",
+            "party": "국민의힘",
+            "votes": 11565
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2022 지선 (제8회) 시도지사",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "남해군",
+        "voters": 38538,
+        "turnout": 27218,
+        "valid": 25991,
+        "invalid": 1227,
+        "candidates": [
+          {
+            "name": "양문석",
+            "party": "더불어민주당",
+            "votes": 8287
+          },
+          {
+            "name": "박완수",
+            "party": "국민의힘",
+            "votes": 16516
+          },
+          {
+            "name": "여영국",
+            "party": "정의당",
+            "votes": 936
+          },
+          {
+            "name": "최진석",
+            "party": "통일한국당",
+            "votes": 252
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2022 지선 (제8회) 기초의원",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "남해군가선거구",
+        "voters": 13670,
+        "turnout": 9751,
+        "valid": 9395,
+        "invalid": 356,
+        "candidates": [
+          {
+            "name": "하복만",
+            "party": "더불어민주당",
+            "votes": 3070
+          },
+          {
+            "name": "장행복",
+            "party": "국민의힘",
+            "votes": 2924
+          },
+          {
+            "name": "박철영",
+            "party": "국민의힘",
+            "votes": 1248
+          },
+          {
+            "name": "여동찬",
+            "party": "국민의힘",
+            "votes": 2153
+          }
+        ]
+      },
+      {
+        "district": "남해군나선거구",
+        "voters": 5887,
+        "turnout": 4377,
+        "valid": 4236,
+        "invalid": 141,
+        "candidates": [
+          {
+            "name": "정현옥",
+            "party": "더불어민주당",
+            "votes": 1595
+          },
+          {
+            "name": "정영란",
+            "party": "국민의힘",
+            "votes": 1467
+          },
+          {
+            "name": "이경철",
+            "party": "국민의힘",
+            "votes": 1174
+          }
+        ]
+      },
+      {
+        "district": "남해군다선거구",
+        "voters": 8174,
+        "turnout": 5757,
+        "valid": 5430,
+        "invalid": 327,
+        "candidates": [
+          {
+            "name": "김종숙",
+            "party": "더불어민주당",
+            "votes": 1505
+          },
+          {
+            "name": "박종식",
+            "party": "국민의힘",
+            "votes": 2099
+          },
+          {
+            "name": "박종길",
+            "party": "국민의힘",
+            "votes": 1826
+          }
+        ]
+      },
+      {
+        "district": "남해군라선거구",
+        "voters": 10807,
+        "turnout": 7333,
+        "valid": 6916,
+        "invalid": 417,
+        "candidates": [
+          {
+            "name": "빈종수",
+            "party": "더불어민주당",
+            "votes": 1875
+          },
+          {
+            "name": "강대철",
+            "party": "국민의힘",
+            "votes": 2616
+          },
+          {
+            "name": "임태식",
+            "party": "국민의힘",
+            "votes": 2064
+          },
+          {
+            "name": "권창훈",
+            "party": "정의당",
+            "votes": 361
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "5",
+    "subType": "도의원",
+    "label": "2022 지선 (제8회) 도의원",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "남해군선거구",
+        "voters": 38538,
+        "turnout": 27220,
+        "valid": 26130,
+        "invalid": 1090,
+        "candidates": [
+          {
+            "name": "류경완",
+            "party": "더불어민주당",
+            "votes": 13258
+          },
+          {
+            "name": "김창우",
+            "party": "국민의힘",
+            "votes": 12872
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2022 지선 (제8회) 교육감",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "남해군",
+        "voters": 38538,
+        "turnout": 27218,
+        "valid": 25445,
+        "invalid": 1773,
+        "candidates": [
+          {
+            "name": "김상권",
+            "party": "",
+            "votes": 11353
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 14092
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "9",
+    "subType": "기초비례",
+    "label": "2022 지선 (제8회) 기초비례",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "남해군",
+        "voters": 38538,
+        "turnout": 27217,
+        "valid": 25908,
+        "invalid": 1309,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 9665
+          },
+          {
+            "name": "국민의힘",
+            "party": "국민의힘",
+            "votes": 16243
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2022 지선 (제8회) 광역비례",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "남해군",
+        "voters": 38538,
+        "turnout": 27219,
+        "valid": 26049,
+        "invalid": 1170,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 8765
+          },
+          {
+            "name": "국민의힘",
+            "party": "국민의힘",
+            "votes": 15968
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 924
+          },
+          {
+            "name": "기본소득당",
+            "party": "기본소득당",
+            "votes": 89
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 85
+          },
+          {
+            "name": "진보당",
+            "party": "진보당",
+            "votes": 218
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2018 지선 (제7회) 시장",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "남해군",
+        "voters": 39731,
+        "turnout": 30727,
+        "valid": 29573,
+        "invalid": 1154,
+        "candidates": [
+          {
+            "name": "장충남",
+            "party": "더불어민주당",
+            "votes": 13653
+          },
+          {
+            "name": "박영일",
+            "party": "자유한국당",
+            "votes": 11872
+          },
+          {
+            "name": "이철호",
+            "party": "무소속",
+            "votes": 4048
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2018 지선 (제7회) 시도지사",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "남해군",
+        "voters": 39731,
+        "turnout": 30728,
+        "valid": 29352,
+        "invalid": 1376,
+        "candidates": [
+          {
+            "name": "김경수",
+            "party": "더불어민주당",
+            "votes": 13268
+          },
+          {
+            "name": "김태호",
+            "party": "자유한국당",
+            "votes": 14921
+          },
+          {
+            "name": "김유근",
+            "party": "바른미래당",
+            "votes": 1163
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2018 지선 (제7회) 기초의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "남해군가선거구",
+        "voters": 13562,
+        "turnout": 10660,
+        "valid": 10224,
+        "invalid": 436,
+        "candidates": [
+          {
+            "name": "하복만",
+            "party": "더불어민주당",
+            "votes": 3009
+          },
+          {
+            "name": "김창우",
+            "party": "자유한국당",
+            "votes": 2029
+          },
+          {
+            "name": "여동찬",
+            "party": "자유한국당",
+            "votes": 2492
+          },
+          {
+            "name": "김정숙",
+            "party": "자유한국당",
+            "votes": 1053
+          },
+          {
+            "name": "정문한",
+            "party": "무소속",
+            "votes": 1247
+          },
+          {
+            "name": "김두일",
+            "party": "무소속",
+            "votes": 394
+          }
+        ]
+      },
+      {
+        "district": "남해군나선거구",
+        "voters": 6275,
+        "turnout": 5095,
+        "valid": 4855,
+        "invalid": 240,
+        "candidates": [
+          {
+            "name": "정현옥",
+            "party": "더불어민주당",
+            "votes": 1053
+          },
+          {
+            "name": "김평섭",
+            "party": "더불어민주당",
+            "votes": 1003
+          },
+          {
+            "name": "양봉호",
+            "party": "자유한국당",
+            "votes": 762
+          },
+          {
+            "name": "이주홍",
+            "party": "자유한국당",
+            "votes": 1105
+          },
+          {
+            "name": "유항기",
+            "party": "무소속",
+            "votes": 932
+          }
+        ]
+      },
+      {
+        "district": "남해군다선거구",
+        "voters": 8685,
+        "turnout": 6627,
+        "valid": 6181,
+        "invalid": 446,
+        "candidates": [
+          {
+            "name": "김종숙",
+            "party": "더불어민주당",
+            "votes": 1542
+          },
+          {
+            "name": "박종길",
+            "party": "자유한국당",
+            "votes": 2107
+          },
+          {
+            "name": "김경진",
+            "party": "자유한국당",
+            "votes": 1411
+          },
+          {
+            "name": "강상태",
+            "party": "무소속",
+            "votes": 1121
+          }
+        ]
+      },
+      {
+        "district": "남해군라선거구",
+        "voters": 11209,
+        "turnout": 8343,
+        "valid": 7957,
+        "invalid": 386,
+        "candidates": [
+          {
+            "name": "김용옥",
+            "party": "더불어민주당",
+            "votes": 1368
+          },
+          {
+            "name": "임태식",
+            "party": "자유한국당",
+            "votes": 2485
+          },
+          {
+            "name": "윤정근",
+            "party": "자유한국당",
+            "votes": 2016
+          },
+          {
+            "name": "권창훈",
+            "party": "정의당",
+            "votes": 648
+          },
+          {
+            "name": "정홍찬",
+            "party": "무소속",
+            "votes": 1440
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "5",
+    "subType": "도의원",
+    "label": "2018 지선 (제7회) 도의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "남해군선거구",
+        "voters": 39731,
+        "turnout": 30725,
+        "valid": 29064,
+        "invalid": 1661,
+        "candidates": [
+          {
+            "name": "류경완",
+            "party": "더불어민주당",
+            "votes": 16522
+          },
+          {
+            "name": "장행복",
+            "party": "자유한국당",
+            "votes": 12542
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2018 지선 (제7회) 교육감",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "남해군",
+        "voters": 39731,
+        "turnout": 30726,
+        "valid": 28514,
+        "invalid": 2212,
+        "candidates": [
+          {
+            "name": "이효환",
+            "party": "",
+            "votes": 2884
+          },
+          {
+            "name": "김선유",
+            "party": "",
+            "votes": 5661
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 13642
+          },
+          {
+            "name": "박성호",
+            "party": "",
+            "votes": 6327
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "9",
+    "subType": "기초비례",
+    "label": "2018 지선 (제7회) 기초비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "남해군",
+        "voters": 39731,
+        "turnout": 30725,
+        "valid": 28741,
+        "invalid": 1984,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 13759
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 14982
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2018 지선 (제7회) 광역비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "남해군",
+        "voters": 39731,
+        "turnout": 30722,
+        "valid": 28978,
+        "invalid": 1744,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 11845
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 13530
+          },
+          {
+            "name": "바른미래당",
+            "party": "바른미래당",
+            "votes": 1174
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 1403
+          },
+          {
+            "name": "민중당",
+            "party": "민중당",
+            "votes": 500
+          },
+          {
+            "name": "대한애국당",
+            "party": "대한애국당",
+            "votes": 240
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 286
+          }
+        ]
+      }
+    ]
+  }
+]

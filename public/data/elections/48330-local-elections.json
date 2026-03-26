@@ -1,0 +1,990 @@
+[
+  {
+    "sgId": "20220601",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2022 지선 (제8회) 시장",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "양산시",
+        "voters": 294411,
+        "turnout": 138399,
+        "valid": 136730,
+        "invalid": 1669,
+        "candidates": [
+          {
+            "name": "김일권",
+            "party": "더불어민주당",
+            "votes": 48818
+          },
+          {
+            "name": "나동연",
+            "party": "국민의힘",
+            "votes": 81804
+          },
+          {
+            "name": "전원학",
+            "party": "무소속",
+            "votes": 6108
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2022 지선 (제8회) 시도지사",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "양산시",
+        "voters": 294411,
+        "turnout": 138401,
+        "valid": 136302,
+        "invalid": 2099,
+        "candidates": [
+          {
+            "name": "양문석",
+            "party": "더불어민주당",
+            "votes": 48969
+          },
+          {
+            "name": "박완수",
+            "party": "국민의힘",
+            "votes": 83209
+          },
+          {
+            "name": "여영국",
+            "party": "정의당",
+            "votes": 3400
+          },
+          {
+            "name": "최진석",
+            "party": "통일한국당",
+            "votes": 724
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2022 지선 (제8회) 기초의원",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "양산시가선거구",
+        "voters": 44672,
+        "turnout": 20835,
+        "valid": 20338,
+        "invalid": 497,
+        "candidates": [
+          {
+            "name": "김혜림",
+            "party": "더불어민주당",
+            "votes": 7469
+          },
+          {
+            "name": "정성훈",
+            "party": "국민의힘",
+            "votes": 7733
+          },
+          {
+            "name": "김효진",
+            "party": "국민의힘",
+            "votes": 5136
+          }
+        ]
+      },
+      {
+        "district": "양산시나선거구",
+        "voters": 52740,
+        "turnout": 23729,
+        "valid": 21989,
+        "invalid": 1740,
+        "candidates": [
+          {
+            "name": "이묘배",
+            "party": "더불어민주당",
+            "votes": 6324
+          },
+          {
+            "name": "고동식",
+            "party": "더불어민주당",
+            "votes": 3150
+          },
+          {
+            "name": "정숙남",
+            "party": "국민의힘",
+            "votes": 7109
+          },
+          {
+            "name": "곽종포",
+            "party": "국민의힘",
+            "votes": 5406
+          }
+        ]
+      },
+      {
+        "district": "양산시다선거구",
+        "voters": 26566,
+        "turnout": 13627,
+        "valid": 13216,
+        "invalid": 411,
+        "candidates": [
+          {
+            "name": "김지원",
+            "party": "더불어민주당",
+            "votes": 3401
+          },
+          {
+            "name": "이종희",
+            "party": "국민의힘",
+            "votes": 7590
+          },
+          {
+            "name": "김병주",
+            "party": "국민의힘",
+            "votes": 1898
+          },
+          {
+            "name": "정영교",
+            "party": "무소속",
+            "votes": 327
+          }
+        ]
+      },
+      {
+        "district": "양산시라선거구",
+        "voters": 29767,
+        "turnout": 13177,
+        "valid": 12788,
+        "invalid": 389,
+        "candidates": [
+          {
+            "name": "신재향",
+            "party": "더불어민주당",
+            "votes": 3586
+          },
+          {
+            "name": "공유신",
+            "party": "국민의힘",
+            "votes": 6995
+          },
+          {
+            "name": "장성국",
+            "party": "국민의힘",
+            "votes": 1527
+          },
+          {
+            "name": "김운선",
+            "party": "무소속",
+            "votes": 680
+          }
+        ]
+      },
+      {
+        "district": "양산시마선거구",
+        "voters": 58175,
+        "turnout": 28991,
+        "valid": 27450,
+        "invalid": 1541,
+        "candidates": [
+          {
+            "name": "최선호",
+            "party": "더불어민주당",
+            "votes": 7938
+          },
+          {
+            "name": "이기준",
+            "party": "더불어민주당",
+            "votes": 4641
+          },
+          {
+            "name": "최복춘",
+            "party": "국민의힘",
+            "votes": 5991
+          },
+          {
+            "name": "김태우",
+            "party": "국민의힘",
+            "votes": 6784
+          },
+          {
+            "name": "권현우",
+            "party": "정의당",
+            "votes": 2096
+          }
+        ]
+      },
+      {
+        "district": "양산시바선거구",
+        "voters": 41255,
+        "turnout": 18646,
+        "valid": 18161,
+        "invalid": 485,
+        "candidates": [
+          {
+            "name": "강태영",
+            "party": "더불어민주당",
+            "votes": 5722
+          },
+          {
+            "name": "성용근",
+            "party": "국민의힘",
+            "votes": 7321
+          },
+          {
+            "name": "이장호",
+            "party": "국민의힘",
+            "votes": 5118
+          }
+        ]
+      },
+      {
+        "district": "양산시사선거구",
+        "voters": 41236,
+        "turnout": 19356,
+        "valid": 18023,
+        "invalid": 1333,
+        "candidates": [
+          {
+            "name": "김석규",
+            "party": "더불어민주당",
+            "votes": 5577
+          },
+          {
+            "name": "서상태",
+            "party": "더불어민주당",
+            "votes": 2516
+          },
+          {
+            "name": "김판조",
+            "party": "국민의힘",
+            "votes": 6743
+          },
+          {
+            "name": "박일배",
+            "party": "국민의힘",
+            "votes": 3187
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "5",
+    "subType": "도의원",
+    "label": "2022 지선 (제8회) 도의원",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "양산시제1선거구",
+        "voters": 44672,
+        "turnout": 20832,
+        "valid": 20501,
+        "invalid": 331,
+        "candidates": [
+          {
+            "name": "이상열",
+            "party": "더불어민주당",
+            "votes": 9233
+          },
+          {
+            "name": "이용식",
+            "party": "국민의힘",
+            "votes": 11268
+          }
+        ]
+      },
+      {
+        "district": "양산시제2선거구",
+        "voters": 52740,
+        "turnout": 23733,
+        "valid": 23432,
+        "invalid": 301,
+        "candidates": [
+          {
+            "name": "임정섭",
+            "party": "더불어민주당",
+            "votes": 9840
+          },
+          {
+            "name": "이영수",
+            "party": "국민의힘",
+            "votes": 13592
+          }
+        ]
+      },
+      {
+        "district": "양산시제3선거구",
+        "voters": 56333,
+        "turnout": 26807,
+        "valid": 26227,
+        "invalid": 580,
+        "candidates": [
+          {
+            "name": "권동억",
+            "party": "더불어민주당",
+            "votes": 8250
+          },
+          {
+            "name": "최영호",
+            "party": "국민의힘",
+            "votes": 17977
+          }
+        ]
+      },
+      {
+        "district": "양산시제4선거구",
+        "voters": 58175,
+        "turnout": 28992,
+        "valid": 28529,
+        "invalid": 463,
+        "candidates": [
+          {
+            "name": "표병호",
+            "party": "더불어민주당",
+            "votes": 12562
+          },
+          {
+            "name": "권혁준",
+            "party": "국민의힘",
+            "votes": 15967
+          }
+        ]
+      },
+      {
+        "district": "양산시제5선거구",
+        "voters": 41255,
+        "turnout": 18646,
+        "valid": 18311,
+        "invalid": 335,
+        "candidates": [
+          {
+            "name": "김경원",
+            "party": "더불어민주당",
+            "votes": 6382
+          },
+          {
+            "name": "박인",
+            "party": "국민의힘",
+            "votes": 11929
+          }
+        ]
+      },
+      {
+        "district": "양산시제6선거구",
+        "voters": 41236,
+        "turnout": 19354,
+        "valid": 19072,
+        "invalid": 282,
+        "candidates": [
+          {
+            "name": "성동은",
+            "party": "더불어민주당",
+            "votes": 8329
+          },
+          {
+            "name": "허용복",
+            "party": "국민의힘",
+            "votes": 10743
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2022 지선 (제8회) 교육감",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "양산시",
+        "voters": 294411,
+        "turnout": 138387,
+        "valid": 134108,
+        "invalid": 4279,
+        "candidates": [
+          {
+            "name": "김상권",
+            "party": "",
+            "votes": 61334
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 72774
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "9",
+    "subType": "기초비례",
+    "label": "2022 지선 (제8회) 기초비례",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "양산시",
+        "voters": 294411,
+        "turnout": 138370,
+        "valid": 136102,
+        "invalid": 2268,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 51285
+          },
+          {
+            "name": "국민의힘",
+            "party": "국민의힘",
+            "votes": 81820
+          },
+          {
+            "name": "진보당",
+            "party": "진보당",
+            "votes": 2997
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2022 지선 (제8회) 광역비례",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "양산시",
+        "voters": 294411,
+        "turnout": 138376,
+        "valid": 136456,
+        "invalid": 1920,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 48961
+          },
+          {
+            "name": "국민의힘",
+            "party": "국민의힘",
+            "votes": 80860
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 4634
+          },
+          {
+            "name": "기본소득당",
+            "party": "기본소득당",
+            "votes": 440
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 463
+          },
+          {
+            "name": "진보당",
+            "party": "진보당",
+            "votes": 1098
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2018 지선 (제7회) 시장",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "양산시",
+        "voters": 275507,
+        "turnout": 167518,
+        "valid": 163926,
+        "invalid": 3592,
+        "candidates": [
+          {
+            "name": "김일권",
+            "party": "더불어민주당",
+            "votes": 92238
+          },
+          {
+            "name": "나동연",
+            "party": "자유한국당",
+            "votes": 71688
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2018 지선 (제7회) 시도지사",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "양산시",
+        "voters": 275507,
+        "turnout": 167549,
+        "valid": 164877,
+        "invalid": 2672,
+        "candidates": [
+          {
+            "name": "김경수",
+            "party": "더불어민주당",
+            "votes": 94038
+          },
+          {
+            "name": "김태호",
+            "party": "자유한국당",
+            "votes": 63463
+          },
+          {
+            "name": "김유근",
+            "party": "바른미래당",
+            "votes": 7376
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2018 지선 (제7회) 기초의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "양산시가선거구",
+        "voters": 28021,
+        "turnout": 17632,
+        "valid": 16963,
+        "invalid": 669,
+        "candidates": [
+          {
+            "name": "박재우",
+            "party": "더불어민주당",
+            "votes": 6905
+          },
+          {
+            "name": "이종희",
+            "party": "자유한국당",
+            "votes": 5242
+          },
+          {
+            "name": "서덕수",
+            "party": "자유한국당",
+            "votes": 2897
+          },
+          {
+            "name": "정경효",
+            "party": "무소속",
+            "votes": 1919
+          }
+        ]
+      },
+      {
+        "district": "양산시나선거구",
+        "voters": 29217,
+        "turnout": 16841,
+        "valid": 16240,
+        "invalid": 601,
+        "candidates": [
+          {
+            "name": "문신우",
+            "party": "더불어민주당",
+            "votes": 7224
+          },
+          {
+            "name": "이용식",
+            "party": "자유한국당",
+            "votes": 6037
+          },
+          {
+            "name": "김정희",
+            "party": "자유한국당",
+            "votes": 2979
+          }
+        ]
+      },
+      {
+        "district": "양산시다선거구",
+        "voters": 87096,
+        "turnout": 53979,
+        "valid": 51207,
+        "invalid": 2772,
+        "candidates": [
+          {
+            "name": "김혜림",
+            "party": "더불어민주당",
+            "votes": 11883
+          },
+          {
+            "name": "신재향",
+            "party": "더불어민주당",
+            "votes": 6700
+          },
+          {
+            "name": "임정섭",
+            "party": "더불어민주당",
+            "votes": 7738
+          },
+          {
+            "name": "곽종포",
+            "party": "자유한국당",
+            "votes": 9490
+          },
+          {
+            "name": "김효진",
+            "party": "자유한국당",
+            "votes": 7279
+          },
+          {
+            "name": "안경숙",
+            "party": "자유한국당",
+            "votes": 1029
+          },
+          {
+            "name": "손현수",
+            "party": "바른미래당",
+            "votes": 3253
+          },
+          {
+            "name": "권현우",
+            "party": "정의당",
+            "votes": 2926
+          },
+          {
+            "name": "황은희",
+            "party": "민중당",
+            "votes": 909
+          }
+        ]
+      },
+      {
+        "district": "양산시라선거구",
+        "voters": 53918,
+        "turnout": 34213,
+        "valid": 32580,
+        "invalid": 1633,
+        "candidates": [
+          {
+            "name": "정석자",
+            "party": "더불어민주당",
+            "votes": 8533
+          },
+          {
+            "name": "최선호",
+            "party": "더불어민주당",
+            "votes": 7528
+          },
+          {
+            "name": "김태우",
+            "party": "자유한국당",
+            "votes": 5609
+          },
+          {
+            "name": "이기준",
+            "party": "자유한국당",
+            "votes": 5316
+          },
+          {
+            "name": "김창수",
+            "party": "바른미래당",
+            "votes": 1991
+          },
+          {
+            "name": "차예경",
+            "party": "무소속",
+            "votes": 3603
+          }
+        ]
+      },
+      {
+        "district": "양산시마선거구",
+        "voters": 41633,
+        "turnout": 23613,
+        "valid": 22763,
+        "invalid": 850,
+        "candidates": [
+          {
+            "name": "서진부",
+            "party": "더불어민주당",
+            "votes": 11737
+          },
+          {
+            "name": "이장호",
+            "party": "자유한국당",
+            "votes": 6887
+          },
+          {
+            "name": "성용근",
+            "party": "자유한국당",
+            "votes": 2770
+          },
+          {
+            "name": "허용복",
+            "party": "바른미래당",
+            "votes": 1369
+          }
+        ]
+      },
+      {
+        "district": "양산시바선거구",
+        "voters": 35622,
+        "turnout": 21193,
+        "valid": 20397,
+        "invalid": 796,
+        "candidates": [
+          {
+            "name": "박일배",
+            "party": "더불어민주당",
+            "votes": 7857
+          },
+          {
+            "name": "전홍표",
+            "party": "더불어민주당",
+            "votes": 4898
+          },
+          {
+            "name": "이상정",
+            "party": "자유한국당",
+            "votes": 7642
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "5",
+    "subType": "도의원",
+    "label": "2018 지선 (제7회) 도의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "양산시제1선거구",
+        "voters": 57238,
+        "turnout": 34484,
+        "valid": 33404,
+        "invalid": 1080,
+        "candidates": [
+          {
+            "name": "이강렬",
+            "party": "더불어민주당",
+            "votes": 16571
+          },
+          {
+            "name": "한옥문",
+            "party": "자유한국당",
+            "votes": 16833
+          }
+        ]
+      },
+      {
+        "district": "양산시제2선거구",
+        "voters": 87096,
+        "turnout": 53981,
+        "valid": 52754,
+        "invalid": 1227,
+        "candidates": [
+          {
+            "name": "이상열",
+            "party": "더불어민주당",
+            "votes": 34684
+          },
+          {
+            "name": "홍순경",
+            "party": "자유한국당",
+            "votes": 18070
+          }
+        ]
+      },
+      {
+        "district": "양산시제3선거구",
+        "voters": 53918,
+        "turnout": 34219,
+        "valid": 33496,
+        "invalid": 723,
+        "candidates": [
+          {
+            "name": "표병호",
+            "party": "더불어민주당",
+            "votes": 21069
+          },
+          {
+            "name": "조성례",
+            "party": "자유한국당",
+            "votes": 12427
+          }
+        ]
+      },
+      {
+        "district": "양산시제4선거구",
+        "voters": 77255,
+        "turnout": 44815,
+        "valid": 43595,
+        "invalid": 1220,
+        "candidates": [
+          {
+            "name": "성동은",
+            "party": "더불어민주당",
+            "votes": 20745
+          },
+          {
+            "name": "김판조",
+            "party": "자유한국당",
+            "votes": 13787
+          },
+          {
+            "name": "박인",
+            "party": "무소속",
+            "votes": 9063
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2018 지선 (제7회) 교육감",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "양산시",
+        "voters": 275506,
+        "turnout": 167533,
+        "valid": 160977,
+        "invalid": 6556,
+        "candidates": [
+          {
+            "name": "이효환",
+            "party": "",
+            "votes": 20422
+          },
+          {
+            "name": "김선유",
+            "party": "",
+            "votes": 32229
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 73435
+          },
+          {
+            "name": "박성호",
+            "party": "",
+            "votes": 34891
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "9",
+    "subType": "기초비례",
+    "label": "2018 지선 (제7회) 기초비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "양산시",
+        "voters": 275507,
+        "turnout": 167473,
+        "valid": 162446,
+        "invalid": 5027,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 100918
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 61528
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2018 지선 (제7회) 광역비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "양산시",
+        "voters": 275507,
+        "turnout": 167512,
+        "valid": 164401,
+        "invalid": 3111,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 85051
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 55876
+          },
+          {
+            "name": "바른미래당",
+            "party": "바른미래당",
+            "votes": 8966
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 11656
+          },
+          {
+            "name": "민중당",
+            "party": "민중당",
+            "votes": 1195
+          },
+          {
+            "name": "대한애국당",
+            "party": "대한애국당",
+            "votes": 596
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 1061
+          }
+        ]
+      }
+    ]
+  }
+]

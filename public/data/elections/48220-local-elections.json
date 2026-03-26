@@ -1,0 +1,850 @@
+[
+  {
+    "sgId": "20220601",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2022 지선 (제8회) 시장",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "통영시",
+        "voters": 106064,
+        "turnout": 61241,
+        "valid": 60008,
+        "invalid": 1233,
+        "candidates": [
+          {
+            "name": "강석주",
+            "party": "더불어민주당",
+            "votes": 21686
+          },
+          {
+            "name": "천영기",
+            "party": "국민의힘",
+            "votes": 23365
+          },
+          {
+            "name": "박청정",
+            "party": "우리공화당",
+            "votes": 1152
+          },
+          {
+            "name": "서필언",
+            "party": "무소속",
+            "votes": 13805
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2022 지선 (제8회) 시도지사",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "통영시",
+        "voters": 106064,
+        "turnout": 61244,
+        "valid": 60021,
+        "invalid": 1223,
+        "candidates": [
+          {
+            "name": "양문석",
+            "party": "더불어민주당",
+            "votes": 18160
+          },
+          {
+            "name": "박완수",
+            "party": "국민의힘",
+            "votes": 40307
+          },
+          {
+            "name": "여영국",
+            "party": "정의당",
+            "votes": 1081
+          },
+          {
+            "name": "최진석",
+            "party": "통일한국당",
+            "votes": 473
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2022 지선 (제8회) 기초의원",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "통영시가선거구",
+        "voters": 36778,
+        "turnout": 20402,
+        "valid": 19921,
+        "invalid": 481,
+        "candidates": [
+          {
+            "name": "배윤주",
+            "party": "더불어민주당",
+            "votes": 5848
+          },
+          {
+            "name": "박상준",
+            "party": "국민의힘",
+            "votes": 7462
+          },
+          {
+            "name": "강경두",
+            "party": "국민의힘",
+            "votes": 2432
+          },
+          {
+            "name": "전병일",
+            "party": "무소속",
+            "votes": 4179
+          }
+        ]
+      },
+      {
+        "district": "통영시나선거구",
+        "voters": 27329,
+        "turnout": 16505,
+        "valid": 15577,
+        "invalid": 928,
+        "candidates": [
+          {
+            "name": "김혜경",
+            "party": "더불어민주당",
+            "votes": 2862
+          },
+          {
+            "name": "정광호",
+            "party": "더불어민주당",
+            "votes": 2650
+          },
+          {
+            "name": "조필규",
+            "party": "국민의힘",
+            "votes": 4348
+          },
+          {
+            "name": "노성진",
+            "party": "국민의힘",
+            "votes": 1398
+          },
+          {
+            "name": "김동일",
+            "party": "국민의힘",
+            "votes": 1231
+          },
+          {
+            "name": "류성한",
+            "party": "국민의힘",
+            "votes": 1131
+          },
+          {
+            "name": "라수용",
+            "party": "우리공화당",
+            "votes": 236
+          },
+          {
+            "name": "신광진",
+            "party": "무소속",
+            "votes": 334
+          },
+          {
+            "name": "이명",
+            "party": "무소속",
+            "votes": 1387
+          }
+        ]
+      },
+      {
+        "district": "통영시다선거구",
+        "voters": 13825,
+        "turnout": 8182,
+        "valid": 7875,
+        "invalid": 307,
+        "candidates": [
+          {
+            "name": "이승민",
+            "party": "더불어민주당",
+            "votes": 1734
+          },
+          {
+            "name": "배도수",
+            "party": "국민의힘",
+            "votes": 2466
+          },
+          {
+            "name": "신철기",
+            "party": "국민의힘",
+            "votes": 2006
+          },
+          {
+            "name": "김만옥",
+            "party": "무소속",
+            "votes": 1669
+          }
+        ]
+      },
+      {
+        "district": "통영시라선거구",
+        "voters": 28132,
+        "turnout": 16152,
+        "valid": 15678,
+        "invalid": 474,
+        "candidates": [
+          {
+            "name": "김용안",
+            "party": "더불어민주당",
+            "votes": 4217
+          },
+          {
+            "name": "김태균",
+            "party": "국민의힘",
+            "votes": 6916
+          },
+          {
+            "name": "김미옥",
+            "party": "국민의힘",
+            "votes": 4545
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "5",
+    "subType": "도의원",
+    "label": "2022 지선 (제8회) 도의원",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "통영시제1선거구",
+        "voters": 64107,
+        "turnout": 36905,
+        "valid": 36038,
+        "invalid": 867,
+        "candidates": [
+          {
+            "name": "김영구",
+            "party": "더불어민주당",
+            "votes": 9278
+          },
+          {
+            "name": "강성중",
+            "party": "국민의힘",
+            "votes": 18002
+          },
+          {
+            "name": "정동영",
+            "party": "무소속",
+            "votes": 8758
+          }
+        ]
+      },
+      {
+        "district": "통영시제2선거구",
+        "voters": 41957,
+        "turnout": 24335,
+        "valid": 23804,
+        "invalid": 531,
+        "candidates": [
+          {
+            "name": "유용문",
+            "party": "더불어민주당",
+            "votes": 6697
+          },
+          {
+            "name": "김태규",
+            "party": "국민의힘",
+            "votes": 17107
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2022 지선 (제8회) 교육감",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "통영시",
+        "voters": 106064,
+        "turnout": 61240,
+        "valid": 59118,
+        "invalid": 2122,
+        "candidates": [
+          {
+            "name": "김상권",
+            "party": "",
+            "votes": 29746
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 29372
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "9",
+    "subType": "기초비례",
+    "label": "2022 지선 (제8회) 기초비례",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "통영시",
+        "voters": 106064,
+        "turnout": 61240,
+        "valid": 59616,
+        "invalid": 1624,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 19089
+          },
+          {
+            "name": "국민의힘",
+            "party": "국민의힘",
+            "votes": 40527
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2022 지선 (제8회) 광역비례",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "통영시",
+        "voters": 106064,
+        "turnout": 61241,
+        "valid": 59895,
+        "invalid": 1346,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 17386
+          },
+          {
+            "name": "국민의힘",
+            "party": "국민의힘",
+            "votes": 39810
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 1723
+          },
+          {
+            "name": "기본소득당",
+            "party": "기본소득당",
+            "votes": 331
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 293
+          },
+          {
+            "name": "진보당",
+            "party": "진보당",
+            "votes": 352
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2018 지선 (제7회) 시장",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "통영시",
+        "voters": 110317,
+        "turnout": 72818,
+        "valid": 71294,
+        "invalid": 1524,
+        "candidates": [
+          {
+            "name": "강석주",
+            "party": "더불어민주당",
+            "votes": 28158
+          },
+          {
+            "name": "강석우",
+            "party": "자유한국당",
+            "votes": 27228
+          },
+          {
+            "name": "박순옥",
+            "party": "대한애국당",
+            "votes": 904
+          },
+          {
+            "name": "서맹종",
+            "party": "무소속",
+            "votes": 549
+          },
+          {
+            "name": "진의장",
+            "party": "무소속",
+            "votes": 12311
+          },
+          {
+            "name": "박청정",
+            "party": "무소속",
+            "votes": 2144
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2018 지선 (제7회) 시도지사",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "통영시",
+        "voters": 110317,
+        "turnout": 72815,
+        "valid": 71307,
+        "invalid": 1508,
+        "candidates": [
+          {
+            "name": "김경수",
+            "party": "더불어민주당",
+            "votes": 32916
+          },
+          {
+            "name": "김태호",
+            "party": "자유한국당",
+            "votes": 35501
+          },
+          {
+            "name": "김유근",
+            "party": "바른미래당",
+            "votes": 2890
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2018 지선 (제7회) 기초의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "통영시가선거구",
+        "voters": 35598,
+        "turnout": 23591,
+        "valid": 22608,
+        "invalid": 983,
+        "candidates": [
+          {
+            "name": "배윤주",
+            "party": "더불어민주당",
+            "votes": 6186
+          },
+          {
+            "name": "박용수",
+            "party": "더불어민주당",
+            "votes": 2713
+          },
+          {
+            "name": "박상준",
+            "party": "자유한국당",
+            "votes": 3113
+          },
+          {
+            "name": "전병일",
+            "party": "자유한국당",
+            "votes": 3701
+          },
+          {
+            "name": "최덕호",
+            "party": "자유한국당",
+            "votes": 1455
+          },
+          {
+            "name": "최은겸",
+            "party": "무소속",
+            "votes": 436
+          },
+          {
+            "name": "김병록",
+            "party": "무소속",
+            "votes": 1434
+          },
+          {
+            "name": "정영규",
+            "party": "무소속",
+            "votes": 451
+          },
+          {
+            "name": "유정철",
+            "party": "무소속",
+            "votes": 3119
+          }
+        ]
+      },
+      {
+        "district": "통영시나선거구",
+        "voters": 10079,
+        "turnout": 7122,
+        "valid": 6775,
+        "invalid": 347,
+        "candidates": [
+          {
+            "name": "손쾌환",
+            "party": "자유한국당",
+            "votes": 2021
+          },
+          {
+            "name": "문성덕",
+            "party": "자유한국당",
+            "votes": 2813
+          },
+          {
+            "name": "이동호",
+            "party": "무소속",
+            "votes": 651
+          },
+          {
+            "name": "하동수",
+            "party": "무소속",
+            "votes": 609
+          },
+          {
+            "name": "김정태",
+            "party": "무소속",
+            "votes": 681
+          }
+        ]
+      },
+      {
+        "district": "통영시다선거구",
+        "voters": 20142,
+        "turnout": 12978,
+        "valid": 12585,
+        "invalid": 393,
+        "candidates": [
+          {
+            "name": "정광호",
+            "party": "더불어민주당",
+            "votes": 3693
+          },
+          {
+            "name": "강혜원",
+            "party": "자유한국당",
+            "votes": 2997
+          },
+          {
+            "name": "이명",
+            "party": "자유한국당",
+            "votes": 2227
+          },
+          {
+            "name": "구상식",
+            "party": "무소속",
+            "votes": 1002
+          },
+          {
+            "name": "한선재",
+            "party": "무소속",
+            "votes": 1518
+          },
+          {
+            "name": "신용섭",
+            "party": "무소속",
+            "votes": 666
+          },
+          {
+            "name": "신광식",
+            "party": "무소속",
+            "votes": 482
+          }
+        ]
+      },
+      {
+        "district": "통영시라선거구",
+        "voters": 16126,
+        "turnout": 10371,
+        "valid": 10026,
+        "invalid": 345,
+        "candidates": [
+          {
+            "name": "이승민",
+            "party": "더불어민주당",
+            "votes": 2623
+          },
+          {
+            "name": "배도수",
+            "party": "자유한국당",
+            "votes": 3252
+          },
+          {
+            "name": "신철기",
+            "party": "자유한국당",
+            "votes": 1532
+          },
+          {
+            "name": "김만옥",
+            "party": "무소속",
+            "votes": 2165
+          },
+          {
+            "name": "김현수",
+            "party": "무소속",
+            "votes": 454
+          }
+        ]
+      },
+      {
+        "district": "통영시마선거구",
+        "voters": 28372,
+        "turnout": 18749,
+        "valid": 18245,
+        "invalid": 504,
+        "candidates": [
+          {
+            "name": "김용안",
+            "party": "더불어민주당",
+            "votes": 4637
+          },
+          {
+            "name": "김미옥",
+            "party": "자유한국당",
+            "votes": 5449
+          },
+          {
+            "name": "김이순",
+            "party": "자유한국당",
+            "votes": 1670
+          },
+          {
+            "name": "강성중",
+            "party": "무소속",
+            "votes": 2105
+          },
+          {
+            "name": "황수배",
+            "party": "무소속",
+            "votes": 4384
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "5",
+    "subType": "도의원",
+    "label": "2018 지선 (제7회) 도의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "통영시제1선거구",
+        "voters": 65819,
+        "turnout": 43692,
+        "valid": 42565,
+        "invalid": 1127,
+        "candidates": [
+          {
+            "name": "송현영",
+            "party": "더불어민주당",
+            "votes": 16166
+          },
+          {
+            "name": "정동영",
+            "party": "자유한국당",
+            "votes": 22191
+          },
+          {
+            "name": "김영구",
+            "party": "무소속",
+            "votes": 4208
+          }
+        ]
+      },
+      {
+        "district": "통영시제2선거구",
+        "voters": 44498,
+        "turnout": 29119,
+        "valid": 28402,
+        "invalid": 717,
+        "candidates": [
+          {
+            "name": "유용문",
+            "party": "더불어민주당",
+            "votes": 9153
+          },
+          {
+            "name": "강근식",
+            "party": "자유한국당",
+            "votes": 12244
+          },
+          {
+            "name": "송건태",
+            "party": "무소속",
+            "votes": 7005
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2018 지선 (제7회) 교육감",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "통영시",
+        "voters": 110317,
+        "turnout": 72810,
+        "valid": 69577,
+        "invalid": 3233,
+        "candidates": [
+          {
+            "name": "이효환",
+            "party": "",
+            "votes": 5923
+          },
+          {
+            "name": "김선유",
+            "party": "",
+            "votes": 13743
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 33959
+          },
+          {
+            "name": "박성호",
+            "party": "",
+            "votes": 15952
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "9",
+    "subType": "기초비례",
+    "label": "2018 지선 (제7회) 기초비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "통영시",
+        "voters": 110317,
+        "turnout": 72807,
+        "valid": 69407,
+        "invalid": 3400,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 31572
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 32856
+          },
+          {
+            "name": "바른미래당",
+            "party": "바른미래당",
+            "votes": 4979
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2018 지선 (제7회) 광역비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "통영시",
+        "voters": 110317,
+        "turnout": 72807,
+        "valid": 70242,
+        "invalid": 2565,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 29044
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 32047
+          },
+          {
+            "name": "바른미래당",
+            "party": "바른미래당",
+            "votes": 3730
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 3512
+          },
+          {
+            "name": "민중당",
+            "party": "민중당",
+            "votes": 437
+          },
+          {
+            "name": "대한애국당",
+            "party": "대한애국당",
+            "votes": 840
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 632
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,704 @@
+[
+  {
+    "sgId": "20220601",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2022 지선 (제8회) 시장",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "창녕군",
+        "voters": 53616,
+        "turnout": 34390,
+        "valid": 33408,
+        "invalid": 982,
+        "candidates": [
+          {
+            "name": "김태완",
+            "party": "더불어민주당",
+            "votes": 3593
+          },
+          {
+            "name": "김부영",
+            "party": "국민의힘",
+            "votes": 16568
+          },
+          {
+            "name": "한정우",
+            "party": "무소속",
+            "votes": 12447
+          },
+          {
+            "name": "유영식",
+            "party": "무소속",
+            "votes": 800
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2022 지선 (제8회) 시도지사",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "창녕군",
+        "voters": 53616,
+        "turnout": 34391,
+        "valid": 33157,
+        "invalid": 1234,
+        "candidates": [
+          {
+            "name": "양문석",
+            "party": "더불어민주당",
+            "votes": 6416
+          },
+          {
+            "name": "박완수",
+            "party": "국민의힘",
+            "votes": 24896
+          },
+          {
+            "name": "여영국",
+            "party": "정의당",
+            "votes": 1120
+          },
+          {
+            "name": "최진석",
+            "party": "통일한국당",
+            "votes": 725
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2022 지선 (제8회) 기초의원",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "창녕군가선거구",
+        "voters": 18056,
+        "turnout": 11766,
+        "valid": 11450,
+        "invalid": 316,
+        "candidates": [
+          {
+            "name": "성기욱",
+            "party": "더불어민주당",
+            "votes": 1748
+          },
+          {
+            "name": "하종혜",
+            "party": "국민의힘",
+            "votes": 2539
+          },
+          {
+            "name": "조철진",
+            "party": "국민의힘",
+            "votes": 1584
+          },
+          {
+            "name": "신은숙",
+            "party": "국민의힘",
+            "votes": 2050
+          },
+          {
+            "name": "홍성두",
+            "party": "무소속",
+            "votes": 2080
+          },
+          {
+            "name": "이재구",
+            "party": "무소속",
+            "votes": 1449
+          }
+        ]
+      },
+      {
+        "district": "창녕군나선거구",
+        "voters": 9077,
+        "turnout": 5693,
+        "valid": 5417,
+        "invalid": 276,
+        "candidates": [
+          {
+            "name": "김재한",
+            "party": "국민의힘",
+            "votes": 2408
+          },
+          {
+            "name": "노영도",
+            "party": "국민의힘",
+            "votes": 1991
+          },
+          {
+            "name": "김경",
+            "party": "무소속",
+            "votes": 1018
+          }
+        ]
+      },
+      {
+        "district": "창녕군다선거구",
+        "voters": 15103,
+        "turnout": 9608,
+        "valid": 9248,
+        "invalid": 360,
+        "candidates": [
+          {
+            "name": "조미련",
+            "party": "더불어민주당",
+            "votes": 1390
+          },
+          {
+            "name": "이동훈",
+            "party": "국민의힘",
+            "votes": 2710
+          },
+          {
+            "name": "김종호",
+            "party": "국민의힘",
+            "votes": 2412
+          },
+          {
+            "name": "장희용",
+            "party": "무소속",
+            "votes": 1493
+          },
+          {
+            "name": "추영엽",
+            "party": "무소속",
+            "votes": 1243
+          }
+        ]
+      },
+      {
+        "district": "창녕군라선거구",
+        "voters": 11380,
+        "turnout": 7321,
+        "valid": 6753,
+        "invalid": 568,
+        "candidates": [
+          {
+            "name": "이승렬",
+            "party": "국민의힘",
+            "votes": 2892
+          },
+          {
+            "name": "박상재",
+            "party": "국민의힘",
+            "votes": 2579
+          },
+          {
+            "name": "서창호",
+            "party": "무소속",
+            "votes": 1282
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "5",
+    "subType": "도의원",
+    "label": "2022 지선 (제8회) 도의원",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "창녕군제2선거구",
+        "voters": 26483,
+        "turnout": 16931,
+        "valid": 16247,
+        "invalid": 684,
+        "candidates": [
+          {
+            "name": "우기수",
+            "party": "국민의힘",
+            "votes": 8922
+          },
+          {
+            "name": "신용곤",
+            "party": "무소속",
+            "votes": 7325
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2022 지선 (제8회) 교육감",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "창녕군",
+        "voters": 53616,
+        "turnout": 34390,
+        "valid": 32460,
+        "invalid": 1930,
+        "candidates": [
+          {
+            "name": "김상권",
+            "party": "",
+            "votes": 15662
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 16798
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2022 지선 (제8회) 광역비례",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "창녕군",
+        "voters": 53616,
+        "turnout": 34389,
+        "valid": 33197,
+        "invalid": 1192,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 7021
+          },
+          {
+            "name": "국민의힘",
+            "party": "국민의힘",
+            "votes": 23990
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 1177
+          },
+          {
+            "name": "기본소득당",
+            "party": "기본소득당",
+            "votes": 578
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 187
+          },
+          {
+            "name": "진보당",
+            "party": "진보당",
+            "votes": 244
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2018 지선 (제7회) 시장",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "창녕군",
+        "voters": 55922,
+        "turnout": 39405,
+        "valid": 38165,
+        "invalid": 1240,
+        "candidates": [
+          {
+            "name": "배종열",
+            "party": "더불어민주당",
+            "votes": 15816
+          },
+          {
+            "name": "한정우",
+            "party": "자유한국당",
+            "votes": 19860
+          },
+          {
+            "name": "하강돈",
+            "party": "무소속",
+            "votes": 1136
+          },
+          {
+            "name": "김종규",
+            "party": "무소속",
+            "votes": 1353
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2018 지선 (제7회) 시도지사",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "창녕군",
+        "voters": 55922,
+        "turnout": 39408,
+        "valid": 38284,
+        "invalid": 1124,
+        "candidates": [
+          {
+            "name": "김경수",
+            "party": "더불어민주당",
+            "votes": 15083
+          },
+          {
+            "name": "김태호",
+            "party": "자유한국당",
+            "votes": 21886
+          },
+          {
+            "name": "김유근",
+            "party": "바른미래당",
+            "votes": 1315
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2018 지선 (제7회) 기초의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "창녕군가선거구",
+        "voters": 18398,
+        "turnout": 13142,
+        "valid": 12646,
+        "invalid": 496,
+        "candidates": [
+          {
+            "name": "김경",
+            "party": "더불어민주당",
+            "votes": 3059
+          },
+          {
+            "name": "홍성두",
+            "party": "자유한국당",
+            "votes": 2774
+          },
+          {
+            "name": "안홍욱",
+            "party": "자유한국당",
+            "votes": 2282
+          },
+          {
+            "name": "김순식",
+            "party": "자유한국당",
+            "votes": 1823
+          },
+          {
+            "name": "양종무",
+            "party": "바른미래당",
+            "votes": 246
+          },
+          {
+            "name": "노용규",
+            "party": "무소속",
+            "votes": 793
+          },
+          {
+            "name": "김병곤",
+            "party": "무소속",
+            "votes": 1669
+          }
+        ]
+      },
+      {
+        "district": "창녕군나선거구",
+        "voters": 9805,
+        "turnout": 6730,
+        "valid": 6338,
+        "invalid": 392,
+        "candidates": [
+          {
+            "name": "이기호",
+            "party": "자유한국당",
+            "votes": 1141
+          },
+          {
+            "name": "김춘석",
+            "party": "자유한국당",
+            "votes": 2070
+          },
+          {
+            "name": "김재한",
+            "party": "무소속",
+            "votes": 1773
+          },
+          {
+            "name": "이상록",
+            "party": "무소속",
+            "votes": 1354
+          }
+        ]
+      },
+      {
+        "district": "창녕군다선거구",
+        "voters": 15798,
+        "turnout": 11004,
+        "valid": 10465,
+        "invalid": 539,
+        "candidates": [
+          {
+            "name": "조미련",
+            "party": "더불어민주당",
+            "votes": 2488
+          },
+          {
+            "name": "추영엽",
+            "party": "자유한국당",
+            "votes": 3400
+          },
+          {
+            "name": "장희용",
+            "party": "자유한국당",
+            "votes": 2328
+          },
+          {
+            "name": "김종호",
+            "party": "무소속",
+            "votes": 2249
+          }
+        ]
+      },
+      {
+        "district": "창녕군라선거구",
+        "voters": 11921,
+        "turnout": 8530,
+        "valid": 8192,
+        "invalid": 338,
+        "candidates": [
+          {
+            "name": "박차홍",
+            "party": "더불어민주당",
+            "votes": 1967
+          },
+          {
+            "name": "박상재",
+            "party": "자유한국당",
+            "votes": 2665
+          },
+          {
+            "name": "이칠봉",
+            "party": "자유한국당",
+            "votes": 1978
+          },
+          {
+            "name": "이낙중",
+            "party": "무소속",
+            "votes": 883
+          },
+          {
+            "name": "서창호",
+            "party": "무소속",
+            "votes": 246
+          },
+          {
+            "name": "최성윤",
+            "party": "무소속",
+            "votes": 453
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "5",
+    "subType": "도의원",
+    "label": "2018 지선 (제7회) 도의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "창녕군제1선거구",
+        "voters": 28203,
+        "turnout": 19870,
+        "valid": 19147,
+        "invalid": 723,
+        "candidates": [
+          {
+            "name": "김태완",
+            "party": "더불어민주당",
+            "votes": 6356
+          },
+          {
+            "name": "성낙인",
+            "party": "자유한국당",
+            "votes": 10737
+          },
+          {
+            "name": "박태승",
+            "party": "무소속",
+            "votes": 2054
+          }
+        ]
+      },
+      {
+        "district": "창녕군제2선거구",
+        "voters": 27719,
+        "turnout": 19533,
+        "valid": 18853,
+        "invalid": 680,
+        "candidates": [
+          {
+            "name": "배근우",
+            "party": "더불어민주당",
+            "votes": 7675
+          },
+          {
+            "name": "신용곤",
+            "party": "자유한국당",
+            "votes": 11178
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2018 지선 (제7회) 교육감",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "창녕군",
+        "voters": 55922,
+        "turnout": 39403,
+        "valid": 37220,
+        "invalid": 2183,
+        "candidates": [
+          {
+            "name": "이효환",
+            "party": "",
+            "votes": 4729
+          },
+          {
+            "name": "김선유",
+            "party": "",
+            "votes": 6435
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 16421
+          },
+          {
+            "name": "박성호",
+            "party": "",
+            "votes": 9635
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "9",
+    "subType": "기초비례",
+    "label": "2018 지선 (제7회) 기초비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "창녕군",
+        "voters": 55922,
+        "turnout": 39403,
+        "valid": 37328,
+        "invalid": 2075,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 15407
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 21921
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2018 지선 (제7회) 광역비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "창녕군",
+        "voters": 55922,
+        "turnout": 39401,
+        "valid": 37346,
+        "invalid": 2055,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 13145
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 20161
+          },
+          {
+            "name": "바른미래당",
+            "party": "바른미래당",
+            "votes": 1348
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 1487
+          },
+          {
+            "name": "민중당",
+            "party": "민중당",
+            "votes": 414
+          },
+          {
+            "name": "대한애국당",
+            "party": "대한애국당",
+            "votes": 491
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 300
+          }
+        ]
+      }
+    ]
+  }
+]

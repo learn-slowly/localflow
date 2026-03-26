@@ -1,0 +1,2012 @@
+[
+  {
+    "sgId": "20220601",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2022 지선 (제8회) 시장",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "창원시의창구",
+        "voters": 185184,
+        "turnout": 94824,
+        "valid": 93100,
+        "invalid": 1724,
+        "candidates": [
+          {
+            "name": "허성무",
+            "party": "더불어민주당",
+            "votes": 37023
+          },
+          {
+            "name": "홍남표",
+            "party": "국민의힘",
+            "votes": 56077
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2022 지선 (제8회) 시도지사",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "창원시의창구",
+        "voters": 185184,
+        "turnout": 94824,
+        "valid": 93669,
+        "invalid": 1155,
+        "candidates": [
+          {
+            "name": "양문석",
+            "party": "더불어민주당",
+            "votes": 23944
+          },
+          {
+            "name": "박완수",
+            "party": "국민의힘",
+            "votes": 64989
+          },
+          {
+            "name": "여영국",
+            "party": "정의당",
+            "votes": 4366
+          },
+          {
+            "name": "최진석",
+            "party": "통일한국당",
+            "votes": 370
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2022 지선 (제8회) 기초의원",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "창원시가선거구",
+        "voters": 57295,
+        "turnout": 29323,
+        "valid": 27755,
+        "invalid": 1568,
+        "candidates": [
+          {
+            "name": "최은하",
+            "party": "더불어민주당",
+            "votes": 6901
+          },
+          {
+            "name": "김장하",
+            "party": "더불어민주당",
+            "votes": 3280
+          },
+          {
+            "name": "김우진",
+            "party": "국민의힘",
+            "votes": 9082
+          },
+          {
+            "name": "권성현",
+            "party": "국민의힘",
+            "votes": 5166
+          },
+          {
+            "name": "김수금",
+            "party": "국민의힘",
+            "votes": 2580
+          },
+          {
+            "name": "김삼모",
+            "party": "무소속",
+            "votes": 746
+          }
+        ]
+      },
+      {
+        "district": "창원시나선거구",
+        "voters": 64496,
+        "turnout": 33921,
+        "valid": 32417,
+        "invalid": 1504,
+        "candidates": [
+          {
+            "name": "김묘정",
+            "party": "더불어민주당",
+            "votes": 8832
+          },
+          {
+            "name": "김혜란",
+            "party": "국민의힘",
+            "votes": 13117
+          },
+          {
+            "name": "구점득",
+            "party": "국민의힘",
+            "votes": 7162
+          },
+          {
+            "name": "강영희",
+            "party": "진보당",
+            "votes": 3306
+          }
+        ]
+      },
+      {
+        "district": "창원시다선거구",
+        "voters": 63393,
+        "turnout": 31576,
+        "valid": 29952,
+        "invalid": 1624,
+        "candidates": [
+          {
+            "name": "김남수",
+            "party": "더불어민주당",
+            "votes": 9399
+          },
+          {
+            "name": "안상우",
+            "party": "국민의힘",
+            "votes": 14189
+          },
+          {
+            "name": "오춘근",
+            "party": "국민의힘",
+            "votes": 3647
+          },
+          {
+            "name": "박현재",
+            "party": "무소속",
+            "votes": 2717
+          }
+        ]
+      },
+      {
+        "district": "창원시라선거구",
+        "voters": 58608,
+        "turnout": 32699,
+        "valid": 31229,
+        "invalid": 1470,
+        "candidates": [
+          {
+            "name": "박해정",
+            "party": "더불어민주당",
+            "votes": 9991
+          },
+          {
+            "name": "강창석",
+            "party": "국민의힘",
+            "votes": 16524
+          },
+          {
+            "name": "석영철",
+            "party": "진보당",
+            "votes": 4714
+          }
+        ]
+      },
+      {
+        "district": "창원시바선거구",
+        "voters": 61679,
+        "turnout": 32596,
+        "valid": 31071,
+        "invalid": 1525,
+        "candidates": [
+          {
+            "name": "한은정",
+            "party": "더불어민주당",
+            "votes": 10611
+          },
+          {
+            "name": "김경수",
+            "party": "국민의힘",
+            "votes": 13709
+          },
+          {
+            "name": "성보빈",
+            "party": "국민의힘",
+            "votes": 3547
+          },
+          {
+            "name": "이소정",
+            "party": "정의당",
+            "votes": 3204
+          }
+        ]
+      },
+      {
+        "district": "창원시아선거구",
+        "voters": 33606,
+        "turnout": 19025,
+        "valid": 18100,
+        "invalid": 925,
+        "candidates": [
+          {
+            "name": "지상록",
+            "party": "더불어민주당",
+            "votes": 5242
+          },
+          {
+            "name": "이천수",
+            "party": "국민의힘",
+            "votes": 7334
+          },
+          {
+            "name": "김이근",
+            "party": "국민의힘",
+            "votes": 5524
+          }
+        ]
+      },
+      {
+        "district": "창원시자선거구",
+        "voters": 57826,
+        "turnout": 29932,
+        "valid": 27847,
+        "invalid": 2085,
+        "candidates": [
+          {
+            "name": "이원주",
+            "party": "더불어민주당",
+            "votes": 5548
+          },
+          {
+            "name": "박성원",
+            "party": "더불어민주당",
+            "votes": 2953
+          },
+          {
+            "name": "홍용채",
+            "party": "국민의힘",
+            "votes": 13140
+          },
+          {
+            "name": "서영권",
+            "party": "국민의힘",
+            "votes": 4807
+          },
+          {
+            "name": "홍광기",
+            "party": "무소속",
+            "votes": 269
+          },
+          {
+            "name": "최희정",
+            "party": "무소속",
+            "votes": 1130
+          }
+        ]
+      },
+      {
+        "district": "창원시차선거구",
+        "voters": 65418,
+        "turnout": 34948,
+        "valid": 33439,
+        "invalid": 1509,
+        "candidates": [
+          {
+            "name": "전홍표",
+            "party": "더불어민주당",
+            "votes": 10764
+          },
+          {
+            "name": "박선애",
+            "party": "국민의힘",
+            "votes": 12533
+          },
+          {
+            "name": "정길상",
+            "party": "국민의힘",
+            "votes": 8173
+          },
+          {
+            "name": "정태은",
+            "party": "국민의힘",
+            "votes": 1969
+          }
+        ]
+      },
+      {
+        "district": "창원시카선거구",
+        "voters": 52522,
+        "turnout": 28206,
+        "valid": 26936,
+        "invalid": 1270,
+        "candidates": [
+          {
+            "name": "이우완",
+            "party": "더불어민주당",
+            "votes": 10737
+          },
+          {
+            "name": "남재욱",
+            "party": "국민의힘",
+            "votes": 15385
+          },
+          {
+            "name": "정선우",
+            "party": "무소속",
+            "votes": 814
+          }
+        ]
+      },
+      {
+        "district": "창원시파선거구",
+        "voters": 61008,
+        "turnout": 32751,
+        "valid": 30908,
+        "invalid": 1843,
+        "candidates": [
+          {
+            "name": "문순규",
+            "party": "더불어민주당",
+            "votes": 10236
+          },
+          {
+            "name": "박승엽",
+            "party": "국민의힘",
+            "votes": 11321
+          },
+          {
+            "name": "김호근",
+            "party": "국민의힘",
+            "votes": 3913
+          },
+          {
+            "name": "손태화",
+            "party": "국민의힘",
+            "votes": 5438
+          }
+        ]
+      },
+      {
+        "district": "창원시하선거구",
+        "voters": 25333,
+        "turnout": 13391,
+        "valid": 12827,
+        "invalid": 564,
+        "candidates": [
+          {
+            "name": "김상현",
+            "party": "더불어민주당",
+            "votes": 3221
+          },
+          {
+            "name": "이해련",
+            "party": "국민의힘",
+            "votes": 6890
+          },
+          {
+            "name": "전수명",
+            "party": "무소속",
+            "votes": 2716
+          }
+        ]
+      },
+      {
+        "district": "창원시거선거구",
+        "voters": 29793,
+        "turnout": 15324,
+        "valid": 14820,
+        "invalid": 504,
+        "candidates": [
+          {
+            "name": "정순욱",
+            "party": "더불어민주당",
+            "votes": 4978
+          },
+          {
+            "name": "김헌일",
+            "party": "국민의힘",
+            "votes": 6968
+          },
+          {
+            "name": "김인길",
+            "party": "국민의힘",
+            "votes": 2874
+          }
+        ]
+      },
+      {
+        "district": "창원시너선거구",
+        "voters": 52601,
+        "turnout": 26800,
+        "valid": 25799,
+        "invalid": 1001,
+        "candidates": [
+          {
+            "name": "이종화",
+            "party": "더불어민주당",
+            "votes": 9294
+          },
+          {
+            "name": "최정훈",
+            "party": "국민의힘",
+            "votes": 15319
+          },
+          {
+            "name": "박지호",
+            "party": "무소속",
+            "votes": 1186
+          }
+        ]
+      },
+      {
+        "district": "창원시더선거구",
+        "voters": 52003,
+        "turnout": 19683,
+        "valid": 17878,
+        "invalid": 1805,
+        "candidates": [
+          {
+            "name": "심영석",
+            "party": "더불어민주당",
+            "votes": 6642
+          },
+          {
+            "name": "김소영",
+            "party": "더불어민주당",
+            "votes": 1893
+          },
+          {
+            "name": "한상석",
+            "party": "국민의힘",
+            "votes": 6913
+          },
+          {
+            "name": "김만진",
+            "party": "국민의힘",
+            "votes": 2430
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "5",
+    "subType": "도의원",
+    "label": "2022 지선 (제8회) 도의원",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "창원시제1선거구",
+        "voters": 57295,
+        "turnout": 29315,
+        "valid": 28621,
+        "invalid": 694,
+        "candidates": [
+          {
+            "name": "김석규",
+            "party": "더불어민주당",
+            "votes": 10654
+          },
+          {
+            "name": "서민호",
+            "party": "국민의힘",
+            "votes": 17967
+          }
+        ]
+      },
+      {
+        "district": "창원시제2선거구",
+        "voters": 64496,
+        "turnout": 33922,
+        "valid": 33287,
+        "invalid": 635,
+        "candidates": [
+          {
+            "name": "하경석",
+            "party": "더불어민주당",
+            "votes": 11053
+          },
+          {
+            "name": "백태현",
+            "party": "국민의힘",
+            "votes": 22234
+          }
+        ]
+      },
+      {
+        "district": "창원시제3선거구",
+        "voters": 63393,
+        "turnout": 31577,
+        "valid": 30914,
+        "invalid": 663,
+        "candidates": [
+          {
+            "name": "공창섭",
+            "party": "더불어민주당",
+            "votes": 11456
+          },
+          {
+            "name": "박해영",
+            "party": "국민의힘",
+            "votes": 19458
+          }
+        ]
+      },
+      {
+        "district": "창원시제4선거구",
+        "voters": 58608,
+        "turnout": 32696,
+        "valid": 32122,
+        "invalid": 574,
+        "candidates": [
+          {
+            "name": "김경영",
+            "party": "더불어민주당",
+            "votes": 12629
+          },
+          {
+            "name": "박준",
+            "party": "국민의힘",
+            "votes": 19493
+          }
+        ]
+      },
+      {
+        "district": "창원시제5선거구",
+        "voters": 37401,
+        "turnout": 17868,
+        "valid": 17577,
+        "invalid": 291,
+        "candidates": [
+          {
+            "name": "김영진",
+            "party": "더불어민주당",
+            "votes": 6697
+          },
+          {
+            "name": "이찬호",
+            "party": "국민의힘",
+            "votes": 10553
+          },
+          {
+            "name": "하호근",
+            "party": "우리공화당",
+            "votes": 327
+          }
+        ]
+      },
+      {
+        "district": "창원시제6선거구",
+        "voters": 61679,
+        "turnout": 32592,
+        "valid": 32089,
+        "invalid": 503,
+        "candidates": [
+          {
+            "name": "원성일",
+            "party": "더불어민주당",
+            "votes": 10709
+          },
+          {
+            "name": "이재두",
+            "party": "국민의힘",
+            "votes": 15737
+          },
+          {
+            "name": "노창섭",
+            "party": "정의당",
+            "votes": 5643
+          }
+        ]
+      },
+      {
+        "district": "창원시제7선거구",
+        "voters": 55123,
+        "turnout": 29652,
+        "valid": 29256,
+        "invalid": 396,
+        "candidates": [
+          {
+            "name": "박문철",
+            "party": "더불어민주당",
+            "votes": 12695
+          },
+          {
+            "name": "박남용",
+            "party": "국민의힘",
+            "votes": 16561
+          }
+        ]
+      },
+      {
+        "district": "창원시제8선거구",
+        "voters": 33606,
+        "turnout": 19023,
+        "valid": 18537,
+        "invalid": 486,
+        "candidates": [
+          {
+            "name": "손민식",
+            "party": "더불어민주당",
+            "votes": 5473
+          },
+          {
+            "name": "강용범",
+            "party": "국민의힘",
+            "votes": 13064
+          }
+        ]
+      },
+      {
+        "district": "창원시제9선거구",
+        "voters": 57826,
+        "turnout": 29938,
+        "valid": 29321,
+        "invalid": 617,
+        "candidates": [
+          {
+            "name": "조종래",
+            "party": "더불어민주당",
+            "votes": 7927
+          },
+          {
+            "name": "정규헌",
+            "party": "국민의힘",
+            "votes": 21394
+          }
+        ]
+      },
+      {
+        "district": "창원시제10선거구",
+        "voters": 65418,
+        "turnout": 34950,
+        "valid": 34199,
+        "invalid": 751,
+        "candidates": [
+          {
+            "name": "이옥선",
+            "party": "더불어민주당",
+            "votes": 12092
+          },
+          {
+            "name": "정쌍학",
+            "party": "국민의힘",
+            "votes": 22107
+          }
+        ]
+      },
+      {
+        "district": "창원시제11선거구",
+        "voters": 52522,
+        "turnout": 28206,
+        "valid": 27613,
+        "invalid": 593,
+        "candidates": [
+          {
+            "name": "송순호",
+            "party": "더불어민주당",
+            "votes": 11887
+          },
+          {
+            "name": "진상락",
+            "party": "국민의힘",
+            "votes": 15726
+          }
+        ]
+      },
+      {
+        "district": "창원시제12선거구",
+        "voters": 46453,
+        "turnout": 24634,
+        "valid": 24098,
+        "invalid": 536,
+        "candidates": [
+          {
+            "name": "이수정",
+            "party": "더불어민주당",
+            "votes": 6704
+          },
+          {
+            "name": "이장우",
+            "party": "국민의힘",
+            "votes": 17394
+          }
+        ]
+      },
+      {
+        "district": "창원시제13선거구",
+        "voters": 61008,
+        "turnout": 32752,
+        "valid": 32023,
+        "invalid": 729,
+        "candidates": [
+          {
+            "name": "송정훈",
+            "party": "더불어민주당",
+            "votes": 10129
+          },
+          {
+            "name": "조영명",
+            "party": "국민의힘",
+            "votes": 21894
+          }
+        ]
+      },
+      {
+        "district": "창원시제14선거구",
+        "voters": 55126,
+        "turnout": 28716,
+        "valid": 27984,
+        "invalid": 732,
+        "candidates": [
+          {
+            "name": "심상동",
+            "party": "더불어민주당",
+            "votes": 9739
+          },
+          {
+            "name": "박동철",
+            "party": "국민의힘",
+            "votes": 18245
+          }
+        ]
+      },
+      {
+        "district": "창원시제15선거구",
+        "voters": 52601,
+        "turnout": 26800,
+        "valid": 26199,
+        "invalid": 601,
+        "candidates": [
+          {
+            "name": "조광호",
+            "party": "더불어민주당",
+            "votes": 9574
+          },
+          {
+            "name": "박춘덕",
+            "party": "국민의힘",
+            "votes": 16625
+          }
+        ]
+      },
+      {
+        "district": "창원시제16선거구",
+        "voters": 52003,
+        "turnout": 19684,
+        "valid": 19270,
+        "invalid": 414,
+        "candidates": [
+          {
+            "name": "김진옥",
+            "party": "더불어민주당",
+            "votes": 7494
+          },
+          {
+            "name": "이치우",
+            "party": "국민의힘",
+            "votes": 11776
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2022 지선 (제8회) 교육감",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "창원시의창구",
+        "voters": 185184,
+        "turnout": 94820,
+        "valid": 92899,
+        "invalid": 1921,
+        "candidates": [
+          {
+            "name": "김상권",
+            "party": "",
+            "votes": 47371
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 45528
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "9",
+    "subType": "기초비례",
+    "label": "2022 지선 (제8회) 기초비례",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "창원시의창구",
+        "voters": 185184,
+        "turnout": 94810,
+        "valid": 93023,
+        "invalid": 1787,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 29036
+          },
+          {
+            "name": "국민의힘",
+            "party": "국민의힘",
+            "votes": 58175
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 4568
+          },
+          {
+            "name": "진보당",
+            "party": "진보당",
+            "votes": 1244
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2022 지선 (제8회) 광역비례",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "창원시의창구",
+        "voters": 185184,
+        "turnout": 94811,
+        "valid": 93265,
+        "invalid": 1546,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 29012
+          },
+          {
+            "name": "국민의힘",
+            "party": "국민의힘",
+            "votes": 58226
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 4431
+          },
+          {
+            "name": "기본소득당",
+            "party": "기본소득당",
+            "votes": 293
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 327
+          },
+          {
+            "name": "진보당",
+            "party": "진보당",
+            "votes": 976
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2018 지선 (제7회) 시장",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "창원시의창구",
+        "voters": 210327,
+        "turnout": 135138,
+        "valid": 133067,
+        "invalid": 2071,
+        "candidates": [
+          {
+            "name": "허성무",
+            "party": "더불어민주당",
+            "votes": 65297
+          },
+          {
+            "name": "조진래",
+            "party": "자유한국당",
+            "votes": 38962
+          },
+          {
+            "name": "정규헌",
+            "party": "바른미래당",
+            "votes": 3648
+          },
+          {
+            "name": "석영철",
+            "party": "민중당",
+            "votes": 2239
+          },
+          {
+            "name": "안상수",
+            "party": "무소속",
+            "votes": 19251
+          },
+          {
+            "name": "이기우",
+            "party": "무소속",
+            "votes": 3670
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2018 지선 (제7회) 시도지사",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "창원시의창구",
+        "voters": 210327,
+        "turnout": 135147,
+        "valid": 133075,
+        "invalid": 2072,
+        "candidates": [
+          {
+            "name": "김경수",
+            "party": "더불어민주당",
+            "votes": 72745
+          },
+          {
+            "name": "김태호",
+            "party": "자유한국당",
+            "votes": 54066
+          },
+          {
+            "name": "김유근",
+            "party": "바른미래당",
+            "votes": 6264
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2018 지선 (제7회) 기초의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "창원시가선거구",
+        "voters": 85095,
+        "turnout": 54968,
+        "valid": 52487,
+        "invalid": 2481,
+        "candidates": [
+          {
+            "name": "최은하",
+            "party": "더불어민주당",
+            "votes": 15433
+          },
+          {
+            "name": "김장하",
+            "party": "더불어민주당",
+            "votes": 8891
+          },
+          {
+            "name": "백태현",
+            "party": "자유한국당",
+            "votes": 9800
+          },
+          {
+            "name": "공우식",
+            "party": "자유한국당",
+            "votes": 5589
+          },
+          {
+            "name": "권성현",
+            "party": "자유한국당",
+            "votes": 5670
+          },
+          {
+            "name": "강익근",
+            "party": "바른미래당",
+            "votes": 2354
+          },
+          {
+            "name": "강동현",
+            "party": "정의당",
+            "votes": 2549
+          },
+          {
+            "name": "허요",
+            "party": "무소속",
+            "votes": 1034
+          },
+          {
+            "name": "김부관",
+            "party": "무소속",
+            "votes": 428
+          },
+          {
+            "name": "윤달수",
+            "party": "무소속",
+            "votes": 739
+          }
+        ]
+      },
+      {
+        "district": "창원시나선거구",
+        "voters": 69616,
+        "turnout": 44863,
+        "valid": 43075,
+        "invalid": 1788,
+        "candidates": [
+          {
+            "name": "김우겸",
+            "party": "더불어민주당",
+            "votes": 12742
+          },
+          {
+            "name": "주철우",
+            "party": "더불어민주당",
+            "votes": 6105
+          },
+          {
+            "name": "구점득",
+            "party": "자유한국당",
+            "votes": 9335
+          },
+          {
+            "name": "안승근",
+            "party": "자유한국당",
+            "votes": 5325
+          },
+          {
+            "name": "강영희",
+            "party": "민중당",
+            "votes": 4748
+          },
+          {
+            "name": "방종근",
+            "party": "무소속",
+            "votes": 2852
+          },
+          {
+            "name": "김재우",
+            "party": "무소속",
+            "votes": 809
+          },
+          {
+            "name": "송현조",
+            "party": "무소속",
+            "votes": 1159
+          }
+        ]
+      },
+      {
+        "district": "창원시다선거구",
+        "voters": 55616,
+        "turnout": 35267,
+        "valid": 34313,
+        "invalid": 954,
+        "candidates": [
+          {
+            "name": "공창섭",
+            "party": "더불어민주당",
+            "votes": 17984
+          },
+          {
+            "name": "박현재",
+            "party": "자유한국당",
+            "votes": 10068
+          },
+          {
+            "name": "강창석",
+            "party": "자유한국당",
+            "votes": 4203
+          },
+          {
+            "name": "이승백",
+            "party": "민중당",
+            "votes": 2058
+          }
+        ]
+      },
+      {
+        "district": "창원시라선거구",
+        "voters": 64189,
+        "turnout": 42581,
+        "valid": 40789,
+        "invalid": 1792,
+        "candidates": [
+          {
+            "name": "김경희",
+            "party": "더불어민주당",
+            "votes": 19442
+          },
+          {
+            "name": "이찬호",
+            "party": "자유한국당",
+            "votes": 14522
+          },
+          {
+            "name": "박해정",
+            "party": "민중당",
+            "votes": 6825
+          }
+        ]
+      },
+      {
+        "district": "창원시마선거구",
+        "voters": 64103,
+        "turnout": 43760,
+        "valid": 42239,
+        "invalid": 1521,
+        "candidates": [
+          {
+            "name": "한은정",
+            "party": "더불어민주당",
+            "votes": 14510
+          },
+          {
+            "name": "김삼모",
+            "party": "더불어민주당",
+            "votes": 4999
+          },
+          {
+            "name": "김경수",
+            "party": "자유한국당",
+            "votes": 8311
+          },
+          {
+            "name": "강호상",
+            "party": "자유한국당",
+            "votes": 4137
+          },
+          {
+            "name": "노창섭",
+            "party": "정의당",
+            "votes": 7282
+          },
+          {
+            "name": "안혜린",
+            "party": "노동당",
+            "votes": 2369
+          },
+          {
+            "name": "배기원",
+            "party": "무소속",
+            "votes": 631
+          }
+        ]
+      },
+      {
+        "district": "창원시바선거구",
+        "voters": 56308,
+        "turnout": 39430,
+        "valid": 37961,
+        "invalid": 1469,
+        "candidates": [
+          {
+            "name": "백승규",
+            "party": "더불어민주당",
+            "votes": 19396
+          },
+          {
+            "name": "박남용",
+            "party": "자유한국당",
+            "votes": 10692
+          },
+          {
+            "name": "김석규",
+            "party": "민중당",
+            "votes": 7873
+          }
+        ]
+      },
+      {
+        "district": "창원시사선거구",
+        "voters": 22714,
+        "turnout": 14689,
+        "valid": 13886,
+        "invalid": 803,
+        "candidates": [
+          {
+            "name": "지상록",
+            "party": "더불어민주당",
+            "votes": 4142
+          },
+          {
+            "name": "이천수",
+            "party": "자유한국당",
+            "votes": 5085
+          },
+          {
+            "name": "김이근",
+            "party": "자유한국당",
+            "votes": 2910
+          },
+          {
+            "name": "서규석",
+            "party": "무소속",
+            "votes": 1749
+          }
+        ]
+      },
+      {
+        "district": "창원시아선거구",
+        "voters": 61737,
+        "turnout": 40885,
+        "valid": 39179,
+        "invalid": 1706,
+        "candidates": [
+          {
+            "name": "전홍표",
+            "party": "더불어민주당",
+            "votes": 16063
+          },
+          {
+            "name": "정길상",
+            "party": "자유한국당",
+            "votes": 11473
+          },
+          {
+            "name": "정쌍학",
+            "party": "자유한국당",
+            "votes": 7666
+          },
+          {
+            "name": "하태성",
+            "party": "바른미래당",
+            "votes": 3977
+          }
+        ]
+      },
+      {
+        "district": "창원시자선거구",
+        "voters": 37761,
+        "turnout": 23530,
+        "valid": 22833,
+        "invalid": 697,
+        "candidates": [
+          {
+            "name": "박성원",
+            "party": "더불어민주당",
+            "votes": 8628
+          },
+          {
+            "name": "전병호",
+            "party": "자유한국당",
+            "votes": 7660
+          },
+          {
+            "name": "이순덕",
+            "party": "자유한국당",
+            "votes": 3235
+          },
+          {
+            "name": "김종식",
+            "party": "바른미래당",
+            "votes": 2587
+          },
+          {
+            "name": "손태복",
+            "party": "무소속",
+            "votes": 723
+          }
+        ]
+      },
+      {
+        "district": "창원시차선거구",
+        "voters": 32099,
+        "turnout": 20146,
+        "valid": 19422,
+        "invalid": 724,
+        "candidates": [
+          {
+            "name": "최희정",
+            "party": "더불어민주당",
+            "votes": 6722
+          },
+          {
+            "name": "김순식",
+            "party": "자유한국당",
+            "votes": 5609
+          },
+          {
+            "name": "황일두",
+            "party": "자유한국당",
+            "votes": 2861
+          },
+          {
+            "name": "홍용채",
+            "party": "무소속",
+            "votes": 3515
+          },
+          {
+            "name": "김석형",
+            "party": "무소속",
+            "votes": 715
+          }
+        ]
+      },
+      {
+        "district": "창원시카선거구",
+        "voters": 54617,
+        "turnout": 37394,
+        "valid": 36042,
+        "invalid": 1352,
+        "candidates": [
+          {
+            "name": "이우완",
+            "party": "더불어민주당",
+            "votes": 18028
+          },
+          {
+            "name": "진상락",
+            "party": "자유한국당",
+            "votes": 9989
+          },
+          {
+            "name": "노종래",
+            "party": "자유한국당",
+            "votes": 8025
+          }
+        ]
+      },
+      {
+        "district": "창원시타선거구",
+        "voters": 44208,
+        "turnout": 27688,
+        "valid": 26510,
+        "invalid": 1178,
+        "candidates": [
+          {
+            "name": "김종대",
+            "party": "더불어민주당",
+            "votes": 11602
+          },
+          {
+            "name": "임해진",
+            "party": "자유한국당",
+            "votes": 9715
+          },
+          {
+            "name": "손병열",
+            "party": "자유한국당",
+            "votes": 5193
+          }
+        ]
+      },
+      {
+        "district": "창원시파선거구",
+        "voters": 67675,
+        "turnout": 44475,
+        "valid": 42186,
+        "invalid": 2289,
+        "candidates": [
+          {
+            "name": "문순규",
+            "party": "더불어민주당",
+            "votes": 13995
+          },
+          {
+            "name": "이민희",
+            "party": "더불어민주당",
+            "votes": 5783
+          },
+          {
+            "name": "조영명",
+            "party": "자유한국당",
+            "votes": 9581
+          },
+          {
+            "name": "손태화",
+            "party": "자유한국당",
+            "votes": 7810
+          },
+          {
+            "name": "윤옥숙",
+            "party": "자유한국당",
+            "votes": 496
+          },
+          {
+            "name": "김호근",
+            "party": "바른미래당",
+            "votes": 2042
+          },
+          {
+            "name": "천은미",
+            "party": "정의당",
+            "votes": 2479
+          }
+        ]
+      },
+      {
+        "district": "창원시하선거구",
+        "voters": 23599,
+        "turnout": 15043,
+        "valid": 14399,
+        "invalid": 644,
+        "candidates": [
+          {
+            "name": "김상현",
+            "party": "더불어민주당",
+            "votes": 5445
+          },
+          {
+            "name": "이해련",
+            "party": "자유한국당",
+            "votes": 4615
+          },
+          {
+            "name": "김종율",
+            "party": "자유한국당",
+            "votes": 1384
+          },
+          {
+            "name": "전수명",
+            "party": "무소속",
+            "votes": 2955
+          }
+        ]
+      },
+      {
+        "district": "창원시거선거구",
+        "voters": 35013,
+        "turnout": 22471,
+        "valid": 21686,
+        "invalid": 785,
+        "candidates": [
+          {
+            "name": "정순욱",
+            "party": "더불어민주당",
+            "votes": 10412
+          },
+          {
+            "name": "김인길",
+            "party": "자유한국당",
+            "votes": 6397
+          },
+          {
+            "name": "김헌일",
+            "party": "자유한국당",
+            "votes": 4877
+          }
+        ]
+      },
+      {
+        "district": "창원시너선거구",
+        "voters": 52124,
+        "turnout": 34011,
+        "valid": 32767,
+        "invalid": 1244,
+        "candidates": [
+          {
+            "name": "김태웅",
+            "party": "더불어민주당",
+            "votes": 12766
+          },
+          {
+            "name": "박지호",
+            "party": "더불어민주당",
+            "votes": 4784
+          },
+          {
+            "name": "박춘덕",
+            "party": "자유한국당",
+            "votes": 8813
+          },
+          {
+            "name": "김성일",
+            "party": "무소속",
+            "votes": 6404
+          }
+        ]
+      },
+      {
+        "district": "창원시더선거구",
+        "voters": 39660,
+        "turnout": 22357,
+        "valid": 21458,
+        "invalid": 899,
+        "candidates": [
+          {
+            "name": "심영석",
+            "party": "더불어민주당",
+            "votes": 9552
+          },
+          {
+            "name": "조미숙",
+            "party": "더불어민주당",
+            "votes": 3059
+          },
+          {
+            "name": "이치우",
+            "party": "자유한국당",
+            "votes": 6997
+          },
+          {
+            "name": "박운제",
+            "party": "무소속",
+            "votes": 1850
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "5",
+    "subType": "도의원",
+    "label": "2018 지선 (제7회) 도의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "창원시제1선거구",
+        "voters": 85095,
+        "turnout": 54962,
+        "valid": 53664,
+        "invalid": 1298,
+        "candidates": [
+          {
+            "name": "김석규",
+            "party": "더불어민주당",
+            "votes": 28724
+          },
+          {
+            "name": "장동화",
+            "party": "자유한국당",
+            "votes": 24940
+          }
+        ]
+      },
+      {
+        "district": "창원시제2선거구",
+        "voters": 69616,
+        "turnout": 44862,
+        "valid": 43852,
+        "invalid": 1010,
+        "candidates": [
+          {
+            "name": "김지수",
+            "party": "더불어민주당",
+            "votes": 23722
+          },
+          {
+            "name": "박해영",
+            "party": "자유한국당",
+            "votes": 17575
+          },
+          {
+            "name": "유경종",
+            "party": "민중당",
+            "votes": 2555
+          }
+        ]
+      },
+      {
+        "district": "창원시제3선거구",
+        "voters": 55616,
+        "turnout": 35269,
+        "valid": 34517,
+        "invalid": 752,
+        "candidates": [
+          {
+            "name": "김영진",
+            "party": "더불어민주당",
+            "votes": 20044
+          },
+          {
+            "name": "정연희",
+            "party": "자유한국당",
+            "votes": 14473
+          }
+        ]
+      },
+      {
+        "district": "창원시제4선거구",
+        "voters": 64189,
+        "turnout": 42582,
+        "valid": 41555,
+        "invalid": 1027,
+        "candidates": [
+          {
+            "name": "남택욱",
+            "party": "더불어민주당",
+            "votes": 19869
+          },
+          {
+            "name": "박준",
+            "party": "자유한국당",
+            "votes": 14610
+          },
+          {
+            "name": "정영주",
+            "party": "민중당",
+            "votes": 7076
+          }
+        ]
+      },
+      {
+        "district": "창원시제5선거구",
+        "voters": 64103,
+        "turnout": 43759,
+        "valid": 43035,
+        "invalid": 724,
+        "candidates": [
+          {
+            "name": "원성일",
+            "party": "더불어민주당",
+            "votes": 14509
+          },
+          {
+            "name": "강기일",
+            "party": "자유한국당",
+            "votes": 12365
+          },
+          {
+            "name": "여영국",
+            "party": "정의당",
+            "votes": 13994
+          },
+          {
+            "name": "황경순",
+            "party": "민중당",
+            "votes": 2167
+          }
+        ]
+      },
+      {
+        "district": "창원시제6선거구",
+        "voters": 56308,
+        "turnout": 39430,
+        "valid": 38555,
+        "invalid": 875,
+        "candidates": [
+          {
+            "name": "박문철",
+            "party": "더불어민주당",
+            "votes": 16716
+          },
+          {
+            "name": "한영애",
+            "party": "자유한국당",
+            "votes": 11576
+          },
+          {
+            "name": "김순희",
+            "party": "정의당",
+            "votes": 10263
+          }
+        ]
+      },
+      {
+        "district": "창원시제7선거구",
+        "voters": 84451,
+        "turnout": 55576,
+        "valid": 54146,
+        "invalid": 1430,
+        "candidates": [
+          {
+            "name": "이옥선",
+            "party": "더불어민주당",
+            "votes": 27723
+          },
+          {
+            "name": "강용범",
+            "party": "자유한국당",
+            "votes": 26423
+          }
+        ]
+      },
+      {
+        "district": "창원시제8선거구",
+        "voters": 69860,
+        "turnout": 43674,
+        "valid": 42509,
+        "invalid": 1165,
+        "candidates": [
+          {
+            "name": "김용한",
+            "party": "더불어민주당",
+            "votes": 20753
+          },
+          {
+            "name": "박옥순",
+            "party": "자유한국당",
+            "votes": 21756
+          }
+        ]
+      },
+      {
+        "district": "창원시제9선거구",
+        "voters": 54617,
+        "turnout": 37393,
+        "valid": 36568,
+        "invalid": 825,
+        "candidates": [
+          {
+            "name": "송순호",
+            "party": "더불어민주당",
+            "votes": 20496
+          },
+          {
+            "name": "김성준",
+            "party": "자유한국당",
+            "votes": 16072
+          }
+        ]
+      },
+      {
+        "district": "창원시제10선거구",
+        "voters": 44208,
+        "turnout": 27691,
+        "valid": 26848,
+        "invalid": 843,
+        "candidates": [
+          {
+            "name": "최효원",
+            "party": "더불어민주당",
+            "votes": 11241
+          },
+          {
+            "name": "박삼동",
+            "party": "자유한국당",
+            "votes": 15607
+          }
+        ]
+      },
+      {
+        "district": "창원시제11선거구",
+        "voters": 67675,
+        "turnout": 44477,
+        "valid": 43434,
+        "invalid": 1043,
+        "candidates": [
+          {
+            "name": "이상인",
+            "party": "더불어민주당",
+            "votes": 23115
+          },
+          {
+            "name": "조우성",
+            "party": "자유한국당",
+            "votes": 20319
+          }
+        ]
+      },
+      {
+        "district": "창원시제12선거구",
+        "voters": 58612,
+        "turnout": 37513,
+        "valid": 36563,
+        "invalid": 950,
+        "candidates": [
+          {
+            "name": "심상동",
+            "party": "더불어민주당",
+            "votes": 17687
+          },
+          {
+            "name": "정판용",
+            "party": "자유한국당",
+            "votes": 14549
+          },
+          {
+            "name": "김주석",
+            "party": "바른미래당",
+            "votes": 4327
+          }
+        ]
+      },
+      {
+        "district": "창원시제13선거구",
+        "voters": 52124,
+        "turnout": 34013,
+        "valid": 33150,
+        "invalid": 863,
+        "candidates": [
+          {
+            "name": "김진옥",
+            "party": "더불어민주당",
+            "votes": 16661
+          },
+          {
+            "name": "배종량",
+            "party": "자유한국당",
+            "votes": 11591
+          },
+          {
+            "name": "이성희",
+            "party": "바른미래당",
+            "votes": 3543
+          },
+          {
+            "name": "이종대",
+            "party": "민중당",
+            "votes": 1355
+          }
+        ]
+      },
+      {
+        "district": "창원시제14선거구",
+        "voters": 39660,
+        "turnout": 22357,
+        "valid": 21885,
+        "invalid": 472,
+        "candidates": [
+          {
+            "name": "김하용",
+            "party": "더불어민주당",
+            "votes": 12308
+          },
+          {
+            "name": "이성섭",
+            "party": "자유한국당",
+            "votes": 7832
+          },
+          {
+            "name": "박지원",
+            "party": "바른미래당",
+            "votes": 1745
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2018 지선 (제7회) 교육감",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "창원시의창구",
+        "voters": 210327,
+        "turnout": 135128,
+        "valid": 130782,
+        "invalid": 4346,
+        "candidates": [
+          {
+            "name": "이효환",
+            "party": "",
+            "votes": 12531
+          },
+          {
+            "name": "김선유",
+            "party": "",
+            "votes": 18762
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 63520
+          },
+          {
+            "name": "박성호",
+            "party": "",
+            "votes": 35969
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "9",
+    "subType": "기초비례",
+    "label": "2018 지선 (제7회) 기초비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "창원시의창구",
+        "voters": 210327,
+        "turnout": 135101,
+        "valid": 132741,
+        "invalid": 2360,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 60404
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 49158
+          },
+          {
+            "name": "바른미래당",
+            "party": "바른미래당",
+            "votes": 7966
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 12666
+          },
+          {
+            "name": "민중당",
+            "party": "민중당",
+            "votes": 2547
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2018 지선 (제7회) 광역비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "창원시의창구",
+        "voters": 210327,
+        "turnout": 135112,
+        "valid": 132737,
+        "invalid": 2375,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 60826
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 48665
+          },
+          {
+            "name": "바른미래당",
+            "party": "바른미래당",
+            "votes": 7708
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 11789
+          },
+          {
+            "name": "민중당",
+            "party": "민중당",
+            "votes": 2158
+          },
+          {
+            "name": "대한애국당",
+            "party": "대한애국당",
+            "votes": 610
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 981
+          }
+        ]
+      }
+    ]
+  }
+]

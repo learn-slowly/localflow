@@ -1,0 +1,747 @@
+[
+  {
+    "sgId": "20220601",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2022 지선 (제8회) 시장",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "사천시",
+        "voters": 93946,
+        "turnout": 55533,
+        "valid": 54454,
+        "invalid": 1079,
+        "candidates": [
+          {
+            "name": "황인성",
+            "party": "더불어민주당",
+            "votes": 12183
+          },
+          {
+            "name": "박동식",
+            "party": "국민의힘",
+            "votes": 34307
+          },
+          {
+            "name": "차상돈",
+            "party": "무소속",
+            "votes": 7964
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2022 지선 (제8회) 시도지사",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "사천시",
+        "voters": 93946,
+        "turnout": 55534,
+        "valid": 54021,
+        "invalid": 1513,
+        "candidates": [
+          {
+            "name": "양문석",
+            "party": "더불어민주당",
+            "votes": 12887
+          },
+          {
+            "name": "박완수",
+            "party": "국민의힘",
+            "votes": 38414
+          },
+          {
+            "name": "여영국",
+            "party": "정의당",
+            "votes": 1917
+          },
+          {
+            "name": "최진석",
+            "party": "통일한국당",
+            "votes": 803
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2022 지선 (제8회) 기초의원",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "사천시가선거구",
+        "voters": 26165,
+        "turnout": 13662,
+        "valid": 13299,
+        "invalid": 363,
+        "candidates": [
+          {
+            "name": "박병준",
+            "party": "더불어민주당",
+            "votes": 3464
+          },
+          {
+            "name": "김민규",
+            "party": "국민의힘",
+            "votes": 3600
+          },
+          {
+            "name": "신한출",
+            "party": "국민의힘",
+            "votes": 2106
+          },
+          {
+            "name": "김동수",
+            "party": "진보당",
+            "votes": 558
+          },
+          {
+            "name": "김영애",
+            "party": "무소속",
+            "votes": 850
+          },
+          {
+            "name": "최인생",
+            "party": "무소속",
+            "votes": 2721
+          }
+        ]
+      },
+      {
+        "district": "사천시나선거구",
+        "voters": 17998,
+        "turnout": 9886,
+        "valid": 9591,
+        "invalid": 295,
+        "candidates": [
+          {
+            "name": "배정현",
+            "party": "더불어민주당",
+            "votes": 1841
+          },
+          {
+            "name": "강명수",
+            "party": "국민의힘",
+            "votes": 4053
+          },
+          {
+            "name": "구정화",
+            "party": "국민의힘",
+            "votes": 2216
+          },
+          {
+            "name": "이재순",
+            "party": "무소속",
+            "votes": 1481
+          }
+        ]
+      },
+      {
+        "district": "사천시다선거구",
+        "voters": 10514,
+        "turnout": 6948,
+        "valid": 6687,
+        "invalid": 261,
+        "candidates": [
+          {
+            "name": "김봉균",
+            "party": "더불어민주당",
+            "votes": 1718
+          },
+          {
+            "name": "진배근",
+            "party": "국민의힘",
+            "votes": 3059
+          },
+          {
+            "name": "김규헌",
+            "party": "국민의힘",
+            "votes": 1910
+          }
+        ]
+      },
+      {
+        "district": "사천시라선거구",
+        "voters": 20101,
+        "turnout": 12957,
+        "valid": 12506,
+        "invalid": 451,
+        "candidates": [
+          {
+            "name": "최동환",
+            "party": "더불어민주당",
+            "votes": 3050
+          },
+          {
+            "name": "윤형근",
+            "party": "국민의힘",
+            "votes": 4755
+          },
+          {
+            "name": "김경숙",
+            "party": "국민의힘",
+            "votes": 2227
+          },
+          {
+            "name": "정철용",
+            "party": "무소속",
+            "votes": 2474
+          }
+        ]
+      },
+      {
+        "district": "사천시마선거구",
+        "voters": 19168,
+        "turnout": 12075,
+        "valid": 11722,
+        "invalid": 353,
+        "candidates": [
+          {
+            "name": "박종권",
+            "party": "더불어민주당",
+            "votes": 3251
+          },
+          {
+            "name": "박정웅",
+            "party": "국민의힘",
+            "votes": 5031
+          },
+          {
+            "name": "전재석",
+            "party": "국민의힘",
+            "votes": 3440
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "5",
+    "subType": "도의원",
+    "label": "2022 지선 (제8회) 도의원",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "사천시제1선거구",
+        "voters": 54677,
+        "turnout": 30498,
+        "valid": 29776,
+        "invalid": 722,
+        "candidates": [
+          {
+            "name": "황재은",
+            "party": "더불어민주당",
+            "votes": 11987
+          },
+          {
+            "name": "임철규",
+            "party": "국민의힘",
+            "votes": 17789
+          }
+        ]
+      },
+      {
+        "district": "사천시제2선거구",
+        "voters": 39269,
+        "turnout": 25033,
+        "valid": 24320,
+        "invalid": 713,
+        "candidates": [
+          {
+            "name": "김현철",
+            "party": "국민의힘",
+            "votes": 13252
+          },
+          {
+            "name": "최갑현",
+            "party": "무소속",
+            "votes": 11068
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2022 지선 (제8회) 교육감",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "사천시",
+        "voters": 93946,
+        "turnout": 55529,
+        "valid": 53318,
+        "invalid": 2211,
+        "candidates": [
+          {
+            "name": "김상권",
+            "party": "",
+            "votes": 26725
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 26593
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2022 지선 (제8회) 광역비례",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "사천시",
+        "voters": 93946,
+        "turnout": 55530,
+        "valid": 54121,
+        "invalid": 1409,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 14028
+          },
+          {
+            "name": "국민의힘",
+            "party": "국민의힘",
+            "votes": 36976
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 2070
+          },
+          {
+            "name": "기본소득당",
+            "party": "기본소득당",
+            "votes": 363
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 162
+          },
+          {
+            "name": "진보당",
+            "party": "진보당",
+            "votes": 522
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2018 지선 (제7회) 시장",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "사천시",
+        "voters": 94449,
+        "turnout": 65483,
+        "valid": 63646,
+        "invalid": 1837,
+        "candidates": [
+          {
+            "name": "차상돈",
+            "party": "더불어민주당",
+            "votes": 28301
+          },
+          {
+            "name": "송도근",
+            "party": "자유한국당",
+            "votes": 31634
+          },
+          {
+            "name": "이종범",
+            "party": "무소속",
+            "votes": 3711
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2018 지선 (제7회) 시도지사",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "사천시",
+        "voters": 94449,
+        "turnout": 65481,
+        "valid": 63776,
+        "invalid": 1705,
+        "candidates": [
+          {
+            "name": "김경수",
+            "party": "더불어민주당",
+            "votes": 29390
+          },
+          {
+            "name": "김태호",
+            "party": "자유한국당",
+            "votes": 31787
+          },
+          {
+            "name": "김유근",
+            "party": "바른미래당",
+            "votes": 2599
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2018 지선 (제7회) 기초의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "사천시가선거구",
+        "voters": 42083,
+        "turnout": 28403,
+        "valid": 26767,
+        "invalid": 1636,
+        "candidates": [
+          {
+            "name": "김영애",
+            "party": "더불어민주당",
+            "votes": 5688
+          },
+          {
+            "name": "배정현",
+            "party": "더불어민주당",
+            "votes": 3385
+          },
+          {
+            "name": "송성길",
+            "party": "더불어민주당",
+            "votes": 3039
+          },
+          {
+            "name": "최인생",
+            "party": "자유한국당",
+            "votes": 4428
+          },
+          {
+            "name": "신현근",
+            "party": "자유한국당",
+            "votes": 2845
+          },
+          {
+            "name": "구정화",
+            "party": "자유한국당",
+            "votes": 4150
+          },
+          {
+            "name": "조현철",
+            "party": "무소속",
+            "votes": 2067
+          },
+          {
+            "name": "정연화",
+            "party": "무소속",
+            "votes": 1165
+          }
+        ]
+      },
+      {
+        "district": "사천시나선거구",
+        "voters": 11409,
+        "turnout": 8443,
+        "valid": 7891,
+        "invalid": 552,
+        "candidates": [
+          {
+            "name": "이규윤",
+            "party": "자유한국당",
+            "votes": 1385
+          },
+          {
+            "name": "김규헌",
+            "party": "자유한국당",
+            "votes": 2348
+          },
+          {
+            "name": "김봉균",
+            "party": "무소속",
+            "votes": 2269
+          },
+          {
+            "name": "최수근",
+            "party": "무소속",
+            "votes": 1889
+          }
+        ]
+      },
+      {
+        "district": "사천시다선거구",
+        "voters": 16729,
+        "turnout": 11804,
+        "valid": 11323,
+        "invalid": 481,
+        "candidates": [
+          {
+            "name": "최동환",
+            "party": "더불어민주당",
+            "votes": 4551
+          },
+          {
+            "name": "정철용",
+            "party": "자유한국당",
+            "votes": 3029
+          },
+          {
+            "name": "이삼수",
+            "party": "자유한국당",
+            "votes": 3743
+          }
+        ]
+      },
+      {
+        "district": "사천시라선거구",
+        "voters": 24228,
+        "turnout": 16829,
+        "valid": 16293,
+        "invalid": 536,
+        "candidates": [
+          {
+            "name": "박종권",
+            "party": "더불어민주당",
+            "votes": 5174
+          },
+          {
+            "name": "전재석",
+            "party": "자유한국당",
+            "votes": 2749
+          },
+          {
+            "name": "김경숙",
+            "party": "자유한국당",
+            "votes": 3455
+          },
+          {
+            "name": "윤형근",
+            "party": "자유한국당",
+            "votes": 2285
+          },
+          {
+            "name": "이상헌",
+            "party": "민중당",
+            "votes": 1653
+          },
+          {
+            "name": "김영식",
+            "party": "무소속",
+            "votes": 977
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "5",
+    "subType": "도의원",
+    "label": "2018 지선 (제7회) 도의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "사천시제1선거구",
+        "voters": 53492,
+        "turnout": 36846,
+        "valid": 35565,
+        "invalid": 1281,
+        "candidates": [
+          {
+            "name": "최준기",
+            "party": "더불어민주당",
+            "votes": 12769
+          },
+          {
+            "name": "박정열",
+            "party": "자유한국당",
+            "votes": 16639
+          },
+          {
+            "name": "강석모",
+            "party": "무소속",
+            "votes": 6157
+          }
+        ]
+      },
+      {
+        "district": "사천시제2선거구",
+        "voters": 40957,
+        "turnout": 28633,
+        "valid": 27629,
+        "invalid": 1004,
+        "candidates": [
+          {
+            "name": "손성호",
+            "party": "더불어민주당",
+            "votes": 5979
+          },
+          {
+            "name": "김현철",
+            "party": "자유한국당",
+            "votes": 9961
+          },
+          {
+            "name": "정갑수",
+            "party": "정의당",
+            "votes": 3627
+          },
+          {
+            "name": "최갑현",
+            "party": "무소속",
+            "votes": 8062
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2018 지선 (제7회) 교육감",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "사천시",
+        "voters": 94449,
+        "turnout": 65471,
+        "valid": 62285,
+        "invalid": 3186,
+        "candidates": [
+          {
+            "name": "이효환",
+            "party": "",
+            "votes": 5795
+          },
+          {
+            "name": "김선유",
+            "party": "",
+            "votes": 10551
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 32691
+          },
+          {
+            "name": "박성호",
+            "party": "",
+            "votes": 13248
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "9",
+    "subType": "기초비례",
+    "label": "2018 지선 (제7회) 기초비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "사천시",
+        "voters": 94449,
+        "turnout": 65469,
+        "valid": 62604,
+        "invalid": 2865,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 30674
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 31930
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2018 지선 (제7회) 광역비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "사천시",
+        "voters": 94449,
+        "turnout": 65476,
+        "valid": 62888,
+        "invalid": 2588,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 25308
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 28909
+          },
+          {
+            "name": "바른미래당",
+            "party": "바른미래당",
+            "votes": 2597
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 4279
+          },
+          {
+            "name": "민중당",
+            "party": "민중당",
+            "votes": 806
+          },
+          {
+            "name": "대한애국당",
+            "party": "대한애국당",
+            "votes": 526
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 463
+          }
+        ]
+      }
+    ]
+  }
+]

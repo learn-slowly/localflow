@@ -1,0 +1,657 @@
+[
+  {
+    "sgId": "20220601",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2022 지선 (제8회) 시장",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "산청군",
+        "voters": 31488,
+        "turnout": 21927,
+        "valid": 21108,
+        "invalid": 819,
+        "candidates": [
+          {
+            "name": "이승화",
+            "party": "국민의힘",
+            "votes": 10895
+          },
+          {
+            "name": "이병환",
+            "party": "무소속",
+            "votes": 1161
+          },
+          {
+            "name": "허기도",
+            "party": "무소속",
+            "votes": 9052
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2022 지선 (제8회) 시도지사",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "산청군",
+        "voters": 31488,
+        "turnout": 21927,
+        "valid": 21001,
+        "invalid": 926,
+        "candidates": [
+          {
+            "name": "양문석",
+            "party": "더불어민주당",
+            "votes": 4982
+          },
+          {
+            "name": "박완수",
+            "party": "국민의힘",
+            "votes": 14644
+          },
+          {
+            "name": "여영국",
+            "party": "정의당",
+            "votes": 1018
+          },
+          {
+            "name": "최진석",
+            "party": "통일한국당",
+            "votes": 357
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2022 지선 (제8회) 기초의원",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "산청군가선거구",
+        "voters": 7233,
+        "turnout": 5152,
+        "valid": 4966,
+        "invalid": 186,
+        "candidates": [
+          {
+            "name": "이정우",
+            "party": "더불어민주당",
+            "votes": 722
+          },
+          {
+            "name": "정명순",
+            "party": "국민의힘",
+            "votes": 1946
+          },
+          {
+            "name": "김재철",
+            "party": "국민의힘",
+            "votes": 1174
+          },
+          {
+            "name": "조병식",
+            "party": "무소속",
+            "votes": 1124
+          }
+        ]
+      },
+      {
+        "district": "산청군나선거구",
+        "voters": 5516,
+        "turnout": 3800,
+        "valid": 3645,
+        "invalid": 155,
+        "candidates": [
+          {
+            "name": "신동복",
+            "party": "국민의힘",
+            "votes": 1317
+          },
+          {
+            "name": "김수한",
+            "party": "국민의힘",
+            "votes": 1507
+          },
+          {
+            "name": "민정식",
+            "party": "무소속",
+            "votes": 821
+          }
+        ]
+      },
+      {
+        "district": "산청군다선거구",
+        "voters": 10820,
+        "turnout": 7392,
+        "valid": 7174,
+        "invalid": 218,
+        "candidates": [
+          {
+            "name": "최호림",
+            "party": "더불어민주당",
+            "votes": 1685
+          },
+          {
+            "name": "이영국",
+            "party": "국민의힘",
+            "votes": 1865
+          },
+          {
+            "name": "홍명기",
+            "party": "국민의힘",
+            "votes": 1282
+          },
+          {
+            "name": "조균환",
+            "party": "국민의힘",
+            "votes": 1627
+          },
+          {
+            "name": "김두수",
+            "party": "무소속",
+            "votes": 715
+          }
+        ]
+      },
+      {
+        "district": "산청군라선거구",
+        "voters": 7919,
+        "turnout": 5587,
+        "valid": 5369,
+        "invalid": 218,
+        "candidates": [
+          {
+            "name": "안천원",
+            "party": "국민의힘",
+            "votes": 2006
+          },
+          {
+            "name": "권순경",
+            "party": "국민의힘",
+            "votes": 853
+          },
+          {
+            "name": "김구",
+            "party": "무소속",
+            "votes": 83
+          },
+          {
+            "name": "이병학",
+            "party": "무소속",
+            "votes": 787
+          },
+          {
+            "name": "이상원",
+            "party": "무소속",
+            "votes": 914
+          },
+          {
+            "name": "이승철",
+            "party": "무소속",
+            "votes": 726
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2022 지선 (제8회) 교육감",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "산청군",
+        "voters": 31488,
+        "turnout": 21926,
+        "valid": 20622,
+        "invalid": 1304,
+        "candidates": [
+          {
+            "name": "김상권",
+            "party": "",
+            "votes": 10656
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 9966
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2022 지선 (제8회) 광역비례",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "산청군",
+        "voters": 31488,
+        "turnout": 21928,
+        "valid": 21056,
+        "invalid": 872,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 4878
+          },
+          {
+            "name": "국민의힘",
+            "party": "국민의힘",
+            "votes": 14326
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 905
+          },
+          {
+            "name": "기본소득당",
+            "party": "기본소득당",
+            "votes": 212
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 451
+          },
+          {
+            "name": "진보당",
+            "party": "진보당",
+            "votes": 284
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2018 지선 (제7회) 시장",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "산청군",
+        "voters": 32408,
+        "turnout": 24647,
+        "valid": 23607,
+        "invalid": 1040,
+        "candidates": [
+          {
+            "name": "허기도",
+            "party": "더불어민주당",
+            "votes": 7814
+          },
+          {
+            "name": "이재근",
+            "party": "자유한국당",
+            "votes": 8898
+          },
+          {
+            "name": "이승화",
+            "party": "무소속",
+            "votes": 6250
+          },
+          {
+            "name": "배성한",
+            "party": "무소속",
+            "votes": 645
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2018 지선 (제7회) 시도지사",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "산청군",
+        "voters": 32408,
+        "turnout": 24648,
+        "valid": 23751,
+        "invalid": 897,
+        "candidates": [
+          {
+            "name": "김경수",
+            "party": "더불어민주당",
+            "votes": 9779
+          },
+          {
+            "name": "김태호",
+            "party": "자유한국당",
+            "votes": 12932
+          },
+          {
+            "name": "김유근",
+            "party": "바른미래당",
+            "votes": 1040
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2018 지선 (제7회) 기초의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "산청군가선거구",
+        "voters": 7402,
+        "turnout": 5801,
+        "valid": 5580,
+        "invalid": 221,
+        "candidates": [
+          {
+            "name": "고영희",
+            "party": "더불어민주당",
+            "votes": 1059
+          },
+          {
+            "name": "조병식",
+            "party": "자유한국당",
+            "votes": 1294
+          },
+          {
+            "name": "원봉수",
+            "party": "자유한국당",
+            "votes": 782
+          },
+          {
+            "name": "정명순",
+            "party": "무소속",
+            "votes": 1254
+          },
+          {
+            "name": "신종철",
+            "party": "무소속",
+            "votes": 1191
+          }
+        ]
+      },
+      {
+        "district": "산청군나선거구",
+        "voters": 5840,
+        "turnout": 4391,
+        "valid": 4204,
+        "invalid": 187,
+        "candidates": [
+          {
+            "name": "송정준",
+            "party": "더불어민주당",
+            "votes": 877
+          },
+          {
+            "name": "김수한",
+            "party": "자유한국당",
+            "votes": 1362
+          },
+          {
+            "name": "신동복",
+            "party": "자유한국당",
+            "votes": 1045
+          },
+          {
+            "name": "허정태",
+            "party": "무소속",
+            "votes": 615
+          },
+          {
+            "name": "조준행",
+            "party": "무소속",
+            "votes": 305
+          }
+        ]
+      },
+      {
+        "district": "산청군다선거구",
+        "voters": 10926,
+        "turnout": 8315,
+        "valid": 8001,
+        "invalid": 314,
+        "candidates": [
+          {
+            "name": "김두수",
+            "party": "더불어민주당",
+            "votes": 1352
+          },
+          {
+            "name": "조균환",
+            "party": "자유한국당",
+            "votes": 1727
+          },
+          {
+            "name": "김성수",
+            "party": "자유한국당",
+            "votes": 740
+          },
+          {
+            "name": "김명석",
+            "party": "자유한국당",
+            "votes": 910
+          },
+          {
+            "name": "김인관",
+            "party": "무소속",
+            "votes": 499
+          },
+          {
+            "name": "홍명기",
+            "party": "무소속",
+            "votes": 953
+          },
+          {
+            "name": "서봉석",
+            "party": "무소속",
+            "votes": 718
+          },
+          {
+            "name": "심재화",
+            "party": "무소속",
+            "votes": 1102
+          }
+        ]
+      },
+      {
+        "district": "산청군라선거구",
+        "voters": 8240,
+        "turnout": 6138,
+        "valid": 5792,
+        "invalid": 346,
+        "candidates": [
+          {
+            "name": "이만규",
+            "party": "자유한국당",
+            "votes": 1710
+          },
+          {
+            "name": "김영일",
+            "party": "자유한국당",
+            "votes": 1388
+          },
+          {
+            "name": "안천원",
+            "party": "무소속",
+            "votes": 2694
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "5",
+    "subType": "도의원",
+    "label": "2018 지선 (제7회) 도의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "산청군선거구",
+        "voters": 32408,
+        "turnout": 24644,
+        "valid": 23518,
+        "invalid": 1126,
+        "candidates": [
+          {
+            "name": "최호림",
+            "party": "더불어민주당",
+            "votes": 7433
+          },
+          {
+            "name": "박우범",
+            "party": "자유한국당",
+            "votes": 11959
+          },
+          {
+            "name": "이재석",
+            "party": "무소속",
+            "votes": 4126
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2018 지선 (제7회) 교육감",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "산청군",
+        "voters": 32408,
+        "turnout": 24647,
+        "valid": 23117,
+        "invalid": 1530,
+        "candidates": [
+          {
+            "name": "이효환",
+            "party": "",
+            "votes": 3389
+          },
+          {
+            "name": "김선유",
+            "party": "",
+            "votes": 5291
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 9369
+          },
+          {
+            "name": "박성호",
+            "party": "",
+            "votes": 5068
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "9",
+    "subType": "기초비례",
+    "label": "2018 지선 (제7회) 기초비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "산청군",
+        "voters": 32408,
+        "turnout": 24643,
+        "valid": 23190,
+        "invalid": 1453,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 9948
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 13242
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2018 지선 (제7회) 광역비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "산청군",
+        "voters": 32408,
+        "turnout": 24648,
+        "valid": 23361,
+        "invalid": 1287,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 8081
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 11574
+          },
+          {
+            "name": "바른미래당",
+            "party": "바른미래당",
+            "votes": 1048
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 1294
+          },
+          {
+            "name": "민중당",
+            "party": "민중당",
+            "votes": 569
+          },
+          {
+            "name": "대한애국당",
+            "party": "대한애국당",
+            "votes": 370
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 425
+          }
+        ]
+      }
+    ]
+  }
+]

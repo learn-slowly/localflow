@@ -1,0 +1,957 @@
+[
+  {
+    "sgId": "20220601",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2022 지선 (제8회) 시장",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "거제시",
+        "voters": 193369,
+        "turnout": 99295,
+        "valid": 97584,
+        "invalid": 1711,
+        "candidates": [
+          {
+            "name": "변광용",
+            "party": "더불어민주당",
+            "votes": 44403
+          },
+          {
+            "name": "박종우",
+            "party": "국민의힘",
+            "votes": 44790
+          },
+          {
+            "name": "김한표",
+            "party": "무소속",
+            "votes": 7256
+          },
+          {
+            "name": "김승철",
+            "party": "무소속",
+            "votes": 1135
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2022 지선 (제8회) 시도지사",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "거제시",
+        "voters": 193369,
+        "turnout": 99292,
+        "valid": 97409,
+        "invalid": 1883,
+        "candidates": [
+          {
+            "name": "양문석",
+            "party": "더불어민주당",
+            "votes": 36740
+          },
+          {
+            "name": "박완수",
+            "party": "국민의힘",
+            "votes": 56119
+          },
+          {
+            "name": "여영국",
+            "party": "정의당",
+            "votes": 4011
+          },
+          {
+            "name": "최진석",
+            "party": "통일한국당",
+            "votes": 539
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2022 지선 (제8회) 기초의원",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "거제시가선거구",
+        "voters": 24016,
+        "turnout": 13815,
+        "valid": 13364,
+        "invalid": 451,
+        "candidates": [
+          {
+            "name": "노재하",
+            "party": "더불어민주당",
+            "votes": 3195
+          },
+          {
+            "name": "이인태",
+            "party": "더불어민주당",
+            "votes": 1739
+          },
+          {
+            "name": "양태석",
+            "party": "국민의힘",
+            "votes": 5324
+          },
+          {
+            "name": "김종삼",
+            "party": "무소속",
+            "votes": 1542
+          },
+          {
+            "name": "임수환",
+            "party": "무소속",
+            "votes": 1564
+          }
+        ]
+      },
+      {
+        "district": "거제시나선거구",
+        "voters": 44747,
+        "turnout": 23061,
+        "valid": 22075,
+        "invalid": 986,
+        "candidates": [
+          {
+            "name": "김두호",
+            "party": "더불어민주당",
+            "votes": 7688
+          },
+          {
+            "name": "박명옥",
+            "party": "더불어민주당",
+            "votes": 3164
+          },
+          {
+            "name": "김동수",
+            "party": "국민의힘",
+            "votes": 7521
+          },
+          {
+            "name": "채종신",
+            "party": "국민의힘",
+            "votes": 2436
+          },
+          {
+            "name": "이양식",
+            "party": "정의당",
+            "votes": 1266
+          }
+        ]
+      },
+      {
+        "district": "거제시다선거구",
+        "voters": 42506,
+        "turnout": 21567,
+        "valid": 20848,
+        "invalid": 719,
+        "candidates": [
+          {
+            "name": "안석봉",
+            "party": "더불어민주당",
+            "votes": 5517
+          },
+          {
+            "name": "김영규",
+            "party": "국민의힘",
+            "votes": 5125
+          },
+          {
+            "name": "김종대",
+            "party": "국민의힘",
+            "votes": 2480
+          },
+          {
+            "name": "윤부원",
+            "party": "국민의힘",
+            "votes": 3087
+          },
+          {
+            "name": "송미량",
+            "party": "노동당",
+            "votes": 1467
+          },
+          {
+            "name": "김창호",
+            "party": "무소속",
+            "votes": 252
+          },
+          {
+            "name": "김해연",
+            "party": "무소속",
+            "votes": 2920
+          }
+        ]
+      },
+      {
+        "district": "거제시라선거구",
+        "voters": 19654,
+        "turnout": 9198,
+        "valid": 8960,
+        "invalid": 238,
+        "candidates": [
+          {
+            "name": "최양희",
+            "party": "더불어민주당",
+            "votes": 4127
+          },
+          {
+            "name": "조대용",
+            "party": "국민의힘",
+            "votes": 2862
+          },
+          {
+            "name": "김용운",
+            "party": "정의당",
+            "votes": 1971
+          }
+        ]
+      },
+      {
+        "district": "거제시마선거구",
+        "voters": 62446,
+        "turnout": 31650,
+        "valid": 30113,
+        "invalid": 1537,
+        "candidates": [
+          {
+            "name": "이미숙",
+            "party": "더불어민주당",
+            "votes": 4985
+          },
+          {
+            "name": "이태열",
+            "party": "더불어민주당",
+            "votes": 3735
+          },
+          {
+            "name": "강병주",
+            "party": "더불어민주당",
+            "votes": 3562
+          },
+          {
+            "name": "김선민",
+            "party": "국민의힘",
+            "votes": 6564
+          },
+          {
+            "name": "정성희",
+            "party": "국민의힘",
+            "votes": 1623
+          },
+          {
+            "name": "옥용배",
+            "party": "국민의힘",
+            "votes": 1884
+          },
+          {
+            "name": "신금자",
+            "party": "국민의힘",
+            "votes": 3607
+          },
+          {
+            "name": "김형곤",
+            "party": "무소속",
+            "votes": 1201
+          },
+          {
+            "name": "김경습",
+            "party": "무소속",
+            "votes": 2952
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "5",
+    "subType": "도의원",
+    "label": "2022 지선 (제8회) 도의원",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "거제시제1선거구",
+        "voters": 68763,
+        "turnout": 36878,
+        "valid": 35988,
+        "invalid": 890,
+        "candidates": [
+          {
+            "name": "옥은숙",
+            "party": "더불어민주당",
+            "votes": 16579
+          },
+          {
+            "name": "정수만",
+            "party": "국민의힘",
+            "votes": 19409
+          }
+        ]
+      },
+      {
+        "district": "거제시제2선거구",
+        "voters": 62160,
+        "turnout": 30761,
+        "valid": 29932,
+        "invalid": 829,
+        "candidates": [
+          {
+            "name": "송오성",
+            "party": "더불어민주당",
+            "votes": 13399
+          },
+          {
+            "name": "전기풍",
+            "party": "국민의힘",
+            "votes": 16533
+          }
+        ]
+      },
+      {
+        "district": "거제시제3선거구",
+        "voters": 62446,
+        "turnout": 31648,
+        "valid": 31001,
+        "invalid": 647,
+        "candidates": [
+          {
+            "name": "김성갑",
+            "party": "더불어민주당",
+            "votes": 14615
+          },
+          {
+            "name": "윤준영",
+            "party": "국민의힘",
+            "votes": 16386
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2022 지선 (제8회) 교육감",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "거제시",
+        "voters": 193369,
+        "turnout": 99289,
+        "valid": 96314,
+        "invalid": 2975,
+        "candidates": [
+          {
+            "name": "김상권",
+            "party": "",
+            "votes": 42934
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 53380
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "9",
+    "subType": "기초비례",
+    "label": "2022 지선 (제8회) 기초비례",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "거제시",
+        "voters": 193369,
+        "turnout": 99229,
+        "valid": 96826,
+        "invalid": 2403,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 38079
+          },
+          {
+            "name": "국민의힘",
+            "party": "국민의힘",
+            "votes": 52791
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 5956
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2022 지선 (제8회) 광역비례",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "거제시",
+        "voters": 193369,
+        "turnout": 99262,
+        "valid": 97201,
+        "invalid": 2061,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 37783
+          },
+          {
+            "name": "국민의힘",
+            "party": "국민의힘",
+            "votes": 52717
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 5262
+          },
+          {
+            "name": "기본소득당",
+            "party": "기본소득당",
+            "votes": 351
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 390
+          },
+          {
+            "name": "진보당",
+            "party": "진보당",
+            "votes": 698
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2018 지선 (제7회) 시장",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "거제시",
+        "voters": 194485,
+        "turnout": 122592,
+        "valid": 119966,
+        "invalid": 2626,
+        "candidates": [
+          {
+            "name": "변광용",
+            "party": "더불어민주당",
+            "votes": 62949
+          },
+          {
+            "name": "서일준",
+            "party": "자유한국당",
+            "votes": 54764
+          },
+          {
+            "name": "박재행",
+            "party": "대한애국당",
+            "votes": 2253
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2018 지선 (제7회) 시도지사",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "거제시",
+        "voters": 194485,
+        "turnout": 122586,
+        "valid": 120390,
+        "invalid": 2196,
+        "candidates": [
+          {
+            "name": "김경수",
+            "party": "더불어민주당",
+            "votes": 72292
+          },
+          {
+            "name": "김태호",
+            "party": "자유한국당",
+            "votes": 42578
+          },
+          {
+            "name": "김유근",
+            "party": "바른미래당",
+            "votes": 5520
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2018 지선 (제7회) 기초의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "거제시가선거구",
+        "voters": 69122,
+        "turnout": 43235,
+        "valid": 41389,
+        "invalid": 1846,
+        "candidates": [
+          {
+            "name": "이태열",
+            "party": "더불어민주당",
+            "votes": 8467
+          },
+          {
+            "name": "강병주",
+            "party": "더불어민주당",
+            "votes": 6542
+          },
+          {
+            "name": "김두호",
+            "party": "더불어민주당",
+            "votes": 5079
+          },
+          {
+            "name": "임태성",
+            "party": "자유한국당",
+            "votes": 3930
+          },
+          {
+            "name": "채종신",
+            "party": "자유한국당",
+            "votes": 2367
+          },
+          {
+            "name": "신금자",
+            "party": "자유한국당",
+            "votes": 4837
+          },
+          {
+            "name": "노현범",
+            "party": "정의당",
+            "votes": 1790
+          },
+          {
+            "name": "고병우",
+            "party": "무소속",
+            "votes": 1860
+          },
+          {
+            "name": "손진일",
+            "party": "무소속",
+            "votes": 2266
+          },
+          {
+            "name": "오성주",
+            "party": "무소속",
+            "votes": 1873
+          },
+          {
+            "name": "심학수",
+            "party": "무소속",
+            "votes": 2378
+          }
+        ]
+      },
+      {
+        "district": "거제시나선거구",
+        "voters": 31331,
+        "turnout": 20743,
+        "valid": 19865,
+        "invalid": 878,
+        "candidates": [
+          {
+            "name": "옥영문",
+            "party": "더불어민주당",
+            "votes": 4704
+          },
+          {
+            "name": "박형국",
+            "party": "더불어민주당",
+            "votes": 2541
+          },
+          {
+            "name": "김형곤",
+            "party": "자유한국당",
+            "votes": 2389
+          },
+          {
+            "name": "윤부원",
+            "party": "자유한국당",
+            "votes": 3867
+          },
+          {
+            "name": "박명옥",
+            "party": "바른미래당",
+            "votes": 2215
+          },
+          {
+            "name": "황양득",
+            "party": "무소속",
+            "votes": 1998
+          },
+          {
+            "name": "옥용배",
+            "party": "무소속",
+            "votes": 440
+          },
+          {
+            "name": "김종대",
+            "party": "무소속",
+            "votes": 296
+          },
+          {
+            "name": "옥삼수",
+            "party": "무소속",
+            "votes": 1415
+          }
+        ]
+      },
+      {
+        "district": "거제시다선거구",
+        "voters": 28128,
+        "turnout": 16896,
+        "valid": 16511,
+        "invalid": 385,
+        "candidates": [
+          {
+            "name": "안석봉",
+            "party": "더불어민주당",
+            "votes": 6002
+          },
+          {
+            "name": "전기풍",
+            "party": "자유한국당",
+            "votes": 3692
+          },
+          {
+            "name": "한은진",
+            "party": "정의당",
+            "votes": 3201
+          },
+          {
+            "name": "송미량",
+            "party": "노동당",
+            "votes": 2736
+          },
+          {
+            "name": "백세정",
+            "party": "무소속",
+            "votes": 880
+          }
+        ]
+      },
+      {
+        "district": "거제시라선거구",
+        "voters": 31253,
+        "turnout": 20250,
+        "valid": 18776,
+        "invalid": 1474,
+        "candidates": [
+          {
+            "name": "노재하",
+            "party": "더불어민주당",
+            "votes": 4538
+          },
+          {
+            "name": "이인태",
+            "party": "더불어민주당",
+            "votes": 4011
+          },
+          {
+            "name": "반국진",
+            "party": "더불어민주당",
+            "votes": 2234
+          },
+          {
+            "name": "김동수",
+            "party": "자유한국당",
+            "votes": 4250
+          },
+          {
+            "name": "권용훈",
+            "party": "자유한국당",
+            "votes": 1048
+          },
+          {
+            "name": "조호현",
+            "party": "자유한국당",
+            "votes": 2695
+          }
+        ]
+      },
+      {
+        "district": "거제시마선거구",
+        "voters": 34651,
+        "turnout": 21446,
+        "valid": 21006,
+        "invalid": 440,
+        "candidates": [
+          {
+            "name": "최양희",
+            "party": "더불어민주당",
+            "votes": 8413
+          },
+          {
+            "name": "김노회",
+            "party": "자유한국당",
+            "votes": 3198
+          },
+          {
+            "name": "김용운",
+            "party": "정의당",
+            "votes": 4476
+          },
+          {
+            "name": "한기수",
+            "party": "노동당",
+            "votes": 2918
+          },
+          {
+            "name": "하준명",
+            "party": "무소속",
+            "votes": 2001
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "5",
+    "subType": "도의원",
+    "label": "2018 지선 (제7회) 도의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "거제시제1선거구",
+        "voters": 69122,
+        "turnout": 43235,
+        "valid": 42184,
+        "invalid": 1051,
+        "candidates": [
+          {
+            "name": "김성갑",
+            "party": "더불어민주당",
+            "votes": 25487
+          },
+          {
+            "name": "박용안",
+            "party": "자유한국당",
+            "votes": 12488
+          },
+          {
+            "name": "이길종",
+            "party": "민중당",
+            "votes": 4209
+          }
+        ]
+      },
+      {
+        "district": "거제시제2선거구",
+        "voters": 59459,
+        "turnout": 37639,
+        "valid": 36606,
+        "invalid": 1033,
+        "candidates": [
+          {
+            "name": "송오성",
+            "party": "더불어민주당",
+            "votes": 16809
+          },
+          {
+            "name": "김창성",
+            "party": "자유한국당",
+            "votes": 11203
+          },
+          {
+            "name": "이행규",
+            "party": "무소속",
+            "votes": 8594
+          }
+        ]
+      },
+      {
+        "district": "거제시제3선거구",
+        "voters": 65904,
+        "turnout": 41693,
+        "valid": 40526,
+        "invalid": 1167,
+        "candidates": [
+          {
+            "name": "옥은숙",
+            "party": "더불어민주당",
+            "votes": 19535
+          },
+          {
+            "name": "김창규",
+            "party": "자유한국당",
+            "votes": 13874
+          },
+          {
+            "name": "성만호",
+            "party": "민중당",
+            "votes": 7117
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2018 지선 (제7회) 교육감",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "거제시",
+        "voters": 194484,
+        "turnout": 122577,
+        "valid": 117546,
+        "invalid": 5031,
+        "candidates": [
+          {
+            "name": "이효환",
+            "party": "",
+            "votes": 11204
+          },
+          {
+            "name": "김선유",
+            "party": "",
+            "votes": 18512
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 62946
+          },
+          {
+            "name": "박성호",
+            "party": "",
+            "votes": 24884
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "9",
+    "subType": "기초비례",
+    "label": "2018 지선 (제7회) 기초비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "거제시",
+        "voters": 194485,
+        "turnout": 122557,
+        "valid": 118725,
+        "invalid": 3832,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 63741
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 38778
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 16206
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2018 지선 (제7회) 광역비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "거제시",
+        "voters": 194485,
+        "turnout": 122564,
+        "valid": 119293,
+        "invalid": 3271,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 62168
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 36491
+          },
+          {
+            "name": "바른미래당",
+            "party": "바른미래당",
+            "votes": 5068
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 12492
+          },
+          {
+            "name": "민중당",
+            "party": "민중당",
+            "votes": 1489
+          },
+          {
+            "name": "대한애국당",
+            "party": "대한애국당",
+            "votes": 662
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 923
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,760 @@
+[
+  {
+    "sgId": "20220601",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2022 지선 (제8회) 시장",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "밀양시",
+        "voters": 92419,
+        "turnout": 50566,
+        "valid": 48936,
+        "invalid": 1630,
+        "candidates": [
+          {
+            "name": "박일호",
+            "party": "국민의힘",
+            "votes": 38595
+          },
+          {
+            "name": "김병태",
+            "party": "무소속",
+            "votes": 10341
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2022 지선 (제8회) 시도지사",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "밀양시",
+        "voters": 92419,
+        "turnout": 50564,
+        "valid": 49232,
+        "invalid": 1332,
+        "candidates": [
+          {
+            "name": "양문석",
+            "party": "더불어민주당",
+            "votes": 11458
+          },
+          {
+            "name": "박완수",
+            "party": "국민의힘",
+            "votes": 35657
+          },
+          {
+            "name": "여영국",
+            "party": "정의당",
+            "votes": 1622
+          },
+          {
+            "name": "최진석",
+            "party": "통일한국당",
+            "votes": 495
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2022 지선 (제8회) 기초의원",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "밀양시가선거구",
+        "voters": 18132,
+        "turnout": 10363,
+        "valid": 9701,
+        "invalid": 662,
+        "candidates": [
+          {
+            "name": "설현수",
+            "party": "더불어민주당",
+            "votes": 2115
+          },
+          {
+            "name": "석희억",
+            "party": "국민의힘",
+            "votes": 4233
+          },
+          {
+            "name": "박원태",
+            "party": "국민의힘",
+            "votes": 3353
+          }
+        ]
+      },
+      {
+        "district": "밀양시나선거구",
+        "voters": 18664,
+        "turnout": 10009,
+        "valid": 9663,
+        "invalid": 346,
+        "candidates": [
+          {
+            "name": "정무권",
+            "party": "더불어민주당",
+            "votes": 2399
+          },
+          {
+            "name": "정희정",
+            "party": "국민의힘",
+            "votes": 3306
+          },
+          {
+            "name": "엄수면",
+            "party": "국민의힘",
+            "votes": 2332
+          },
+          {
+            "name": "박영배",
+            "party": "무소속",
+            "votes": 1626
+          }
+        ]
+      },
+      {
+        "district": "밀양시다선거구",
+        "voters": 19138,
+        "turnout": 9637,
+        "valid": 9364,
+        "invalid": 273,
+        "candidates": [
+          {
+            "name": "송성헌",
+            "party": "더불어민주당",
+            "votes": 1747
+          },
+          {
+            "name": "강창오",
+            "party": "국민의힘",
+            "votes": 3528
+          },
+          {
+            "name": "최남기",
+            "party": "국민의힘",
+            "votes": 1964
+          },
+          {
+            "name": "장영우",
+            "party": "무소속",
+            "votes": 552
+          },
+          {
+            "name": "홍창환",
+            "party": "무소속",
+            "votes": 1573
+          }
+        ]
+      },
+      {
+        "district": "밀양시라선거구",
+        "voters": 20518,
+        "turnout": 11445,
+        "valid": 10934,
+        "invalid": 511,
+        "candidates": [
+          {
+            "name": "이현우",
+            "party": "더불어민주당",
+            "votes": 1789
+          },
+          {
+            "name": "조영도",
+            "party": "국민의힘",
+            "votes": 2727
+          },
+          {
+            "name": "이명습",
+            "party": "국민의힘",
+            "votes": 1245
+          },
+          {
+            "name": "허홍",
+            "party": "국민의힘",
+            "votes": 2083
+          },
+          {
+            "name": "정윤호",
+            "party": "무소속",
+            "votes": 1363
+          },
+          {
+            "name": "박영일",
+            "party": "무소속",
+            "votes": 1727
+          }
+        ]
+      },
+      {
+        "district": "밀양시마선거구",
+        "voters": 15967,
+        "turnout": 9109,
+        "valid": 8695,
+        "invalid": 414,
+        "candidates": [
+          {
+            "name": "김태석",
+            "party": "더불어민주당",
+            "votes": 1961
+          },
+          {
+            "name": "정정규",
+            "party": "국민의힘",
+            "votes": 3945
+          },
+          {
+            "name": "박진수",
+            "party": "국민의힘",
+            "votes": 2789
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "5",
+    "subType": "도의원",
+    "label": "2022 지선 (제8회) 도의원",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "밀양시제1선거구",
+        "voters": 55934,
+        "turnout": 30008,
+        "valid": 29036,
+        "invalid": 972,
+        "candidates": [
+          {
+            "name": "장병국",
+            "party": "국민의힘",
+            "votes": 17786
+          },
+          {
+            "name": "황걸연",
+            "party": "무소속",
+            "votes": 11250
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2022 지선 (제8회) 교육감",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "밀양시",
+        "voters": 92419,
+        "turnout": 50562,
+        "valid": 48506,
+        "invalid": 2056,
+        "candidates": [
+          {
+            "name": "김상권",
+            "party": "",
+            "votes": 22425
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 26081
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "9",
+    "subType": "기초비례",
+    "label": "2022 지선 (제8회) 기초비례",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "밀양시",
+        "voters": 92419,
+        "turnout": 50560,
+        "valid": 48989,
+        "invalid": 1571,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 13768
+          },
+          {
+            "name": "국민의힘",
+            "party": "국민의힘",
+            "votes": 35221
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2022 지선 (제8회) 광역비례",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "밀양시",
+        "voters": 92419,
+        "turnout": 50562,
+        "valid": 49111,
+        "invalid": 1451,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 12416
+          },
+          {
+            "name": "국민의힘",
+            "party": "국민의힘",
+            "votes": 34229
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 1609
+          },
+          {
+            "name": "기본소득당",
+            "party": "기본소득당",
+            "votes": 274
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 234
+          },
+          {
+            "name": "진보당",
+            "party": "진보당",
+            "votes": 349
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2018 지선 (제7회) 시장",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "밀양시",
+        "voters": 93081,
+        "turnout": 62114,
+        "valid": 60309,
+        "invalid": 1805,
+        "candidates": [
+          {
+            "name": "조성환",
+            "party": "더불어민주당",
+            "votes": 21611
+          },
+          {
+            "name": "박일호",
+            "party": "자유한국당",
+            "votes": 38698
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2018 지선 (제7회) 시도지사",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "밀양시",
+        "voters": 93081,
+        "turnout": 62115,
+        "valid": 60498,
+        "invalid": 1617,
+        "candidates": [
+          {
+            "name": "김경수",
+            "party": "더불어민주당",
+            "votes": 27434
+          },
+          {
+            "name": "김태호",
+            "party": "자유한국당",
+            "votes": 30835
+          },
+          {
+            "name": "김유근",
+            "party": "바른미래당",
+            "votes": 2229
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2018 지선 (제7회) 기초의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "밀양시가선거구",
+        "voters": 18983,
+        "turnout": 12743,
+        "valid": 12084,
+        "invalid": 659,
+        "candidates": [
+          {
+            "name": "설현수",
+            "party": "더불어민주당",
+            "votes": 3789
+          },
+          {
+            "name": "박필호",
+            "party": "자유한국당",
+            "votes": 4649
+          },
+          {
+            "name": "손문규",
+            "party": "자유한국당",
+            "votes": 2505
+          },
+          {
+            "name": "윤상진",
+            "party": "무소속",
+            "votes": 1141
+          }
+        ]
+      },
+      {
+        "district": "밀양시나선거구",
+        "voters": 19495,
+        "turnout": 13498,
+        "valid": 13177,
+        "invalid": 321,
+        "candidates": [
+          {
+            "name": "정무권",
+            "party": "더불어민주당",
+            "votes": 4588
+          },
+          {
+            "name": "황걸연",
+            "party": "자유한국당",
+            "votes": 3554
+          },
+          {
+            "name": "최남기",
+            "party": "자유한국당",
+            "votes": 2742
+          },
+          {
+            "name": "최종엄",
+            "party": "민중당",
+            "votes": 923
+          },
+          {
+            "name": "홍윤근",
+            "party": "무소속",
+            "votes": 1370
+          }
+        ]
+      },
+      {
+        "district": "밀양시다선거구",
+        "voters": 16525,
+        "turnout": 10384,
+        "valid": 10044,
+        "invalid": 340,
+        "candidates": [
+          {
+            "name": "장영우",
+            "party": "더불어민주당",
+            "votes": 3542
+          },
+          {
+            "name": "조영자",
+            "party": "자유한국당",
+            "votes": 1949
+          },
+          {
+            "name": "김상득",
+            "party": "자유한국당",
+            "votes": 2751
+          },
+          {
+            "name": "황인구",
+            "party": "무소속",
+            "votes": 1802
+          }
+        ]
+      },
+      {
+        "district": "밀양시라선거구",
+        "voters": 21146,
+        "turnout": 13831,
+        "valid": 13062,
+        "invalid": 769,
+        "candidates": [
+          {
+            "name": "이현우",
+            "party": "더불어민주당",
+            "votes": 2761
+          },
+          {
+            "name": "김태환",
+            "party": "더불어민주당",
+            "votes": 1796
+          },
+          {
+            "name": "박영일",
+            "party": "자유한국당",
+            "votes": 2713
+          },
+          {
+            "name": "정윤호",
+            "party": "자유한국당",
+            "votes": 2130
+          },
+          {
+            "name": "허홍",
+            "party": "자유한국당",
+            "votes": 2731
+          },
+          {
+            "name": "설병천",
+            "party": "무소속",
+            "votes": 931
+          }
+        ]
+      },
+      {
+        "district": "밀양시마선거구",
+        "voters": 16932,
+        "turnout": 11656,
+        "valid": 11057,
+        "invalid": 599,
+        "candidates": [
+          {
+            "name": "조희윤",
+            "party": "더불어민주당",
+            "votes": 2340
+          },
+          {
+            "name": "박진수",
+            "party": "자유한국당",
+            "votes": 3524
+          },
+          {
+            "name": "정정규",
+            "party": "자유한국당",
+            "votes": 2672
+          },
+          {
+            "name": "조인종",
+            "party": "무소속",
+            "votes": 2521
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "5",
+    "subType": "도의원",
+    "label": "2018 지선 (제7회) 도의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "밀양시제1선거구",
+        "voters": 55003,
+        "turnout": 36624,
+        "valid": 35790,
+        "invalid": 834,
+        "candidates": [
+          {
+            "name": "박진양",
+            "party": "더불어민주당",
+            "votes": 16331
+          },
+          {
+            "name": "이병희",
+            "party": "자유한국당",
+            "votes": 17163
+          },
+          {
+            "name": "염경일",
+            "party": "무소속",
+            "votes": 2296
+          }
+        ]
+      },
+      {
+        "district": "밀양시제2선거구",
+        "voters": 38078,
+        "turnout": 25487,
+        "valid": 24467,
+        "invalid": 1020,
+        "candidates": [
+          {
+            "name": "하원호",
+            "party": "더불어민주당",
+            "votes": 9840
+          },
+          {
+            "name": "예상원",
+            "party": "자유한국당",
+            "votes": 14627
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2018 지선 (제7회) 교육감",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "밀양시",
+        "voters": 93080,
+        "turnout": 62108,
+        "valid": 59096,
+        "invalid": 3012,
+        "candidates": [
+          {
+            "name": "이효환",
+            "party": "",
+            "votes": 6049
+          },
+          {
+            "name": "김선유",
+            "party": "",
+            "votes": 9471
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 28441
+          },
+          {
+            "name": "박성호",
+            "party": "",
+            "votes": 15135
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "9",
+    "subType": "기초비례",
+    "label": "2018 지선 (제7회) 기초비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "밀양시",
+        "voters": 93081,
+        "turnout": 62110,
+        "valid": 59177,
+        "invalid": 2933,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 28430
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 30747
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2018 지선 (제7회) 광역비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "밀양시",
+        "voters": 93081,
+        "turnout": 62106,
+        "valid": 60154,
+        "invalid": 1952,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 24444
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 28469
+          },
+          {
+            "name": "바른미래당",
+            "party": "바른미래당",
+            "votes": 2721
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 2840
+          },
+          {
+            "name": "민중당",
+            "party": "민중당",
+            "votes": 712
+          },
+          {
+            "name": "대한애국당",
+            "party": "대한애국당",
+            "votes": 408
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 560
+          }
+        ]
+      }
+    ]
+  }
+]

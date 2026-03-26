@@ -1,0 +1,752 @@
+[
+  {
+    "sgId": "20220601",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2022 지선 (제8회) 시장",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "고성군",
+        "voters": 44745,
+        "turnout": 30309,
+        "valid": 29540,
+        "invalid": 769,
+        "candidates": [
+          {
+            "name": "백두현",
+            "party": "더불어민주당",
+            "votes": 12634
+          },
+          {
+            "name": "이상근",
+            "party": "국민의힘",
+            "votes": 16906
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2022 지선 (제8회) 시도지사",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "고성군",
+        "voters": 44745,
+        "turnout": 30306,
+        "valid": 29318,
+        "invalid": 988,
+        "candidates": [
+          {
+            "name": "양문석",
+            "party": "더불어민주당",
+            "votes": 7918
+          },
+          {
+            "name": "박완수",
+            "party": "국민의힘",
+            "votes": 20130
+          },
+          {
+            "name": "여영국",
+            "party": "정의당",
+            "votes": 889
+          },
+          {
+            "name": "최진석",
+            "party": "통일한국당",
+            "votes": 381
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2022 지선 (제8회) 기초의원",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "고성군가선거구",
+        "voters": 21678,
+        "turnout": 14344,
+        "valid": 13853,
+        "invalid": 491,
+        "candidates": [
+          {
+            "name": "김원순",
+            "party": "더불어민주당",
+            "votes": 2558
+          },
+          {
+            "name": "김향숙",
+            "party": "국민의힘",
+            "votes": 2661
+          },
+          {
+            "name": "이용재",
+            "party": "국민의힘",
+            "votes": 1290
+          },
+          {
+            "name": "김석한",
+            "party": "국민의힘",
+            "votes": 1877
+          },
+          {
+            "name": "이우영",
+            "party": "무소속",
+            "votes": 1422
+          },
+          {
+            "name": "이쌍자",
+            "party": "무소속",
+            "votes": 2279
+          },
+          {
+            "name": "이상봉",
+            "party": "무소속",
+            "votes": 423
+          },
+          {
+            "name": "정순욱",
+            "party": "무소속",
+            "votes": 1101
+          },
+          {
+            "name": "전병호",
+            "party": "무소속",
+            "votes": 242
+          }
+        ]
+      },
+      {
+        "district": "고성군나선거구",
+        "voters": 8158,
+        "turnout": 6083,
+        "valid": 5812,
+        "invalid": 271,
+        "candidates": [
+          {
+            "name": "김완식",
+            "party": "더불어민주당",
+            "votes": 1301
+          },
+          {
+            "name": "정영환",
+            "party": "국민의힘",
+            "votes": 2318
+          },
+          {
+            "name": "최을석",
+            "party": "국민의힘",
+            "votes": 1449
+          },
+          {
+            "name": "정재우",
+            "party": "무소속",
+            "votes": 744
+          }
+        ]
+      },
+      {
+        "district": "고성군다선거구",
+        "voters": 14909,
+        "turnout": 9877,
+        "valid": 9482,
+        "invalid": 395,
+        "candidates": [
+          {
+            "name": "김희태",
+            "party": "더불어민주당",
+            "votes": 2065
+          },
+          {
+            "name": "우정욱",
+            "party": "국민의힘",
+            "votes": 3630
+          },
+          {
+            "name": "최두임",
+            "party": "국민의힘",
+            "votes": 2304
+          },
+          {
+            "name": "공점식",
+            "party": "국민의힘",
+            "votes": 1483
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "5",
+    "subType": "도의원",
+    "label": "2022 지선 (제8회) 도의원",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "고성군제1선거구",
+        "voters": 21678,
+        "turnout": 14343,
+        "valid": 13814,
+        "invalid": 529,
+        "candidates": [
+          {
+            "name": "백수명",
+            "party": "국민의힘",
+            "votes": 11080
+          },
+          {
+            "name": "조홍래",
+            "party": "무소속",
+            "votes": 2734
+          }
+        ]
+      },
+      {
+        "district": "고성군제2선거구",
+        "voters": 23067,
+        "turnout": 15960,
+        "valid": 15305,
+        "invalid": 655,
+        "candidates": [
+          {
+            "name": "오재환",
+            "party": "더불어민주당",
+            "votes": 3322
+          },
+          {
+            "name": "허동원",
+            "party": "국민의힘",
+            "votes": 9267
+          },
+          {
+            "name": "이동호",
+            "party": "무소속",
+            "votes": 2716
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2022 지선 (제8회) 교육감",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "고성군",
+        "voters": 44745,
+        "turnout": 30300,
+        "valid": 28803,
+        "invalid": 1497,
+        "candidates": [
+          {
+            "name": "김상권",
+            "party": "",
+            "votes": 14707
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 14096
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "9",
+    "subType": "기초비례",
+    "label": "2022 지선 (제8회) 기초비례",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "고성군",
+        "voters": 44745,
+        "turnout": 30304,
+        "valid": 29266,
+        "invalid": 1038,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 9098
+          },
+          {
+            "name": "국민의힘",
+            "party": "국민의힘",
+            "votes": 20168
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2022 지선 (제8회) 광역비례",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "고성군",
+        "voters": 44745,
+        "turnout": 30306,
+        "valid": 29312,
+        "invalid": 994,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 8260
+          },
+          {
+            "name": "국민의힘",
+            "party": "국민의힘",
+            "votes": 19548
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 991
+          },
+          {
+            "name": "기본소득당",
+            "party": "기본소득당",
+            "votes": 179
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 115
+          },
+          {
+            "name": "진보당",
+            "party": "진보당",
+            "votes": 219
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2018 지선 (제7회) 시장",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "고성군",
+        "voters": 46588,
+        "turnout": 34070,
+        "valid": 32891,
+        "invalid": 1179,
+        "candidates": [
+          {
+            "name": "백두현",
+            "party": "더불어민주당",
+            "votes": 18518
+          },
+          {
+            "name": "김홍식",
+            "party": "자유한국당",
+            "votes": 14373
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2018 지선 (제7회) 시도지사",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "고성군",
+        "voters": 46588,
+        "turnout": 34075,
+        "valid": 32884,
+        "invalid": 1191,
+        "candidates": [
+          {
+            "name": "김경수",
+            "party": "더불어민주당",
+            "votes": 16355
+          },
+          {
+            "name": "김태호",
+            "party": "자유한국당",
+            "votes": 15438
+          },
+          {
+            "name": "김유근",
+            "party": "바른미래당",
+            "votes": 1091
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2018 지선 (제7회) 기초의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "고성군가선거구",
+        "voters": 22347,
+        "turnout": 15964,
+        "valid": 15469,
+        "invalid": 495,
+        "candidates": [
+          {
+            "name": "하창현",
+            "party": "더불어민주당",
+            "votes": 3859
+          },
+          {
+            "name": "이용재",
+            "party": "자유한국당",
+            "votes": 2509
+          },
+          {
+            "name": "김석한",
+            "party": "자유한국당",
+            "votes": 1840
+          },
+          {
+            "name": "진영찬",
+            "party": "자유한국당",
+            "votes": 747
+          },
+          {
+            "name": "조홍래",
+            "party": "무소속",
+            "votes": 120
+          },
+          {
+            "name": "이우영",
+            "party": "무소속",
+            "votes": 2007
+          },
+          {
+            "name": "이상봉",
+            "party": "무소속",
+            "votes": 541
+          },
+          {
+            "name": "이쌍자",
+            "party": "무소속",
+            "votes": 2476
+          },
+          {
+            "name": "이철원",
+            "party": "무소속",
+            "votes": 953
+          },
+          {
+            "name": "조경대",
+            "party": "무소속",
+            "votes": 417
+          }
+        ]
+      },
+      {
+        "district": "고성군나선거구",
+        "voters": 8406,
+        "turnout": 6417,
+        "valid": 6009,
+        "invalid": 408,
+        "candidates": [
+          {
+            "name": "강영봉",
+            "party": "자유한국당",
+            "votes": 1417
+          },
+          {
+            "name": "정영환",
+            "party": "자유한국당",
+            "votes": 2205
+          },
+          {
+            "name": "최을석",
+            "party": "무소속",
+            "votes": 2387
+          }
+        ]
+      },
+      {
+        "district": "고성군다선거구",
+        "voters": 8542,
+        "turnout": 6535,
+        "valid": 6197,
+        "invalid": 338,
+        "candidates": [
+          {
+            "name": "김영기",
+            "party": "더불어민주당",
+            "votes": 853
+          },
+          {
+            "name": "최상림",
+            "party": "자유한국당",
+            "votes": 1386
+          },
+          {
+            "name": "우정욱",
+            "party": "자유한국당",
+            "votes": 1128
+          },
+          {
+            "name": "박일훈",
+            "party": "무소속",
+            "votes": 349
+          },
+          {
+            "name": "김희태",
+            "party": "무소속",
+            "votes": 488
+          },
+          {
+            "name": "이태영",
+            "party": "무소속",
+            "votes": 264
+          },
+          {
+            "name": "김진열",
+            "party": "무소속",
+            "votes": 349
+          },
+          {
+            "name": "배상길",
+            "party": "무소속",
+            "votes": 1380
+          }
+        ]
+      },
+      {
+        "district": "고성군라선거구",
+        "voters": 7293,
+        "turnout": 5156,
+        "valid": 4756,
+        "invalid": 400,
+        "candidates": [
+          {
+            "name": "박용삼",
+            "party": "자유한국당",
+            "votes": 1553
+          },
+          {
+            "name": "천재기",
+            "party": "자유한국당",
+            "votes": 1383
+          },
+          {
+            "name": "공점식",
+            "party": "무소속",
+            "votes": 1309
+          },
+          {
+            "name": "정호용",
+            "party": "무소속",
+            "votes": 511
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "5",
+    "subType": "도의원",
+    "label": "2018 지선 (제7회) 도의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "고성군제1선거구",
+        "voters": 22347,
+        "turnout": 15964,
+        "valid": 15445,
+        "invalid": 519,
+        "candidates": [
+          {
+            "name": "이옥철",
+            "party": "더불어민주당",
+            "votes": 5038
+          },
+          {
+            "name": "정도범",
+            "party": "자유한국당",
+            "votes": 5006
+          },
+          {
+            "name": "허도학",
+            "party": "대한애국당",
+            "votes": 786
+          },
+          {
+            "name": "백수명",
+            "party": "무소속",
+            "votes": 4615
+          }
+        ]
+      },
+      {
+        "district": "고성군제2선거구",
+        "voters": 24241,
+        "turnout": 18105,
+        "valid": 16773,
+        "invalid": 1332,
+        "candidates": [
+          {
+            "name": "황보길",
+            "party": "자유한국당",
+            "votes": 9154
+          },
+          {
+            "name": "이동호",
+            "party": "무소속",
+            "votes": 7619
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2018 지선 (제7회) 교육감",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "고성군",
+        "voters": 46588,
+        "turnout": 34069,
+        "valid": 32220,
+        "invalid": 1849,
+        "candidates": [
+          {
+            "name": "이효환",
+            "party": "",
+            "votes": 3144
+          },
+          {
+            "name": "김선유",
+            "party": "",
+            "votes": 5868
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 15084
+          },
+          {
+            "name": "박성호",
+            "party": "",
+            "votes": 8124
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "9",
+    "subType": "기초비례",
+    "label": "2018 지선 (제7회) 기초비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "고성군",
+        "voters": 46588,
+        "turnout": 34068,
+        "valid": 32130,
+        "invalid": 1938,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 15366
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 16764
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2018 지선 (제7회) 광역비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "고성군",
+        "voters": 46588,
+        "turnout": 34069,
+        "valid": 32505,
+        "invalid": 1564,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 13186
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 15223
+          },
+          {
+            "name": "바른미래당",
+            "party": "바른미래당",
+            "votes": 1203
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 1581
+          },
+          {
+            "name": "민중당",
+            "party": "민중당",
+            "votes": 498
+          },
+          {
+            "name": "대한애국당",
+            "party": "대한애국당",
+            "votes": 506
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 308
+          }
+        ]
+      }
+    ]
+  }
+]

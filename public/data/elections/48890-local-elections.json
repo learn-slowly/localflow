@@ -1,0 +1,728 @@
+[
+  {
+    "sgId": "20220601",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2022 지선 (제8회) 시장",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "합천군",
+        "voters": 39435,
+        "turnout": 27366,
+        "valid": 26159,
+        "invalid": 1207,
+        "candidates": [
+          {
+            "name": "김기태",
+            "party": "더불어민주당",
+            "votes": 3008
+          },
+          {
+            "name": "김윤철",
+            "party": "국민의힘",
+            "votes": 16549
+          },
+          {
+            "name": "박경호",
+            "party": "무소속",
+            "votes": 2149
+          },
+          {
+            "name": "배몽희",
+            "party": "무소속",
+            "votes": 4453
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2022 지선 (제8회) 시도지사",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "합천군",
+        "voters": 39435,
+        "turnout": 27363,
+        "valid": 25932,
+        "invalid": 1431,
+        "candidates": [
+          {
+            "name": "양문석",
+            "party": "더불어민주당",
+            "votes": 4479
+          },
+          {
+            "name": "박완수",
+            "party": "국민의힘",
+            "votes": 19928
+          },
+          {
+            "name": "여영국",
+            "party": "정의당",
+            "votes": 907
+          },
+          {
+            "name": "최진석",
+            "party": "통일한국당",
+            "votes": 618
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2022 지선 (제8회) 기초의원",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "합천군가선거구",
+        "voters": 15581,
+        "turnout": 10701,
+        "valid": 10273,
+        "invalid": 428,
+        "candidates": [
+          {
+            "name": "권영식",
+            "party": "더불어민주당",
+            "votes": 1439
+          },
+          {
+            "name": "박안나",
+            "party": "국민의힘",
+            "votes": 1741
+          },
+          {
+            "name": "허원회",
+            "party": "국민의힘",
+            "votes": 1329
+          },
+          {
+            "name": "최정옥",
+            "party": "국민의힘",
+            "votes": 1329
+          },
+          {
+            "name": "주영신",
+            "party": "무소속",
+            "votes": 541
+          },
+          {
+            "name": "김승현",
+            "party": "무소속",
+            "votes": 1104
+          },
+          {
+            "name": "박종규",
+            "party": "무소속",
+            "votes": 467
+          },
+          {
+            "name": "정종석",
+            "party": "무소속",
+            "votes": 661
+          },
+          {
+            "name": "이한신",
+            "party": "무소속",
+            "votes": 1662
+          }
+        ]
+      },
+      {
+        "district": "합천군나선거구",
+        "voters": 8888,
+        "turnout": 6194,
+        "valid": 5854,
+        "invalid": 340,
+        "candidates": [
+          {
+            "name": "김태구",
+            "party": "국민의힘",
+            "votes": 1436
+          },
+          {
+            "name": "조삼술",
+            "party": "국민의힘",
+            "votes": 2033
+          },
+          {
+            "name": "신명기",
+            "party": "무소속",
+            "votes": 1750
+          },
+          {
+            "name": "하만용",
+            "party": "무소속",
+            "votes": 635
+          }
+        ]
+      },
+      {
+        "district": "합천군다선거구",
+        "voters": 7043,
+        "turnout": 4973,
+        "valid": 4720,
+        "invalid": 253,
+        "candidates": [
+          {
+            "name": "이하영",
+            "party": "더불어민주당",
+            "votes": 382
+          },
+          {
+            "name": "이종철",
+            "party": "국민의힘",
+            "votes": 1382
+          },
+          {
+            "name": "정봉훈",
+            "party": "국민의힘",
+            "votes": 1433
+          },
+          {
+            "name": "노성용",
+            "party": "무소속",
+            "votes": 1301
+          },
+          {
+            "name": "구자일",
+            "party": "무소속",
+            "votes": 222
+          }
+        ]
+      },
+      {
+        "district": "합천군라선거구",
+        "voters": 7923,
+        "turnout": 5498,
+        "valid": 5223,
+        "invalid": 275,
+        "candidates": [
+          {
+            "name": "신경자",
+            "party": "더불어민주당",
+            "votes": 1646
+          },
+          {
+            "name": "성종태",
+            "party": "국민의힘",
+            "votes": 1964
+          },
+          {
+            "name": "임재진",
+            "party": "국민의힘",
+            "votes": 1149
+          },
+          {
+            "name": "박진규",
+            "party": "무소속",
+            "votes": 464
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "5",
+    "subType": "도의원",
+    "label": "2022 지선 (제8회) 도의원",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "합천군선거구",
+        "voters": 39435,
+        "turnout": 27362,
+        "valid": 25886,
+        "invalid": 1476,
+        "candidates": [
+          {
+            "name": "장진영",
+            "party": "국민의힘",
+            "votes": 12617
+          },
+          {
+            "name": "윤재호",
+            "party": "무소속",
+            "votes": 6538
+          },
+          {
+            "name": "이용균",
+            "party": "무소속",
+            "votes": 6731
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2022 지선 (제8회) 교육감",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "합천군",
+        "voters": 39435,
+        "turnout": 27361,
+        "valid": 25159,
+        "invalid": 2202,
+        "candidates": [
+          {
+            "name": "김상권",
+            "party": "",
+            "votes": 13515
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 11644
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "9",
+    "subType": "기초비례",
+    "label": "2022 지선 (제8회) 기초비례",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "합천군",
+        "voters": 39435,
+        "turnout": 27360,
+        "valid": 25871,
+        "invalid": 1489,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 6258
+          },
+          {
+            "name": "국민의힘",
+            "party": "국민의힘",
+            "votes": 19613
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2022 지선 (제8회) 광역비례",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "합천군",
+        "voters": 39435,
+        "turnout": 27363,
+        "valid": 25918,
+        "invalid": 1445,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 5245
+          },
+          {
+            "name": "국민의힘",
+            "party": "국민의힘",
+            "votes": 18769
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 922
+          },
+          {
+            "name": "기본소득당",
+            "party": "기본소득당",
+            "votes": 367
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 344
+          },
+          {
+            "name": "진보당",
+            "party": "진보당",
+            "votes": 271
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2018 지선 (제7회) 시장",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "합천군",
+        "voters": 42165,
+        "turnout": 32500,
+        "valid": 31063,
+        "invalid": 1437,
+        "candidates": [
+          {
+            "name": "정재영",
+            "party": "더불어민주당",
+            "votes": 9274
+          },
+          {
+            "name": "문준희",
+            "party": "자유한국당",
+            "votes": 18237
+          },
+          {
+            "name": "조찬용",
+            "party": "바른미래당",
+            "votes": 1138
+          },
+          {
+            "name": "윤정호",
+            "party": "무소속",
+            "votes": 2414
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2018 지선 (제7회) 시도지사",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "합천군",
+        "voters": 42165,
+        "turnout": 32499,
+        "valid": 30973,
+        "invalid": 1526,
+        "candidates": [
+          {
+            "name": "김경수",
+            "party": "더불어민주당",
+            "votes": 10330
+          },
+          {
+            "name": "김태호",
+            "party": "자유한국당",
+            "votes": 19403
+          },
+          {
+            "name": "김유근",
+            "party": "바른미래당",
+            "votes": 1240
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2018 지선 (제7회) 기초의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "합천군가선거구",
+        "voters": 13989,
+        "turnout": 10978,
+        "valid": 10406,
+        "invalid": 572,
+        "candidates": [
+          {
+            "name": "권영식",
+            "party": "더불어민주당",
+            "votes": 1878
+          },
+          {
+            "name": "박안나",
+            "party": "자유한국당",
+            "votes": 1471
+          },
+          {
+            "name": "최정옥",
+            "party": "자유한국당",
+            "votes": 1799
+          },
+          {
+            "name": "이한신",
+            "party": "무소속",
+            "votes": 1359
+          },
+          {
+            "name": "정종석",
+            "party": "무소속",
+            "votes": 888
+          },
+          {
+            "name": "김승현",
+            "party": "무소속",
+            "votes": 1551
+          },
+          {
+            "name": "이용균",
+            "party": "무소속",
+            "votes": 1460
+          }
+        ]
+      },
+      {
+        "district": "합천군나선거구",
+        "voters": 9729,
+        "turnout": 7394,
+        "valid": 6931,
+        "invalid": 463,
+        "candidates": [
+          {
+            "name": "장진영",
+            "party": "더불어민주당",
+            "votes": 2131
+          },
+          {
+            "name": "신명기",
+            "party": "자유한국당",
+            "votes": 2121
+          },
+          {
+            "name": "조삼술",
+            "party": "자유한국당",
+            "votes": 1629
+          },
+          {
+            "name": "김태구",
+            "party": "무소속",
+            "votes": 1050
+          }
+        ]
+      },
+      {
+        "district": "합천군다선거구",
+        "voters": 10017,
+        "turnout": 7705,
+        "valid": 7235,
+        "invalid": 470,
+        "candidates": [
+          {
+            "name": "김성만",
+            "party": "자유한국당",
+            "votes": 1551
+          },
+          {
+            "name": "석만진",
+            "party": "자유한국당",
+            "votes": 2033
+          },
+          {
+            "name": "정봉훈",
+            "party": "자유한국당",
+            "votes": 1800
+          },
+          {
+            "name": "박중무",
+            "party": "무소속",
+            "votes": 1851
+          }
+        ]
+      },
+      {
+        "district": "합천군라선거구",
+        "voters": 8430,
+        "turnout": 6421,
+        "valid": 6021,
+        "invalid": 400,
+        "candidates": [
+          {
+            "name": "정대웅",
+            "party": "자유한국당",
+            "votes": 1856
+          },
+          {
+            "name": "임재진",
+            "party": "자유한국당",
+            "votes": 2041
+          },
+          {
+            "name": "배몽희",
+            "party": "무소속",
+            "votes": 2124
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "5",
+    "subType": "도의원",
+    "label": "2018 지선 (제7회) 도의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "합천군선거구",
+        "voters": 42165,
+        "turnout": 32499,
+        "valid": 30814,
+        "invalid": 1685,
+        "candidates": [
+          {
+            "name": "김무만",
+            "party": "더불어민주당",
+            "votes": 6626
+          },
+          {
+            "name": "이진출",
+            "party": "자유한국당",
+            "votes": 10858
+          },
+          {
+            "name": "김윤철",
+            "party": "무소속",
+            "votes": 13330
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2018 지선 (제7회) 교육감",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "합천군",
+        "voters": 42165,
+        "turnout": 32494,
+        "valid": 29841,
+        "invalid": 2653,
+        "candidates": [
+          {
+            "name": "이효환",
+            "party": "",
+            "votes": 3667
+          },
+          {
+            "name": "김선유",
+            "party": "",
+            "votes": 6389
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 12710
+          },
+          {
+            "name": "박성호",
+            "party": "",
+            "votes": 7075
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "9",
+    "subType": "기초비례",
+    "label": "2018 지선 (제7회) 기초비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "합천군",
+        "voters": 42165,
+        "turnout": 32496,
+        "valid": 30265,
+        "invalid": 2231,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 11040
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 19225
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2018 지선 (제7회) 광역비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "합천군",
+        "voters": 42165,
+        "turnout": 32500,
+        "valid": 30300,
+        "invalid": 2200,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 9266
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 17217
+          },
+          {
+            "name": "바른미래당",
+            "party": "바른미래당",
+            "votes": 1280
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 1122
+          },
+          {
+            "name": "민중당",
+            "party": "민중당",
+            "votes": 665
+          },
+          {
+            "name": "대한애국당",
+            "party": "대한애국당",
+            "votes": 344
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 406
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,647 @@
+[
+  {
+    "sgId": "20220601",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2022 지선 (제8회) 시장",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "의령군",
+        "voters": 24291,
+        "turnout": 18230,
+        "valid": 17402,
+        "invalid": 828,
+        "candidates": [
+          {
+            "name": "오태완",
+            "party": "무소속",
+            "votes": 8242
+          },
+          {
+            "name": "김충규",
+            "party": "무소속",
+            "votes": 5992
+          },
+          {
+            "name": "손호현",
+            "party": "무소속",
+            "votes": 3168
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2022 지선 (제8회) 시도지사",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "의령군",
+        "voters": 24291,
+        "turnout": 18229,
+        "valid": 17224,
+        "invalid": 1005,
+        "candidates": [
+          {
+            "name": "양문석",
+            "party": "더불어민주당",
+            "votes": 3504
+          },
+          {
+            "name": "박완수",
+            "party": "국민의힘",
+            "votes": 12348
+          },
+          {
+            "name": "여영국",
+            "party": "정의당",
+            "votes": 773
+          },
+          {
+            "name": "최진석",
+            "party": "통일한국당",
+            "votes": 599
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2022 지선 (제8회) 기초의원",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "의령군가선거구",
+        "voters": 9588,
+        "turnout": 7106,
+        "valid": 6914,
+        "invalid": 192,
+        "candidates": [
+          {
+            "name": "김병련",
+            "party": "더불어민주당",
+            "votes": 579
+          },
+          {
+            "name": "오병환",
+            "party": "국민의힘",
+            "votes": 748
+          },
+          {
+            "name": "양재명",
+            "party": "국민의힘",
+            "votes": 830
+          },
+          {
+            "name": "김봉남",
+            "party": "국민의힘",
+            "votes": 1102
+          },
+          {
+            "name": "장동철",
+            "party": "무소속",
+            "votes": 448
+          },
+          {
+            "name": "이종현",
+            "party": "무소속",
+            "votes": 211
+          },
+          {
+            "name": "김판곤",
+            "party": "무소속",
+            "votes": 1013
+          },
+          {
+            "name": "주진규",
+            "party": "무소속",
+            "votes": 835
+          },
+          {
+            "name": "조순종",
+            "party": "무소속",
+            "votes": 1148
+          }
+        ]
+      },
+      {
+        "district": "의령군나선거구",
+        "voters": 5138,
+        "turnout": 3829,
+        "valid": 3637,
+        "invalid": 192,
+        "candidates": [
+          {
+            "name": "주민돈",
+            "party": "국민의힘",
+            "votes": 1435
+          },
+          {
+            "name": "오민자",
+            "party": "국민의힘",
+            "votes": 1296
+          },
+          {
+            "name": "장명철",
+            "party": "무소속",
+            "votes": 906
+          }
+        ]
+      },
+      {
+        "district": "의령군다선거구",
+        "voters": 5321,
+        "turnout": 3969,
+        "valid": 3773,
+        "invalid": 196,
+        "candidates": [
+          {
+            "name": "남우석",
+            "party": "국민의힘",
+            "votes": 1138
+          },
+          {
+            "name": "윤병열",
+            "party": "국민의힘",
+            "votes": 1408
+          },
+          {
+            "name": "황성철",
+            "party": "무소속",
+            "votes": 1227
+          }
+        ]
+      },
+      {
+        "district": "의령군라선거구",
+        "voters": 4244,
+        "turnout": 3326,
+        "valid": 3159,
+        "invalid": 167,
+        "candidates": [
+          {
+            "name": "강홍도",
+            "party": "국민의힘",
+            "votes": 536
+          },
+          {
+            "name": "문봉도",
+            "party": "국민의힘",
+            "votes": 738
+          },
+          {
+            "name": "김규찬",
+            "party": "무소속",
+            "votes": 877
+          },
+          {
+            "name": "김창호",
+            "party": "무소속",
+            "votes": 1008
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2022 지선 (제8회) 교육감",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "의령군",
+        "voters": 24291,
+        "turnout": 18228,
+        "valid": 16833,
+        "invalid": 1395,
+        "candidates": [
+          {
+            "name": "김상권",
+            "party": "",
+            "votes": 8668
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 8165
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2022 지선 (제8회) 광역비례",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "의령군",
+        "voters": 24291,
+        "turnout": 18229,
+        "valid": 17317,
+        "invalid": 912,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 3955
+          },
+          {
+            "name": "국민의힘",
+            "party": "국민의힘",
+            "votes": 11615
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 764
+          },
+          {
+            "name": "기본소득당",
+            "party": "기본소득당",
+            "votes": 317
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 307
+          },
+          {
+            "name": "진보당",
+            "party": "진보당",
+            "votes": 359
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2018 지선 (제7회) 시장",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "의령군",
+        "voters": 24972,
+        "turnout": 19908,
+        "valid": 19117,
+        "invalid": 791,
+        "candidates": [
+          {
+            "name": "김충규",
+            "party": "더불어민주당",
+            "votes": 3999
+          },
+          {
+            "name": "이선두",
+            "party": "자유한국당",
+            "votes": 9154
+          },
+          {
+            "name": "한우상",
+            "party": "무소속",
+            "votes": 5964
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2018 지선 (제7회) 시도지사",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "의령군",
+        "voters": 24972,
+        "turnout": 19912,
+        "valid": 18989,
+        "invalid": 923,
+        "candidates": [
+          {
+            "name": "김경수",
+            "party": "더불어민주당",
+            "votes": 7439
+          },
+          {
+            "name": "김태호",
+            "party": "자유한국당",
+            "votes": 10529
+          },
+          {
+            "name": "김유근",
+            "party": "바른미래당",
+            "votes": 1021
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2018 지선 (제7회) 기초의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "의령군가선거구",
+        "voters": 9433,
+        "turnout": 7545,
+        "valid": 7187,
+        "invalid": 358,
+        "candidates": [
+          {
+            "name": "홍한기",
+            "party": "더불어민주당",
+            "votes": 1315
+          },
+          {
+            "name": "김봉남",
+            "party": "자유한국당",
+            "votes": 1248
+          },
+          {
+            "name": "김판곤",
+            "party": "자유한국당",
+            "votes": 1578
+          },
+          {
+            "name": "조순종",
+            "party": "자유한국당",
+            "votes": 900
+          },
+          {
+            "name": "한형욱",
+            "party": "무소속",
+            "votes": 347
+          },
+          {
+            "name": "양재명",
+            "party": "무소속",
+            "votes": 964
+          },
+          {
+            "name": "전병원",
+            "party": "무소속",
+            "votes": 835
+          }
+        ]
+      },
+      {
+        "district": "의령군나선거구",
+        "voters": 5383,
+        "turnout": 4320,
+        "valid": 3999,
+        "invalid": 321,
+        "candidates": [
+          {
+            "name": "김철호",
+            "party": "자유한국당",
+            "votes": 1190
+          },
+          {
+            "name": "주민돈",
+            "party": "자유한국당",
+            "votes": 878
+          },
+          {
+            "name": "이선완",
+            "party": "무소속",
+            "votes": 870
+          },
+          {
+            "name": "장명철",
+            "party": "무소속",
+            "votes": 1061
+          }
+        ]
+      },
+      {
+        "district": "의령군다선거구",
+        "voters": 5604,
+        "turnout": 4464,
+        "valid": 4220,
+        "invalid": 244,
+        "candidates": [
+          {
+            "name": "윤병열",
+            "party": "자유한국당",
+            "votes": 613
+          },
+          {
+            "name": "전춘원",
+            "party": "자유한국당",
+            "votes": 649
+          },
+          {
+            "name": "이희두",
+            "party": "무소속",
+            "votes": 495
+          },
+          {
+            "name": "황성철",
+            "party": "무소속",
+            "votes": 992
+          },
+          {
+            "name": "손태영",
+            "party": "무소속",
+            "votes": 1471
+          }
+        ]
+      },
+      {
+        "district": "의령군라선거구",
+        "voters": 4552,
+        "turnout": 3583,
+        "valid": 3372,
+        "invalid": 211,
+        "candidates": [
+          {
+            "name": "강홍도",
+            "party": "더불어민주당",
+            "votes": 882
+          },
+          {
+            "name": "문봉도",
+            "party": "자유한국당",
+            "votes": 1309
+          },
+          {
+            "name": "김규찬",
+            "party": "무소속",
+            "votes": 1181
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "5",
+    "subType": "도의원",
+    "label": "2018 지선 (제7회) 도의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "의령군선거구",
+        "voters": 24972,
+        "turnout": 19911,
+        "valid": 18823,
+        "invalid": 1088,
+        "candidates": [
+          {
+            "name": "이석대",
+            "party": "더불어민주당",
+            "votes": 5530
+          },
+          {
+            "name": "손호현",
+            "party": "자유한국당",
+            "votes": 8804
+          },
+          {
+            "name": "허수석",
+            "party": "무소속",
+            "votes": 4489
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2018 지선 (제7회) 교육감",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "의령군",
+        "voters": 24972,
+        "turnout": 19910,
+        "valid": 18452,
+        "invalid": 1458,
+        "candidates": [
+          {
+            "name": "이효환",
+            "party": "",
+            "votes": 1995
+          },
+          {
+            "name": "김선유",
+            "party": "",
+            "votes": 3646
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 8129
+          },
+          {
+            "name": "박성호",
+            "party": "",
+            "votes": 4682
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "9",
+    "subType": "기초비례",
+    "label": "2018 지선 (제7회) 기초비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "의령군",
+        "voters": 24972,
+        "turnout": 19912,
+        "valid": 18262,
+        "invalid": 1650,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 7685
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 10577
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2018 지선 (제7회) 광역비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "의령군",
+        "voters": 24972,
+        "turnout": 19912,
+        "valid": 18600,
+        "invalid": 1312,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 6358
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 9214
+          },
+          {
+            "name": "바른미래당",
+            "party": "바른미래당",
+            "votes": 794
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 876
+          },
+          {
+            "name": "민중당",
+            "party": "민중당",
+            "votes": 583
+          },
+          {
+            "name": "대한애국당",
+            "party": "대한애국당",
+            "votes": 392
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 383
+          }
+        ]
+      }
+    ]
+  }
+]

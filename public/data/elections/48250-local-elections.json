@@ -1,0 +1,1199 @@
+[
+  {
+    "sgId": "20220601",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2022 지선 (제8회) 시장",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "김해시",
+        "voters": 444484,
+        "turnout": 203400,
+        "valid": 200269,
+        "invalid": 3131,
+        "candidates": [
+          {
+            "name": "허성곤",
+            "party": "더불어민주당",
+            "votes": 85534
+          },
+          {
+            "name": "홍태용",
+            "party": "국민의힘",
+            "votes": 114735
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2022 지선 (제8회) 시도지사",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "김해시",
+        "voters": 444484,
+        "turnout": 203399,
+        "valid": 200791,
+        "invalid": 2608,
+        "candidates": [
+          {
+            "name": "양문석",
+            "party": "더불어민주당",
+            "votes": 78054
+          },
+          {
+            "name": "박완수",
+            "party": "국민의힘",
+            "votes": 115747
+          },
+          {
+            "name": "여영국",
+            "party": "정의당",
+            "votes": 6166
+          },
+          {
+            "name": "최진석",
+            "party": "통일한국당",
+            "votes": 824
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2022 지선 (제8회) 기초의원",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "김해시가선거구",
+        "voters": 70462,
+        "turnout": 33622,
+        "valid": 30405,
+        "invalid": 3217,
+        "candidates": [
+          {
+            "name": "박은희",
+            "party": "더불어민주당",
+            "votes": 8206
+          },
+          {
+            "name": "송유인",
+            "party": "더불어민주당",
+            "votes": 7115
+          },
+          {
+            "name": "김동관",
+            "party": "국민의힘",
+            "votes": 10124
+          },
+          {
+            "name": "엄정",
+            "party": "국민의힘",
+            "votes": 4960
+          }
+        ]
+      },
+      {
+        "district": "김해시나선거구",
+        "voters": 43331,
+        "turnout": 20591,
+        "valid": 18349,
+        "invalid": 2242,
+        "candidates": [
+          {
+            "name": "이철훈",
+            "party": "더불어민주당",
+            "votes": 4774
+          },
+          {
+            "name": "김형수",
+            "party": "더불어민주당",
+            "votes": 3943
+          },
+          {
+            "name": "김양구",
+            "party": "국민의힘",
+            "votes": 4275
+          },
+          {
+            "name": "조팔도",
+            "party": "국민의힘",
+            "votes": 5357
+          }
+        ]
+      },
+      {
+        "district": "김해시다선거구",
+        "voters": 51545,
+        "turnout": 22640,
+        "valid": 20972,
+        "invalid": 1668,
+        "candidates": [
+          {
+            "name": "조종현",
+            "party": "더불어민주당",
+            "votes": 6390
+          },
+          {
+            "name": "강대규",
+            "party": "더불어민주당",
+            "votes": 2518
+          },
+          {
+            "name": "김유상",
+            "party": "국민의힘",
+            "votes": 7659
+          },
+          {
+            "name": "김창수",
+            "party": "국민의힘",
+            "votes": 3240
+          },
+          {
+            "name": "김희성",
+            "party": "무소속",
+            "votes": 1165
+          }
+        ]
+      },
+      {
+        "district": "김해시라선거구",
+        "voters": 51081,
+        "turnout": 22949,
+        "valid": 20745,
+        "invalid": 2204,
+        "candidates": [
+          {
+            "name": "정준호",
+            "party": "더불어민주당",
+            "votes": 7534
+          },
+          {
+            "name": "송현주",
+            "party": "더불어민주당",
+            "votes": 3550
+          },
+          {
+            "name": "최정헌",
+            "party": "국민의힘",
+            "votes": 5841
+          },
+          {
+            "name": "류명열",
+            "party": "국민의힘",
+            "votes": 3820
+          }
+        ]
+      },
+      {
+        "district": "김해시바선거구",
+        "voters": 61554,
+        "turnout": 28108,
+        "valid": 25696,
+        "invalid": 2412,
+        "candidates": [
+          {
+            "name": "강영수",
+            "party": "더불어민주당",
+            "votes": 8273
+          },
+          {
+            "name": "주정영",
+            "party": "더불어민주당",
+            "votes": 5232
+          },
+          {
+            "name": "안선환",
+            "party": "국민의힘",
+            "votes": 9098
+          },
+          {
+            "name": "윤원식",
+            "party": "국민의힘",
+            "votes": 3093
+          }
+        ]
+      },
+      {
+        "district": "김해시사선거구",
+        "voters": 63260,
+        "turnout": 27863,
+        "valid": 26090,
+        "invalid": 1773,
+        "candidates": [
+          {
+            "name": "김진규",
+            "party": "더불어민주당",
+            "votes": 8557
+          },
+          {
+            "name": "황현재",
+            "party": "더불어민주당",
+            "votes": 3181
+          },
+          {
+            "name": "김영서",
+            "party": "국민의힘",
+            "votes": 7789
+          },
+          {
+            "name": "송재석",
+            "party": "국민의힘",
+            "votes": 5321
+          },
+          {
+            "name": "공선미",
+            "party": "진보당",
+            "votes": 1242
+          }
+        ]
+      },
+      {
+        "district": "김해시아선거구",
+        "voters": 53660,
+        "turnout": 24732,
+        "valid": 23397,
+        "invalid": 1335,
+        "candidates": [
+          {
+            "name": "최동석",
+            "party": "더불어민주당",
+            "votes": 7760
+          },
+          {
+            "name": "김명철",
+            "party": "더불어민주당",
+            "votes": 3830
+          },
+          {
+            "name": "허윤옥",
+            "party": "국민의힘",
+            "votes": 6619
+          },
+          {
+            "name": "김진일",
+            "party": "국민의힘",
+            "votes": 4054
+          },
+          {
+            "name": "하대용",
+            "party": "정의당",
+            "votes": 1134
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "5",
+    "subType": "도의원",
+    "label": "2022 지선 (제8회) 도의원",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "김해시제1선거구",
+        "voters": 70462,
+        "turnout": 33626,
+        "valid": 32781,
+        "invalid": 845,
+        "candidates": [
+          {
+            "name": "신영욱",
+            "party": "더불어민주당",
+            "votes": 14205
+          },
+          {
+            "name": "최학범",
+            "party": "국민의힘",
+            "votes": 18576
+          }
+        ]
+      },
+      {
+        "district": "김해시제2선거구",
+        "voters": 43331,
+        "turnout": 20592,
+        "valid": 20086,
+        "invalid": 506,
+        "candidates": [
+          {
+            "name": "이종호",
+            "party": "더불어민주당",
+            "votes": 8364
+          },
+          {
+            "name": "서희봉",
+            "party": "국민의힘",
+            "votes": 11722
+          }
+        ]
+      },
+      {
+        "district": "김해시제3선거구",
+        "voters": 51545,
+        "turnout": 22639,
+        "valid": 22204,
+        "invalid": 435,
+        "candidates": [
+          {
+            "name": "김진기",
+            "party": "더불어민주당",
+            "votes": 9064
+          },
+          {
+            "name": "최동원",
+            "party": "국민의힘",
+            "votes": 13140
+          }
+        ]
+      },
+      {
+        "district": "김해시제4선거구",
+        "voters": 51081,
+        "turnout": 22947,
+        "valid": 22389,
+        "invalid": 558,
+        "candidates": [
+          {
+            "name": "김종근",
+            "party": "더불어민주당",
+            "votes": 11124
+          },
+          {
+            "name": "권요찬",
+            "party": "국민의힘",
+            "votes": 11265
+          }
+        ]
+      },
+      {
+        "district": "김해시제5선거구",
+        "voters": 49591,
+        "turnout": 22847,
+        "valid": 22523,
+        "invalid": 324,
+        "candidates": [
+          {
+            "name": "김경수",
+            "party": "더불어민주당",
+            "votes": 10937
+          },
+          {
+            "name": "주봉한",
+            "party": "국민의힘",
+            "votes": 11586
+          }
+        ]
+      },
+      {
+        "district": "김해시제6선거구",
+        "voters": 61554,
+        "turnout": 28107,
+        "valid": 27349,
+        "invalid": 758,
+        "candidates": [
+          {
+            "name": "공보상",
+            "party": "더불어민주당",
+            "votes": 11471
+          },
+          {
+            "name": "박병영",
+            "party": "국민의힘",
+            "votes": 14558
+          },
+          {
+            "name": "김근호",
+            "party": "무소속",
+            "votes": 1320
+          }
+        ]
+      },
+      {
+        "district": "김해시제7선거구",
+        "voters": 63260,
+        "turnout": 27865,
+        "valid": 27312,
+        "invalid": 553,
+        "candidates": [
+          {
+            "name": "박준호",
+            "party": "더불어민주당",
+            "votes": 12394
+          },
+          {
+            "name": "이시영",
+            "party": "국민의힘",
+            "votes": 13136
+          },
+          {
+            "name": "김한호",
+            "party": "무소속",
+            "votes": 1782
+          }
+        ]
+      },
+      {
+        "district": "김해시제8선거구",
+        "voters": 53660,
+        "turnout": 24732,
+        "valid": 24198,
+        "invalid": 534,
+        "candidates": [
+          {
+            "name": "손덕상",
+            "party": "더불어민주당",
+            "votes": 12432
+          },
+          {
+            "name": "강민수",
+            "party": "국민의힘",
+            "votes": 11766
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2022 지선 (제8회) 교육감",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "김해시",
+        "voters": 444484,
+        "turnout": 203383,
+        "valid": 198705,
+        "invalid": 4678,
+        "candidates": [
+          {
+            "name": "김상권",
+            "party": "",
+            "votes": 91187
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 107518
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "9",
+    "subType": "기초비례",
+    "label": "2022 지선 (제8회) 기초비례",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "김해시",
+        "voters": 444484,
+        "turnout": 203341,
+        "valid": 200391,
+        "invalid": 2950,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 82540
+          },
+          {
+            "name": "국민의힘",
+            "party": "국민의힘",
+            "votes": 108609
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 9242
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2022 지선 (제8회) 광역비례",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "김해시",
+        "voters": 444484,
+        "turnout": 203354,
+        "valid": 200091,
+        "invalid": 3263,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 81017
+          },
+          {
+            "name": "국민의힘",
+            "party": "국민의힘",
+            "votes": 108160
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 8453
+          },
+          {
+            "name": "기본소득당",
+            "party": "기본소득당",
+            "votes": 577
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 668
+          },
+          {
+            "name": "진보당",
+            "party": "진보당",
+            "votes": 1216
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2018 지선 (제7회) 시장",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "김해시",
+        "voters": 420296,
+        "turnout": 252034,
+        "valid": 247973,
+        "invalid": 4061,
+        "candidates": [
+          {
+            "name": "허성곤",
+            "party": "더불어민주당",
+            "votes": 155361
+          },
+          {
+            "name": "정장수",
+            "party": "자유한국당",
+            "votes": 70239
+          },
+          {
+            "name": "허점도",
+            "party": "바른미래당",
+            "votes": 9171
+          },
+          {
+            "name": "최성근",
+            "party": "무소속",
+            "votes": 4701
+          },
+          {
+            "name": "송재욱",
+            "party": "무소속",
+            "votes": 4361
+          },
+          {
+            "name": "김동순",
+            "party": "무소속",
+            "votes": 4140
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2018 지선 (제7회) 시도지사",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "김해시",
+        "voters": 420296,
+        "turnout": 251998,
+        "valid": 248696,
+        "invalid": 3302,
+        "candidates": [
+          {
+            "name": "김경수",
+            "party": "더불어민주당",
+            "votes": 161710
+          },
+          {
+            "name": "김태호",
+            "party": "자유한국당",
+            "votes": 78062
+          },
+          {
+            "name": "김유근",
+            "party": "바른미래당",
+            "votes": 8924
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2018 지선 (제7회) 기초의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "김해시가선거구",
+        "voters": 70949,
+        "turnout": 43357,
+        "valid": 41692,
+        "invalid": 1665,
+        "candidates": [
+          {
+            "name": "송유인",
+            "party": "더불어민주당",
+            "votes": 16314
+          },
+          {
+            "name": "하성자",
+            "party": "더불어민주당",
+            "votes": 6857
+          },
+          {
+            "name": "김동관",
+            "party": "더불어민주당",
+            "votes": 6121
+          },
+          {
+            "name": "엄정",
+            "party": "자유한국당",
+            "votes": 7901
+          },
+          {
+            "name": "설승표",
+            "party": "자유한국당",
+            "votes": 1820
+          },
+          {
+            "name": "장성동",
+            "party": "바른미래당",
+            "votes": 2679
+          }
+        ]
+      },
+      {
+        "district": "김해시나선거구",
+        "voters": 45253,
+        "turnout": 25764,
+        "valid": 24638,
+        "invalid": 1126,
+        "candidates": [
+          {
+            "name": "김형수",
+            "party": "더불어민주당",
+            "votes": 10607
+          },
+          {
+            "name": "김경훈",
+            "party": "더불어민주당",
+            "votes": 5594
+          },
+          {
+            "name": "조팔도",
+            "party": "자유한국당",
+            "votes": 8437
+          }
+        ]
+      },
+      {
+        "district": "김해시다선거구",
+        "voters": 64017,
+        "turnout": 35544,
+        "valid": 33865,
+        "invalid": 1679,
+        "candidates": [
+          {
+            "name": "김희성",
+            "party": "더불어민주당",
+            "votes": 12727
+          },
+          {
+            "name": "조종현",
+            "party": "더불어민주당",
+            "votes": 6407
+          },
+          {
+            "name": "김창수",
+            "party": "자유한국당",
+            "votes": 7002
+          },
+          {
+            "name": "옥영숙",
+            "party": "자유한국당",
+            "votes": 3233
+          },
+          {
+            "name": "김유상",
+            "party": "바른미래당",
+            "votes": 2100
+          },
+          {
+            "name": "조성윤",
+            "party": "무소속",
+            "votes": 2396
+          }
+        ]
+      },
+      {
+        "district": "김해시라선거구",
+        "voters": 48793,
+        "turnout": 29181,
+        "valid": 27588,
+        "invalid": 1593,
+        "candidates": [
+          {
+            "name": "김종근",
+            "party": "더불어민주당",
+            "votes": 11495
+          },
+          {
+            "name": "정준호",
+            "party": "더불어민주당",
+            "votes": 6015
+          },
+          {
+            "name": "류명열",
+            "party": "자유한국당",
+            "votes": 5069
+          },
+          {
+            "name": "한완희",
+            "party": "자유한국당",
+            "votes": 962
+          },
+          {
+            "name": "배종도",
+            "party": "바른미래당",
+            "votes": 1927
+          },
+          {
+            "name": "정부화",
+            "party": "무소속",
+            "votes": 399
+          },
+          {
+            "name": "박창열",
+            "party": "무소속",
+            "votes": 1721
+          }
+        ]
+      },
+      {
+        "district": "김해시마선거구",
+        "voters": 60498,
+        "turnout": 37463,
+        "valid": 36531,
+        "invalid": 932,
+        "candidates": [
+          {
+            "name": "주정영",
+            "party": "더불어민주당",
+            "votes": 15171
+          },
+          {
+            "name": "배병돌",
+            "party": "더불어민주당",
+            "votes": 6692
+          },
+          {
+            "name": "안선환",
+            "party": "자유한국당",
+            "votes": 8546
+          },
+          {
+            "name": "김재금",
+            "party": "바른미래당",
+            "votes": 4182
+          },
+          {
+            "name": "이상미",
+            "party": "무소속",
+            "votes": 1940
+          }
+        ]
+      },
+      {
+        "district": "김해시바선거구",
+        "voters": 65909,
+        "turnout": 42962,
+        "valid": 41929,
+        "invalid": 1033,
+        "candidates": [
+          {
+            "name": "최동석",
+            "party": "더불어민주당",
+            "votes": 15414
+          },
+          {
+            "name": "이광희",
+            "party": "더불어민주당",
+            "votes": 7290
+          },
+          {
+            "name": "이정화",
+            "party": "자유한국당",
+            "votes": 8360
+          },
+          {
+            "name": "김동근",
+            "party": "바른미래당",
+            "votes": 2560
+          },
+          {
+            "name": "배주임",
+            "party": "정의당",
+            "votes": 7184
+          },
+          {
+            "name": "김혜덕",
+            "party": "무소속",
+            "votes": 1121
+          }
+        ]
+      },
+      {
+        "district": "김해시사선거구",
+        "voters": 64877,
+        "turnout": 37711,
+        "valid": 36574,
+        "invalid": 1137,
+        "candidates": [
+          {
+            "name": "김명희",
+            "party": "더불어민주당",
+            "votes": 14449
+          },
+          {
+            "name": "황현재",
+            "party": "더불어민주당",
+            "votes": 7741
+          },
+          {
+            "name": "김한호",
+            "party": "자유한국당",
+            "votes": 9130
+          },
+          {
+            "name": "정용덕",
+            "party": "바른미래당",
+            "votes": 2132
+          },
+          {
+            "name": "이천기",
+            "party": "민중당",
+            "votes": 3122
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "5",
+    "subType": "도의원",
+    "label": "2018 지선 (제7회) 도의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "김해시제1선거구",
+        "voters": 70949,
+        "turnout": 43356,
+        "valid": 42495,
+        "invalid": 861,
+        "candidates": [
+          {
+            "name": "신영욱",
+            "party": "더불어민주당",
+            "votes": 26336
+          },
+          {
+            "name": "최학범",
+            "party": "자유한국당",
+            "votes": 16159
+          }
+        ]
+      },
+      {
+        "district": "김해시제2선거구",
+        "voters": 45253,
+        "turnout": 25765,
+        "valid": 25225,
+        "invalid": 540,
+        "candidates": [
+          {
+            "name": "이종호",
+            "party": "더불어민주당",
+            "votes": 14351
+          },
+          {
+            "name": "서희봉",
+            "party": "자유한국당",
+            "votes": 10874
+          }
+        ]
+      },
+      {
+        "district": "김해시제3선거구",
+        "voters": 64017,
+        "turnout": 35539,
+        "valid": 34762,
+        "invalid": 777,
+        "candidates": [
+          {
+            "name": "김진기",
+            "party": "더불어민주당",
+            "votes": 20238
+          },
+          {
+            "name": "김홍진",
+            "party": "자유한국당",
+            "votes": 14524
+          }
+        ]
+      },
+      {
+        "district": "김해시제4선거구",
+        "voters": 48793,
+        "turnout": 29178,
+        "valid": 28570,
+        "invalid": 608,
+        "candidates": [
+          {
+            "name": "김호대",
+            "party": "더불어민주당",
+            "votes": 17234
+          },
+          {
+            "name": "이종원",
+            "party": "자유한국당",
+            "votes": 7592
+          },
+          {
+            "name": "권요찬",
+            "party": "무소속",
+            "votes": 3744
+          }
+        ]
+      },
+      {
+        "district": "김해시제5선거구",
+        "voters": 60498,
+        "turnout": 37458,
+        "valid": 36670,
+        "invalid": 788,
+        "candidates": [
+          {
+            "name": "김경수",
+            "party": "더불어민주당",
+            "votes": 24581
+          },
+          {
+            "name": "박병영",
+            "party": "자유한국당",
+            "votes": 12089
+          }
+        ]
+      },
+      {
+        "district": "김해시제6선거구",
+        "voters": 65909,
+        "turnout": 42966,
+        "valid": 42127,
+        "invalid": 839,
+        "candidates": [
+          {
+            "name": "손덕상",
+            "party": "더불어민주당",
+            "votes": 30268
+          },
+          {
+            "name": "김수종",
+            "party": "자유한국당",
+            "votes": 11859
+          }
+        ]
+      },
+      {
+        "district": "김해시제7선거구",
+        "voters": 64877,
+        "turnout": 37709,
+        "valid": 36795,
+        "invalid": 914,
+        "candidates": [
+          {
+            "name": "박준호",
+            "party": "더불어민주당",
+            "votes": 24858
+          },
+          {
+            "name": "이규상",
+            "party": "자유한국당",
+            "votes": 11937
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2018 지선 (제7회) 교육감",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "김해시",
+        "voters": 420296,
+        "turnout": 251986,
+        "valid": 242970,
+        "invalid": 9016,
+        "candidates": [
+          {
+            "name": "이효환",
+            "party": "",
+            "votes": 30956
+          },
+          {
+            "name": "김선유",
+            "party": "",
+            "votes": 35662
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 123919
+          },
+          {
+            "name": "박성호",
+            "party": "",
+            "votes": 52433
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "9",
+    "subType": "기초비례",
+    "label": "2018 지선 (제7회) 기초비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "김해시",
+        "voters": 420296,
+        "turnout": 251988,
+        "valid": 244675,
+        "invalid": 7313,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 139111
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 68831
+          },
+          {
+            "name": "바른미래당",
+            "party": "바른미래당",
+            "votes": 13744
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 20811
+          },
+          {
+            "name": "민중당",
+            "party": "민중당",
+            "votes": 2178
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2018 지선 (제7회) 광역비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "김해시",
+        "voters": 420296,
+        "turnout": 251992,
+        "valid": 246448,
+        "invalid": 5544,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 139439
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 68674
+          },
+          {
+            "name": "바른미래당",
+            "party": "바른미래당",
+            "votes": 13487
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 20749
+          },
+          {
+            "name": "민중당",
+            "party": "민중당",
+            "votes": 1601
+          },
+          {
+            "name": "대한애국당",
+            "party": "대한애국당",
+            "votes": 1031
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 1467
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,397 @@
+[
+  {
+    "sgId": "20220601",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2022 지선 (제8회) 시장",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "창원시마산합포구",
+        "voters": 156850,
+        "turnout": 83921,
+        "valid": 82328,
+        "invalid": 1593,
+        "candidates": [
+          {
+            "name": "허성무",
+            "party": "더불어민주당",
+            "votes": 30758
+          },
+          {
+            "name": "홍남표",
+            "party": "국민의힘",
+            "votes": 51570
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2022 지선 (제8회) 시도지사",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "창원시마산합포구",
+        "voters": 156850,
+        "turnout": 83924,
+        "valid": 82660,
+        "invalid": 1264,
+        "candidates": [
+          {
+            "name": "양문석",
+            "party": "더불어민주당",
+            "votes": 19970
+          },
+          {
+            "name": "박완수",
+            "party": "국민의힘",
+            "votes": 59943
+          },
+          {
+            "name": "여영국",
+            "party": "정의당",
+            "votes": 2417
+          },
+          {
+            "name": "최진석",
+            "party": "통일한국당",
+            "votes": 330
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2022 지선 (제8회) 교육감",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "창원시마산합포구",
+        "voters": 156850,
+        "turnout": 83915,
+        "valid": 82029,
+        "invalid": 1886,
+        "candidates": [
+          {
+            "name": "김상권",
+            "party": "",
+            "votes": 44520
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 37509
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "9",
+    "subType": "기초비례",
+    "label": "2022 지선 (제8회) 기초비례",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "창원시마산합포구",
+        "voters": 156850,
+        "turnout": 83913,
+        "valid": 82521,
+        "invalid": 1392,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 22662
+          },
+          {
+            "name": "국민의힘",
+            "party": "국민의힘",
+            "votes": 56623
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 2649
+          },
+          {
+            "name": "진보당",
+            "party": "진보당",
+            "votes": 587
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2022 지선 (제8회) 광역비례",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "창원시마산합포구",
+        "voters": 156850,
+        "turnout": 83914,
+        "valid": 82427,
+        "invalid": 1487,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 22385
+          },
+          {
+            "name": "국민의힘",
+            "party": "국민의힘",
+            "votes": 56557
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 2476
+          },
+          {
+            "name": "기본소득당",
+            "party": "기본소득당",
+            "votes": 222
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 316
+          },
+          {
+            "name": "진보당",
+            "party": "진보당",
+            "votes": 471
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2018 지선 (제7회) 시장",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "창원시마산합포구",
+        "voters": 154311,
+        "turnout": 99282,
+        "valid": 97422,
+        "invalid": 1860,
+        "candidates": [
+          {
+            "name": "허성무",
+            "party": "더불어민주당",
+            "votes": 40386
+          },
+          {
+            "name": "조진래",
+            "party": "자유한국당",
+            "votes": 33633
+          },
+          {
+            "name": "정규헌",
+            "party": "바른미래당",
+            "votes": 2948
+          },
+          {
+            "name": "석영철",
+            "party": "민중당",
+            "votes": 923
+          },
+          {
+            "name": "안상수",
+            "party": "무소속",
+            "votes": 17880
+          },
+          {
+            "name": "이기우",
+            "party": "무소속",
+            "votes": 1652
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2018 지선 (제7회) 시도지사",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "창원시마산합포구",
+        "voters": 154311,
+        "turnout": 99281,
+        "valid": 97586,
+        "invalid": 1695,
+        "candidates": [
+          {
+            "name": "김경수",
+            "party": "더불어민주당",
+            "votes": 44305
+          },
+          {
+            "name": "김태호",
+            "party": "자유한국당",
+            "votes": 48933
+          },
+          {
+            "name": "김유근",
+            "party": "바른미래당",
+            "votes": 4348
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2018 지선 (제7회) 교육감",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "창원시마산합포구",
+        "voters": 154311,
+        "turnout": 99268,
+        "valid": 95793,
+        "invalid": 3475,
+        "candidates": [
+          {
+            "name": "이효환",
+            "party": "",
+            "votes": 9960
+          },
+          {
+            "name": "김선유",
+            "party": "",
+            "votes": 14000
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 43980
+          },
+          {
+            "name": "박성호",
+            "party": "",
+            "votes": 27853
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "9",
+    "subType": "기초비례",
+    "label": "2018 지선 (제7회) 기초비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "창원시마산합포구",
+        "voters": 154311,
+        "turnout": 99215,
+        "valid": 95185,
+        "invalid": 4030,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 36992
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 44547
+          },
+          {
+            "name": "바른미래당",
+            "party": "바른미래당",
+            "votes": 5736
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 6924
+          },
+          {
+            "name": "민중당",
+            "party": "민중당",
+            "votes": 986
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2018 지선 (제7회) 광역비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "창원시마산합포구",
+        "voters": 154311,
+        "turnout": 99252,
+        "valid": 96944,
+        "invalid": 2308,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 37700
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 44953
+          },
+          {
+            "name": "바른미래당",
+            "party": "바른미래당",
+            "votes": 5650
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 6498
+          },
+          {
+            "name": "민중당",
+            "party": "민중당",
+            "votes": 803
+          },
+          {
+            "name": "대한애국당",
+            "party": "대한애국당",
+            "votes": 560
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 780
+          }
+        ]
+      }
+    ]
+  }
+]

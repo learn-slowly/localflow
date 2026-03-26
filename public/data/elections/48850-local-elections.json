@@ -1,0 +1,688 @@
+[
+  {
+    "sgId": "20220601",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2022 지선 (제8회) 시장",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "하동군",
+        "voters": 39428,
+        "turnout": 29112,
+        "valid": 28121,
+        "invalid": 991,
+        "candidates": [
+          {
+            "name": "강기태",
+            "party": "더불어민주당",
+            "votes": 4322
+          },
+          {
+            "name": "이정훈",
+            "party": "국민의힘",
+            "votes": 10772
+          },
+          {
+            "name": "하승철",
+            "party": "무소속",
+            "votes": 13027
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2022 지선 (제8회) 시도지사",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "하동군",
+        "voters": 39428,
+        "turnout": 29113,
+        "valid": 27768,
+        "invalid": 1345,
+        "candidates": [
+          {
+            "name": "양문석",
+            "party": "더불어민주당",
+            "votes": 8093
+          },
+          {
+            "name": "박완수",
+            "party": "국민의힘",
+            "votes": 17699
+          },
+          {
+            "name": "여영국",
+            "party": "정의당",
+            "votes": 1234
+          },
+          {
+            "name": "최진석",
+            "party": "통일한국당",
+            "votes": 742
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2022 지선 (제8회) 기초의원",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "하동군가선거구",
+        "voters": 7836,
+        "turnout": 5858,
+        "valid": 5625,
+        "invalid": 233,
+        "candidates": [
+          {
+            "name": "정영섭",
+            "party": "더불어민주당",
+            "votes": 1557
+          },
+          {
+            "name": "이하옥",
+            "party": "국민의힘",
+            "votes": 1714
+          },
+          {
+            "name": "김선규",
+            "party": "국민의힘",
+            "votes": 1476
+          },
+          {
+            "name": "손종인",
+            "party": "무소속",
+            "votes": 878
+          }
+        ]
+      },
+      {
+        "district": "하동군나선거구",
+        "voters": 12195,
+        "turnout": 9049,
+        "valid": 8753,
+        "invalid": 296,
+        "candidates": [
+          {
+            "name": "김혜수",
+            "party": "더불어민주당",
+            "votes": 1923
+          },
+          {
+            "name": "김진태",
+            "party": "국민의힘",
+            "votes": 2062
+          },
+          {
+            "name": "박성곤",
+            "party": "국민의힘",
+            "votes": 1622
+          },
+          {
+            "name": "김범규",
+            "party": "무소속",
+            "votes": 1425
+          },
+          {
+            "name": "강희순",
+            "party": "무소속",
+            "votes": 1721
+          }
+        ]
+      },
+      {
+        "district": "하동군다선거구",
+        "voters": 11059,
+        "turnout": 7964,
+        "valid": 7624,
+        "invalid": 340,
+        "candidates": [
+          {
+            "name": "박희성",
+            "party": "더불어민주당",
+            "votes": 2262
+          },
+          {
+            "name": "강대선",
+            "party": "국민의힘",
+            "votes": 3522
+          },
+          {
+            "name": "윤영현",
+            "party": "국민의힘",
+            "votes": 1840
+          }
+        ]
+      },
+      {
+        "district": "하동군라선거구",
+        "voters": 8338,
+        "turnout": 6242,
+        "valid": 5931,
+        "invalid": 311,
+        "candidates": [
+          {
+            "name": "김태호",
+            "party": "더불어민주당",
+            "votes": 583
+          },
+          {
+            "name": "하인호",
+            "party": "국민의힘",
+            "votes": 2282
+          },
+          {
+            "name": "양우석",
+            "party": "국민의힘",
+            "votes": 873
+          },
+          {
+            "name": "신재범",
+            "party": "무소속",
+            "votes": 2193
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "5",
+    "subType": "도의원",
+    "label": "2022 지선 (제8회) 도의원",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "하동군선거구",
+        "voters": 39428,
+        "turnout": 29115,
+        "valid": 27603,
+        "invalid": 1512,
+        "candidates": [
+          {
+            "name": "이강현",
+            "party": "더불어민주당",
+            "votes": 8532
+          },
+          {
+            "name": "김구연",
+            "party": "국민의힘",
+            "votes": 14139
+          },
+          {
+            "name": "강봉효",
+            "party": "무소속",
+            "votes": 4932
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2022 지선 (제8회) 교육감",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "하동군",
+        "voters": 39428,
+        "turnout": 29111,
+        "valid": 27135,
+        "invalid": 1976,
+        "candidates": [
+          {
+            "name": "김상권",
+            "party": "",
+            "votes": 12954
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 14181
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "9",
+    "subType": "기초비례",
+    "label": "2022 지선 (제8회) 기초비례",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "하동군",
+        "voters": 39428,
+        "turnout": 29113,
+        "valid": 27467,
+        "invalid": 1646,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 9996
+          },
+          {
+            "name": "국민의힘",
+            "party": "국민의힘",
+            "votes": 17471
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2022 지선 (제8회) 광역비례",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "하동군",
+        "voters": 39428,
+        "turnout": 29111,
+        "valid": 27671,
+        "invalid": 1440,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 8863
+          },
+          {
+            "name": "국민의힘",
+            "party": "국민의힘",
+            "votes": 16596
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 1177
+          },
+          {
+            "name": "기본소득당",
+            "party": "기본소득당",
+            "votes": 476
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 252
+          },
+          {
+            "name": "진보당",
+            "party": "진보당",
+            "votes": 307
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2018 지선 (제7회) 시장",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "하동군",
+        "voters": 42568,
+        "turnout": 33773,
+        "valid": 32328,
+        "invalid": 1445,
+        "candidates": [
+          {
+            "name": "이홍곤",
+            "party": "더불어민주당",
+            "votes": 15552
+          },
+          {
+            "name": "윤상기",
+            "party": "자유한국당",
+            "votes": 16776
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2018 지선 (제7회) 시도지사",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "하동군",
+        "voters": 42568,
+        "turnout": 33773,
+        "valid": 32367,
+        "invalid": 1406,
+        "candidates": [
+          {
+            "name": "김경수",
+            "party": "더불어민주당",
+            "votes": 16052
+          },
+          {
+            "name": "김태호",
+            "party": "자유한국당",
+            "votes": 15039
+          },
+          {
+            "name": "김유근",
+            "party": "바른미래당",
+            "votes": 1276
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2018 지선 (제7회) 기초의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "하동군가선거구",
+        "voters": 8450,
+        "turnout": 6711,
+        "valid": 6388,
+        "invalid": 323,
+        "candidates": [
+          {
+            "name": "정영섭",
+            "party": "더불어민주당",
+            "votes": 2003
+          },
+          {
+            "name": "손종인",
+            "party": "자유한국당",
+            "votes": 1592
+          },
+          {
+            "name": "김선규",
+            "party": "자유한국당",
+            "votes": 1419
+          },
+          {
+            "name": "김종환",
+            "party": "무소속",
+            "votes": 1374
+          }
+        ]
+      },
+      {
+        "district": "하동군나선거구",
+        "voters": 12971,
+        "turnout": 10276,
+        "valid": 9760,
+        "invalid": 516,
+        "candidates": [
+          {
+            "name": "강상례",
+            "party": "더불어민주당",
+            "votes": 1598
+          },
+          {
+            "name": "김범규",
+            "party": "더불어민주당",
+            "votes": 1464
+          },
+          {
+            "name": "강희순",
+            "party": "자유한국당",
+            "votes": 2092
+          },
+          {
+            "name": "정갑채",
+            "party": "자유한국당",
+            "votes": 1291
+          },
+          {
+            "name": "정의근",
+            "party": "자유한국당",
+            "votes": 1338
+          },
+          {
+            "name": "홍재표",
+            "party": "무소속",
+            "votes": 498
+          },
+          {
+            "name": "박성곤",
+            "party": "무소속",
+            "votes": 1479
+          }
+        ]
+      },
+      {
+        "district": "하동군다선거구",
+        "voters": 12155,
+        "turnout": 9522,
+        "valid": 9048,
+        "invalid": 474,
+        "candidates": [
+          {
+            "name": "윤영현",
+            "party": "더불어민주당",
+            "votes": 2743
+          },
+          {
+            "name": "이학희",
+            "party": "자유한국당",
+            "votes": 3161
+          },
+          {
+            "name": "서민호",
+            "party": "자유한국당",
+            "votes": 2167
+          },
+          {
+            "name": "황규석",
+            "party": "무소속",
+            "votes": 977
+          }
+        ]
+      },
+      {
+        "district": "하동군라선거구",
+        "voters": 8992,
+        "turnout": 7261,
+        "valid": 6878,
+        "invalid": 383,
+        "candidates": [
+          {
+            "name": "정성화",
+            "party": "자유한국당",
+            "votes": 2011
+          },
+          {
+            "name": "신재범",
+            "party": "자유한국당",
+            "votes": 2423
+          },
+          {
+            "name": "하인호",
+            "party": "무소속",
+            "votes": 2444
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "5",
+    "subType": "도의원",
+    "label": "2018 지선 (제7회) 도의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "하동군선거구",
+        "voters": 42568,
+        "turnout": 33770,
+        "valid": 32276,
+        "invalid": 1494,
+        "candidates": [
+          {
+            "name": "이상숙",
+            "party": "더불어민주당",
+            "votes": 7888
+          },
+          {
+            "name": "이정훈",
+            "party": "자유한국당",
+            "votes": 11350
+          },
+          {
+            "name": "이갑재",
+            "party": "무소속",
+            "votes": 10463
+          },
+          {
+            "name": "강봉효",
+            "party": "무소속",
+            "votes": 2575
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2018 지선 (제7회) 교육감",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "하동군",
+        "voters": 42568,
+        "turnout": 33768,
+        "valid": 31471,
+        "invalid": 2297,
+        "candidates": [
+          {
+            "name": "이효환",
+            "party": "",
+            "votes": 3801
+          },
+          {
+            "name": "김선유",
+            "party": "",
+            "votes": 5719
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 14852
+          },
+          {
+            "name": "박성호",
+            "party": "",
+            "votes": 7099
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "9",
+    "subType": "기초비례",
+    "label": "2018 지선 (제7회) 기초비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "하동군",
+        "voters": 42568,
+        "turnout": 33768,
+        "valid": 31539,
+        "invalid": 2229,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 16059
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 15480
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2018 지선 (제7회) 광역비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "하동군",
+        "voters": 42568,
+        "turnout": 33766,
+        "valid": 31819,
+        "invalid": 1947,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 13754
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 13715
+          },
+          {
+            "name": "바른미래당",
+            "party": "바른미래당",
+            "votes": 1397
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 1624
+          },
+          {
+            "name": "민중당",
+            "party": "민중당",
+            "votes": 553
+          },
+          {
+            "name": "대한애국당",
+            "party": "대한애국당",
+            "votes": 366
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 410
+          }
+        ]
+      }
+    ]
+  }
+]

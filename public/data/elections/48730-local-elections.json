@@ -1,0 +1,694 @@
+[
+  {
+    "sgId": "20220601",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2022 지선 (제8회) 시장",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "함안군",
+        "voters": 54125,
+        "turnout": 32075,
+        "valid": 31136,
+        "invalid": 939,
+        "candidates": [
+          {
+            "name": "장종하",
+            "party": "더불어민주당",
+            "votes": 10142
+          },
+          {
+            "name": "조근제",
+            "party": "국민의힘",
+            "votes": 20994
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2022 지선 (제8회) 시도지사",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "함안군",
+        "voters": 54125,
+        "turnout": 32076,
+        "valid": 31100,
+        "invalid": 976,
+        "candidates": [
+          {
+            "name": "양문석",
+            "party": "더불어민주당",
+            "votes": 7689
+          },
+          {
+            "name": "박완수",
+            "party": "국민의힘",
+            "votes": 21759
+          },
+          {
+            "name": "여영국",
+            "party": "정의당",
+            "votes": 1194
+          },
+          {
+            "name": "최진석",
+            "party": "통일한국당",
+            "votes": 458
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2022 지선 (제8회) 기초의원",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "함안군가선거구",
+        "voters": 18494,
+        "turnout": 10950,
+        "valid": 10625,
+        "invalid": 325,
+        "candidates": [
+          {
+            "name": "정금효",
+            "party": "더불어민주당",
+            "votes": 2513
+          },
+          {
+            "name": "이만호",
+            "party": "국민의힘",
+            "votes": 2376
+          },
+          {
+            "name": "조용국",
+            "party": "국민의힘",
+            "votes": 2214
+          },
+          {
+            "name": "이관맹",
+            "party": "국민의힘",
+            "votes": 1531
+          },
+          {
+            "name": "성재기",
+            "party": "무소속",
+            "votes": 1991
+          }
+        ]
+      },
+      {
+        "district": "함안군나선거구",
+        "voters": 8265,
+        "turnout": 5032,
+        "valid": 4812,
+        "invalid": 220,
+        "candidates": [
+          {
+            "name": "배병석",
+            "party": "더불어민주당",
+            "votes": 742
+          },
+          {
+            "name": "조만제",
+            "party": "국민의힘",
+            "votes": 1656
+          },
+          {
+            "name": "박용순",
+            "party": "국민의힘",
+            "votes": 980
+          },
+          {
+            "name": "문석주",
+            "party": "무소속",
+            "votes": 1434
+          }
+        ]
+      },
+      {
+        "district": "함안군다선거구",
+        "voters": 27366,
+        "turnout": 16085,
+        "valid": 15233,
+        "invalid": 852,
+        "candidates": [
+          {
+            "name": "김영동",
+            "party": "더불어민주당",
+            "votes": 2301
+          },
+          {
+            "name": "배재성",
+            "party": "더불어민주당",
+            "votes": 1844
+          },
+          {
+            "name": "황철용",
+            "party": "국민의힘",
+            "votes": 4573
+          },
+          {
+            "name": "곽세훈",
+            "party": "국민의힘",
+            "votes": 1870
+          },
+          {
+            "name": "김정숙",
+            "party": "국민의힘",
+            "votes": 1987
+          },
+          {
+            "name": "김현수",
+            "party": "국민의힘",
+            "votes": 1063
+          },
+          {
+            "name": "이광섭",
+            "party": "무소속",
+            "votes": 1595
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "5",
+    "subType": "도의원",
+    "label": "2022 지선 (제8회) 도의원",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "함안군제1선거구",
+        "voters": 26759,
+        "turnout": 15984,
+        "valid": 15264,
+        "invalid": 720,
+        "candidates": [
+          {
+            "name": "조영제",
+            "party": "국민의힘",
+            "votes": 10203
+          },
+          {
+            "name": "윤광수",
+            "party": "무소속",
+            "votes": 5061
+          }
+        ]
+      },
+      {
+        "district": "함안군제2선거구",
+        "voters": 27366,
+        "turnout": 16084,
+        "valid": 15643,
+        "invalid": 441,
+        "candidates": [
+          {
+            "name": "빈지태",
+            "party": "더불어민주당",
+            "votes": 5462
+          },
+          {
+            "name": "조인제",
+            "party": "국민의힘",
+            "votes": 10181
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2022 지선 (제8회) 교육감",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "함안군",
+        "voters": 54125,
+        "turnout": 32067,
+        "valid": 30756,
+        "invalid": 1311,
+        "candidates": [
+          {
+            "name": "김상권",
+            "party": "",
+            "votes": 15665
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 15091
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20220601",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2022 지선 (제8회) 광역비례",
+    "date": "2022.06.01",
+    "results": [
+      {
+        "district": "함안군",
+        "voters": 54125,
+        "turnout": 32070,
+        "valid": 31052,
+        "invalid": 1018,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 8666
+          },
+          {
+            "name": "국민의힘",
+            "party": "국민의힘",
+            "votes": 20517
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 1251
+          },
+          {
+            "name": "기본소득당",
+            "party": "기본소득당",
+            "votes": 249
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 110
+          },
+          {
+            "name": "진보당",
+            "party": "진보당",
+            "votes": 259
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "4",
+    "subType": "시장",
+    "label": "2018 지선 (제7회) 시장",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "함안군",
+        "voters": 56780,
+        "turnout": 40450,
+        "valid": 39135,
+        "invalid": 1315,
+        "candidates": [
+          {
+            "name": "김용철",
+            "party": "더불어민주당",
+            "votes": 16482
+          },
+          {
+            "name": "조근제",
+            "party": "자유한국당",
+            "votes": 20001
+          },
+          {
+            "name": "배한극",
+            "party": "무소속",
+            "votes": 2652
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "3",
+    "subType": "시도지사",
+    "label": "2018 지선 (제7회) 시도지사",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "함안군",
+        "voters": 56780,
+        "turnout": 40450,
+        "valid": 39275,
+        "invalid": 1175,
+        "candidates": [
+          {
+            "name": "김경수",
+            "party": "더불어민주당",
+            "votes": 18045
+          },
+          {
+            "name": "김태호",
+            "party": "자유한국당",
+            "votes": 19725
+          },
+          {
+            "name": "김유근",
+            "party": "바른미래당",
+            "votes": 1505
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "6",
+    "subType": "기초의원",
+    "label": "2018 지선 (제7회) 기초의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "함안군가선거구",
+        "voters": 19026,
+        "turnout": 13477,
+        "valid": 12813,
+        "invalid": 664,
+        "candidates": [
+          {
+            "name": "정금효",
+            "party": "더불어민주당",
+            "votes": 3547
+          },
+          {
+            "name": "이관맹",
+            "party": "자유한국당",
+            "votes": 1928
+          },
+          {
+            "name": "조용국",
+            "party": "자유한국당",
+            "votes": 1572
+          },
+          {
+            "name": "안상식",
+            "party": "자유한국당",
+            "votes": 1442
+          },
+          {
+            "name": "송상섭",
+            "party": "무소속",
+            "votes": 602
+          },
+          {
+            "name": "제명철",
+            "party": "무소속",
+            "votes": 1604
+          },
+          {
+            "name": "성재기",
+            "party": "무소속",
+            "votes": 2118
+          }
+        ]
+      },
+      {
+        "district": "함안군나선거구",
+        "voters": 8808,
+        "turnout": 6228,
+        "valid": 5961,
+        "invalid": 267,
+        "candidates": [
+          {
+            "name": "윤광수",
+            "party": "더불어민주당",
+            "votes": 1550
+          },
+          {
+            "name": "박용순",
+            "party": "자유한국당",
+            "votes": 1706
+          },
+          {
+            "name": "조현종",
+            "party": "자유한국당",
+            "votes": 786
+          },
+          {
+            "name": "안다홍",
+            "party": "무소속",
+            "votes": 127
+          },
+          {
+            "name": "조점래",
+            "party": "무소속",
+            "votes": 1019
+          },
+          {
+            "name": "문석주",
+            "party": "무소속",
+            "votes": 773
+          }
+        ]
+      },
+      {
+        "district": "함안군다선거구",
+        "voters": 17777,
+        "turnout": 12832,
+        "valid": 12486,
+        "invalid": 346,
+        "candidates": [
+          {
+            "name": "김동정",
+            "party": "더불어민주당",
+            "votes": 4134
+          },
+          {
+            "name": "김정선",
+            "party": "자유한국당",
+            "votes": 3534
+          },
+          {
+            "name": "황철용",
+            "party": "자유한국당",
+            "votes": 2450
+          },
+          {
+            "name": "한창일",
+            "party": "무소속",
+            "votes": 2368
+          }
+        ]
+      },
+      {
+        "district": "함안군라선거구",
+        "voters": 11169,
+        "turnout": 7909,
+        "valid": 7457,
+        "invalid": 452,
+        "candidates": [
+          {
+            "name": "이광섭",
+            "party": "자유한국당",
+            "votes": 2369
+          },
+          {
+            "name": "곽세훈",
+            "party": "자유한국당",
+            "votes": 2243
+          },
+          {
+            "name": "배재성",
+            "party": "무소속",
+            "votes": 2845
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "5",
+    "subType": "도의원",
+    "label": "2018 지선 (제7회) 도의원",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "함안군제1선거구",
+        "voters": 27834,
+        "turnout": 19705,
+        "valid": 18912,
+        "invalid": 793,
+        "candidates": [
+          {
+            "name": "장종하",
+            "party": "더불어민주당",
+            "votes": 9824
+          },
+          {
+            "name": "이만호",
+            "party": "자유한국당",
+            "votes": 9088
+          }
+        ]
+      },
+      {
+        "district": "함안군제2선거구",
+        "voters": 28946,
+        "turnout": 20741,
+        "valid": 20186,
+        "invalid": 555,
+        "candidates": [
+          {
+            "name": "빈지태",
+            "party": "더불어민주당",
+            "votes": 7801
+          },
+          {
+            "name": "조인제",
+            "party": "자유한국당",
+            "votes": 6762
+          },
+          {
+            "name": "이성용",
+            "party": "무소속",
+            "votes": 3918
+          },
+          {
+            "name": "김송숙",
+            "party": "무소속",
+            "votes": 1705
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "11",
+    "subType": "교육감",
+    "label": "2018 지선 (제7회) 교육감",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "함안군",
+        "voters": 56780,
+        "turnout": 40445,
+        "valid": 38401,
+        "invalid": 2044,
+        "candidates": [
+          {
+            "name": "이효환",
+            "party": "",
+            "votes": 4108
+          },
+          {
+            "name": "김선유",
+            "party": "",
+            "votes": 5814
+          },
+          {
+            "name": "박종훈",
+            "party": "",
+            "votes": 18433
+          },
+          {
+            "name": "박성호",
+            "party": "",
+            "votes": 10046
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "9",
+    "subType": "기초비례",
+    "label": "2018 지선 (제7회) 기초비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "함안군",
+        "voters": 56780,
+        "turnout": 40445,
+        "valid": 38285,
+        "invalid": 2160,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 18977
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 19308
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sgId": "20180613",
+    "sgTypecode": "8",
+    "subType": "광역비례",
+    "label": "2018 지선 (제7회) 광역비례",
+    "date": "2018.06.13",
+    "results": [
+      {
+        "district": "함안군",
+        "voters": 56780,
+        "turnout": 40447,
+        "valid": 38754,
+        "invalid": 1693,
+        "candidates": [
+          {
+            "name": "더불어민주당",
+            "party": "더불어민주당",
+            "votes": 16131
+          },
+          {
+            "name": "자유한국당",
+            "party": "자유한국당",
+            "votes": 17632
+          },
+          {
+            "name": "바른미래당",
+            "party": "바른미래당",
+            "votes": 1623
+          },
+          {
+            "name": "정의당",
+            "party": "정의당",
+            "votes": 2138
+          },
+          {
+            "name": "민중당",
+            "party": "민중당",
+            "votes": 415
+          },
+          {
+            "name": "대한애국당",
+            "party": "대한애국당",
+            "votes": 381
+          },
+          {
+            "name": "녹색당",
+            "party": "녹색당",
+            "votes": 434
+          }
+        ]
+      }
+    ]
+  }
+]
