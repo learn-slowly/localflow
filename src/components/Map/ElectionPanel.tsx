@@ -62,7 +62,7 @@ type ElectionEntry = {
   label: string;
   date: string;
   results: { district: string; voters: number; turnout: number; valid: number; invalid: number; candidates: { name: string; party: string; votes: number }[] }[];
-  dongResults?: { dong: string; district: string; voters: number; rates: Record<string, number> }[];
+  dongResults?: { dong: string; district: string; voters: number; turnout?: number; rates: Record<string, number>; votes?: Record<string, number> }[];
   subType?: string;
 };
 
@@ -166,15 +166,18 @@ function CandidateBar({
 function DongRateBar({
   dong,
   rates,
+  votes,
   candidates,
 }: {
-  dong: { dong: string; voters: number };
+  dong: { dong: string; voters: number; turnout?: number };
   rates: Record<string, number>;
+  votes?: Record<string, number>;
   candidates: { name: string; party: string }[];
 }) {
   const candidateParty: Record<string, string> = {};
   candidates.forEach((c) => { candidateParty[c.name] = c.party; });
   const entries = Object.entries(rates).sort(([, a], [, b]) => b - a);
+  const maxVotes = votes ? Math.max(...Object.values(votes)) : 0;
 
   return (
     <div className="py-2">
@@ -184,20 +187,32 @@ function DongRateBar({
           return (
             <div key={name} className="relative group cursor-default" style={{ width: `${rate}%`, backgroundColor: color }}>
               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 hidden group-hover:block bg-gray-800 text-white text-xs px-1.5 py-0.5 rounded whitespace-nowrap z-10">
-                {name} {rate}%
+                {name} {votes?.[name]?.toLocaleString()}표 ({rate}%)
               </div>
             </div>
           );
         })}
       </div>
-      <div className="flex gap-2 mt-1">
+      <div className="space-y-1 mt-2">
         {entries.map(([name, rate]) => {
           const color = PARTY_COLORS[candidateParty[name] || ""] || "#999";
+          const v = votes?.[name] || 0;
+          const barPct = maxVotes > 0 ? (v / maxVotes) * 100 : rate;
           return (
-            <span key={name} className="text-xs text-gray-500">
-              <span className="inline-block w-1.5 h-1.5 rounded-full mr-0.5" style={{ backgroundColor: color }} />
-              {name} {rate}%
-            </span>
+            <div key={name}>
+              <div className="flex items-center justify-between text-xs">
+                <span className="text-gray-600">
+                  <span className="inline-block w-1.5 h-1.5 rounded-full mr-1" style={{ backgroundColor: color }} />
+                  {name}
+                </span>
+                <span className="text-gray-500 font-medium">
+                  {v > 0 ? `${v.toLocaleString()}표` : ""} ({rate}%)
+                </span>
+              </div>
+              <div className="h-1.5 bg-gray-100 rounded-full mt-0.5">
+                <div className="h-1.5 rounded-full" style={{ width: `${barPct}%`, backgroundColor: color }} />
+              </div>
+            </div>
           );
         })}
       </div>
@@ -266,7 +281,7 @@ export default function ElectionPanel({ dongName, onClose }: ElectionPanelProps)
 
   // 해당 동의 읍면동별 득표율 찾기
   const dongResult = entry.dongResults?.find((d: any) => d.dong === dongName) as
-    { dong: string; district: string; voters: number; rates: Record<string, number> } | undefined;
+    { dong: string; district: string; voters: number; turnout?: number; rates: Record<string, number>; votes?: Record<string, number> } | undefined;
 
   // 해당 동이 속한 선거구의 결과 찾기
   let districtResult = null;
@@ -346,8 +361,11 @@ export default function ElectionPanel({ dongName, onClose }: ElectionPanelProps)
       {dongResult && (
         <div className="mb-3">
           <h4 className="text-sm font-bold text-gray-600 mb-1">{dongName} 득표율</h4>
-          <p className="text-xs text-gray-400 mb-1">선거인 {dongResult.voters.toLocaleString()}명</p>
-          <DongRateBar dong={dongResult} rates={dongResult.rates} candidates={allCandidates} />
+          <p className="text-xs text-gray-400 mb-1">
+            선거인 {dongResult.voters.toLocaleString()}명
+            {dongResult.turnout ? ` · 투표 ${dongResult.turnout.toLocaleString()}명` : ""}
+          </p>
+          <DongRateBar dong={dongResult} rates={dongResult.rates} votes={dongResult.votes} candidates={allCandidates} />
         </div>
       )}
 
