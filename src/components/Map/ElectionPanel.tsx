@@ -45,6 +45,25 @@ function buildDongToDistrictMap() {
 const DONG_DISTRICT_MAP = buildDongToDistrictMap();
 
 // 총선 선거구 매핑
+// 진주시보다 넓은 선거구의 실제 당선자
+// 대선·시도지사·교육감 등 진주시 결과 1위 ≠ 당선자일 수 있음
+const ELECTED_MAP: Record<string, string[]> = {
+  "2025 대선 (제21대)": ["이재명"],
+  "2022 대선 (제20대)": ["윤석열"],
+  "2017 대선 (제19대)": ["문재인"],
+  "2024 총선 (제22대)/진주시갑": ["박대출"],
+  "2024 총선 (제22대)/진주시을": ["강민국"],
+  "2020 총선 (제21대)/진주시갑": ["박대출"],
+  "2020 총선 (제21대)/진주시을": ["강민국"],
+  "2022 지선 (제8회) 시도지사": ["박완수"],
+  "2022 지선 (제8회) 교육감": ["박종훈"],
+  "2018 지선 (제7회) 시도지사": ["김경수"],
+  "2018 지선 (제7회) 교육감": ["박종훈"],
+};
+
+// 진주시 내에서 당선자를 판단할 수 있는 선거 유형
+const LOCAL_DISTRICT_TYPES = ["시장", "기초의원", "도의원"];
+
 const ASSEMBLY_DONG_MAP: Record<string, string> = {
   "천전동": "진주시갑", "성북동": "진주시갑", "평거동": "진주시갑",
   "신안동": "진주시갑", "이현동": "진주시갑", "판문동": "진주시갑",
@@ -128,10 +147,12 @@ function CandidateBar({
   candidates,
   validVotes,
   seats = 1,
+  electedNames,
 }: {
   candidates: { name: string; party: string; votes: number }[];
   validVotes: number;
   seats?: number;
+  electedNames?: string[];
 }) {
   const sorted = [...candidates].sort((a, b) => b.votes - a.votes);
   const maxVotes = sorted[0]?.votes || 1;
@@ -141,7 +162,9 @@ function CandidateBar({
         const pct = ((c.votes / validVotes) * 100).toFixed(1);
         const barPct = (c.votes / maxVotes) * 100;
         const color = PARTY_COLORS[c.party] || "#999";
-        const elected = i < seats;
+        const elected = electedNames
+          ? electedNames.includes(c.name)
+          : i < seats;
         return (
           <div key={i} className={elected ? "" : "opacity-50"}>
             <div className="flex items-center justify-between text-sm">
@@ -316,6 +339,26 @@ export default function ElectionPanel({ dongName, onClose }: ElectionPanelProps)
 
   const allCandidates = districtResult?.candidates || entry.results.flatMap((r) => r.candidates);
 
+  // 당선자 판단
+  const isLocalScope = entry.subType
+    ? LOCAL_DISTRICT_TYPES.includes(entry.subType)
+    : false;
+  const isPresidential = !entry.subType && entry.results.length === 1;
+
+  let electedNames: string[] | undefined;
+  if (isLocalScope) {
+    electedNames = undefined; // 득표순으로 당선 판단 (seats 기반)
+  } else if (!entry.subType && entry.results.length > 1 && districtResult) {
+    // 총선: 선거구별 당선자
+    const key = `${entry.label}/${districtResult.district}`;
+    electedNames = ELECTED_MAP[key] || undefined;
+  } else {
+    electedNames = ELECTED_MAP[entry.label] || undefined;
+  }
+
+  // 진주시 내 결과임을 표시할지 여부
+  const isPartialResult = isPresidential || (!isLocalScope && !!entry.subType);
+
   return (
     <div className="absolute bottom-4 left-4 z-[1000] w-[400px] rounded-lg bg-white p-4 shadow-lg max-h-[80vh] overflow-y-auto">
       <div className="flex items-center justify-between mb-1">
@@ -376,13 +419,23 @@ export default function ElectionPanel({ dongName, onClose }: ElectionPanelProps)
             {districtResult.district}
             {dongResult ? " (선거구 합계)" : ""}
           </h4>
+          {isPartialResult && (
+            <p className="text-xs text-amber-600 mb-1">
+              * 진주시 내 결과만 표시 (선거구가 더 넓음)
+            </p>
+          )}
           <div className="text-sm text-gray-500 mb-2">
             선거인 <strong>{districtResult.voters.toLocaleString()}</strong>
             <span className="mx-1">·</span>
             투표 <strong>{districtResult.turnout.toLocaleString()}</strong>
             {" "}({((districtResult.turnout / districtResult.voters) * 100).toFixed(1)}%)
           </div>
-          <CandidateBar candidates={districtResult.candidates} validVotes={districtResult.valid} seats={districtSeats} />
+          <CandidateBar
+            candidates={districtResult.candidates}
+            validVotes={districtResult.valid}
+            seats={districtSeats}
+            electedNames={electedNames}
+          />
         </div>
       )}
 
