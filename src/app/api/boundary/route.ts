@@ -1,10 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
 import { fetchBoundary } from "@/lib/api/boundary";
-import nationwideBoundary from "@/data/nationwide-boundary.json";
+import fs from "fs";
+import path from "path";
+
+let _boundaryCache: any = null;
+function getNationwideBoundary() {
+  if (!_boundaryCache) {
+    const filePath = path.join(process.cwd(), "public/data/nationwide-boundary.json");
+    _boundaryCache = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+  }
+  return _boundaryCache;
+}
 
 // 캐시된 전국 경계에서 시군구별 GeoJSON 추출
 function getBoundarybySgg(sggCode: string) {
-  const features = (nationwideBoundary as any).features.filter(
+  const data = getNationwideBoundary();
+  const features = data.features.filter(
     (f: any) => f.properties.sgg === sggCode
   );
   return { type: "FeatureCollection", features };
@@ -12,7 +23,8 @@ function getBoundarybySgg(sggCode: string) {
 
 // 시도별 전체 시군구 경계 추출
 function getBoundaryBySido(sidoCode: string) {
-  const features = (nationwideBoundary as any).features.filter(
+  const data = getNationwideBoundary();
+  const features = data.features.filter(
     (f: any) => f.properties.sido === sidoCode
   );
   return { type: "FeatureCollection", features };
