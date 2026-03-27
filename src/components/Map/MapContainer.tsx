@@ -188,7 +188,7 @@ export default function MapContainer() {
   const [panelCollapsed, setPanelCollapsed] = useState(false);
   const [showFacilities, setShowFacilities] = useState(false);
   const [facilitiesData, setFacilitiesData] = useState<any[]>([]);
-  const [facilityCategories, setFacilityCategories] = useState<Set<string>>(new Set(["종합병원", "보건소", "관공서"]));
+  const [facilityCategories, setFacilityCategories] = useState<Set<string>>(new Set(["종합병원", "보건소", "관공서", "전통시장"]));
 
   // 경계 데이터 (API에서 동적 로딩)
   const [boundaryData, setBoundaryData] = useState<any>(null);
@@ -199,15 +199,30 @@ export default function MapContainer() {
   const [electionsData, setElectionsData] = useState<any[]>([]);
   const [localElectionsData, setLocalElectionsData] = useState<any[]>([]);
 
-  // 시설 데이터 로딩 (시설 레이어 켤 때 1회)
+  // 시설 데이터 로딩 (도시 변경 또는 시설 레이어 켤 때)
   useEffect(() => {
-    if (showFacilities && facilitiesData.length === 0) {
-      fetch("/data/jinju-facilities.json")
-        .then((r) => r.ok ? r.json() : [])
-        .then(setFacilitiesData)
-        .catch(() => setFacilitiesData([]));
+    if (!showFacilities) return;
+    setFacilitiesData([]);
+    const code = selectedCity?.code;
+    const facilitiesUrl = code
+      ? `/data/facilities/${code}-facilities.json`
+      : null;
+    const marketsUrl = code
+      ? `/data/facilities/${code}-markets.json`
+      : `/data/facilities/gyeongnam-markets.json`;
+
+    const fetches: Promise<any[]>[] = [
+      fetch(marketsUrl).then((r) => r.ok ? r.json() : []).catch(() => []),
+    ];
+    if (facilitiesUrl) {
+      fetches.push(
+        fetch(facilitiesUrl).then((r) => r.ok ? r.json() : []).catch(() => [])
+      );
     }
-  }, [showFacilities]);
+    Promise.all(fetches).then((results) => {
+      setFacilitiesData(results.flat());
+    });
+  }, [showFacilities, selectedCityKey]);
 
   // 도시 변경 시 패널·선택 초기화 + 경계·인구 데이터 로딩
   useEffect(() => {
@@ -345,9 +360,6 @@ export default function MapContainer() {
     })),
   ];
 
-  // 진주 전용 데이터가 있는 레이어인지 확인
-  const hasDetailData = isJinju;
-
   return (
     <div className="relative h-screen w-full">
       <LeafletMap
@@ -443,8 +455,8 @@ export default function MapContainer() {
           <CommerceLayer boundaryData={jinjuBoundary} />
         )}
 
-        {/* 진주 전용: 주요시설 */}
-        {isJinju && showFacilities && facilitiesData.length > 0 && (
+        {/* 주요시설 (전 도시 + 경남 전체) */}
+        {showFacilities && facilitiesData.length > 0 && (
           <FacilitiesLayer
             facilities={facilitiesData}
             visibleCategories={facilityCategories}
@@ -528,7 +540,7 @@ export default function MapContainer() {
         )}
 
         {/* 진주 전용 레이어 */}
-        {hasDetailData && (
+        {isJinju && (
           <>
             <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
               <input
@@ -566,20 +578,21 @@ export default function MapContainer() {
               />
               상권 밀집도
             </label>
-            <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
-              <input
-                type="checkbox"
-                checked={showFacilities}
-                onChange={(e) => setShowFacilities(e.target.checked)}
-                className="accent-indigo-600"
-              />
-              주요시설
-            </label>
           </>
         )}
+        {/* 주요시설 (전 도시) */}
+        <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
+          <input
+            type="checkbox"
+            checked={showFacilities}
+            onChange={(e) => setShowFacilities(e.target.checked)}
+            className="accent-indigo-600"
+          />
+          주요시설
+        </label>
 
         {/* 시설 카테고리 선택 */}
-        {hasDetailData && showFacilities && (
+        {showFacilities && (
           <div className="mt-2 border-t pt-2">
             <p className="text-xs text-gray-500 mb-1">시설 종류 (줌 13+ 표시)</p>
             {FACILITY_GROUPS.map((group) => (
@@ -628,7 +641,7 @@ export default function MapContainer() {
           </div>
         )}
 
-        {hasDetailData && showCommerce && (
+        {isJinju && showCommerce && (
           <div className="mt-2 border-t pt-2">
             <p className="text-xs text-gray-500 mb-1">상가 수</p>
             {COMMERCE_LEGEND.map((item) => (
@@ -643,7 +656,7 @@ export default function MapContainer() {
           </div>
         )}
 
-        {hasDetailData && showBusStops && (
+        {isJinju && showBusStops && (
           <div className="mt-2 border-t pt-2">
             <p className="text-xs text-gray-500 mb-1">요일</p>
             <div className="flex gap-0.5 flex-wrap mb-2">
