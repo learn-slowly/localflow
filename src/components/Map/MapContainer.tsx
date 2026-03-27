@@ -28,6 +28,7 @@ import TransitHeatmapLayer, {
   HOUR_OPTIONS,
   HEATMAP_LEGEND,
 } from "./TransitHeatmapLayer";
+import FacilitiesLayer, { FACILITY_GROUPS, ALL_CATEGORIES } from "./FacilitiesLayer";
 import jinjuTransitUsage from "@/data/jinju-transit-usage.json";
 import type { Layer, PathOptions } from "leaflet";
 
@@ -185,6 +186,9 @@ export default function MapContainer() {
   const [transitDow, setTransitDow] = useState("전체");
   const [transitHour, setTransitHour] = useState("전체");
   const [panelCollapsed, setPanelCollapsed] = useState(false);
+  const [showFacilities, setShowFacilities] = useState(false);
+  const [facilitiesData, setFacilitiesData] = useState<any[]>([]);
+  const [facilityCategories, setFacilityCategories] = useState<Set<string>>(new Set(["종합병원", "보건소", "관공서"]));
 
   // 경계 데이터 (API에서 동적 로딩)
   const [boundaryData, setBoundaryData] = useState<any>(null);
@@ -194,6 +198,16 @@ export default function MapContainer() {
   // 선거 데이터 (도시별 동적 로딩)
   const [electionsData, setElectionsData] = useState<any[]>([]);
   const [localElectionsData, setLocalElectionsData] = useState<any[]>([]);
+
+  // 시설 데이터 로딩 (시설 레이어 켤 때 1회)
+  useEffect(() => {
+    if (showFacilities && facilitiesData.length === 0) {
+      fetch("/data/jinju-facilities.json")
+        .then((r) => r.ok ? r.json() : [])
+        .then(setFacilitiesData)
+        .catch(() => setFacilitiesData([]));
+    }
+  }, [showFacilities]);
 
   // 도시 변경 시 패널·선택 초기화 + 경계·인구 데이터 로딩
   useEffect(() => {
@@ -429,6 +443,14 @@ export default function MapContainer() {
           <CommerceLayer boundaryData={jinjuBoundary} />
         )}
 
+        {/* 진주 전용: 주요시설 */}
+        {isJinju && showFacilities && facilitiesData.length > 0 && (
+          <FacilitiesLayer
+            facilities={facilitiesData}
+            visibleCategories={facilityCategories}
+          />
+        )}
+
         {/* 진주 전용: 대중교통 히트맵 */}
         {isJinju && showBusStops && (
           <TransitHeatmapLayer
@@ -544,7 +566,50 @@ export default function MapContainer() {
               />
               상권 밀집도
             </label>
+            <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
+              <input
+                type="checkbox"
+                checked={showFacilities}
+                onChange={(e) => setShowFacilities(e.target.checked)}
+                className="accent-indigo-600"
+              />
+              주요시설
+            </label>
           </>
+        )}
+
+        {/* 시설 카테고리 선택 */}
+        {hasDetailData && showFacilities && (
+          <div className="mt-2 border-t pt-2">
+            <p className="text-xs text-gray-500 mb-1">시설 종류 (줌 13+ 표시)</p>
+            {FACILITY_GROUPS.map((group) => (
+              <div key={group.label} className="mb-1">
+                <p className="text-[10px] font-semibold text-gray-400 uppercase">{group.label}</p>
+                <div className="flex flex-wrap gap-0.5">
+                  {group.categories.map((cat) => (
+                    <button
+                      key={cat}
+                      className={`text-[10px] px-1.5 py-0.5 rounded ${
+                        facilityCategories.has(cat)
+                          ? "bg-indigo-600 text-white"
+                          : "bg-gray-100 text-gray-500"
+                      }`}
+                      onClick={() => {
+                        setFacilityCategories((prev) => {
+                          const next = new Set(prev);
+                          if (next.has(cat)) next.delete(cat);
+                          else next.add(cat);
+                          return next;
+                        });
+                      }}
+                    >
+                      {cat}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         )}
 
         {/* 범례 */}

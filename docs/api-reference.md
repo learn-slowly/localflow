@@ -291,7 +291,7 @@
 
 - **응답 항목**:
 
-  [table]
+  \[table\]
 
 ### 11-3. 버스 노선별 경유정류장정보 API
 
@@ -364,3 +364,366 @@
 - **파라미터**: apikey(필수), routeNm(선택, 노선명)
 - **응답 항목**: routenm(노선명), sttnnm(역명), sttnid(역ID), sttnseq(역순번)
 - **비고**: 진주 해당 없음, 다른 도시 확장 시 활용
+
+---
+
+## 12. 국토교통부 — 정류장별 노선별 승하차인원 (일별)
+
+- **키**: `DATA_GO_KR_API_KEY`
+
+- **Endpoint**: `https://apis.data.go.kr/1613000/StopbyRouteTripVolume/getDailyStopbyRouteTripVolume`
+
+- **데이터 포맷**: JSON
+
+- **일일 트래픽**: 제한 있음 (대량 호출 시 429 발생, 일 약 2,000\~3,000페이지 수준)
+
+- **용도**: 버스 정류장별 시간대·요일별 승하차 인원 → 대중교통 히트맵 레이어
+
+- **파라미터**:
+
+  | 파라미터 | 필수 | 설명 |
+  | --- | --- | --- |
+  | serviceKey | Y | 서비스키 |
+  | dataType | N | json / xml |
+  | numOfRows | N | 페이지당 건수 (기본 10, 최대 100) |
+  | pageNo | N | 페이지번호 |
+  | opr_ymd | Y | 운행일자 (YYYYMMDD) |
+  | ctpv_cd | N | 시도코드 (2자리, 예: 48=경남) |
+  | sgg_cd | N | 시군구코드 (5자리, 예: 48170=진주시) |
+
+- **응답 항목**:
+
+  | 항목 | 설명 |
+  | --- | --- |
+  | opr_ymd | 운행일자 |
+  | dow_cd / dow_nm | 요일코드 / 요일명 |
+  | ctpv_cd / ctpv_nm | 시도코드 / 시도명 |
+  | sgg_cd / sgg_nm | 시군구코드 / 시군구명 |
+  | emd_cd / emd_nm | 읍면동코드 / 읍면동명 |
+  | sttn_id / sttn_nm | 정류장ID / 정류장명 |
+  | sttn_arsno | 정류장 ARS번호 |
+  | tzon | 시간대 (HH) |
+  | ride_nope | 승차인원 |
+  | goff_nope | 하차인원 |
+
+- **비고**: 진주시 기준 일 약 32,000건 (320페이지). 요일별 패턴 분석을 위해 같은 요일 2일치씩 수집하여 합산. `scripts/fetch-transit-remaining.py` 참조.
+
+---
+
+## 13. 행정안전부 — 우수 다중이용시설 (생활안전지도)
+
+- **키**: `SAFETY_API_KEY` (값: `JG87ETU4-JG87-JG87-JG87-JG87ETU4XZ`)
+
+- **API 유형**: REST
+
+- **데이터 포맷**: XML + WMS
+
+- **제공기관**: 행정안전부
+
+- **갱신주기**: 1년
+
+- **주요항목**: 다중이용업소 안전관리 우수업소 공표현황
+
+- **XML Endpoint**: `https://safemap.go.kr/openapi2/IF_0005`
+
+- **WMS Endpoint**: `https://safemap.go.kr/openapi2/IF_0005_WMS`
+
+- **비고**: XML로 목록 조회, WMS로 지도 레이어 오버레이 가능. 상세 파라미터 확인 후 업데이트 예정.
+
+---
+
+## 14. 행정안전부 — 관공서 (민원행정기관 전자지도)
+
+- **키**: `SAFETY_API_KEY` (동일)
+
+- **API 유형**: REST
+
+- **데이터 포맷**: XML + WMS
+
+- **제공기관**: 행정안전부 협업정책과 (044-205-2249)
+
+- **갱신주기**: 1년
+
+- **주요항목**: 중앙행정기관, 지방자치단체청사, 법원, 세관 등 행정기관 위치
+
+- **XML Endpoint**: `https://safemap.go.kr/openapi2/IF_0031`
+
+- **WMS Endpoint**: `https://safemap.go.kr/openapi2/IF_0031_WMS`
+
+---
+
+## 15. 근로복지공단 — 병의원 (산재지정병원)
+
+- **키**: `SAFETY_API_KEY` (동일)
+
+- **API 유형**: REST
+
+- **데이터 포맷**: XML + WMS
+
+- **제공기관**: 근로복지공단 재활국/요양부
+
+- **갱신주기**: 1년
+
+- **주요항목**: 산업재해 근로자 치료·재활을 위한 산재지정병원 위치
+
+- **XML Endpoint**: `https://safemap.go.kr/openapi2/IF_0025`
+
+- **WMS Endpoint**: `https://safemap.go.kr/openapi2/IF_0025_WMS`
+
+---
+
+## 16. 국립중앙의료원 — 병의원 (보건소)
+
+- **키**: `SAFETY_API_KEY` (동일)
+
+- **API 유형**: REST
+
+- **데이터 포맷**: XML + WMS
+
+- **제공기관**: 국립중앙의료원
+
+- **갱신주기**: 일단위
+
+- **주요항목**: 지역보건법에 따라 설치된 보건소 위치
+
+- **XML Endpoint**: `https://safemap.go.kr/openapi2/IF_0024`
+
+- **WMS Endpoint**: `https://safemap.go.kr/openapi2/IF_0024_WMS`
+
+---
+
+## 17. 국립중앙의료원 — 병의원 (병/의원)
+
+- **키**: `SAFETY_API_KEY` (동일)
+
+- **API 유형**: REST
+
+- **데이터 포맷**: XML + WMS
+
+- **제공기관**: 국립중앙의료원
+
+- **갱신주기**: 일단위
+
+- **주요항목**: 외래환자 대상 의료기관 (의원, 치과의원, 한의원 등) 위치
+
+- **XML Endpoint**: `https://safemap.go.kr/openapi2/IF_0026`
+
+- **WMS Endpoint**: `https://safemap.go.kr/openapi2/IF_0026_WMS`
+
+---
+
+## 18. 국립중앙의료원 — 병의원 (한방병의원)
+
+- **키**: `SAFETY_API_KEY` (동일)
+
+- **API 유형**: REST
+
+- **데이터 포맷**: XML + WMS
+
+- **제공기관**: 국립중앙의료원
+
+- **갱신주기**: 일단위
+
+- **주요항목**: 한의사 의료기관 (입원 30명 이상 시설) 위치
+
+- **XML Endpoint**: `https://safemap.go.kr/openapi2/IF_0028`
+
+- **WMS Endpoint**: `https://safemap.go.kr/openapi2/IF_0028_WMS`
+
+---
+
+## 19. 국립중앙의료원 — 병의원 (요양병원)
+
+- **키**: `SAFETY_API_KEY` (동일)
+
+- **API 유형**: REST
+
+- **데이터 포맷**: XML + WMS
+
+- **제공기관**: 국립중앙의료원
+
+- **갱신주기**: 일단위
+
+- **주요항목**: 요양병원 (30병상 이상, 장기입원 환자 대상) 위치
+
+- **XML Endpoint**: `https://safemap.go.kr/openapi2/IF_0027`
+
+- **WMS Endpoint**: `https://safemap.go.kr/openapi2/IF_0027_WMS`
+
+---
+
+## 20. 국립중앙의료원 — 병의원 (치과병의원)
+
+- **키**: `SAFETY_API_KEY` (동일)
+
+- **API 유형**: REST
+
+- **데이터 포맷**: XML + WMS
+
+- **제공기관**: 국립중앙의료원
+
+- **갱신주기**: 일단위
+
+- **주요항목**: 치과 의료기관 (입원 30명 이상 시설) 위치
+
+- **XML Endpoint**: `https://safemap.go.kr/openapi2/IF_0029`
+
+- **WMS Endpoint**: `https://safemap.go.kr/openapi2/IF_0029_WMS`
+
+---
+
+## 21. 국립중앙의료원 — 병의원 (종합병원)
+
+- **키**: `SAFETY_API_KEY` (동일)
+
+- **API 유형**: REST
+
+- **데이터 포맷**: XML + WMS
+
+- **제공기관**: 국립중앙의료원
+
+- **갱신주기**: 일단위
+
+- **주요항목**: 종합병원 (100병상 이상, 7\~9개 진료과목) 위치
+
+- **XML Endpoint**: `https://safemap.go.kr/openapi2/IF_0022`
+
+- **WMS Endpoint**: `https://safemap.go.kr/openapi2/IF_0022_WMS`
+
+---
+
+## 22. 국립중앙의료원 — 약국
+
+- **키**: `SAFETY_API_KEY` (동일)
+
+- **API 유형**: REST
+
+- **데이터 포맷**: XML + WMS
+
+- **제공기관**: 국립중앙의료원
+
+- **갱신주기**: 일단위
+
+- **주요항목**: 약국 위치·주소·진료요일 등 목록 조회
+
+- **XML Endpoint**: `https://safemap.go.kr/openapi2/IF_0048`
+
+- **WMS Endpoint**: `https://safemap.go.kr/openapi2/IF_0048_WMS`
+
+---
+
+## 23. 국립중앙의료원 — 응급의료시설
+
+- **키**: `SAFETY_API_KEY` (동일)
+
+- **API 유형**: REST
+
+- **데이터 포맷**: WMS only
+
+- **제공기관**: 국립중앙의료원
+
+- **갱신주기**: 일단위
+
+- **주요항목**: 응급의료기관 (중앙·권역·전문·지역 응급의료센터) 위치
+
+- **WMS Endpoint**: `https://safemap.go.kr/openapi2/IF_0047_WMS`
+
+---
+
+## 24. 행정안전부 — 어린이놀이시설정보
+
+- **키**: `SAFETY_API_KEY` (동일)
+
+- **API 유형**: REST
+
+- **데이터 포맷**: XML + WMS
+
+- **제공기관**: 행정안전부 안전개선과 (044-205-4213)
+
+- **갱신주기**: 1년
+
+- **주요항목**: 전국 어린이놀이시설 시설정보 조회
+
+- **XML Endpoint**: `https://safemap.go.kr/openapi2/IF_0007`
+
+- **WMS Endpoint**: `https://safemap.go.kr/openapi2/IF_0007_WMS`
+
+---
+
+## 25. 교육부/보건복지부 — 유아시설
+
+- **키**: `SAFETY_API_KEY` (동일)
+
+- **API 유형**: REST
+
+- **데이터 포맷**: XML + WMS
+
+- **제공기관**: 교육부 (유치원), 보건복지부 (어린이집)
+
+- **갱신주기**: 1년
+
+- **주요항목**: 유치원 기본현황 + 어린이집 기본정보 조회
+
+- **XML Endpoint**: `https://safemap.go.kr/openapi2/IF_0037`
+
+- **WMS Endpoint**: `https://safemap.go.kr/openapi2/IF_0037_WMS`
+
+---
+
+## 26. 보건복지부 — 약자보호시설
+
+- **키**: `SAFETY_API_KEY` (동일)
+
+- **API 유형**: REST
+
+- **데이터 포맷**: XML + WMS
+
+- **제공기관**: 보건복지부
+
+- **갱신주기**: 1년
+
+- **주요항목**: 성폭력지원시설, 자살예방센터, 장애인편의시설 위치
+
+- **XML Endpoint**: `https://safemap.go.kr/openapi2/IF_0053`
+
+- **WMS Endpoint**: `https://safemap.go.kr/openapi2/IF_0053_WMS`
+
+---
+
+## 27. 교육부 — 학교 (대학교)
+
+- **키**: `SAFETY_API_KEY` (동일)
+
+- **API 유형**: REST
+
+- **데이터 포맷**: XML + WMS
+
+- **제공기관**: 교육부
+
+- **갱신주기**: 1년
+
+- **주요항목**: 학교알리미 서비스 — 대학교 위치 정보
+
+- **XML Endpoint**: `https://safemap.go.kr/openapi2/IF_0034`
+
+- **WMS Endpoint**: `https://safemap.go.kr/openapi2/IF_0034_WMS`
+
+---
+
+## 28. 교육부 — 학교 (초·중·고·기타)
+
+- **키**: `SAFETY_API_KEY` (동일)
+
+- **API 유형**: REST
+
+- **데이터 포맷**: XML + WMS
+
+- **제공기관**: 교육부
+
+- **갱신주기**: 1년
+
+- **주요항목**: 학교알리미 서비스 — 전국 초·중·고등학교 및 기타 학교 위치·공시정보
+
+- **XML Endpoint**: `https://safemap.go.kr/openapi2/IF_0035`
+
+- **WMS Endpoint**: `https://safemap.go.kr/openapi2/IF_0035_WMS`
