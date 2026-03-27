@@ -40,9 +40,9 @@ export default function PopulationPanel({ data, onClose }: PopulationPanelProps)
   if (!data) return null;
 
   const age = data.age && Object.keys(data.age).length > 0 ? data.age as any as AgeEntry : null;
-  const maleRatio = ((data.male / data.population) * 100).toFixed(1);
-  const femaleRatio = ((data.female / data.population) * 100).toFixed(1);
-  const perHousehold = (data.population / data.households).toFixed(1);
+  const maleRatio = data.population > 0 ? ((data.male / data.population) * 100).toFixed(1) : "0.0";
+  const femaleRatio = data.population > 0 ? ((data.female / data.population) * 100).toFixed(1) : "0.0";
+  const perHousehold = data.households > 0 ? (data.population / data.households).toFixed(1) : "-";
 
   // Find max for pyramid scaling
   let maxPop = 0;
