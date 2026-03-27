@@ -33,15 +33,19 @@ def is_in_jinju_wgs84(lat, lng):
     b = JINJU_BOUNDS
     return b["lat_min"] <= lat <= b["lat_max"] and b["lng_min"] <= lng <= b["lng_max"]
 
-# sgg_cd 기반 API (관공서, 학교, 어린이놀이시설, 우수다중시설, 유아시설, 약자보호시설)
+# sgg_cd 기반 API
 SGG_APIS = [
     ("IF_0031", "관공서"),
-    ("IF_0005", "우수다중시설"),
     ("IF_0007", "어린이놀이시설"),
     ("IF_0034", "대학교"),
+    ("IF_0053", "약자보호시설"),
+]
+
+# 좌표 기반 API (sgg_cd 없음 — lat/lon 또는 x/y로 필터)
+COORD_APIS = [
+    ("IF_0005", "우수다중시설"),
     ("IF_0035", "초중고"),
     ("IF_0037", "유아시설"),
-    ("IF_0053", "약자보호시설"),
 ]
 
 # 병의원 계열 API (lat/lon 기반)
@@ -118,6 +122,55 @@ def collect_sgg_api(api_id, category):
     return results
 
 
+def collect_coord_api(api_id, category):
+    """좌표 기반 API (sgg_cd 없음) — latitude/longitude 또는 x/y로 필터"""
+    print(f"\n[{category}] ({api_id})")
+    results = []
+    page = 1
+    while True:
+        items, total = fetch_page(api_id, page)
+        if not items:
+            break
+        if page == 1:
+            print(f"  총 {total}건")
+
+        for item in items:
+            lat = item.get("latitude")
+            lng = item.get("longitude")
+            if lat and lng:
+                lat, lng = float(lat), float(lng)
+            else:
+                x = item.get("x")
+                y = item.get("y")
+                if not x or not y:
+                    continue
+                lat, lng = epsg3857_to_wgs84(float(x), float(y))
+
+            if not is_in_jinju_wgs84(lat, lng):
+                continue
+
+            name = item.get("fcltynm", "") or item.get("name", "") or item.get("fclty_nm", "")
+            addr = item.get("lnmadr", "") or item.get("adres", "") or item.get("rn_adres", "") or ""
+            results.append({
+                "name": name,
+                "category": category,
+                "type": item.get("type", category),
+                "address": addr,
+                "tel": "",
+                "lat": round(lat, 6),
+                "lng": round(lng, 6),
+            })
+
+        total_pages = (total + 999) // 1000
+        if page >= total_pages:
+            break
+        page += 1
+        time.sleep(0.1)
+
+    print(f"  진주 {len(results)}건")
+    return results
+
+
 def collect_medical_api(api_id, category):
     """lat/lon 기반 병의원 API — 주소에 '진주' 포함 or 좌표 범위"""
     print(f"\n[{category}] ({api_id})")
@@ -172,6 +225,10 @@ def main():
 
     for api_id, category in SGG_APIS:
         facilities = collect_sgg_api(api_id, category)
+        all_facilities.extend(facilities)
+
+    for api_id, category in COORD_APIS:
+        facilities = collect_coord_api(api_id, category)
         all_facilities.extend(facilities)
 
     for api_id, category in MEDICAL_APIS:
