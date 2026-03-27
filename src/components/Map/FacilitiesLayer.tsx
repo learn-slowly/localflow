@@ -32,6 +32,7 @@ const CATEGORY_CONFIG: Record<string, { emoji: string; color: string }> = {
   약자보호시설: { emoji: "🛡️", color: "#0EA5E9" },
   우수다중시설: { emoji: "⭐", color: "#8B5CF6" },
   종교시설: { emoji: "🛐", color: "#78716C" },
+  전통시장: { emoji: "🏪", color: "#D97706" },
 };
 
 function createIcon(category: string) {
@@ -67,7 +68,7 @@ export const FACILITY_GROUPS: { label: string; categories: string[] }[] = [
   },
   {
     label: "공공·안전",
-    categories: ["관공서", "약자보호시설", "우수다중시설", "종교시설"],
+    categories: ["관공서", "약자보호시설", "우수다중시설", "종교시설", "전통시장"],
   },
 ];
 

@@ -727,3 +727,39 @@
 - **XML Endpoint**: `https://safemap.go.kr/openapi2/IF_0035`
 
 - **WMS Endpoint**: `https://safemap.go.kr/openapi2/IF_0035_WMS`
+
+---
+
+## 29. 행정안전부 — 전통시장 안전점검결과 (재난안전데이터)
+
+- **키**: `SAFETY_DATA_API_KEY` (값: `KXWDY78ZZPL2EDJ3`)
+
+- **Endpoint**: `https://www.safetydata.go.kr/V2/api/DSSP-IF-10671`
+
+- **API 유형**: REST
+
+- **데이터 포맷**: JSON
+
+- **제공기관**: 행정안전부
+
+- **갱신주기**: 신청
+
+- **만료일자**: 2027-03-27
+
+- **일일 호출량**: 100건 (0이면 최대 1,000건)
+
+- **주요항목**: 전통시장 안전점검결과 상세정보
+
+---
+
+## 30. 공공데이터포털 — 전국전통시장표준데이터
+
+- **키**: `DATA_GO_KR_API_KEY`
+
+- **Endpoint**: `https://apis.data.go.kr/openapi/tn_pubr_public_trdit_mrkt_api`
+
+- **데이터 포맷**: JSON + XML (현재 CSV 파일로 사용 중)
+
+- **주요항목**: 시장명, 시장유형, 주소, 위도/경도, 점포수, 취급품목, 개설연도, 전화번호
+
+- **비고**: API 500 에러 간헐 발생 → CSV 파일(`src/data/전국전통시장표준데이터.csv`)로 대체. 진주시 16개 시장.
