@@ -15,6 +15,10 @@ LocalFlow: 지역 선거 유동인구 분석 플랫폼
 - 배포: Vercel
 - API 상세: `docs/api-reference.md` 참조
 
+## 단축어
+
+- `cnp` → `/commit-push-pr` 스킬 실행 (커밋 + 푸시 + PR)
+
 ## 핵심 규칙
 
 - `docs/plan.md`가 프로젝트 계획서. 새 기능 구현 전에 반드시 참조
