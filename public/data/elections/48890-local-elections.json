@@ -460,7 +460,8 @@
             "party": "무소속",
             "votes": 1662
           }
-        ]
+        ],
+        "seats": 3
       },
       {
         "district": "합천군나선거구",
@@ -489,7 +490,8 @@
             "party": "무소속",
             "votes": 635
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "합천군다선거구",
@@ -523,7 +525,8 @@
             "party": "무소속",
             "votes": 222
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "합천군라선거구",
@@ -552,7 +555,8 @@
             "party": "무소속",
             "votes": 464
           }
-        ]
+        ],
+        "seats": 2
       }
     ],
     "dongResults": [
@@ -1012,7 +1016,8 @@
             "party": "무소속",
             "votes": 6731
           }
-        ]
+        ],
+        "seats": 1
       }
     ],
     "dongResults": [
@@ -2112,7 +2117,8 @@
             "party": "무소속",
             "votes": 1460
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "합천군나선거구",
@@ -2141,7 +2147,8 @@
             "party": "무소속",
             "votes": 1050
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "합천군다선거구",
@@ -2170,7 +2177,8 @@
             "party": "무소속",
             "votes": 1851
           }
-        ]
+        ],
+        "seats": 3
       },
       {
         "district": "합천군라선거구",
@@ -2194,7 +2202,8 @@
             "party": "무소속",
             "votes": 2124
           }
-        ]
+        ],
+        "seats": 2
       }
     ],
     "dongResults": [
@@ -2545,7 +2554,8 @@
             "party": "무소속",
             "votes": 13330
           }
-        ]
+        ],
+        "seats": 1
       }
     ],
     "dongResults": [
@@ -2941,5 +2951,49 @@
         ]
       }
     ]
+  },
+  {
+    "sgId": "20170412",
+    "label": "2017 재보궐 기초의원",
+    "date": "2017.04.12",
+    "results": [
+      {
+        "district": "합천군나선거구",
+        "voters": 9852,
+        "turnout": 5680,
+        "valid": 5617,
+        "invalid": 63,
+        "candidates": [
+          {
+            "name": "신명기",
+            "party": "자유한국당",
+            "votes": 2266
+          },
+          {
+            "name": "김명오",
+            "party": "무소속",
+            "votes": 479
+          },
+          {
+            "name": "강덕문",
+            "party": "무소속",
+            "votes": 981
+          },
+          {
+            "name": "김상락",
+            "party": "무소속",
+            "votes": 1602
+          },
+          {
+            "name": "정진회",
+            "party": "무소속",
+            "votes": 289
+          }
+        ]
+      }
+    ],
+    "dongResults": [],
+    "sgTypecode": "6",
+    "subType": "기초의원"
   }
 ]

@@ -355,7 +355,8 @@
             "party": "무소속",
             "votes": 1148
           }
-        ]
+        ],
+        "seats": 3
       },
       {
         "district": "의령군나선거구",
@@ -379,7 +380,8 @@
             "party": "무소속",
             "votes": 906
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "의령군다선거구",
@@ -403,7 +405,8 @@
             "party": "무소속",
             "votes": 1227
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "의령군라선거구",
@@ -432,7 +435,8 @@
             "party": "무소속",
             "votes": 1008
           }
-        ]
+        ],
+        "seats": 2
       }
     ],
     "dongResults": [
@@ -1350,7 +1354,8 @@
             "party": "무소속",
             "votes": 835
           }
-        ]
+        ],
+        "seats": 3
       },
       {
         "district": "의령군나선거구",
@@ -1379,7 +1384,8 @@
             "party": "무소속",
             "votes": 1061
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "의령군다선거구",
@@ -1413,7 +1419,8 @@
             "party": "무소속",
             "votes": 1471
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "의령군라선거구",
@@ -1437,7 +1444,8 @@
             "party": "무소속",
             "votes": 1181
           }
-        ]
+        ],
+        "seats": 2
       }
     ],
     "dongResults": [
@@ -1720,7 +1728,8 @@
             "party": "무소속",
             "votes": 4489
           }
-        ]
+        ],
+        "seats": 1
       }
     ],
     "dongResults": [
@@ -2052,5 +2061,102 @@
         ]
       }
     ]
+  },
+  {
+    "sgId": "20210407",
+    "label": "2021 재보궐 시장",
+    "date": "2021.04.07",
+    "results": [
+      {
+        "district": "의령군",
+        "voters": 24452,
+        "turnout": 16997,
+        "valid": 16544,
+        "invalid": 453,
+        "candidates": [
+          {
+            "name": "김충규",
+            "party": "더불어민주당",
+            "votes": 4942
+          },
+          {
+            "name": "오태완",
+            "party": "국민의힘",
+            "votes": 7335
+          },
+          {
+            "name": "오용",
+            "party": "무소속",
+            "votes": 2158
+          },
+          {
+            "name": "김창환",
+            "party": "무소속",
+            "votes": 2109
+          }
+        ]
+      }
+    ],
+    "dongResults": [],
+    "sgTypecode": "4",
+    "subType": "시장"
+  },
+  {
+    "sgId": "20210407",
+    "label": "2021 재보궐 도의원",
+    "date": "2021.04.07",
+    "results": [
+      {
+        "district": "의령군선거구",
+        "voters": 24452,
+        "turnout": 16996,
+        "valid": 16261,
+        "invalid": 735,
+        "candidates": [
+          {
+            "name": "정권용",
+            "party": "더불어민주당",
+            "votes": 6218
+          },
+          {
+            "name": "손태영",
+            "party": "국민의힘",
+            "votes": 10043
+          }
+        ]
+      }
+    ],
+    "dongResults": [],
+    "sgTypecode": "5",
+    "subType": "도의원"
+  },
+  {
+    "sgId": "20210407",
+    "label": "2021 재보궐 기초의원",
+    "date": "2021.04.07",
+    "results": [
+      {
+        "district": "의령군다선거구",
+        "voters": 5384,
+        "turnout": 3771,
+        "valid": 3638,
+        "invalid": 133,
+        "candidates": [
+          {
+            "name": "차성길",
+            "party": "국민의힘",
+            "votes": 1812
+          },
+          {
+            "name": "윤병열",
+            "party": "무소속",
+            "votes": 1826
+          }
+        ]
+      }
+    ],
+    "dongResults": [],
+    "sgTypecode": "6",
+    "subType": "기초의원"
   }
 ]

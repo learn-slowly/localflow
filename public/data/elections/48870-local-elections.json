@@ -304,7 +304,8 @@
             "party": "무소속",
             "votes": 144
           }
-        ]
+        ],
+        "seats": 4
       },
       {
         "district": "함양군나선거구",
@@ -343,7 +344,8 @@
             "party": "무소속",
             "votes": 138
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "함양군다선거구",
@@ -382,7 +384,8 @@
             "party": "무소속",
             "votes": 795
           }
-        ]
+        ],
+        "seats": 3
       }
     ],
     "dongResults": [
@@ -760,7 +763,8 @@
             "party": "무소속",
             "votes": 8558
           }
-        ]
+        ],
+        "seats": 1
       }
     ],
     "dongResults": [
@@ -1511,7 +1515,8 @@
             "party": "무소속",
             "votes": 388
           }
-        ]
+        ],
+        "seats": 4
       },
       {
         "district": "함양군나선거구",
@@ -1545,7 +1550,8 @@
             "party": "무소속",
             "votes": 992
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "함양군다선거구",
@@ -1589,7 +1595,8 @@
             "party": "무소속",
             "votes": 527
           }
-        ]
+        ],
+        "seats": 3
       }
     ],
     "dongResults": [
@@ -1908,7 +1915,8 @@
             "party": "무소속",
             "votes": 3271
           }
-        ]
+        ],
+        "seats": 1
       }
     ],
     "dongResults": [
@@ -2208,5 +2216,39 @@
         ]
       }
     ]
+  },
+  {
+    "sgId": "20210407",
+    "label": "2021 재보궐 도의원",
+    "date": "2021.04.07",
+    "results": [
+      {
+        "district": "함양군선거구",
+        "voters": 34922,
+        "turnout": 17158,
+        "valid": 16977,
+        "invalid": 181,
+        "candidates": [
+          {
+            "name": "정재각",
+            "party": "더불어민주당",
+            "votes": 2176
+          },
+          {
+            "name": "박희규",
+            "party": "국민의힘",
+            "votes": 6548
+          },
+          {
+            "name": "김재웅",
+            "party": "무소속",
+            "votes": 8253
+          }
+        ]
+      }
+    ],
+    "dongResults": [],
+    "sgTypecode": "5",
+    "subType": "도의원"
   }
 ]

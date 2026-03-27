@@ -325,7 +325,8 @@
             "party": "국민의힘",
             "votes": 5136
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "양산시나선거구",
@@ -354,7 +355,8 @@
             "party": "국민의힘",
             "votes": 5406
           }
-        ]
+        ],
+        "seats": 3
       },
       {
         "district": "양산시다선거구",
@@ -383,7 +385,8 @@
             "party": "무소속",
             "votes": 327
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "양산시라선거구",
@@ -412,7 +415,8 @@
             "party": "무소속",
             "votes": 680
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "양산시마선거구",
@@ -446,7 +450,8 @@
             "party": "정의당",
             "votes": 2096
           }
-        ]
+        ],
+        "seats": 3
       },
       {
         "district": "양산시바선거구",
@@ -470,7 +475,8 @@
             "party": "국민의힘",
             "votes": 5118
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "양산시사선거구",
@@ -499,7 +505,8 @@
             "party": "국민의힘",
             "votes": 3187
           }
-        ]
+        ],
+        "seats": 3
       }
     ],
     "dongResults": [
@@ -903,7 +910,8 @@
             "party": "국민의힘",
             "votes": 11268
           }
-        ]
+        ],
+        "seats": 1
       },
       {
         "district": "양산시제2선거구",
@@ -922,7 +930,8 @@
             "party": "국민의힘",
             "votes": 13592
           }
-        ]
+        ],
+        "seats": 1
       },
       {
         "district": "양산시제3선거구",
@@ -941,7 +950,8 @@
             "party": "국민의힘",
             "votes": 17977
           }
-        ]
+        ],
+        "seats": 1
       },
       {
         "district": "양산시제4선거구",
@@ -960,7 +970,8 @@
             "party": "국민의힘",
             "votes": 15967
           }
-        ]
+        ],
+        "seats": 1
       },
       {
         "district": "양산시제5선거구",
@@ -979,7 +990,8 @@
             "party": "국민의힘",
             "votes": 11929
           }
-        ]
+        ],
+        "seats": 1
       },
       {
         "district": "양산시제6선거구",
@@ -998,7 +1010,8 @@
             "party": "국민의힘",
             "votes": 10743
           }
-        ]
+        ],
+        "seats": 1
       }
     ],
     "dongResults": [
@@ -1882,7 +1895,8 @@
             "party": "무소속",
             "votes": 1919
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "양산시나선거구",
@@ -1906,7 +1920,8 @@
             "party": "자유한국당",
             "votes": 2979
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "양산시다선거구",
@@ -1960,7 +1975,8 @@
             "party": "민중당",
             "votes": 909
           }
-        ]
+        ],
+        "seats": 4
       },
       {
         "district": "양산시라선거구",
@@ -1999,7 +2015,8 @@
             "party": "무소속",
             "votes": 3603
           }
-        ]
+        ],
+        "seats": 3
       },
       {
         "district": "양산시마선거구",
@@ -2028,7 +2045,8 @@
             "party": "바른미래당",
             "votes": 1369
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "양산시바선거구",
@@ -2052,7 +2070,8 @@
             "party": "자유한국당",
             "votes": 7642
           }
-        ]
+        ],
+        "seats": 2
       }
     ],
     "dongResults": [
@@ -2336,7 +2355,8 @@
             "party": "자유한국당",
             "votes": 16833
           }
-        ]
+        ],
+        "seats": 1
       },
       {
         "district": "양산시제2선거구",
@@ -2355,7 +2375,8 @@
             "party": "자유한국당",
             "votes": 18070
           }
-        ]
+        ],
+        "seats": 1
       },
       {
         "district": "양산시제3선거구",
@@ -2374,7 +2395,8 @@
             "party": "자유한국당",
             "votes": 12427
           }
-        ]
+        ],
+        "seats": 1
       },
       {
         "district": "양산시제4선거구",
@@ -2398,7 +2420,8 @@
             "party": "무소속",
             "votes": 9063
           }
-        ]
+        ],
+        "seats": 1
       }
     ],
     "dongResults": [
@@ -2712,5 +2735,122 @@
         ]
       }
     ]
+  },
+  {
+    "sgId": "20170412",
+    "label": "2017 재보궐 도의원",
+    "date": "2017.04.12",
+    "results": [
+      {
+        "district": "양산시제1선거구",
+        "voters": 100107,
+        "turnout": 20431,
+        "valid": 20275,
+        "invalid": 156,
+        "candidates": [
+          {
+            "name": "김성훈",
+            "party": "더불어민주당",
+            "votes": 9360
+          },
+          {
+            "name": "곽종포",
+            "party": "자유한국당",
+            "votes": 8392
+          },
+          {
+            "name": "강창준",
+            "party": "국민의당",
+            "votes": 2523
+          }
+        ]
+      }
+    ],
+    "dongResults": [],
+    "sgTypecode": "5",
+    "subType": "도의원"
+  },
+  {
+    "sgId": "20170412",
+    "label": "2017 재보궐 기초의원",
+    "date": "2017.04.12",
+    "results": [
+      {
+        "district": "양산시마선거구",
+        "voters": 41512,
+        "turnout": 9533,
+        "valid": 9488,
+        "invalid": 45,
+        "candidates": [
+          {
+            "name": "서진부",
+            "party": "더불어민주당",
+            "votes": 4144
+          },
+          {
+            "name": "이장호",
+            "party": "자유한국당",
+            "votes": 2903
+          },
+          {
+            "name": "손현수",
+            "party": "국민의당",
+            "votes": 1697
+          },
+          {
+            "name": "허용복",
+            "party": "바른정당",
+            "votes": 456
+          },
+          {
+            "name": "이세환",
+            "party": "무소속",
+            "votes": 288
+          }
+        ]
+      }
+    ],
+    "dongResults": [],
+    "sgTypecode": "6",
+    "subType": "기초의원"
+  },
+  {
+    "sgId": "20250402",
+    "label": "2025 재보궐 기초의원",
+    "date": "2025.04.02",
+    "results": [
+      {
+        "district": "양산시마선거구",
+        "voters": 71126,
+        "turnout": 15873,
+        "valid": 15791,
+        "invalid": 82,
+        "candidates": [
+          {
+            "name": "이기준",
+            "party": "더불어민주당",
+            "votes": 7343
+          },
+          {
+            "name": "김상구",
+            "party": "자유통일당",
+            "votes": 1199
+          },
+          {
+            "name": "권현우",
+            "party": "정의당",
+            "votes": 2836
+          },
+          {
+            "name": "김진희",
+            "party": "무소속",
+            "votes": 4413
+          }
+        ]
+      }
+    ],
+    "dongResults": [],
+    "sgTypecode": "6",
+    "subType": "기초의원"
   }
 ]

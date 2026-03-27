@@ -330,7 +330,8 @@
             "party": "무소속",
             "votes": 878
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "하동군나선거구",
@@ -364,7 +365,8 @@
             "party": "무소속",
             "votes": 1721
           }
-        ]
+        ],
+        "seats": 3
       },
       {
         "district": "하동군다선거구",
@@ -388,7 +390,8 @@
             "party": "국민의힘",
             "votes": 1840
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "하동군라선거구",
@@ -417,7 +420,8 @@
             "party": "무소속",
             "votes": 2193
           }
-        ]
+        ],
+        "seats": 2
       }
     ],
     "dongResults": [
@@ -754,7 +758,8 @@
             "party": "무소속",
             "votes": 4932
           }
-        ]
+        ],
+        "seats": 1
       }
     ],
     "dongResults": [
@@ -1577,7 +1582,8 @@
             "party": "무소속",
             "votes": 1374
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "하동군나선거구",
@@ -1621,7 +1627,8 @@
             "party": "무소속",
             "votes": 1479
           }
-        ]
+        ],
+        "seats": 3
       },
       {
         "district": "하동군다선거구",
@@ -1650,7 +1657,8 @@
             "party": "무소속",
             "votes": 977
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "하동군라선거구",
@@ -1674,7 +1682,8 @@
             "party": "무소속",
             "votes": 2444
           }
-        ]
+        ],
+        "seats": 2
       }
     ],
     "dongResults": [
@@ -1958,7 +1967,8 @@
             "party": "무소속",
             "votes": 2575
           }
-        ]
+        ],
+        "seats": 1
       }
     ],
     "dongResults": [
@@ -2316,5 +2326,39 @@
         ]
       }
     ]
+  },
+  {
+    "sgId": "20170412",
+    "label": "2017 재보궐 기초의원",
+    "date": "2017.04.12",
+    "results": [
+      {
+        "district": "하동군나선거구",
+        "voters": 13183,
+        "turnout": 7524,
+        "valid": 7435,
+        "invalid": 89,
+        "candidates": [
+          {
+            "name": "이강현",
+            "party": "더불어민주당",
+            "votes": 1907
+          },
+          {
+            "name": "추재성",
+            "party": "바른정당",
+            "votes": 2533
+          },
+          {
+            "name": "박성곤",
+            "party": "무소속",
+            "votes": 2995
+          }
+        ]
+      }
+    ],
+    "dongResults": [],
+    "sgTypecode": "6",
+    "subType": "기초의원"
   }
 ]

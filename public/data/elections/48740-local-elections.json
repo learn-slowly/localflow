@@ -391,7 +391,8 @@
             "party": "무소속",
             "votes": 1449
           }
-        ]
+        ],
+        "seats": 3
       },
       {
         "district": "창녕군나선거구",
@@ -415,7 +416,8 @@
             "party": "무소속",
             "votes": 1018
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "창녕군다선거구",
@@ -449,7 +451,8 @@
             "party": "무소속",
             "votes": 1243
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "창녕군라선거구",
@@ -473,7 +476,8 @@
             "party": "무소속",
             "votes": 1282
           }
-        ]
+        ],
+        "seats": 2
       }
     ],
     "dongResults": [
@@ -831,7 +835,8 @@
             "party": "무소속",
             "votes": 7325
           }
-        ]
+        ],
+        "seats": 1
       }
     ],
     "dongResults": [
@@ -1625,7 +1630,8 @@
             "party": "무소속",
             "votes": 1669
           }
-        ]
+        ],
+        "seats": 3
       },
       {
         "district": "창녕군나선거구",
@@ -1654,7 +1660,8 @@
             "party": "무소속",
             "votes": 1354
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "창녕군다선거구",
@@ -1683,7 +1690,8 @@
             "party": "무소속",
             "votes": 2249
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "창녕군라선거구",
@@ -1722,7 +1730,8 @@
             "party": "무소속",
             "votes": 453
           }
-        ]
+        ],
+        "seats": 2
       }
     ],
     "dongResults": [
@@ -2043,7 +2052,8 @@
             "party": "무소속",
             "votes": 2054
           }
-        ]
+        ],
+        "seats": 1
       },
       {
         "district": "창녕군제2선거구",
@@ -2062,7 +2072,8 @@
             "party": "자유한국당",
             "votes": 11178
           }
-        ]
+        ],
+        "seats": 1
       }
     ],
     "dongResults": [
@@ -2396,5 +2407,127 @@
         ]
       }
     ]
+  },
+  {
+    "sgId": "20170412",
+    "label": "2017 재보궐 기초의원",
+    "date": "2017.04.12",
+    "results": [
+      {
+        "district": "창녕군나선거구",
+        "voters": 9774,
+        "turnout": 4991,
+        "valid": 4927,
+        "invalid": 64,
+        "candidates": [
+          {
+            "name": "김종세",
+            "party": "자유한국당",
+            "votes": 2112
+          },
+          {
+            "name": "김춘석",
+            "party": "바른정당",
+            "votes": 2815
+          }
+        ]
+      }
+    ],
+    "dongResults": [],
+    "sgTypecode": "6",
+    "subType": "기초의원"
+  },
+  {
+    "sgId": "20230405",
+    "label": "2023 재보궐 시장",
+    "date": "2023.04.05",
+    "results": [
+      {
+        "district": "창녕군",
+        "voters": 52427,
+        "turnout": 30135,
+        "valid": 29853,
+        "invalid": 282,
+        "candidates": [
+          {
+            "name": "성기욱",
+            "party": "더불어민주당",
+            "votes": 3217
+          },
+          {
+            "name": "하종근",
+            "party": "무소속",
+            "votes": 6258
+          },
+          {
+            "name": "성낙인",
+            "party": "무소속",
+            "votes": 7229
+          },
+          {
+            "name": "배효문",
+            "party": "무소속",
+            "votes": 599
+          },
+          {
+            "name": "박상제",
+            "party": "무소속",
+            "votes": 6411
+          },
+          {
+            "name": "하강돈",
+            "party": "무소속",
+            "votes": 191
+          },
+          {
+            "name": "한정우",
+            "party": "무소속",
+            "votes": 5948
+          }
+        ]
+      }
+    ],
+    "dongResults": [],
+    "sgTypecode": "4",
+    "subType": "시장"
+  },
+  {
+    "sgId": "20230405",
+    "label": "2023 재보궐 도의원",
+    "date": "2023.04.05",
+    "results": [
+      {
+        "district": "창녕군제1선거구",
+        "voters": 26382,
+        "turnout": 15651,
+        "valid": 15290,
+        "invalid": 361,
+        "candidates": [
+          {
+            "name": "우서영",
+            "party": "더불어민주당",
+            "votes": 3709
+          },
+          {
+            "name": "이경재",
+            "party": "국민의힘",
+            "votes": 7696
+          },
+          {
+            "name": "박태승",
+            "party": "무소속",
+            "votes": 1465
+          },
+          {
+            "name": "김경",
+            "party": "무소속",
+            "votes": 2420
+          }
+        ]
+      }
+    ],
+    "dongResults": [],
+    "sgTypecode": "5",
+    "subType": "도의원"
   }
 ]

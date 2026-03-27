@@ -336,7 +336,8 @@
             "party": "무소속",
             "votes": 242
           }
-        ]
+        ],
+        "seats": 4
       },
       {
         "district": "고성군나선거구",
@@ -365,7 +366,8 @@
             "party": "무소속",
             "votes": 744
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "고성군다선거구",
@@ -394,7 +396,8 @@
             "party": "국민의힘",
             "votes": 1483
           }
-        ]
+        ],
+        "seats": 3
       }
     ],
     "dongResults": [
@@ -750,7 +753,8 @@
             "party": "무소속",
             "votes": 2734
           }
-        ]
+        ],
+        "seats": 1
       },
       {
         "district": "고성군제2선거구",
@@ -774,7 +778,8 @@
             "party": "무소속",
             "votes": 2716
           }
-        ]
+        ],
+        "seats": 1
       }
     ],
     "dongResults": [
@@ -1679,7 +1684,8 @@
             "party": "무소속",
             "votes": 417
           }
-        ]
+        ],
+        "seats": 3
       },
       {
         "district": "고성군나선거구",
@@ -1703,7 +1709,8 @@
             "party": "무소속",
             "votes": 2387
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "고성군다선거구",
@@ -1752,7 +1759,8 @@
             "party": "무소속",
             "votes": 1380
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "고성군라선거구",
@@ -1781,7 +1789,8 @@
             "party": "무소속",
             "votes": 511
           }
-        ]
+        ],
+        "seats": 2
       }
     ],
     "dongResults": [
@@ -2127,7 +2136,8 @@
             "party": "무소속",
             "votes": 4615
           }
-        ]
+        ],
+        "seats": 1
       },
       {
         "district": "고성군제2선거구",
@@ -2146,7 +2156,8 @@
             "party": "무소속",
             "votes": 7619
           }
-        ]
+        ],
+        "seats": 1
       }
     ],
     "dongResults": [
@@ -2474,5 +2485,39 @@
         ]
       }
     ]
+  },
+  {
+    "sgId": "20210407",
+    "label": "2021 재보궐 도의원",
+    "date": "2021.04.07",
+    "results": [
+      {
+        "district": "고성군제1선거구",
+        "voters": 21932,
+        "turnout": 11006,
+        "valid": 10915,
+        "invalid": 91,
+        "candidates": [
+          {
+            "name": "류정열",
+            "party": "더불어민주당",
+            "votes": 2600
+          },
+          {
+            "name": "백수명",
+            "party": "국민의힘",
+            "votes": 6175
+          },
+          {
+            "name": "이우영",
+            "party": "무소속",
+            "votes": 2140
+          }
+        ]
+      }
+    ],
+    "dongResults": [],
+    "sgTypecode": "5",
+    "subType": "도의원"
   }
 ]

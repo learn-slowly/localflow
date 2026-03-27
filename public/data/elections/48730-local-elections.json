@@ -260,7 +260,8 @@
             "party": "무소속",
             "votes": 1991
           }
-        ]
+        ],
+        "seats": 3
       },
       {
         "district": "함안군나선거구",
@@ -289,7 +290,8 @@
             "party": "무소속",
             "votes": 1434
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "함안군다선거구",
@@ -333,7 +335,8 @@
             "party": "무소속",
             "votes": 1595
           }
-        ]
+        ],
+        "seats": 4
       }
     ],
     "dongResults": [
@@ -633,7 +636,8 @@
             "party": "무소속",
             "votes": 5061
           }
-        ]
+        ],
+        "seats": 1
       },
       {
         "district": "함안군제2선거구",
@@ -652,7 +656,8 @@
             "party": "국민의힘",
             "votes": 10181
           }
-        ]
+        ],
+        "seats": 1
       }
     ],
     "dongResults": [
@@ -1341,7 +1346,8 @@
             "party": "무소속",
             "votes": 2118
           }
-        ]
+        ],
+        "seats": 3
       },
       {
         "district": "함안군나선거구",
@@ -1380,7 +1386,8 @@
             "party": "무소속",
             "votes": 773
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "함안군다선거구",
@@ -1409,7 +1416,8 @@
             "party": "무소속",
             "votes": 2368
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "함안군라선거구",
@@ -1433,7 +1441,8 @@
             "party": "무소속",
             "votes": 2845
           }
-        ]
+        ],
+        "seats": 2
       }
     ],
     "dongResults": [
@@ -1663,7 +1672,8 @@
             "party": "자유한국당",
             "votes": 9088
           }
-        ]
+        ],
+        "seats": 1
       },
       {
         "district": "함안군제2선거구",
@@ -1692,7 +1702,8 @@
             "party": "무소속",
             "votes": 1705
           }
-        ]
+        ],
+        "seats": 1
       }
     ],
     "dongResults": [
@@ -1976,5 +1987,63 @@
         ]
       }
     ]
+  },
+  {
+    "sgId": "20170412",
+    "label": "2017 재보궐 기초의원",
+    "date": "2017.04.12",
+    "results": [
+      {
+        "district": "함안군라선거구",
+        "voters": 11242,
+        "turnout": 4769,
+        "valid": 4717,
+        "invalid": 52,
+        "candidates": [
+          {
+            "name": "빈지태",
+            "party": "더불어민주당",
+            "votes": 2350
+          },
+          {
+            "name": "이광섭",
+            "party": "자유한국당",
+            "votes": 2367
+          }
+        ]
+      }
+    ],
+    "dongResults": [],
+    "sgTypecode": "6",
+    "subType": "기초의원"
+  },
+  {
+    "sgId": "20210407",
+    "label": "2021 재보궐 기초의원",
+    "date": "2021.04.07",
+    "results": [
+      {
+        "district": "함안군다선거구",
+        "voters": 17209,
+        "turnout": 7068,
+        "valid": 7015,
+        "invalid": 53,
+        "candidates": [
+          {
+            "name": "조호기",
+            "party": "더불어민주당",
+            "votes": 1800
+          },
+          {
+            "name": "황철용",
+            "party": "국민의힘",
+            "votes": 5215
+          }
+        ]
+      }
+    ],
+    "dongResults": [],
+    "sgTypecode": "6",
+    "subType": "기초의원"
   }
 ]

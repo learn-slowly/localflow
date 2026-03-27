@@ -255,7 +255,8 @@
             "party": "국민의힘",
             "votes": 2153
           }
-        ]
+        ],
+        "seats": 3
       },
       {
         "district": "남해군나선거구",
@@ -279,7 +280,8 @@
             "party": "국민의힘",
             "votes": 1174
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "남해군다선거구",
@@ -303,7 +305,8 @@
             "party": "국민의힘",
             "votes": 1826
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "남해군라선거구",
@@ -332,7 +335,8 @@
             "party": "정의당",
             "votes": 361
           }
-        ]
+        ],
+        "seats": 2
       }
     ],
     "dongResults": [
@@ -600,7 +604,8 @@
             "party": "국민의힘",
             "votes": 12872
           }
-        ]
+        ],
+        "seats": 1
       }
     ],
     "dongResults": [
@@ -1298,7 +1303,8 @@
             "party": "무소속",
             "votes": 394
           }
-        ]
+        ],
+        "seats": 3
       },
       {
         "district": "남해군나선거구",
@@ -1332,7 +1338,8 @@
             "party": "무소속",
             "votes": 932
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "남해군다선거구",
@@ -1361,7 +1368,8 @@
             "party": "무소속",
             "votes": 1121
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "남해군라선거구",
@@ -1395,7 +1403,8 @@
             "party": "무소속",
             "votes": 1440
           }
-        ]
+        ],
+        "seats": 2
       }
     ],
     "dongResults": [
@@ -1623,7 +1632,8 @@
             "party": "자유한국당",
             "votes": 12542
           }
-        ]
+        ],
+        "seats": 1
       }
     ],
     "dongResults": [
@@ -1887,5 +1897,44 @@
         ]
       }
     ]
+  },
+  {
+    "sgId": "20170412",
+    "label": "2017 재보궐 도의원",
+    "date": "2017.04.12",
+    "results": [
+      {
+        "district": "남해군선거구",
+        "voters": 39988,
+        "turnout": 19464,
+        "valid": 19292,
+        "invalid": 172,
+        "candidates": [
+          {
+            "name": "문준홍",
+            "party": "자유한국당",
+            "votes": 4914
+          },
+          {
+            "name": "박종식",
+            "party": "바른정당",
+            "votes": 2626
+          },
+          {
+            "name": "김광석",
+            "party": "정의당",
+            "votes": 1883
+          },
+          {
+            "name": "류경완",
+            "party": "무소속",
+            "votes": 9869
+          }
+        ]
+      }
+    ],
+    "dongResults": [],
+    "sgTypecode": "5",
+    "subType": "도의원"
   }
 ]

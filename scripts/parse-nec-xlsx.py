@@ -138,6 +138,8 @@ def parse_presidential(filepath, label, date):
     data_start = header_row + 1 if header_row is not None else 2
     num_cands = len(candidates)
 
+    in_gyeongnam = False
+
     for row in rows[data_start:]:
         r = [str(v or "").strip() for v in row]
 
@@ -146,12 +148,15 @@ def parse_presidential(filepath, label, date):
         dong = r[2] if len(r) > 2 and r[2] else None
         tpg = r[3] if len(r) > 3 and r[3] else None
 
-        # 시도가 바뀌면
+        # 시도 전환 감지
         if sido and "경상남도" in sido:
-            pass
-        elif sido and sido != "경상남도" and current_city:
-            # 다른 시도로 넘어감
-            pass
+            in_gyeongnam = True
+        elif sido and sido not in ("", "합계"):
+            in_gyeongnam = False
+            current_city = None
+
+        if not in_gyeongnam:
+            continue
 
         # 시군구 갱신
         if sigun and sigun in CITY_CODE_MAP:
@@ -160,11 +165,10 @@ def parse_presidential(filepath, label, date):
         if not current_city or current_city not in CITY_CODE_MAP:
             continue
 
-        # 읍면동 소계 행 (tpg=소계 또는 tpg 없는 읍면동 행)
+        # 읍면동 소계 행 (tpg=소계/합계 또는 tpg 없는 읍면동 행)
         is_dong_row = False
         if dong and dong not in SKIP_DONGS:
-            if tpg == "소계" or tpg == "":
-                # tpg가 소계이거나, 투표구명이 없는 행
+            if tpg in ("소계", "합계", ""):
                 is_dong_row = True
 
         if not is_dong_row:
@@ -418,16 +422,21 @@ def parse_assembly_2024(filepath, label, date):
     current_candidates = []
     cand_start_col = 7
 
+    in_gyeongnam = False
+
     for i, row in enumerate(rows):
         r = [str(v or "").strip() for v in row]
 
-        # 헤더
-        if r[0] in ("시도명", "개표단위별 개표결과", "", "[국회의원선거][전체]"):
+        # 헤더 행 건너뛰기 (제목/컬럼명 행만)
+        if r[0] in ("시도명", "개표단위별 개표결과", "[국회의원선거][전체]"):
             if r[0] == "시도명":
                 for j, v in enumerate(row):
                     if v and "후보" in str(v):
                         cand_start_col = j
                         break
+            continue
+        # 완전 빈 행
+        if all(v is None or str(v).strip() == "" for v in row[:10]):
             continue
 
         sido = r[0]
@@ -436,17 +445,23 @@ def parse_assembly_2024(filepath, label, date):
         dong = r[3]
         vote_type = r[4] if len(r) > 4 else ""
 
+        # 시도 전환 감지
+        if sido and "경상남도" in sido:
+            in_gyeongnam = True
+        elif sido and sido not in ("", "합계"):
+            in_gyeongnam = False
+            current_city = None
+
         # 후보자 정보 행
         has_cand = sum(1 for c in row[cand_start_col:] if c and "\n" in str(c))
         if has_cand >= 2:
             current_candidates = parse_candidates_from_header(row[cand_start_col:])
-            if sigun and sigun in CITY_CODE_MAP:
+            if in_gyeongnam and sigun and sigun in CITY_CODE_MAP:
                 current_city = sigun
             current_district = sgg
             continue
 
-        if sido and "경상남도" not in sido:
-            current_city = None
+        if not in_gyeongnam:
             continue
 
         if sigun and sigun in CITY_CODE_MAP:
@@ -460,7 +475,7 @@ def parse_assembly_2024(filepath, label, date):
             continue
 
         # 읍면동 행 (dong이 있고 vote_type이 비어있거나 소계)
-        if dong and dong not in SKIP_DONGS and dong not in ("거소·선상투표", "관외사전투표", "재외투표"):
+        if dong and dong not in SKIP_DONGS and dong not in ("거소·선상투표", "관외사전투표", "재외투표", "국외부재자투표"):
             if vote_type in ("", "소계"):
                 voters = clean_num(row[5] if len(row) > 5 else 0)
                 turnout = clean_num(row[6] if len(row) > 6 else 0)

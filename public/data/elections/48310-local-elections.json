@@ -458,7 +458,8 @@
             "party": "무소속",
             "votes": 1564
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "거제시나선거구",
@@ -492,7 +493,8 @@
             "party": "정의당",
             "votes": 1266
           }
-        ]
+        ],
+        "seats": 3
       },
       {
         "district": "거제시다선거구",
@@ -536,7 +538,8 @@
             "party": "무소속",
             "votes": 2920
           }
-        ]
+        ],
+        "seats": 3
       },
       {
         "district": "거제시라선거구",
@@ -560,7 +563,8 @@
             "party": "정의당",
             "votes": 1971
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "거제시마선거구",
@@ -614,7 +618,8 @@
             "party": "무소속",
             "votes": 2952
           }
-        ]
+        ],
+        "seats": 4
       }
     ],
     "dongResults": [
@@ -1142,7 +1147,8 @@
             "party": "국민의힘",
             "votes": 19409
           }
-        ]
+        ],
+        "seats": 1
       },
       {
         "district": "거제시제2선거구",
@@ -1161,7 +1167,8 @@
             "party": "국민의힘",
             "votes": 16533
           }
-        ]
+        ],
+        "seats": 1
       },
       {
         "district": "거제시제3선거구",
@@ -1180,7 +1187,8 @@
             "party": "국민의힘",
             "votes": 16386
           }
-        ]
+        ],
+        "seats": 1
       }
     ],
     "dongResults": [
@@ -2301,7 +2309,8 @@
             "party": "무소속",
             "votes": 2378
           }
-        ]
+        ],
+        "seats": 4
       },
       {
         "district": "거제시나선거구",
@@ -2355,7 +2364,8 @@
             "party": "무소속",
             "votes": 1415
           }
-        ]
+        ],
+        "seats": 3
       },
       {
         "district": "거제시다선거구",
@@ -2389,7 +2399,8 @@
             "party": "무소속",
             "votes": 880
           }
-        ]
+        ],
+        "seats": 2
       },
       {
         "district": "거제시라선거구",
@@ -2428,7 +2439,8 @@
             "party": "자유한국당",
             "votes": 2695
           }
-        ]
+        ],
+        "seats": 3
       },
       {
         "district": "거제시마선거구",
@@ -2462,7 +2474,8 @@
             "party": "무소속",
             "votes": 2001
           }
-        ]
+        ],
+        "seats": 2
       }
     ],
     "dongResults": [
@@ -2937,7 +2950,8 @@
             "party": "민중당",
             "votes": 4209
           }
-        ]
+        ],
+        "seats": 1
       },
       {
         "district": "거제시제2선거구",
@@ -2961,7 +2975,8 @@
             "party": "무소속",
             "votes": 8594
           }
-        ]
+        ],
+        "seats": 1
       },
       {
         "district": "거제시제3선거구",
@@ -2985,7 +3000,8 @@
             "party": "민중당",
             "votes": 7117
           }
-        ]
+        ],
+        "seats": 1
       }
     ],
     "dongResults": [
@@ -3402,5 +3418,83 @@
         ]
       }
     ]
+  },
+  {
+    "sgId": "20170412",
+    "label": "2017 재보궐 기초의원",
+    "date": "2017.04.12",
+    "results": [
+      {
+        "district": "거제시마선거구",
+        "voters": 35676,
+        "turnout": 9155,
+        "valid": 8786,
+        "invalid": 369,
+        "candidates": [
+          {
+            "name": "김대봉",
+            "party": "더불어민주당",
+            "votes": 3278
+          },
+          {
+            "name": "김노회",
+            "party": "무소속",
+            "votes": 664
+          },
+          {
+            "name": "김용운",
+            "party": "무소속",
+            "votes": 3133
+          },
+          {
+            "name": "최선호",
+            "party": "무소속",
+            "votes": 1711
+          }
+        ]
+      }
+    ],
+    "dongResults": [],
+    "sgTypecode": "6",
+    "subType": "기초의원"
+  },
+  {
+    "sgId": "20250402",
+    "label": "2025 재보궐 시장",
+    "date": "2025.04.02",
+    "results": [
+      {
+        "district": "거제시",
+        "voters": 192087,
+        "turnout": 90897,
+        "valid": 90374,
+        "invalid": 523,
+        "candidates": [
+          {
+            "name": "변광용",
+            "party": "더불어민주당",
+            "votes": 51292
+          },
+          {
+            "name": "박환기",
+            "party": "국민의힘",
+            "votes": 34455
+          },
+          {
+            "name": "김두호",
+            "party": "무소속",
+            "votes": 4072
+          },
+          {
+            "name": "황영석",
+            "party": "무소속",
+            "votes": 555
+          }
+        ]
+      }
+    ],
+    "dongResults": [],
+    "sgTypecode": "4",
+    "subType": "시장"
   }
 ]

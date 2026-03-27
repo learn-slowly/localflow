@@ -1,9 +1,5 @@
 "use client";
 
-import ageDataRaw from "@/data/jinju-age-population.json";
-
-const ageData = ageDataRaw as Record<string, AgeEntry>;
-
 interface AgeEntry {
   code: string;
   total: number;
@@ -35,6 +31,7 @@ interface PopulationPanelProps {
     households: number;
     male: number;
     female: number;
+    age?: Record<string, number>;
   } | null;
   onClose: () => void;
 }
@@ -42,7 +39,7 @@ interface PopulationPanelProps {
 export default function PopulationPanel({ data, onClose }: PopulationPanelProps) {
   if (!data) return null;
 
-  const age = ageData[data.name];
+  const age = data.age && Object.keys(data.age).length > 0 ? data.age as any as AgeEntry : null;
   const maleRatio = ((data.male / data.population) * 100).toFixed(1);
   const femaleRatio = ((data.female / data.population) * 100).toFixed(1);
   const perHousehold = (data.population / data.households).toFixed(1);
