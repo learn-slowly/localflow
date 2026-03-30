@@ -21,6 +21,7 @@ import jinjuBusStops from "@/data/jinju-bus-stops.json";
 import PopulationPanel from "./PopulationPanel";
 import ElectionPanel from "./ElectionPanel";
 import TransitUsagePanel from "./TransitUsagePanel";
+import DistrictDashboard from "./DistrictDashboard";
 import CommerceLayer, { COMMERCE_LEGEND } from "./CommerceLayer";
 import TransitHeatmapLayer, {
   DOW_OPTIONS,
@@ -30,6 +31,7 @@ import TransitHeatmapLayer, {
 } from "./TransitHeatmapLayer";
 import FacilitiesLayer, { FACILITY_GROUPS, ALL_CATEGORIES } from "./FacilitiesLayer";
 import jinjuTransitUsage from "@/data/jinju-transit-usage.json";
+import jinjuDistricts from "@/data/jinju-districts.json";
 import type { Layer, PathOptions } from "leaflet";
 
 // 경계 데이터를 API에서 fetch
@@ -66,21 +68,34 @@ function buildDongMappingFromElections(
   } else {
     const subTypeMap: Record<string, string> = { local: "기초의원", provincial: "도의원", mayor: "시장" };
     const sub = subTypeMap[type];
-    // 최신 선거 데이터 우선
-    entry = [...localElectionsData].reverse().find((e: any) => e.subType === sub && e.dongResults?.length > 0);
+    // 최신 선거 데이터 우선 (날짜 내림차순 정렬)
+    entry = [...localElectionsData]
+      .filter((e: any) => e.subType === sub && e.dongResults?.length > 0)
+      .sort((a: any, b: any) => (b.date || "").localeCompare(a.date || ""))[0];
   }
 
-  if (!entry?.dongResults) return mapping;
+  // 정적 선거구 정의에서 선거구 순서 확립 (무투표 선거구 포함)
+  const staticDistricts = (jinjuDistricts as any)?.types?.[type]?.districts || [];
+  const districtOrder: string[] = staticDistricts.map((d: any) => d.name);
 
-  const districtOrder: string[] = [];
-  for (const d of entry.dongResults) {
-    if (d.district && !districtOrder.includes(d.district)) districtOrder.push(d.district);
+  // dongResults에서 동→선거구 매핑
+  if (entry?.dongResults) {
+    for (const d of entry.dongResults) {
+      if (!d.dong || d.dong in mapping) continue;
+      if (d.district && !districtOrder.includes(d.district)) districtOrder.push(d.district);
+      const idx = districtOrder.indexOf(d.district);
+      mapping[d.dong] = { name: d.district, color: DISTRICT_COLORS[idx % DISTRICT_COLORS.length] };
+    }
   }
 
-  for (const d of entry.dongResults) {
-    if (!d.dong || d.dong in mapping) continue;
-    const idx = districtOrder.indexOf(d.district);
-    mapping[d.dong] = { name: d.district, color: DISTRICT_COLORS[idx % DISTRICT_COLORS.length] };
+  // 정적 정의에서 누락된 동 보완 (무투표 당선 등)
+  for (const dist of staticDistricts) {
+    const idx = districtOrder.indexOf(dist.name);
+    for (const dong of dist.dongs || []) {
+      if (!(dong in mapping)) {
+        mapping[dong] = { name: dist.name, color: DISTRICT_COLORS[idx % DISTRICT_COLORS.length] };
+      }
+    }
   }
 
   return mapping;
@@ -263,10 +278,19 @@ export default function MapContainer() {
     ? buildDongMappingFromElections(electionsData, localElectionsData, electionType)
     : {};
   const currentDistricts = (() => {
+    // 정적 정의 순서를 기준으로 정렬
+    const staticOrder = ((jinjuDistricts as any)?.types?.[electionType]?.districts || [])
+      .map((d: any) => d.name);
     const seen = new Set<string>();
-    return Object.values(dongToDistrict)
+    const list = Object.values(dongToDistrict)
       .filter((d) => { if (seen.has(d.name)) return false; seen.add(d.name); return true; })
       .map((d) => ({ name: d.name, color: d.color }));
+    list.sort((a, b) => {
+      const ai = staticOrder.indexOf(a.name);
+      const bi = staticOrder.indexOf(b.name);
+      return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
+    });
+    return list;
   })();
 
   // 경남 전체 보기 스타일
@@ -319,7 +343,7 @@ export default function MapContainer() {
       });
       layer.on("click", () => {
         setSelectedDong(null);
-        setSelectedDistrict(name || null);
+        setSelectedDistrict(info.name || null);
       });
     }
   }
@@ -765,12 +789,15 @@ export default function MapContainer() {
         />
       )}
       {selectedCity && showDistricts && selectedDistrict && (
-        <ElectionPanel
-          dongName={selectedDistrict}
+        <DistrictDashboard
+          districtName={selectedDistrict}
+          electionType={electionType}
           onClose={() => setSelectedDistrict(null)}
           electionsData={electionsData}
           localElectionsData={localElectionsData}
           cityName={selectedCity.name}
+          cityCode={selectedCity.code}
+          isJinju={isJinju}
         />
       )}
       {isJinju && showBusStops && selectedBusStop && (
