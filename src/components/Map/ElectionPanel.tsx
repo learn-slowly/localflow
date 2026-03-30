@@ -78,6 +78,8 @@ type ElectionEntry = {
   date: string;
   results: { district: string; voters: number; turnout: number; valid: number; invalid: number; seats?: number; candidates: { name: string; party: string; votes: number }[] }[];
   dongResults?: { dong: string; district: string; voters: number; turnout?: number; rates: Record<string, number>; votes?: Record<string, number> }[];
+  proportional?: { voters: number; turnout: number; valid: number; invalid: number; parties: { party: string; votes: number }[] };
+  proportionalByDong?: { dong: string; voters: number; turnout: number; valid: number; parties: Record<string, number> }[];
   subType?: string;
 };
 
@@ -260,6 +262,8 @@ function ProportionalBar({
 
 interface ElectionPanelProps {
   dongName: string | null;
+  /** 클릭한 읍면동 이름 (dongName이 선거구 이름일 때 동별 결과 표시용) */
+  clickedDong?: string | null;
   onClose: () => void;
   electionsData: any[];
   localElectionsData: any[];
@@ -268,7 +272,7 @@ interface ElectionPanelProps {
   embedded?: boolean;
 }
 
-export default function ElectionPanel({ dongName, onClose, electionsData, localElectionsData, cityName, embedded }: ElectionPanelProps) {
+export default function ElectionPanel({ dongName, clickedDong, onClose, electionsData, localElectionsData, cityName, embedded }: ElectionPanelProps) {
   const [selectedGroupIdx, setSelectedGroupIdx] = useState(0);
   const [selectedSubIdx, setSelectedSubIdx] = useState(0);
 
@@ -281,9 +285,11 @@ export default function ElectionPanel({ dongName, onClose, electionsData, localE
     const allElections: ElectionEntry[] = [
       ...electionsData.map((e: any) => ({
         label: e.label, date: e.date, results: e.results || [], dongResults: e.dongResults,
+        proportional: e.proportional, proportionalByDong: e.proportionalByDong,
       })),
       ...localElectionsData.map((e: any) => ({
-        label: e.label, date: e.date, results: e.results || [], dongResults: e.dongResults || [], subType: e.subType,
+        label: e.label, date: e.date, results: e.results || [], dongResults: e.dongResults || [],
+        proportional: e.proportional, proportionalByDong: e.proportionalByDong, subType: e.subType,
       })),
     ];
     return groupElections(allElections);
@@ -299,49 +305,88 @@ export default function ElectionPanel({ dongName, onClose, electionsData, localE
   const entry = group.entries[Math.min(selectedSubIdx, group.entries.length - 1)];
   if (!entry) return null;
 
-  // 해당 동의 읍면동별 득표율 찾기
-  const dongResult = entry.dongResults?.find((d: any) => d.dong === dongName) as
-    { dong: string; district: string; voters: number; turnout?: number; rates: Record<string, number>; votes?: Record<string, number> } | undefined;
+  // 해당 동의 읍면동별 득표율 찾기 (clickedDong이 있으면 우선 사용)
+  const dongResult = (
+    (clickedDong && entry.dongResults?.find((d: any) => d.dong === clickedDong))
+    || entry.dongResults?.find((d: any) => d.dong === dongName)
+  ) as { dong: string; district: string; voters: number; turnout?: number; rates: Record<string, number>; votes?: Record<string, number> } | undefined;
 
   // 해당 동이 속한 선거구의 결과 찾기
   let districtResult = null;
   let districtSeats = 1;
 
-  // embedded 모드: dongName이 선거구 이름 (예: "진주시라선거구")
-  const isDistrictName = embedded && !dongResult;
-
-  if (entry.subType) {
-    // 지선: 동 → 선거구 매핑
-    const singleDistrictTypes = ["시장", "시도지사", "교육감", "광역비례", "기초비례"];
-    if (singleDistrictTypes.includes(entry.subType)) {
-      // 시/도/전체 단위 선거 — results[0] 사용
-      districtResult = entry.results[0];
-      districtSeats = 1;
-    } else if (isDistrictName) {
-      // 대시보드에서 선거구 이름 직접 전달 — results에서 직접 검색
-      districtResult = entry.results.find((r) => r.district === dongName);
-      districtSeats = districtResult?.seats || 1;
-    } else {
-      // 기초의원/도의원: dongResult의 district를 직접 사용 (연도별 선거구 차이 대응)
-      const districtName = dongResult?.district
-        || DONG_DISTRICT_MAP[entry.subType === "기초의원" ? "local" : "provincial"]?.[dongName];
-      if (districtName) {
-        districtResult = entry.results.find((r) => r.district === districtName);
-        districtSeats = districtResult?.seats || 1;
+  // dongName이 선거구 이름일 때, 소속 동 이름을 역탐색
+  // (기초의원 선거구 "진주시가선거구" → 도의원 탭에서 해당 동의 도의원 선거구 찾기)
+  const resolvedDongs: string[] = [];
+  if (!dongResult) {
+    // dongName이 선거구 이름 → 모든 선거의 dongResults에서 해당 선거구 소속 동 목록 수집
+    for (const e of [...localElectionsData, ...electionsData]) {
+      for (const d of e.dongResults || []) {
+        if (d.district === dongName && !resolvedDongs.includes(d.dong)) {
+          resolvedDongs.push(d.dong);
+        }
       }
     }
+  }
+
+  if (entry.subType) {
+    const singleDistrictTypes = ["시장", "시도지사", "교육감", "광역비례", "기초비례"];
+    if (singleDistrictTypes.includes(entry.subType)) {
+      districtResult = entry.results[0];
+      districtSeats = 1;
+    } else {
+      // 기초의원/도의원
+      // 1) dongResult에서 직접
+      let districtName = dongResult?.district;
+      // 2) 동 매핑으로 검색
+      if (!districtName) {
+        const typeKey = entry.subType === "기초의원" ? "local" : "provincial";
+        districtName = DONG_DISTRICT_MAP[typeKey]?.[dongName];
+      }
+      // 3) dongName이 선거구 이름 → 직접 매칭
+      if (!districtName) {
+        const direct = entry.results.find((r) => r.district === dongName);
+        if (direct) {
+          districtResult = direct;
+        }
+      }
+      // 4) 역탐색: 소속 동을 통해 현재 선거의 선거구 찾기
+      if (!districtResult && !districtName && resolvedDongs.length > 0) {
+        for (const dong of resolvedDongs) {
+          const dr = entry.dongResults?.find((d: any) => d.dong === dong);
+          if (dr?.district) {
+            districtName = dr.district;
+            break;
+          }
+        }
+      }
+      if (!districtResult && districtName) {
+        districtResult = entry.results.find((r) => r.district === districtName);
+      }
+      districtSeats = districtResult?.seats || 1;
+    }
   } else if (entry.label?.includes("총선")) {
-    // 총선: dongResult의 district 직접 사용
-    const assemblyDistrict = isDistrictName ? dongName
-      : (dongResult?.district || DONG_DISTRICT_MAP["assembly"]?.[dongName]);
-    if (assemblyDistrict) {
+    let assemblyDistrict = dongResult?.district
+      || DONG_DISTRICT_MAP["assembly"]?.[dongName];
+    // 직접 매칭
+    if (!assemblyDistrict) {
+      const direct = entry.results.find((r) => r.district === dongName);
+      if (direct) { districtResult = direct; }
+    }
+    // 역탐색
+    if (!districtResult && !assemblyDistrict && resolvedDongs.length > 0) {
+      for (const dong of resolvedDongs) {
+        const dr = entry.dongResults?.find((d: any) => d.dong === dong);
+        if (dr?.district) { assemblyDistrict = dr.district; break; }
+      }
+    }
+    if (!districtResult && assemblyDistrict) {
       districtResult = entry.results.find((r) => r.district === assemblyDistrict);
     }
     if (!districtResult) {
       districtResult = entry.results[0];
     }
   } else {
-    // 대선
     districtResult = entry.results[0];
   }
 
@@ -414,7 +459,7 @@ export default function ElectionPanel({ dongName, onClose, electionsData, localE
       {/* 읍면동별 득표율 (있는 경우) */}
       {dongResult && (
         <div className="mb-3">
-          <h4 className="text-sm font-bold text-gray-600 mb-1">{dongName} 득표율</h4>
+          <h4 className="text-sm font-bold text-gray-600 mb-1">{dongResult.dong} 득표율</h4>
           <p className="text-xs text-gray-400 mb-1">
             선거인 {dongResult.voters.toLocaleString()}명
             {dongResult.turnout ? ` · 투표 ${dongResult.turnout.toLocaleString()}명` : ""}
@@ -450,7 +495,27 @@ export default function ElectionPanel({ dongName, onClose, electionsData, localE
         </div>
       )}
 
-      {/* 비례대표 — 미구현 (확장 예정) */}
+      {/* 비례대표 (총선) — 동별 + 전체 */}
+      {entry.proportionalByDong && clickedDong && (() => {
+        const dongProp = entry.proportionalByDong!.find((d: any) => d.dong === clickedDong);
+        if (!dongProp) return null;
+        const parties = Object.entries(dongProp.parties as Record<string, number>)
+          .map(([party, votes]) => ({ party, votes }))
+          .sort((a, b) => b.votes - a.votes);
+        const valid = parties.reduce((s, p) => s + p.votes, 0);
+        return (
+          <ProportionalBar
+            label={`${clickedDong} 비례대표`}
+            data={{ voters: dongProp.voters, turnout: dongProp.turnout, valid, parties }}
+          />
+        );
+      })()}
+      {entry.proportional && (
+        <ProportionalBar
+          label={`비례대표 (${cityName} 전체)`}
+          data={entry.proportional}
+        />
+      )}
 
       {!dongResult && !districtResult && (
         <p className="text-sm text-gray-400">이 동의 데이터가 없습니다.</p>

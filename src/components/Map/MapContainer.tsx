@@ -1,19 +1,9 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import {
-  MapContainer as LeafletMap,
-  TileLayer,
-  GeoJSON,
-  CircleMarker,
-  Tooltip,
-  useMap,
-} from "react-leaflet";
-import "leaflet/dist/leaflet.css";
-import MarkerClusterGroup from "react-leaflet-cluster";
+import { useKakaoMap, toKakaoLevel } from "@/hooks/useKakaoMap";
 import { cities, DEFAULT_CITY, GYEONGNAM_VIEW } from "@/config/cities";
 import type { CityConfig } from "@/config/cities";
-// 진주 전용 데이터 (다른 도시 확장 시 동적 로딩으로 전환)
 import jinjuBoundary from "@/data/jinju-boundary.json";
 import jinjuLegalBoundary from "@/data/jinju-legal-boundary.json";
 import jinjuPollingStations from "@/data/jinju-polling-stations.json";
@@ -32,7 +22,6 @@ import TransitHeatmapLayer, {
 import FacilitiesLayer, { FACILITY_GROUPS, ALL_CATEGORIES } from "./FacilitiesLayer";
 import jinjuTransitUsage from "@/data/jinju-transit-usage.json";
 import jinjuDistricts from "@/data/jinju-districts.json";
-import type { Layer, PathOptions } from "leaflet";
 
 // 경계 데이터를 API에서 fetch
 async function fetchBoundaryData(sggCode?: string): Promise<any> {
@@ -68,17 +57,14 @@ function buildDongMappingFromElections(
   } else {
     const subTypeMap: Record<string, string> = { local: "기초의원", provincial: "도의원", mayor: "시장" };
     const sub = subTypeMap[type];
-    // 최신 선거 데이터 우선 (날짜 내림차순 정렬)
     entry = [...localElectionsData]
       .filter((e: any) => e.subType === sub && e.dongResults?.length > 0)
       .sort((a: any, b: any) => (b.date || "").localeCompare(a.date || ""))[0];
   }
 
-  // 정적 선거구 정의에서 선거구 순서 확립 (무투표 선거구 포함)
-  const staticDistricts = (jinjuDistricts as any)?.types?.[type]?.districts || [];
+  const staticDistricts = ((jinjuDistricts as any)?.types?.[type]?.districts || []);
   const districtOrder: string[] = staticDistricts.map((d: any) => d.name);
 
-  // dongResults에서 동→선거구 매핑
   if (entry?.dongResults) {
     for (const d of entry.dongResults) {
       if (!d.dong || d.dong in mapping) continue;
@@ -88,7 +74,6 @@ function buildDongMappingFromElections(
     }
   }
 
-  // 정적 정의에서 누락된 동 보완 (무투표 당선 등)
   for (const dist of staticDistricts) {
     const idx = districtOrder.indexOf(dist.name);
     for (const dong of dist.dongs || []) {
@@ -110,32 +95,6 @@ function getPopulationColor(population: number): string {
   return "#FEE2E2";
 }
 
-function populationStyle(feature: any): PathOptions {
-  const pop = feature?.properties?.population || 0;
-  return {
-    color: "#991B1B",
-    weight: 1.5,
-    fillColor: getPopulationColor(pop),
-    fillOpacity: 0.6,
-  };
-}
-
-const adminStyle: PathOptions = {
-  color: "#2563EB",
-  weight: 2,
-  fillColor: "#3B82F6",
-  fillOpacity: 0.1,
-};
-
-const legalStyle: PathOptions = {
-  color: "#DC2626",
-  weight: 2,
-  fillColor: "#EF4444",
-  fillOpacity: 0.1,
-  dashArray: "5 5",
-};
-
-// 경남 전체 보기용 스타일: 시군구별 다른 색상
 const SGG_COLORS = [
   "#3B82F6", "#EF4444", "#10B981", "#F59E0B", "#8B5CF6",
   "#EC4899", "#06B6D4", "#F97316", "#6366F1", "#14B8A6",
@@ -162,24 +121,92 @@ type SelectedDong = {
   age?: Record<string, number>;
 } | null;
 
-// 지도 뷰 변경 컴포넌트
-function MapViewUpdater({ center, zoom }: { center: [number, number]; zoom: number }) {
-  const map = useMap();
-  const prevRef = useRef({ center, zoom });
-  useEffect(() => {
-    if (prevRef.current.center !== center || prevRef.current.zoom !== zoom) {
-      map.flyTo(center, zoom, { duration: 1 });
-      prevRef.current = { center, zoom };
-    }
-  }, [map, center, zoom]);
-  return null;
-}
-
-// 시군구 코드 → 색상 인덱스 매핑
 const sggColorMap: Record<string, string> = {};
 Object.values(cities).forEach((city, i) => {
   sggColorMap[city.code] = SGG_COLORS[i % SGG_COLORS.length];
 });
+
+// GeoJSON 좌표 → 카카오 폴리곤 path
+function geoJsonToPath(coordinates: number[][][]): kakao.maps.LatLng[][] {
+  return coordinates.map((ring) =>
+    ring.map(([lng, lat]) => new kakao.maps.LatLng(lat, lng)),
+  );
+}
+
+// 좌표 배열의 중심점
+function getCentroid(ring: number[][]): [number, number] {
+  let lat = 0, lng = 0;
+  for (const [x, y] of ring) { lat += y; lng += x; }
+  const n = ring.length || 1;
+  return [lat / n, lng / n];
+}
+
+// 폴리곤 생성 헬퍼
+function createPolygonsFromGeoJson(
+  map: kakao.maps.Map,
+  geojson: any,
+  styleFunc: (feature: any) => {
+    strokeWeight?: number; strokeColor?: string; strokeOpacity?: number;
+    strokeStyle?: string; fillColor?: string; fillOpacity?: number;
+  },
+  opts?: {
+    tooltip?: (feature: any) => string;
+    onClick?: (feature: any) => void;
+    sharedTooltip?: kakao.maps.CustomOverlay;
+  },
+): { polygons: kakao.maps.Polygon[]; tooltip: kakao.maps.CustomOverlay } {
+  const tooltip = opts?.sharedTooltip || new kakao.maps.CustomOverlay({ zIndex: 100, yAnchor: 1.3 });
+  const polygons: kakao.maps.Polygon[] = [];
+
+  for (const feature of (geojson?.features || [])) {
+    const geom = feature.geometry;
+    if (!geom) continue;
+
+    const style = styleFunc(feature);
+    const coordSets: number[][][][] =
+      geom.type === "MultiPolygon" ? geom.coordinates : [geom.coordinates];
+
+    for (const polyCoords of coordSets) {
+      const path = geoJsonToPath(polyCoords);
+
+      const polygon = new kakao.maps.Polygon({
+        map,
+        path,
+        strokeWeight: style.strokeWeight ?? 2,
+        strokeColor: style.strokeColor ?? "#333",
+        strokeOpacity: style.strokeOpacity ?? 0.8,
+        strokeStyle: style.strokeStyle,
+        fillColor: style.fillColor ?? "#fff",
+        fillOpacity: style.fillOpacity ?? 0.1,
+      });
+
+      if (opts?.tooltip) {
+        const [lat, lng] = getCentroid(polyCoords[0]);
+        kakao.maps.event.addListener(polygon, "mouseover", () => {
+          tooltip.setContent(
+            `<div style="background:white;padding:4px 8px;border-radius:4px;font-size:12px;box-shadow:0 1px 4px rgba(0,0,0,.3);white-space:nowrap">${opts.tooltip!(feature)}</div>`,
+          );
+          tooltip.setPosition(new kakao.maps.LatLng(lat, lng));
+          tooltip.setMap(map);
+        });
+        kakao.maps.event.addListener(polygon, "mouseout", () => tooltip.setMap(null));
+      }
+
+      if (opts?.onClick) {
+        kakao.maps.event.addListener(polygon, "click", () => opts.onClick!(feature));
+      }
+
+      polygons.push(polygon);
+    }
+  }
+
+  return { polygons, tooltip };
+}
+
+function clearPolygons(polygons: kakao.maps.Polygon[], tooltip?: kakao.maps.CustomOverlay | null) {
+  for (const p of polygons) p.setMap(null);
+  if (tooltip) tooltip.setMap(null);
+}
 
 export default function MapContainer() {
   const [selectedCityKey, setSelectedCityKey] = useState<string | null>("jinju");
@@ -197,6 +224,7 @@ export default function MapContainer() {
   const [electionType, setElectionType] = useState<"local" | "provincial" | "mayor" | "assembly">("local");
   const [selectedDong, setSelectedDong] = useState<SelectedDong>(null);
   const [selectedDistrict, setSelectedDistrict] = useState<string | null>(null);
+  const [clickedDongName, setClickedDongName] = useState<string | null>(null);
   const [showDashboard, setShowDashboard] = useState(false);
   const [selectedBusStop, setSelectedBusStop] = useState<any>(null);
   const [transitDow, setTransitDow] = useState("전체");
@@ -206,41 +234,52 @@ export default function MapContainer() {
   const [facilitiesData, setFacilitiesData] = useState<any[]>([]);
   const [facilityCategories, setFacilityCategories] = useState<Set<string>>(new Set(["종합병원", "보건소", "관공서", "전통시장"]));
 
-  // 경계 데이터 (API에서 동적 로딩)
+  // 경계·인구·선거 데이터
   const [boundaryData, setBoundaryData] = useState<any>(null);
   const [boundaryLoading, setBoundaryLoading] = useState(true);
-  // 인구 데이터 (도시별 정적 파일 로딩)
   const [populationData, setPopulationData] = useState<any>(null);
-  // 선거 데이터 (도시별 동적 로딩)
   const [electionsData, setElectionsData] = useState<any[]>([]);
   const [localElectionsData, setLocalElectionsData] = useState<any[]>([]);
 
-  // 시설 데이터 로딩 (도시 변경 또는 시설 레이어 켤 때)
+  // 카카오맵 초기화
+  const mapContainerRef = useRef<HTMLDivElement>(null);
+  const mapCenter = selectedCity ? selectedCity.center : GYEONGNAM_VIEW.center;
+  const mapZoom = selectedCity ? selectedCity.zoom : GYEONGNAM_VIEW.zoom;
+  const { map, isLoaded } = useKakaoMap(mapContainerRef, {
+    center: mapCenter,
+    level: toKakaoLevel(mapZoom),
+  });
+
+  // 폴리곤 refs
+  const adminPolygonsRef = useRef<kakao.maps.Polygon[]>([]);
+  const adminTooltipRef = useRef<kakao.maps.CustomOverlay | null>(null);
+  const legalPolygonsRef = useRef<kakao.maps.Polygon[]>([]);
+  const legalTooltipRef = useRef<kakao.maps.CustomOverlay | null>(null);
+  const popPolygonsRef = useRef<kakao.maps.Polygon[]>([]);
+  const popTooltipRef = useRef<kakao.maps.CustomOverlay | null>(null);
+  const distPolygonsRef = useRef<kakao.maps.Polygon[]>([]);
+  const distTooltipRef = useRef<kakao.maps.CustomOverlay | null>(null);
+  const pollingOverlaysRef = useRef<kakao.maps.CustomOverlay[]>([]);
+  const pollingTooltipRef = useRef<kakao.maps.CustomOverlay | null>(null);
+
+  // 시설 데이터 로딩
   useEffect(() => {
     if (!showFacilities) return;
     setFacilitiesData([]);
     const code = selectedCity?.code;
-    const facilitiesUrl = code
-      ? `/data/facilities/${code}-facilities.json`
-      : null;
-    const marketsUrl = code
-      ? `/data/facilities/${code}-markets.json`
-      : `/data/facilities/gyeongnam-markets.json`;
+    const facilitiesUrl = code ? `/data/facilities/${code}-facilities.json` : null;
+    const marketsUrl = code ? `/data/facilities/${code}-markets.json` : `/data/facilities/gyeongnam-markets.json`;
 
     const fetches: Promise<any[]>[] = [
       fetch(marketsUrl).then((r) => r.ok ? r.json() : []).catch(() => []),
     ];
     if (facilitiesUrl) {
-      fetches.push(
-        fetch(facilitiesUrl).then((r) => r.ok ? r.json() : []).catch(() => [])
-      );
+      fetches.push(fetch(facilitiesUrl).then((r) => r.ok ? r.json() : []).catch(() => []));
     }
-    Promise.all(fetches).then((results) => {
-      setFacilitiesData(results.flat());
-    });
+    Promise.all(fetches).then((results) => setFacilitiesData(results.flat()));
   }, [showFacilities, selectedCityKey]);
 
-  // 도시 변경 시 패널·선택 초기화 + 경계·인구 데이터 로딩
+  // 도시 변경 시 데이터 로딩
   useEffect(() => {
     setSelectedDong(null);
     setSelectedDistrict(null);
@@ -254,12 +293,10 @@ export default function MapContainer() {
       setBoundaryLoading(false);
     });
     if (selectedCity) {
-      // 인구 데이터 로딩
       fetch(`/data/population/${selectedCity.code}-population.json`)
         .then((res) => res.ok ? res.json() : null)
         .then((data) => setPopulationData(data))
         .catch(() => setPopulationData(null));
-      // 선거 데이터 로딩
       Promise.all([
         fetch(`/data/elections/${selectedCity.code}-elections.json`).then((r) => r.ok ? r.json() : []).catch(() => []),
         fetch(`/data/elections/${selectedCity.code}-local-elections.json`).then((r) => r.ok ? r.json() : []).catch(() => []),
@@ -270,18 +307,20 @@ export default function MapContainer() {
     }
   }, [selectedCityKey]);
 
-  // 지도 중심·줌
-  const mapCenter = selectedCity ? selectedCity.center : GYEONGNAM_VIEW.center;
-  const mapZoom = selectedCity ? selectedCity.zoom : GYEONGNAM_VIEW.zoom;
+  // 지도 뷰 업데이트
+  useEffect(() => {
+    if (!map) return;
+    const center = new kakao.maps.LatLng(mapCenter[0], mapCenter[1]);
+    map.panTo(center);
+    map.setLevel(toKakaoLevel(mapZoom), { animate: true });
+  }, [map, selectedCityKey]);
 
-  // 선거구 매핑 (선거 데이터에서 동적 생성)
+  // 선거구 매핑
   const dongToDistrict = selectedCity
     ? buildDongMappingFromElections(electionsData, localElectionsData, electionType)
     : {};
   const currentDistricts = (() => {
-    // 정적 정의 순서를 기준으로 정렬
-    const staticOrder = ((jinjuDistricts as any)?.types?.[electionType]?.districts || [])
-      .map((d: any) => d.name);
+    const staticOrder = ((jinjuDistricts as any)?.types?.[electionType]?.districts || []).map((d: any) => d.name);
     const seen = new Set<string>();
     const list = Object.values(dongToDistrict)
       .filter((d) => { if (seen.has(d.name)) return false; seen.add(d.name); return true; })
@@ -294,217 +333,247 @@ export default function MapContainer() {
     return list;
   })();
 
-  // 경남 전체 보기 스타일
-  function gyeongnamStyle(feature: any): PathOptions {
-    const sgg = feature?.properties?.sgg;
-    const color = sggColorMap[sgg] || "#999";
-    return {
-      color,
-      weight: 1.5,
-      fillColor: color,
-      fillOpacity: 0.15,
-    };
-  }
+  // ─── 경남 전체 / 행정동 경계 레이어 ───
+  useEffect(() => {
+    clearPolygons(adminPolygonsRef.current, adminTooltipRef.current);
+    adminPolygonsRef.current = [];
+    adminTooltipRef.current = null;
 
-  function onGyeongnamFeature(feature: any, layer: Layer) {
-    const adm = feature?.properties?.adm_nm || "";
-    const sggnm = feature?.properties?.sggnm || "";
-    const dongName = adm.replace(`경상남도 ${sggnm} `, "");
-    layer.bindTooltip(`<strong>${sggnm}</strong><br/>${dongName}`, {
-      direction: "center",
-    });
-    // 클릭 시 해당 도시로 이동
-    const sgg = feature?.properties?.sgg;
-    layer.on("click", () => {
-      const cityEntry = Object.entries(cities).find(([, c]) => c.code === sgg);
-      if (cityEntry) {
-        setSelectedCityKey(cityEntry[0]);
-      }
-    });
-  }
+    if (!map || !boundaryData) return;
 
-  function districtStyle(feature: any): PathOptions {
-    const name = feature?.properties?.name || feature?.properties?.adm_nm?.split(" ").pop();
-    const info = dongToDistrict[name || ""];
-    const isSelected = selectedDistrict && info?.name === selectedDistrict;
-    return {
-      color: info?.color || "#999",
-      weight: isSelected ? 3 : 2,
-      fillColor: info?.color || "#999",
-      fillOpacity: isSelected ? 0.4 : 0.2,
-    };
-  }
-
-  function onDistrictFeature(feature: any, layer: Layer) {
-    const name = feature?.properties?.name || feature?.properties?.adm_nm?.split(" ").pop();
-    const info = dongToDistrict[name || ""];
-    if (info) {
-      layer.bindTooltip(`<strong>${name}</strong><br/>${info.name}`, {
-        direction: "center",
-      });
-      layer.on("click", () => {
-        setSelectedDong(null);
-        setSelectedDistrict(info.name || null);
-      });
+    // 경남 전체 보기
+    if (!selectedCity && showAdmin) {
+      const { polygons, tooltip } = createPolygonsFromGeoJson(
+        map, boundaryData,
+        (feature) => {
+          const sgg = feature?.properties?.sgg;
+          const color = sggColorMap[sgg] || "#999";
+          return { strokeWeight: 1.5, strokeColor: color, fillColor: color, fillOpacity: 0.15 };
+        },
+        {
+          tooltip: (feature) => {
+            const adm = feature?.properties?.adm_nm || "";
+            const sggnm = feature?.properties?.sggnm || "";
+            const dongName = adm.replace(`경상남도 ${sggnm} `, "");
+            return `<strong>${sggnm}</strong><br/>${dongName}`;
+          },
+          onClick: (feature) => {
+            const sgg = feature?.properties?.sgg;
+            const cityEntry = Object.entries(cities).find(([, c]) => c.code === sgg);
+            if (cityEntry) setSelectedCityKey(cityEntry[0]);
+          },
+        },
+      );
+      adminPolygonsRef.current = polygons;
+      adminTooltipRef.current = tooltip;
+      return;
     }
-  }
 
-  function onPopulationFeature(feature: any, layer: Layer) {
-    const p = feature.properties;
-    if (!p) return;
-    const pop = (p.population || 0).toLocaleString();
-    layer.bindTooltip(`<strong>${p.name}</strong> ${pop}명`, {
-      direction: "top",
-    });
-    layer.on("click", () => {
-      setSelectedDistrict(null);
-      setSelectedDong({
-        name: p.name,
-        population: p.population || 0,
-        households: p.households || 0,
-        male: p.male || 0,
-        female: p.female || 0,
-        age: p.age || undefined,
-      });
-    });
-  }
-
-  function onBoundaryFeature(feature: any, layer: Layer) {
-    const name = feature.properties?.name || feature.properties?.adm_nm?.split(" ").pop();
-    if (name) {
-      layer.bindTooltip(name, { permanent: false, direction: "center" });
+    // 개별 도시: 행정동 경계 (인구·선거구 레이어가 없을 때만)
+    if (selectedCity && showAdmin && !showPopulation) {
+      const { polygons, tooltip } = createPolygonsFromGeoJson(
+        map, boundaryData,
+        () => ({ strokeWeight: 2, strokeColor: "#2563EB", fillColor: "#3B82F6", fillOpacity: 0.1 }),
+        {
+          tooltip: (feature) => {
+            const name = feature.properties?.name || feature.properties?.adm_nm?.split(" ").pop();
+            return name || "";
+          },
+        },
+      );
+      adminPolygonsRef.current = polygons;
+      adminTooltipRef.current = tooltip;
     }
-  }
+  }, [map, boundaryData, selectedCityKey, showAdmin, showPopulation]);
 
-  // 도시 선택 옵션 (경남 전체 + 22개 시군구)
+  // ─── 법정동 경계 (진주 전용) ───
+  useEffect(() => {
+    clearPolygons(legalPolygonsRef.current, legalTooltipRef.current);
+    legalPolygonsRef.current = [];
+    legalTooltipRef.current = null;
+
+    if (!map || !isJinju || !showLegal) return;
+
+    const { polygons, tooltip } = createPolygonsFromGeoJson(
+      map, jinjuLegalBoundary,
+      () => ({
+        strokeWeight: 2, strokeColor: "#DC2626", strokeStyle: "shortdash",
+        fillColor: "#EF4444", fillOpacity: 0.1,
+      }),
+      {
+        tooltip: (feature) => {
+          const name = feature.properties?.name || feature.properties?.adm_nm?.split(" ").pop();
+          return name || "";
+        },
+      },
+    );
+    legalPolygonsRef.current = polygons;
+    legalTooltipRef.current = tooltip;
+  }, [map, isJinju, showLegal]);
+
+  // ─── 인구정보 레이어 ───
+  useEffect(() => {
+    clearPolygons(popPolygonsRef.current, popTooltipRef.current);
+    popPolygonsRef.current = [];
+    popTooltipRef.current = null;
+
+    if (!map || !selectedCity || !showPopulation || !populationData) return;
+
+    const { polygons, tooltip } = createPolygonsFromGeoJson(
+      map, populationData,
+      (feature) => {
+        const pop = feature?.properties?.population || 0;
+        return { strokeWeight: 1.5, strokeColor: "#991B1B", fillColor: getPopulationColor(pop), fillOpacity: 0.6 };
+      },
+      {
+        tooltip: (feature) => {
+          const p = feature.properties;
+          return `<strong>${p?.name}</strong> ${(p?.population || 0).toLocaleString()}명`;
+        },
+        onClick: (feature) => {
+          const p = feature.properties;
+          if (!p) return;
+          setSelectedDistrict(null);
+          setSelectedDong({
+            name: p.name,
+            population: p.population || 0,
+            households: p.households || 0,
+            male: p.male || 0,
+            female: p.female || 0,
+            age: p.age || undefined,
+          });
+        },
+      },
+    );
+    popPolygonsRef.current = polygons;
+    popTooltipRef.current = tooltip;
+  }, [map, selectedCityKey, showPopulation, populationData]);
+
+  // ─── 선거구 레이어 ───
+  useEffect(() => {
+    clearPolygons(distPolygonsRef.current, distTooltipRef.current);
+    distPolygonsRef.current = [];
+    distTooltipRef.current = null;
+
+    if (!map || !selectedCity || !showDistricts || !populationData || currentDistricts.length === 0) return;
+
+    const { polygons, tooltip } = createPolygonsFromGeoJson(
+      map, populationData,
+      (feature) => {
+        const name = feature?.properties?.name || feature?.properties?.adm_nm?.split(" ").pop();
+        const info = dongToDistrict[name || ""];
+        const isSelected = selectedDistrict && info?.name === selectedDistrict;
+        return {
+          strokeWeight: isSelected ? 3 : 2,
+          strokeColor: info?.color || "#999",
+          fillColor: info?.color || "#999",
+          fillOpacity: isSelected ? 0.4 : 0.2,
+        };
+      },
+      {
+        tooltip: (feature) => {
+          const name = feature?.properties?.name || feature?.properties?.adm_nm?.split(" ").pop();
+          const info = dongToDistrict[name || ""];
+          return info ? `<strong>${name}</strong><br/>${info.name}` : (name || "");
+        },
+        onClick: (feature) => {
+          const name = feature?.properties?.name || feature?.properties?.adm_nm?.split(" ").pop();
+          const info = dongToDistrict[name || ""];
+          if (info) {
+            setSelectedDong(null);
+            setClickedDongName(name || null);
+            setSelectedDistrict(info.name || null);
+          }
+        },
+      },
+    );
+    distPolygonsRef.current = polygons;
+    distTooltipRef.current = tooltip;
+  }, [map, selectedCityKey, showDistricts, populationData, electionType, selectedDistrict, currentDistricts.length, JSON.stringify(dongToDistrict)]);
+
+  // ─── 투표소 오버레이 (진주 전용) ───
+  useEffect(() => {
+    for (const o of pollingOverlaysRef.current) o.setMap(null);
+    pollingOverlaysRef.current = [];
+    if (pollingTooltipRef.current) pollingTooltipRef.current.setMap(null);
+
+    if (!map || !isJinju || !showPolling) return;
+
+    const tooltip = new kakao.maps.CustomOverlay({ zIndex: 200, yAnchor: 1.5 });
+    pollingTooltipRef.current = tooltip;
+    const overlays: kakao.maps.CustomOverlay[] = [];
+
+    for (const st of jinjuPollingStations as any[]) {
+      const el = document.createElement("div");
+      el.style.cssText = `
+        width:12px;height:12px;border-radius:50%;
+        background:#8B5CF6;border:1.5px solid #7C3AED;
+        cursor:pointer;
+      `;
+
+      el.addEventListener("mouseenter", () => {
+        let html = `<strong>${st.name}</strong><br/>${st.place}`;
+        html += `<br/><span style="font-size:11px;color:#666">${st.addr}${st.floor ? ` (${st.floor})` : ""}</span>`;
+        tooltip.setContent(
+          `<div style="background:white;padding:4px 8px;border-radius:4px;font-size:12px;box-shadow:0 1px 4px rgba(0,0,0,.3);white-space:nowrap">${html}</div>`,
+        );
+        tooltip.setPosition(new kakao.maps.LatLng(st.lat, st.lng));
+        tooltip.setMap(map);
+      });
+      el.addEventListener("mouseleave", () => tooltip.setMap(null));
+
+      const overlay = new kakao.maps.CustomOverlay({
+        map,
+        position: new kakao.maps.LatLng(st.lat, st.lng),
+        content: el,
+        xAnchor: 0.5,
+        yAnchor: 0.5,
+        zIndex: 15,
+      });
+      overlays.push(overlay);
+    }
+
+    pollingOverlaysRef.current = overlays;
+
+    return () => {
+      for (const o of overlays) o.setMap(null);
+      tooltip.setMap(null);
+    };
+  }, [map, isJinju, showPolling]);
+
+  // 도시 선택 옵션
   const cityOptions = [
     { key: "", label: "경남 전체" },
-    ...Object.entries(cities).map(([key, city]) => ({
-      key,
-      label: city.name,
-    })),
+    ...Object.entries(cities).map(([key, city]) => ({ key, label: city.name })),
   ];
 
   return (
     <div className="relative h-screen w-full">
-      <LeafletMap
-        center={mapCenter}
-        zoom={mapZoom}
-        className="h-full w-full"
-      >
-        <MapViewUpdater center={mapCenter} zoom={mapZoom} />
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      {/* 카카오맵 컨테이너 */}
+      <div ref={mapContainerRef} className="h-full w-full" />
+
+      {/* 카카오맵 위 레이어 컴포넌트 */}
+      {map && isJinju && showCommerce && (
+        <CommerceLayer map={map} boundaryData={jinjuBoundary} />
+      )}
+      {map && showFacilities && facilitiesData.length > 0 && (
+        <FacilitiesLayer map={map} facilities={facilitiesData} visibleCategories={facilityCategories} />
+      )}
+      {map && isJinju && showBusStops && (
+        <TransitHeatmapLayer
+          map={map}
+          selectedDow={transitDow}
+          selectedHour={transitHour}
+          onStationClick={(s) => {
+            setSelectedBusStop(s);
+            setSelectedDong(null);
+            setSelectedDistrict(null);
+          }}
         />
-
-        {/* 경남 전체 보기 */}
-        {!selectedCity && showAdmin && boundaryData && (
-          <GeoJSON
-            key="gyeongnam-all"
-            data={boundaryData as any}
-            style={gyeongnamStyle}
-            onEachFeature={onGyeongnamFeature}
-          />
-        )}
-
-        {/* 개별 도시: 행정동 경계 */}
-        {selectedCity && showAdmin && !showPopulation && boundaryData && (
-          <GeoJSON
-            key={`admin-${selectedCity.code}`}
-            data={boundaryData as any}
-            style={adminStyle}
-            onEachFeature={onBoundaryFeature}
-          />
-        )}
-
-        {/* 인구정보 (전 도시 지원) */}
-        {selectedCity && showPopulation && populationData && (
-          <GeoJSON
-            key={`population-${selectedCity.code}`}
-            data={populationData as any}
-            style={populationStyle}
-            onEachFeature={onPopulationFeature}
-          />
-        )}
-
-        {/* 진주 전용: 법정동 경계 */}
-        {isJinju && showLegal && (
-          <GeoJSON
-            key="legal"
-            data={jinjuLegalBoundary as any}
-            style={legalStyle}
-            onEachFeature={onBoundaryFeature}
-          />
-        )}
-
-        {/* 선거구 레이어 (전 도시) */}
-        {selectedCity && showDistricts && populationData && currentDistricts.length > 0 && (
-          <GeoJSON
-            key={`districts-${selectedCity.code}-${electionType}-${currentDistricts.length}-${selectedDistrict || "all"}`}
-            data={populationData as any}
-            style={districtStyle}
-            onEachFeature={onDistrictFeature}
-          />
-        )}
-
-        {/* 진주 전용: 투표소 */}
-        {isJinju && showPolling &&
-          (jinjuPollingStations as any[]).map((st, i) => (
-            <CircleMarker
-              key={i}
-              center={[st.lat, st.lng]}
-              radius={6}
-              pathOptions={{
-                color: "#7C3AED",
-                fillColor: "#8B5CF6",
-                fillOpacity: 0.8,
-                weight: 1.5,
-              }}
-            >
-              <Tooltip>
-                <strong>{st.name}</strong>
-                <br />
-                {st.place}
-                <br />
-                <span style={{ fontSize: "11px", color: "#666" }}>
-                  {st.addr}
-                  {st.floor ? ` (${st.floor})` : ""}
-                </span>
-              </Tooltip>
-            </CircleMarker>
-          ))}
-
-        {/* 진주 전용: 상권/교통 밀집도 */}
-        {isJinju && showCommerce && (
-          <CommerceLayer boundaryData={jinjuBoundary} />
-        )}
-
-        {/* 주요시설 (전 도시 + 경남 전체) */}
-        {showFacilities && facilitiesData.length > 0 && (
-          <FacilitiesLayer
-            facilities={facilitiesData}
-            visibleCategories={facilityCategories}
-          />
-        )}
-
-        {/* 진주 전용: 대중교통 히트맵 */}
-        {isJinju && showBusStops && (
-          <TransitHeatmapLayer
-            selectedDow={transitDow}
-            selectedHour={transitHour}
-            onStationClick={(s) => {
-              setSelectedBusStop(s);
-              setSelectedDong(null);
-              setSelectedDistrict(null);
-            }}
-          />
-        )}
-      </LeafletMap>
+      )}
 
       {/* 도시 선택 + 레이어 패널 */}
       <div className="absolute top-4 right-4 z-[1000] rounded-lg bg-white shadow-lg max-h-[90vh] overflow-y-auto">
-        {/* 헤더: 도시 선택 + 접기 버튼 */}
         <div className="flex items-center gap-2 p-3 pb-0">
           <select
             value={selectedCityKey || ""}
@@ -512,9 +581,7 @@ export default function MapContainer() {
             className="flex-1 text-sm border rounded px-2 py-1.5 text-gray-700 bg-white focus:outline-none focus:ring-1 focus:ring-blue-500"
           >
             {cityOptions.map((opt) => (
-              <option key={opt.key} value={opt.key}>
-                {opt.label}
-              </option>
+              <option key={opt.key} value={opt.key}>{opt.label}</option>
             ))}
           </select>
           <button
@@ -522,97 +589,53 @@ export default function MapContainer() {
             className="text-gray-400 hover:text-gray-700 text-lg leading-none px-1"
             title={panelCollapsed ? "패널 펼치기" : "패널 접기"}
           >
-            {panelCollapsed ? "▼" : "▲"}
+            {panelCollapsed ? "\u25BC" : "\u25B2"}
           </button>
         </div>
 
         {!panelCollapsed && <div className="p-3 pt-2">
         <h3 className="mb-2 text-sm font-bold text-gray-700">레이어</h3>
         <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600">
-          <input
-            type="checkbox"
-            checked={showAdmin}
-            onChange={(e) => setShowAdmin(e.target.checked)}
-            className="accent-blue-600"
-          />
+          <input type="checkbox" checked={showAdmin} onChange={(e) => setShowAdmin(e.target.checked)} className="accent-blue-600" />
           행정동 경계
         </label>
 
-        {/* 인구정보 (전 도시 지원) */}
         {selectedCity && (
           <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
-            <input
-              type="checkbox"
-              checked={showPopulation}
-              onChange={(e) => setShowPopulation(e.target.checked)}
-              className="accent-rose-600"
-            />
+            <input type="checkbox" checked={showPopulation} onChange={(e) => setShowPopulation(e.target.checked)} className="accent-rose-600" />
             인구정보
           </label>
         )}
 
-        {/* 선거결과 (전 도시) */}
         {selectedCity && (
           <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
-            <input
-              type="checkbox"
-              checked={showDistricts}
-              onChange={(e) => setShowDistricts(e.target.checked)}
-              className="accent-purple-600"
-            />
+            <input type="checkbox" checked={showDistricts} onChange={(e) => setShowDistricts(e.target.checked)} className="accent-purple-600" />
             선거결과
           </label>
         )}
 
-        {/* 진주 전용 레이어 */}
         {isJinju && (
           <>
             <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
-              <input
-                type="checkbox"
-                checked={showLegal}
-                onChange={(e) => setShowLegal(e.target.checked)}
-                className="accent-red-600"
-              />
+              <input type="checkbox" checked={showLegal} onChange={(e) => setShowLegal(e.target.checked)} className="accent-red-600" />
               법정동 경계
             </label>
             <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
-              <input
-                type="checkbox"
-                checked={showPolling}
-                onChange={(e) => setShowPolling(e.target.checked)}
-                className="accent-violet-600"
-              />
+              <input type="checkbox" checked={showPolling} onChange={(e) => setShowPolling(e.target.checked)} className="accent-violet-600" />
               투표소
             </label>
             <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
-              <input
-                type="checkbox"
-                checked={showBusStops}
-                onChange={(e) => setShowBusStops(e.target.checked)}
-                className="accent-cyan-600"
-              />
+              <input type="checkbox" checked={showBusStops} onChange={(e) => setShowBusStops(e.target.checked)} className="accent-cyan-600" />
               대중교통
             </label>
             <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
-              <input
-                type="checkbox"
-                checked={showCommerce}
-                onChange={(e) => setShowCommerce(e.target.checked)}
-                className="accent-green-600"
-              />
+              <input type="checkbox" checked={showCommerce} onChange={(e) => setShowCommerce(e.target.checked)} className="accent-green-600" />
               상권 밀집도
             </label>
           </>
         )}
-        {/* 주요시설 (전 도시) */}
         <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
-          <input
-            type="checkbox"
-            checked={showFacilities}
-            onChange={(e) => setShowFacilities(e.target.checked)}
-            className="accent-indigo-600"
-          />
+          <input type="checkbox" checked={showFacilities} onChange={(e) => setShowFacilities(e.target.checked)} className="accent-indigo-600" />
           주요시설
         </label>
         <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
@@ -625,7 +648,6 @@ export default function MapContainer() {
           종합 대시보드
         </label>
 
-        {/* 시설 카테고리 선택 */}
         {showFacilities && (
           <div className="mt-2 border-t pt-2">
             <p className="text-xs text-gray-500 mb-1">시설 종류 (줌 13+ 표시)</p>
@@ -637,15 +659,12 @@ export default function MapContainer() {
                     <button
                       key={cat}
                       className={`text-[10px] px-1.5 py-0.5 rounded ${
-                        facilityCategories.has(cat)
-                          ? "bg-indigo-600 text-white"
-                          : "bg-gray-100 text-gray-500"
+                        facilityCategories.has(cat) ? "bg-indigo-600 text-white" : "bg-gray-100 text-gray-500"
                       }`}
                       onClick={() => {
                         setFacilityCategories((prev) => {
                           const next = new Set(prev);
-                          if (next.has(cat)) next.delete(cat);
-                          else next.add(cat);
+                          if (next.has(cat)) next.delete(cat); else next.add(cat);
                           return next;
                         });
                       }}
@@ -659,16 +678,12 @@ export default function MapContainer() {
           </div>
         )}
 
-        {/* 범례 */}
         {selectedCity && showPopulation && (
           <div className="mt-2 border-t pt-2">
             <p className="text-xs text-gray-500 mb-1">인구수 (2025.01)</p>
             {POP_LEGEND.map((item) => (
               <div key={item.label} className="flex items-center gap-1.5 text-xs text-gray-600">
-                <span
-                  className="inline-block w-3 h-3 rounded-sm"
-                  style={{ backgroundColor: item.color }}
-                />
+                <span className="inline-block w-3 h-3 rounded-sm" style={{ backgroundColor: item.color }} />
                 {item.label}
               </div>
             ))}
@@ -680,10 +695,7 @@ export default function MapContainer() {
             <p className="text-xs text-gray-500 mb-1">상가 수</p>
             {COMMERCE_LEGEND.map((item) => (
               <div key={item.label} className="flex items-center gap-1.5 text-xs text-gray-600">
-                <span
-                  className="inline-block w-3 h-3 rounded-sm"
-                  style={{ backgroundColor: item.color }}
-                />
+                <span className="inline-block w-3 h-3 rounded-sm" style={{ backgroundColor: item.color }} />
                 {item.label}
               </div>
             ))}
@@ -697,59 +709,39 @@ export default function MapContainer() {
               {DOW_OPTIONS.map((dow) => (
                 <button
                   key={dow}
-                  className={`text-xs px-1.5 py-0.5 rounded ${
-                    transitDow === dow
-                      ? "bg-cyan-700 text-white"
-                      : "bg-gray-100 text-gray-500"
-                  }`}
+                  className={`text-xs px-1.5 py-0.5 rounded ${transitDow === dow ? "bg-cyan-700 text-white" : "bg-gray-100 text-gray-500"}`}
                   onClick={() => setTransitDow(dow)}
                 >
                   {DOW_SHORT[dow]}
                 </button>
               ))}
             </div>
-
             <p className="text-xs text-gray-500 mb-1">시간대</p>
             <div className="flex gap-0.5 flex-wrap mb-2">
               <button
-                className={`text-xs px-1.5 py-0.5 rounded ${
-                  transitHour === "전체"
-                    ? "bg-cyan-700 text-white"
-                    : "bg-gray-100 text-gray-500"
-                }`}
+                className={`text-xs px-1.5 py-0.5 rounded ${transitHour === "전체" ? "bg-cyan-700 text-white" : "bg-gray-100 text-gray-500"}`}
                 onClick={() => setTransitHour("전체")}
-              >
-                전체
-              </button>
+              >전체</button>
               {HOUR_OPTIONS.filter((h) => h !== "전체").map((h) => (
                 <button
                   key={h}
-                  className={`text-xs px-1.5 py-0.5 rounded ${
-                    transitHour === h
-                      ? "bg-cyan-700 text-white"
-                      : "bg-gray-100 text-gray-500"
-                  }`}
+                  className={`text-xs px-1.5 py-0.5 rounded ${transitHour === h ? "bg-cyan-700 text-white" : "bg-gray-100 text-gray-500"}`}
                   onClick={() => setTransitHour(h)}
                 >
                   {parseInt(h)}
                 </button>
               ))}
             </div>
-
             <p className="text-xs text-gray-500 mb-1">승하차량</p>
             {HEATMAP_LEGEND.map((item) => (
               <div key={item.label} className="flex items-center gap-1.5 text-xs text-gray-600">
-                <span
-                  className="inline-block w-3 h-3 rounded-full"
-                  style={{ backgroundColor: item.color }}
-                />
+                <span className="inline-block w-3 h-3 rounded-full" style={{ backgroundColor: item.color }} />
                 {item.label}
               </div>
             ))}
           </div>
         )}
 
-        {/* 선거구 선택 */}
         {selectedCity && showDistricts && (
           <div className="mt-2 border-t pt-2">
             <div className="flex gap-1 mb-1 flex-wrap">
@@ -779,10 +771,7 @@ export default function MapContainer() {
                   setSelectedDistrict(selectedDistrict === d.name ? null : d.name);
                 }}
               >
-                <span
-                  className="inline-block w-2.5 h-2.5 rounded-sm flex-shrink-0"
-                  style={{ backgroundColor: d.color }}
-                />
+                <span className="inline-block w-2.5 h-2.5 rounded-sm flex-shrink-0" style={{ backgroundColor: d.color }} />
                 {d.name.replace(selectedCity.name, "")}
               </button>
             ))}
@@ -791,16 +780,14 @@ export default function MapContainer() {
         </div>}
       </div>
 
-      {/* 패널들 (진주 전용) */}
+      {/* 패널들 */}
       {selectedCity && showPopulation && selectedDong && (
-        <PopulationPanel
-          data={selectedDong}
-          onClose={() => setSelectedDong(null)}
-        />
+        <PopulationPanel data={selectedDong} onClose={() => setSelectedDong(null)} />
       )}
       {selectedCity && selectedDistrict && showDistricts && !showDashboard && (
         <ElectionPanel
           dongName={selectedDistrict}
+          clickedDong={clickedDongName}
           onClose={() => setSelectedDistrict(null)}
           electionsData={electionsData}
           localElectionsData={localElectionsData}
@@ -820,10 +807,7 @@ export default function MapContainer() {
         />
       )}
       {isJinju && showBusStops && selectedBusStop && (
-        <TransitUsagePanel
-          station={selectedBusStop}
-          onClose={() => setSelectedBusStop(null)}
-        />
+        <TransitUsagePanel station={selectedBusStop} onClose={() => setSelectedBusStop(null)} />
       )}
     </div>
   );
