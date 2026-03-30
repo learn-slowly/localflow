@@ -264,9 +264,11 @@ interface ElectionPanelProps {
   electionsData: any[];
   localElectionsData: any[];
   cityName: string;
+  /** 대시보드 내 임베드 시 외부 래퍼 제거 */
+  embedded?: boolean;
 }
 
-export default function ElectionPanel({ dongName, onClose, electionsData, localElectionsData, cityName }: ElectionPanelProps) {
+export default function ElectionPanel({ dongName, onClose, electionsData, localElectionsData, cityName, embedded }: ElectionPanelProps) {
   const [selectedGroupIdx, setSelectedGroupIdx] = useState(0);
   const [selectedSubIdx, setSelectedSubIdx] = useState(0);
 
@@ -305,6 +307,9 @@ export default function ElectionPanel({ dongName, onClose, electionsData, localE
   let districtResult = null;
   let districtSeats = 1;
 
+  // embedded 모드: dongName이 선거구 이름 (예: "진주시라선거구")
+  const isDistrictName = embedded && !dongResult;
+
   if (entry.subType) {
     // 지선: 동 → 선거구 매핑
     const singleDistrictTypes = ["시장", "시도지사", "교육감", "광역비례", "기초비례"];
@@ -312,6 +317,10 @@ export default function ElectionPanel({ dongName, onClose, electionsData, localE
       // 시/도/전체 단위 선거 — results[0] 사용
       districtResult = entry.results[0];
       districtSeats = 1;
+    } else if (isDistrictName) {
+      // 대시보드에서 선거구 이름 직접 전달 — results에서 직접 검색
+      districtResult = entry.results.find((r) => r.district === dongName);
+      districtSeats = districtResult?.seats || 1;
     } else {
       // 기초의원/도의원: dongResult의 district를 직접 사용 (연도별 선거구 차이 대응)
       const districtName = dongResult?.district
@@ -323,7 +332,8 @@ export default function ElectionPanel({ dongName, onClose, electionsData, localE
     }
   } else if (entry.label?.includes("총선")) {
     // 총선: dongResult의 district 직접 사용
-    const assemblyDistrict = dongResult?.district || DONG_DISTRICT_MAP["assembly"]?.[dongName];
+    const assemblyDistrict = isDistrictName ? dongName
+      : (dongResult?.district || DONG_DISTRICT_MAP["assembly"]?.[dongName]);
     if (assemblyDistrict) {
       districtResult = entry.results.find((r) => r.district === assemblyDistrict);
     }
@@ -358,12 +368,14 @@ export default function ElectionPanel({ dongName, onClose, electionsData, localE
   // 시군구 내 결과만 표시됨을 알릴지 여부
   const isPartialResult = isPresidential || isAssembly || (!isLocalScope && !!entry.subType);
 
-  return (
-    <div className="absolute bottom-4 left-4 z-[1000] w-[400px] rounded-lg bg-white p-4 shadow-lg max-h-[80vh] overflow-y-auto">
-      <div className="flex items-center justify-between mb-1">
-        <h3 className="text-lg font-bold text-gray-800">{dongName}</h3>
-        <button onClick={onClose} className="text-gray-400 hover:text-gray-600 text-xl leading-none">&times;</button>
-      </div>
+  const content = (
+    <div className={embedded ? "p-4" : "absolute bottom-4 left-4 z-[1000] w-[400px] rounded-lg bg-white p-4 shadow-lg max-h-[80vh] overflow-y-auto"}>
+      {!embedded && (
+        <div className="flex items-center justify-between mb-1">
+          <h3 className="text-lg font-bold text-gray-800">{dongName}</h3>
+          <button onClick={onClose} className="text-gray-400 hover:text-gray-600 text-xl leading-none">&times;</button>
+        </div>
+      )}
 
       {/* 선거 선택 탭 */}
       <div className="flex gap-1 flex-wrap mb-2">
@@ -445,4 +457,6 @@ export default function ElectionPanel({ dongName, onClose, electionsData, localE
       )}
     </div>
   );
+
+  return content;
 }
