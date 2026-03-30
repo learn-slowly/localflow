@@ -10,6 +10,8 @@ interface Facility {
   tel: string;
   lat: number;
   lng: number;
+  members?: number;
+  dong?: string;
 }
 
 const CATEGORY_CONFIG: Record<string, { emoji: string; color: string }> = {
@@ -97,18 +99,39 @@ export default function FacilitiesLayer({
 
     for (const f of filtered) {
       const config = CATEGORY_CONFIG[f.category] || { emoji: "\u{1F4CD}", color: "#6B7280" };
+      const isSenior = f.category === "경로당" && f.members;
 
       const el = document.createElement("div");
-      el.style.cssText = `
-        font-size:16px;width:26px;height:26px;
-        display:flex;align-items:center;justify-content:center;
-        background:white;border:2px solid ${config.color};border-radius:50%;
-        box-shadow:0 1px 3px rgba(0,0,0,.3);cursor:pointer;
-      `;
-      el.textContent = config.emoji;
+      if (isSenior) {
+        // 경로당: 회원수 기반 원형 마커
+        const m = f.members!;
+        const size = m < 30 ? 22 : m < 60 ? 28 : m < 100 ? 34 : 40;
+        const opacity = Math.min(0.3 + (m / 150), 0.9);
+        el.style.cssText = `
+          width:${size}px;height:${size}px;
+          display:flex;align-items:center;justify-content:center;
+          background:rgba(146,64,14,${opacity});border:2px solid ${config.color};border-radius:50%;
+          box-shadow:0 1px 3px rgba(0,0,0,.3);cursor:pointer;
+          font-size:${size < 28 ? 9 : 10}px;font-weight:700;color:white;
+        `;
+        el.textContent = String(m);
+      } else {
+        el.style.cssText = `
+          font-size:16px;width:26px;height:26px;
+          display:flex;align-items:center;justify-content:center;
+          background:white;border:2px solid ${config.color};border-radius:50%;
+          box-shadow:0 1px 3px rgba(0,0,0,.3);cursor:pointer;
+        `;
+        el.textContent = config.emoji;
+      }
 
       el.addEventListener("mouseenter", () => {
-        let html = `<strong>${f.name}</strong><br/><span style="color:#6B7280;font-size:11px">${f.type} · ${f.address}</span>`;
+        let html = `<strong>${f.name}</strong>`;
+        if (isSenior) {
+          html += `<br/><span style="color:#92400E;font-size:11px;font-weight:600">회원 ${f.members}명</span>`;
+          if (f.dong) html += ` <span style="color:#6B7280;font-size:11px">· ${f.dong}</span>`;
+        }
+        html += `<br/><span style="color:#6B7280;font-size:11px">${f.address}</span>`;
         if (f.tel) html += `<br/><span style="color:#6B7280;font-size:11px">\u260E ${f.tel}</span>`;
         tooltip.setContent(
           `<div style="background:white;padding:4px 8px;border-radius:4px;font-size:12px;box-shadow:0 1px 4px rgba(0,0,0,.3);white-space:nowrap">${html}</div>`,
