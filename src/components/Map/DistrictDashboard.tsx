@@ -252,6 +252,8 @@ function TransitSection({ data }: { data: DistrictTransitSummary }) {
         </div>
       </div>
 
+      <p className="text-[10px] text-gray-400">* 하차 태깅률이 낮아 승차 데이터 위주로 판단 권장 (2024.06 기준)</p>
+
       {/* 시간대별 바 차트 */}
       <div>
         <h4 className="text-xs font-bold text-gray-600 mb-2">시간대별 승하차</h4>
@@ -259,16 +261,16 @@ function TransitSection({ data }: { data: DistrictTransitSummary }) {
           {hours.map((h) => {
             const v = data.hourly[h];
             const total = v.ride + v.goff;
+            const heightPct = (total / maxHourly) * 100;
             const rideRatio = total > 0 ? v.ride / total : 0.5;
             return (
-              <div key={h} className="flex-1 flex flex-col items-center">
-                <div
-                  className="w-full rounded-t overflow-hidden"
-                  style={{ height: `${(total / maxHourly) * 100}%` }}
-                >
-                  <div className="w-full bg-blue-400" style={{ height: `${rideRatio * 100}%` }} />
-                  <div className="w-full bg-orange-400" style={{ height: `${(1 - rideRatio) * 100}%` }} />
-                </div>
+              <div
+                key={h}
+                className="flex-1 rounded-t overflow-hidden"
+                style={{ height: `${heightPct}%` }}
+              >
+                <div className="w-full bg-blue-400" style={{ height: `${rideRatio * 100}%` }} />
+                <div className="w-full bg-orange-400" style={{ height: `${(1 - rideRatio) * 100}%` }} />
               </div>
             );
           })}

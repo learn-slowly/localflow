@@ -197,6 +197,7 @@ export default function MapContainer() {
   const [electionType, setElectionType] = useState<"local" | "provincial" | "mayor" | "assembly">("local");
   const [selectedDong, setSelectedDong] = useState<SelectedDong>(null);
   const [selectedDistrict, setSelectedDistrict] = useState<string | null>(null);
+  const [showDashboard, setShowDashboard] = useState(false);
   const [selectedBusStop, setSelectedBusStop] = useState<any>(null);
   const [transitDow, setTransitDow] = useState("전체");
   const [transitHour, setTransitHour] = useState("전체");
@@ -614,6 +615,15 @@ export default function MapContainer() {
           />
           주요시설
         </label>
+        <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
+          <input
+            type="checkbox"
+            checked={showDashboard}
+            onChange={(e) => { setShowDashboard(e.target.checked); if (e.target.checked) setShowDistricts(true); else setSelectedDistrict(null); }}
+            className="accent-amber-600"
+          />
+          종합 대시보드
+        </label>
 
         {/* 시설 카테고리 선택 */}
         {showFacilities && (
@@ -788,7 +798,16 @@ export default function MapContainer() {
           onClose={() => setSelectedDong(null)}
         />
       )}
-      {selectedCity && showDistricts && selectedDistrict && (
+      {selectedCity && selectedDistrict && showDistricts && !showDashboard && (
+        <ElectionPanel
+          dongName={selectedDistrict}
+          onClose={() => setSelectedDistrict(null)}
+          electionsData={electionsData}
+          localElectionsData={localElectionsData}
+          cityName={selectedCity.name}
+        />
+      )}
+      {selectedCity && selectedDistrict && showDashboard && (
         <DistrictDashboard
           districtName={selectedDistrict}
           electionType={electionType}
