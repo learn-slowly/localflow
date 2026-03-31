@@ -21,6 +21,8 @@ import TransitHeatmapLayer, {
 } from "./TransitHeatmapLayer";
 import FacilitiesLayer, { FACILITY_GROUPS, ALL_CATEGORIES } from "./FacilitiesLayer";
 import PinMemoLayer from "./PinMemoLayer";
+import CampaignLayer from "./CampaignLayer";
+import type { CampaignRecord } from "./CampaignLayer";
 import jinjuTransitUsage from "@/data/jinju-transit-usage.json";
 import jinjuDistricts from "@/data/jinju-districts.json";
 
@@ -237,6 +239,10 @@ export default function MapContainer() {
   const [showPinMemo, setShowPinMemo] = useState(false);
   const [pinEditMode, setPinEditMode] = useState(false);
   const [pinCount, setPinCount] = useState(0);
+  const [showCampaign, setShowCampaign] = useState(false);
+  const [campaignEditMode, setCampaignEditMode] = useState(false);
+  const [campaignCount, setCampaignCount] = useState(0);
+  const [campaignFilter, setCampaignFilter] = useState<Set<CampaignRecord["status"]>>(new Set(["planned", "done", "skipped"]));
   const [placeInfo, setPlaceInfo] = useState<any>(null);
   const [placeLoading, setPlaceLoading] = useState(false);
   const [locating, setLocating] = useState(false);
@@ -559,7 +565,7 @@ export default function MapContainer() {
 
     const handler = (e: any) => {
       // 핀 편집 모드일 때는 장소 조회 안 함
-      if (pinEditMode) return;
+      if (pinEditMode || campaignEditMode) return;
       const lat = e.latLng.getLat();
       const lng = e.latLng.getLng();
       setPlaceLoading(true);
@@ -573,7 +579,7 @@ export default function MapContainer() {
 
     kakao.maps.event.addListener(map, "click", handler);
     return () => { kakao.maps.event.removeListener(map, "click", handler); };
-  }, [map, pinEditMode]);
+  }, [map, pinEditMode, campaignEditMode]);
 
   // 내 위치로 이동
   const goToMyLocation = () => {
@@ -785,6 +791,9 @@ export default function MapContainer() {
       {map && showPinMemo && (
         <PinMemoLayer map={map} editMode={pinEditMode} onPinCount={setPinCount} />
       )}
+      {map && showCampaign && (
+        <CampaignLayer map={map} editMode={campaignEditMode} statusFilter={campaignFilter} onRecordCount={setCampaignCount} />
+      )}
       {map && isJinju && showBusStops && (
         <TransitHeatmapLayer
           map={map}
@@ -891,12 +900,75 @@ export default function MapContainer() {
                   ? "bg-orange-600 text-white"
                   : "bg-gray-100 text-gray-600 hover:bg-gray-200"
               }`}
-              onClick={() => setPinEditMode(!pinEditMode)}
+              onClick={() => {
+                setPinEditMode(!pinEditMode);
+                if (!pinEditMode) setCampaignEditMode(false);
+              }}
             >
               {pinEditMode ? "지도 클릭하여 핀 추가 중..." : "핀 추가 모드"}
             </button>
             <p className="text-[10px] text-gray-400 mt-1">
               {pinEditMode ? "지도를 클릭하면 핀이 추가됩니다" : "기존 핀을 클릭하면 수정할 수 있습니다"}
+            </p>
+          </div>
+        )}
+
+        <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
+          <input
+            type="checkbox"
+            checked={showCampaign}
+            onChange={(e) => { setShowCampaign(e.target.checked); if (!e.target.checked) setCampaignEditMode(false); }}
+            className="accent-emerald-600"
+          />
+          선거운동 기록{campaignCount > 0 && showCampaign ? ` (${campaignCount})` : ""}
+        </label>
+
+        {showCampaign && (
+          <div className="mt-2 border-t pt-2">
+            <button
+              className={`text-xs px-2.5 py-1 rounded w-full ${
+                campaignEditMode
+                  ? "bg-emerald-600 text-white"
+                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+              }`}
+              onClick={() => {
+                setCampaignEditMode(!campaignEditMode);
+                if (!campaignEditMode) setPinEditMode(false);
+              }}
+            >
+              {campaignEditMode ? "지도 클릭하여 기록 추가 중..." : "기록 추가 모드"}
+            </button>
+            <div className="flex gap-1 mt-1.5">
+              {(["planned", "done", "skipped"] as const).map((s) => {
+                const labels = { planned: "예정", done: "완료", skipped: "건너뜀" };
+                const colors = { planned: "blue", done: "emerald", skipped: "gray" };
+                const isOn = campaignFilter.has(s);
+                return (
+                  <button
+                    key={s}
+                    className={`flex-1 text-[10px] py-0.5 rounded ${
+                      isOn ? `bg-${colors[s]}-100 text-${colors[s]}-700` : "bg-gray-50 text-gray-400"
+                    }`}
+                    style={{
+                      background: isOn ? (s === "planned" ? "#DBEAFE" : s === "done" ? "#D1FAE5" : "#F3F4F6") : "#FAFAFA",
+                      color: isOn ? (s === "planned" ? "#1D4ED8" : s === "done" ? "#047857" : "#6B7280") : "#D1D5DB",
+                    }}
+                    onClick={() => {
+                      setCampaignFilter((prev) => {
+                        const next = new Set(prev);
+                        if (next.has(s)) next.delete(s);
+                        else next.add(s);
+                        return next;
+                      });
+                    }}
+                  >
+                    {labels[s]}
+                  </button>
+                );
+              })}
+            </div>
+            <p className="text-[10px] text-gray-400 mt-1">
+              {campaignEditMode ? "지도를 클릭하면 기록이 추가됩니다" : "기존 기록을 클릭하면 수정할 수 있습니다"}
             </p>
           </div>
         )}
