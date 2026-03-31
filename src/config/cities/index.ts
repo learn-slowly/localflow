@@ -1,5 +1,6 @@
 import { CityConfig } from "./types";
 import { JINJU } from "./jinju";
+import { PAJU } from "./paju";
 import {
   CHANGWON_UICHANG,
   CHANGWON_SEONGSAN,
@@ -25,7 +26,7 @@ import {
 } from "./gyeongnam";
 
 export type { CityConfig };
-export { JINJU };
+export { JINJU, PAJU };
 
 export const cities: Record<string, CityConfig> = {
   jinju: JINJU,
@@ -50,6 +51,8 @@ export const cities: Record<string, CityConfig> = {
   hamyang: HAMYANG,
   geochang: GEOCHANG,
   hapcheon: HAPCHEON,
+  // 경기도
+  paju: PAJU,
 };
 
 export const DEFAULT_CITY = JINJU;
