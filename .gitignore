@@ -27,3 +27,12 @@ src/data/nationwide-boundary.json
 *.tsbuildinfo
 next-env.d.ts
 src/data/nec/extracted/
+
+# screenshots
+*.png
+
+# python
+__pycache__/
+
+# playwright
+.playwright-mcp/
