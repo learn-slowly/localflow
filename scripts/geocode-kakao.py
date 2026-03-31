@@ -12,7 +12,7 @@ import urllib.parse
 import urllib.error
 from pathlib import Path
 
-KAKAO_REST_API_KEY = "94d581afbe6853640fb5b8947955acf1"
+KAKAO_REST_API_KEY = "bf155cb12b2e73867b57a532ed355711"
 DATA_DIR = Path(__file__).parent.parent / "src" / "data"
 PUBLIC_FILE = Path(__file__).parent.parent / "public" / "data" / "facilities" / "48170-facilities.json"
 
@@ -98,11 +98,6 @@ def main():
     total_with_addr = [s for s in seniors if s.get("address")]
 
     for i, s in enumerate(total_with_addr):
-        # 이미 카카오로 갱신된 건 건너뛰기 (geocoded_by 플래그)
-        if s.get("geocoded_by") == "kakao":
-            updated += 1
-            continue
-
         addr = normalize_address(s["address"])
 
         # 주소 검색
