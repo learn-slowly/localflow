@@ -20,6 +20,7 @@ import TransitHeatmapLayer, {
   HEATMAP_LEGEND,
 } from "./TransitHeatmapLayer";
 import FacilitiesLayer, { FACILITY_GROUPS, ALL_CATEGORIES } from "./FacilitiesLayer";
+import PinMemoLayer from "./PinMemoLayer";
 import jinjuTransitUsage from "@/data/jinju-transit-usage.json";
 import jinjuDistricts from "@/data/jinju-districts.json";
 
@@ -233,6 +234,17 @@ export default function MapContainer() {
   const [showFacilities, setShowFacilities] = useState(false);
   const [facilitiesData, setFacilitiesData] = useState<any[]>([]);
   const [facilityCategories, setFacilityCategories] = useState<Set<string>>(new Set(["종합병원", "보건소", "관공서", "전통시장"]));
+  const [showPinMemo, setShowPinMemo] = useState(false);
+  const [pinEditMode, setPinEditMode] = useState(false);
+  const [pinCount, setPinCount] = useState(0);
+  const [placeInfo, setPlaceInfo] = useState<any>(null);
+  const [placeLoading, setPlaceLoading] = useState(false);
+  const [locating, setLocating] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState<any[]>([]);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searching, setSearching] = useState(false);
+  const searchOverlaysRef = useRef<kakao.maps.CustomOverlay[]>([]);
 
   // 경계·인구·선거 데이터
   const [boundaryData, setBoundaryData] = useState<any>(null);
@@ -541,6 +553,142 @@ export default function MapContainer() {
     };
   }, [map, isJinju, showPolling]);
 
+  // ─── 지도 클릭 → 장소 정보 조회 ───
+  useEffect(() => {
+    if (!map) return;
+
+    const handler = (e: any) => {
+      // 핀 편집 모드일 때는 장소 조회 안 함
+      if (pinEditMode) return;
+      const lat = e.latLng.getLat();
+      const lng = e.latLng.getLng();
+      setPlaceLoading(true);
+      setPlaceInfo(null);
+      fetch(`/api/places?lat=${lat}&lng=${lng}`)
+        .then((r) => r.json())
+        .then((data) => setPlaceInfo({ ...data, lat, lng }))
+        .catch(() => setPlaceInfo(null))
+        .finally(() => setPlaceLoading(false));
+    };
+
+    kakao.maps.event.addListener(map, "click", handler);
+    return () => { kakao.maps.event.removeListener(map, "click", handler); };
+  }, [map, pinEditMode]);
+
+  // 내 위치로 이동
+  const goToMyLocation = () => {
+    if (!map || !navigator.geolocation) return;
+    setLocating(true);
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const latlng = new kakao.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+        map.setCenter(latlng);
+        map.setLevel(3);
+        setLocating(false);
+      },
+      () => setLocating(false),
+      { enableHighAccuracy: true, timeout: 10000 },
+    );
+  };
+
+  // ─── 장소 검색 ───
+  const handleSearch = async (e?: React.FormEvent) => {
+    e?.preventDefault();
+    const q = searchQuery.trim();
+    if (!q) return;
+    setSearching(true);
+    setSearchResults([]);
+    try {
+      const center = map ? map.getCenter() : null;
+      let url = `/api/places/search?q=${encodeURIComponent(q)}`;
+      if (center) url += `&x=${center.getLng()}&y=${center.getLat()}`;
+      const res = await fetch(url);
+      const data = await res.json();
+      setSearchResults(data.places || []);
+    } catch { /* */ }
+    setSearching(false);
+  };
+
+  const clearSearch = () => {
+    setSearchQuery("");
+    setSearchResults([]);
+    setSearchOpen(false);
+    for (const o of searchOverlaysRef.current) o.setMap(null);
+    searchOverlaysRef.current = [];
+  };
+
+  const goToSearchResult = (place: any) => {
+    if (!map) return;
+    map.setCenter(new kakao.maps.LatLng(place.lat, place.lng));
+    map.setLevel(3);
+  };
+
+  // 검색 결과 마커
+  useEffect(() => {
+    for (const o of searchOverlaysRef.current) o.setMap(null);
+    searchOverlaysRef.current = [];
+
+    if (!map || searchResults.length === 0) return;
+
+    const tooltip = new kakao.maps.CustomOverlay({ zIndex: 300, yAnchor: 1.5 });
+
+    for (let i = 0; i < searchResults.length; i++) {
+      const place = searchResults[i];
+      const el = document.createElement("div");
+      el.style.cssText = `
+        width:24px;height:24px;border-radius:50%;
+        background:#EF4444;border:2px solid white;
+        color:white;font-size:11px;font-weight:bold;
+        display:flex;align-items:center;justify-content:center;
+        cursor:pointer;box-shadow:0 2px 4px rgba(0,0,0,.3);
+      `;
+      el.textContent = String(i + 1);
+
+      el.addEventListener("mouseenter", () => {
+        tooltip.setContent(
+          `<div style="background:white;padding:4px 8px;border-radius:4px;font-size:12px;box-shadow:0 1px 4px rgba(0,0,0,.3);white-space:nowrap">
+            <strong>${place.name}</strong><br/>
+            <span style="color:#666;font-size:11px">${place.address || ""}</span>
+          </div>`,
+        );
+        tooltip.setPosition(new kakao.maps.LatLng(place.lat, place.lng));
+        tooltip.setMap(map);
+      });
+      el.addEventListener("mouseleave", () => tooltip.setMap(null));
+      el.addEventListener("click", (e) => {
+        e.stopPropagation();
+        setPlaceInfo({
+          address: place.address,
+          region: null,
+          places: [place],
+          lat: place.lat,
+          lng: place.lng,
+        });
+      });
+
+      const overlay = new kakao.maps.CustomOverlay({
+        map,
+        position: new kakao.maps.LatLng(place.lat, place.lng),
+        content: el,
+        xAnchor: 0.5,
+        yAnchor: 0.5,
+        zIndex: 60,
+      });
+      searchOverlaysRef.current.push(overlay);
+    }
+
+    // 전체 결과가 보이도록 지도 범위 조정
+    const bounds = new kakao.maps.LatLngBounds();
+    for (const p of searchResults) bounds.extend(new kakao.maps.LatLng(p.lat, p.lng));
+    map.setBounds(bounds, 80, 80, 80, 80);
+
+    return () => {
+      for (const o of searchOverlaysRef.current) o.setMap(null);
+      searchOverlaysRef.current = [];
+      tooltip.setMap(null);
+    };
+  }, [map, searchResults]);
+
   // 도시 선택 옵션
   const cityOptions = [
     { key: "", label: "경남 전체" },
@@ -552,12 +700,90 @@ export default function MapContainer() {
       {/* 카카오맵 컨테이너 */}
       <div ref={mapContainerRef} className="h-full w-full" />
 
+      {/* 장소 검색 */}
+      <div className="absolute top-4 left-4 z-[1000]">
+        <form onSubmit={handleSearch} className="flex items-center gap-1">
+          <div className="relative">
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => { setSearchQuery(e.target.value); setSearchOpen(true); }}
+              onFocus={() => setSearchOpen(true)}
+              placeholder="장소 검색..."
+              className="w-56 px-3 py-2 pr-8 text-sm bg-white rounded-lg shadow-lg border-none focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700 placeholder-gray-400"
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                onClick={clearSearch}
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+              >&times;</button>
+            )}
+          </div>
+          <button
+            type="submit"
+            disabled={searching || !searchQuery.trim()}
+            className="w-9 h-9 bg-blue-600 text-white rounded-lg shadow-lg flex items-center justify-center hover:bg-blue-700 disabled:opacity-50"
+          >
+            {searching ? (
+              <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+            ) : (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="11" cy="11" r="7" />
+                <path d="M21 21l-4.35-4.35" />
+              </svg>
+            )}
+          </button>
+        </form>
+
+        {searchOpen && searchResults.length > 0 && (
+          <div className="mt-1 bg-white rounded-lg shadow-lg max-h-80 overflow-y-auto w-64">
+            {searchResults.map((p, i) => (
+              <button
+                key={p.id || i}
+                className="w-full text-left px-3 py-2 hover:bg-gray-50 border-b last:border-b-0 flex items-start gap-2"
+                onClick={() => goToSearchResult(p)}
+              >
+                <span className="w-5 h-5 rounded-full bg-red-500 text-white text-[10px] font-bold flex items-center justify-center shrink-0 mt-0.5">
+                  {i + 1}
+                </span>
+                <div className="min-w-0">
+                  <p className="text-sm text-gray-700 font-medium truncate">{p.name}</p>
+                  <p className="text-[10px] text-gray-400 truncate">{p.category}{p.distance ? ` · ${p.distance}` : ""}</p>
+                  <p className="text-[10px] text-gray-400 truncate">{p.address}</p>
+                </div>
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* 내 위치 버튼 */}
+      <button
+        onClick={goToMyLocation}
+        disabled={locating}
+        className="absolute bottom-6 right-4 z-[1000] w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 active:bg-gray-100 disabled:opacity-50"
+        title="내 위치"
+      >
+        {locating ? (
+          <span className="w-5 h-5 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />
+        ) : (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v4M12 18v4M2 12h4M18 12h4" />
+          </svg>
+        )}
+      </button>
+
       {/* 카카오맵 위 레이어 컴포넌트 */}
       {map && isJinju && showCommerce && (
         <CommerceLayer map={map} boundaryData={jinjuBoundary} />
       )}
       {map && showFacilities && facilitiesData.length > 0 && (
         <FacilitiesLayer map={map} facilities={facilitiesData} visibleCategories={facilityCategories} />
+      )}
+      {map && showPinMemo && (
+        <PinMemoLayer map={map} editMode={pinEditMode} onPinCount={setPinCount} />
       )}
       {map && isJinju && showBusStops && (
         <TransitHeatmapLayer
@@ -647,6 +873,33 @@ export default function MapContainer() {
           />
           종합 대시보드
         </label>
+        <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
+          <input
+            type="checkbox"
+            checked={showPinMemo}
+            onChange={(e) => { setShowPinMemo(e.target.checked); if (!e.target.checked) setPinEditMode(false); }}
+            className="accent-orange-600"
+          />
+          핀 메모{pinCount > 0 && showPinMemo ? ` (${pinCount})` : ""}
+        </label>
+
+        {showPinMemo && (
+          <div className="mt-2 border-t pt-2">
+            <button
+              className={`text-xs px-2.5 py-1 rounded w-full ${
+                pinEditMode
+                  ? "bg-orange-600 text-white"
+                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+              }`}
+              onClick={() => setPinEditMode(!pinEditMode)}
+            >
+              {pinEditMode ? "지도 클릭하여 핀 추가 중..." : "핀 추가 모드"}
+            </button>
+            <p className="text-[10px] text-gray-400 mt-1">
+              {pinEditMode ? "지도를 클릭하면 핀이 추가됩니다" : "기존 핀을 클릭하면 수정할 수 있습니다"}
+            </p>
+          </div>
+        )}
 
         {showFacilities && (
           <div className="mt-2 border-t pt-2">
@@ -808,6 +1061,54 @@ export default function MapContainer() {
       )}
       {isJinju && showBusStops && selectedBusStop && (
         <TransitUsagePanel station={selectedBusStop} onClose={() => setSelectedBusStop(null)} />
+      )}
+
+      {/* 장소 정보 패널 */}
+      {(placeInfo || placeLoading) && (
+        <div className="absolute bottom-6 left-4 z-[1000] bg-white rounded-lg shadow-lg max-w-sm w-80">
+          <div className="flex items-center justify-between p-3 pb-0">
+            <h4 className="text-sm font-bold text-gray-700">장소 정보</h4>
+            <button
+              onClick={() => { setPlaceInfo(null); setPlaceLoading(false); }}
+              className="text-gray-400 hover:text-gray-600 text-lg leading-none"
+            >&times;</button>
+          </div>
+          {placeLoading ? (
+            <div className="p-3 text-xs text-gray-400">조회 중...</div>
+          ) : placeInfo && (
+            <div className="p-3 pt-2">
+              {placeInfo.address && (
+                <p className="text-xs text-gray-600 mb-1">{placeInfo.address}</p>
+              )}
+              {placeInfo.region && placeInfo.region !== placeInfo.address && (
+                <p className="text-[10px] text-gray-400 mb-2">{placeInfo.region}</p>
+              )}
+              {placeInfo.places?.length > 0 && (
+                <div className="border-t pt-2 space-y-1.5">
+                  <p className="text-[10px] text-gray-400">주변 장소</p>
+                  {placeInfo.places.map((p: any, i: number) => (
+                    <div key={i} className="flex items-start gap-2">
+                      <span className="text-[10px] text-gray-300 mt-0.5 shrink-0">{p.distance}</span>
+                      <div className="min-w-0">
+                        {p.url ? (
+                          <a href={p.url} target="_blank" rel="noopener noreferrer"
+                            className="text-xs text-blue-600 hover:underline font-medium block truncate"
+                          >{p.name}</a>
+                        ) : (
+                          <span className="text-xs text-gray-700 font-medium block truncate">{p.name}</span>
+                        )}
+                        {p.category && <span className="text-[10px] text-gray-400">{p.category}</span>}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+              {(!placeInfo.places || placeInfo.places.length === 0) && !placeInfo.address && (
+                <p className="text-xs text-gray-400">이 위치에 대한 정보가 없습니다</p>
+              )}
+            </div>
+          )}
+        </div>
       )}
     </div>
   );
