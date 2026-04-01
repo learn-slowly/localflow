@@ -12,7 +12,6 @@ import PopulationPanel from "./PopulationPanel";
 import ElectionPanel from "./ElectionPanel";
 import TransitUsagePanel from "./TransitUsagePanel";
 import DistrictDashboard from "./DistrictDashboard";
-import CommerceLayer, { COMMERCE_LEGEND } from "./CommerceLayer";
 import TransitHeatmapLayer, {
   DOW_OPTIONS,
   DOW_SHORT,
@@ -222,7 +221,6 @@ export default function MapContainer() {
   const [showPopulation, setShowPopulation] = useState(false);
   const [showPolling, setShowPolling] = useState(false);
   const [showBusStops, setShowBusStops] = useState(false);
-  const [showCommerce, setShowCommerce] = useState(false);
   const [showDistricts, setShowDistricts] = useState(false);
   const [electionType, setElectionType] = useState<"local" | "provincial" | "mayor" | "assembly">("local");
   const [selectedDong, setSelectedDong] = useState<SelectedDong>(null);
@@ -782,10 +780,7 @@ export default function MapContainer() {
       </button>
 
       {/* 카카오맵 위 레이어 컴포넌트 */}
-      {map && isJinju && showCommerce && (
-        <CommerceLayer map={map} boundaryData={jinjuBoundary} />
-      )}
-      {map && showFacilities && facilitiesData.length > 0 && (
+{map && showFacilities && facilitiesData.length > 0 && (
         <FacilitiesLayer map={map} facilities={facilitiesData} visibleCategories={facilityCategories} />
       )}
       {map && showPinMemo && (
@@ -862,10 +857,6 @@ export default function MapContainer() {
             <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
               <input type="checkbox" checked={showBusStops} onChange={(e) => setShowBusStops(e.target.checked)} className="accent-cyan-600" />
               대중교통
-            </label>
-            <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
-              <input type="checkbox" checked={showCommerce} onChange={(e) => setShowCommerce(e.target.checked)} className="accent-green-600" />
-              상권 밀집도
             </label>
           </>
         )}
@@ -1015,17 +1006,6 @@ export default function MapContainer() {
           </div>
         )}
 
-        {isJinju && showCommerce && (
-          <div className="mt-2 border-t pt-2">
-            <p className="text-xs text-gray-500 mb-1">상가 수</p>
-            {COMMERCE_LEGEND.map((item) => (
-              <div key={item.label} className="flex items-center gap-1.5 text-xs text-gray-600">
-                <span className="inline-block w-3 h-3 rounded-sm" style={{ backgroundColor: item.color }} />
-                {item.label}
-              </div>
-            ))}
-          </div>
-        )}
 
         {isJinju && showBusStops && (
           <div className="mt-2 border-t pt-2">
