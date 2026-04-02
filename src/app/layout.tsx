@@ -4,6 +4,13 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "LocalFlow — 지역 선거 참고 자료",
   description: "기초의원 선거 유세 전략 수립을 위한 유동인구·교통·상권·선거 데이터 종합 분석 플랫폼",
+  manifest: "/manifest.json",
+  themeColor: "#f5c542",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "LocalFlow",
+  },
 };
 
 export default function RootLayout({
@@ -13,7 +20,23 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body>{children}</body>
+      <head>
+        <link rel="apple-touch-icon" href="/icon-192.png" />
+      </head>
+      <body>
+        {children}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                  navigator.serviceWorker.register('/sw.js');
+                });
+              }
+            `,
+          }}
+        />
+      </body>
     </html>
   );
 }

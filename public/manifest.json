@@ -1,0 +1,27 @@
+{
+  "name": "LocalFlow — 지역 선거 참고 자료",
+  "short_name": "LocalFlow",
+  "description": "기초의원 선거 유세 전략 수립을 위한 유동인구·교통·상권·선거 데이터 종합 분석 플랫폼",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5c542",
+  "theme_color": "#f5c542",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

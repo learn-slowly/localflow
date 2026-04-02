@@ -30,6 +30,7 @@ src/data/nec/extracted/
 
 # screenshots
 *.png
+!public/icon-192.png
 
 # python
 __pycache__/
