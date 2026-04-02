@@ -9,7 +9,7 @@ const MapContainer = dynamic(
 
 export default function Home() {
   return (
-    <main className="h-screen w-full">
+    <main className="h-dvh w-full">
       <MapContainer />
     </main>
   );

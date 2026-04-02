@@ -700,7 +700,7 @@ export default function MapContainer() {
   ];
 
   return (
-    <div className="relative h-screen w-full">
+    <div className="relative h-dvh w-full">
       {/* 카카오맵 컨테이너 */}
       <div ref={mapContainerRef} className="h-full w-full" />
 
