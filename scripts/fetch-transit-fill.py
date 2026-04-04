@@ -162,15 +162,17 @@ def main():
     print(f"  기존 포함 총 좌표: {len(bus_coords)}개")
 
     # 수집할 날짜 결정
-    # 1) 누락 읍면동 보완: 월·화·수도 다시 수집 (신규 정류장 발견용)
-    # 2) 미수집 요일: 목·금·토·일
-    # → 전체 날짜 수집하되, 기존 정류장의 기존 요일은 덮어쓰지 않음
+    # 이미 완전 수집된 요일은 건너뜀 (API 쿼터 절약)
+    SKIP_DOWS = {"월요일", "화요일"}
 
     dow_dates = defaultdict(list)
     for date, dow in ALL_DATES:
         dow_dates[dow].append(date)
 
     for dow in DOW_NAMES:
+        if dow in SKIP_DOWS:
+            print(f"\n[{dow}] 이미 완전 수집 — 건너뜀")
+            continue
         dates = dow_dates.get(dow, [])
         if not dates:
             continue
@@ -221,8 +223,10 @@ def main():
             if sid in idx_map:
                 station = existing[idx_map[sid]]
 
-                if is_new_dow:
-                    # 신규 요일: byDow 추가 + hourly/total 합산
+                if dow not in station.get("byDow", {}):
+                    # 이 정류장에 해당 요일 데이터가 없으면 추가
+                    if "byDow" not in station:
+                        station["byDow"] = {}
                     station["byDow"][dow] = hourly
                     for h, v in hourly.items():
                         if h in station["hourly"]:
@@ -233,7 +237,7 @@ def main():
                         station["totalRide"] += v["ride"]
                         station["totalGoff"] += v["goff"]
                     merged += 1
-                # 기존 요일의 기존 정류장: 건너뜀 (이미 있음)
+                # 이미 해당 요일 데이터가 있는 정류장: 건너뜀
 
             else:
                 # 신규 정류장 추가
