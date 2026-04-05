@@ -26,6 +26,7 @@ function loadScript(): Promise<void> {
     }
 
     if (!KAKAO_MAP_KEY) {
+      scriptLoading = null;
       reject("NEXT_PUBLIC_KAKAO_MAP_KEY 환경변수 미설정");
       return;
     }

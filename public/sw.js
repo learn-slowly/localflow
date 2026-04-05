@@ -1,4 +1,4 @@
-const CACHE_NAME = "localflow-v1";
+const CACHE_NAME = "localflow-v2";
 const PRECACHE_URLS = ["/", "/icon-192.png", "/icon.png"];
 
 self.addEventListener("install", (event) => {
@@ -21,6 +21,11 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   const { request } = event;
+
+  // 외부 도메인 요청은 서비스 워커에서 제외 (카카오맵 SDK 등)
+  if (!request.url.startsWith(self.location.origin)) {
+    return;
+  }
 
   // API 요청은 네트워크 우선
   if (request.url.includes("/api/")) {
