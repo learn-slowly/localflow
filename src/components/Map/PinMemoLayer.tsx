@@ -41,8 +41,10 @@ export default function PinMemoLayer({ map, editMode, onPinCount }: Props) {
   const [editingPin, setEditingPin] = useState<PinMemo | null>(null);
   const [draftMemo, setDraftMemo] = useState("");
   const [draftColor, setDraftColor] = useState(PIN_COLORS[0]);
+  const [confirmDelete, setConfirmDelete] = useState(false);
   const overlaysRef = useRef<kakao.maps.CustomOverlay[]>([]);
   const clickListenerRef = useRef<((e: any) => void) | null>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   // 초기 로딩
   useEffect(() => {
@@ -53,6 +55,20 @@ export default function PinMemoLayer({ map, editMode, onPinCount }: Props) {
   useEffect(() => {
     onPinCount?.(pins.length);
   }, [pins.length, onPinCount]);
+
+  // 현재 편집 중인 핀 저장 (다른 곳 클릭 시 자동 저장용)
+  const saveCurrentPin = useCallback(() => {
+    if (!editingPin) return;
+    const updated = { ...editingPin, memo: draftMemo, color: draftColor };
+    setPins((prev) => {
+      const exists = prev.find((p) => p.id === updated.id);
+      const next = exists ? prev.map((p) => (p.id === updated.id ? updated : p)) : [...prev, updated];
+      syncPins(next);
+      return next;
+    });
+    setEditingPin(null);
+    setConfirmDelete(false);
+  }, [editingPin, draftMemo, draftColor]);
 
   // 편집 모드: 지도 클릭으로 핀 추가
   useEffect(() => {
@@ -67,17 +83,28 @@ export default function PinMemoLayer({ map, editMode, onPinCount }: Props) {
 
     const handler = (e: any) => {
       const latlng = e.latLng;
+      // 이전 핀 자동 저장
+      saveCurrentPin();
+
       const newPin: PinMemo = {
         id: crypto.randomUUID(),
         lat: latlng.getLat(),
         lng: latlng.getLng(),
         memo: "",
-        color: PIN_COLORS[0],
+        color: draftColor, // 마지막 선택한 색상 유지
         createdAt: new Date().toISOString(),
       };
+      // 즉시 저장 (빈 메모로)
+      setPins((prev) => {
+        const next = [...prev, newPin];
+        syncPins(next);
+        return next;
+      });
       setEditingPin(newPin);
       setDraftMemo("");
-      setDraftColor(PIN_COLORS[0]);
+      setConfirmDelete(false);
+      // 에디터에 포커스
+      setTimeout(() => textareaRef.current?.focus(), 50);
     };
 
     kakao.maps.event.addListener(map, "click", handler);
@@ -87,7 +114,7 @@ export default function PinMemoLayer({ map, editMode, onPinCount }: Props) {
       kakao.maps.event.removeListener(map, "click", handler);
       clickListenerRef.current = null;
     };
-  }, [map, editMode]);
+  }, [map, editMode, saveCurrentPin, draftColor]);
 
   // 커서 스타일 변경
   useEffect(() => {
@@ -101,6 +128,13 @@ export default function PinMemoLayer({ map, editMode, onPinCount }: Props) {
     return () => { container.style.cursor = ""; };
   }, [map, editMode]);
 
+  // 편집 모드 해제 시 현재 편집 중인 핀 저장
+  useEffect(() => {
+    if (!editMode && editingPin) {
+      saveCurrentPin();
+    }
+  }, [editMode]);
+
   // 핀 오버레이 렌더링
   useEffect(() => {
     for (const o of overlaysRef.current) o.setMap(null);
@@ -113,14 +147,16 @@ export default function PinMemoLayer({ map, editMode, onPinCount }: Props) {
       el.style.cssText = `position:relative;cursor:pointer;`;
 
       const marker = document.createElement("div");
+      const isEditing = editingPin?.id === pin.id;
       marker.style.cssText = `
-        width:28px;height:28px;
+        width:${isEditing ? "32px" : "28px"};height:${isEditing ? "32px" : "28px"};
         background:${pin.color};
-        border:2px solid white;
+        border:2px solid ${isEditing ? "#1F2937" : "white"};
         border-radius:50% 50% 50% 0;
         transform:rotate(-45deg);
         box-shadow:0 2px 6px rgba(0,0,0,.35);
         display:flex;align-items:center;justify-content:center;
+        transition:all .15s;
       `;
       const inner = document.createElement("div");
       inner.style.cssText = `
@@ -147,9 +183,15 @@ export default function PinMemoLayer({ map, editMode, onPinCount }: Props) {
 
       el.addEventListener("click", (e) => {
         e.stopPropagation();
+        // 다른 핀 클릭 시 이전 핀 저장
+        if (editingPin && editingPin.id !== pin.id) {
+          saveCurrentPin();
+        }
         setEditingPin(pin);
         setDraftMemo(pin.memo);
         setDraftColor(pin.color);
+        setConfirmDelete(false);
+        setTimeout(() => textareaRef.current?.focus(), 50);
       });
 
       const overlay = new kakao.maps.CustomOverlay({
@@ -158,7 +200,7 @@ export default function PinMemoLayer({ map, editMode, onPinCount }: Props) {
         content: el,
         xAnchor: 0.2,
         yAnchor: 1,
-        zIndex: 50,
+        zIndex: isEditing ? 51 : 50,
       });
       overlaysRef.current.push(overlay);
     }
@@ -167,94 +209,130 @@ export default function PinMemoLayer({ map, editMode, onPinCount }: Props) {
       for (const o of overlaysRef.current) o.setMap(null);
       overlaysRef.current = [];
     };
-  }, [map, pins]);
+  }, [map, pins, editingPin?.id]);
 
   const handleSave = useCallback(() => {
     if (!editingPin) return;
     const updated = { ...editingPin, memo: draftMemo, color: draftColor };
     setPins((prev) => {
-      const exists = prev.find((p) => p.id === updated.id);
-      const next = exists ? prev.map((p) => (p.id === updated.id ? updated : p)) : [...prev, updated];
+      const next = prev.map((p) => (p.id === updated.id ? updated : p));
       syncPins(next);
       return next;
     });
     setEditingPin(null);
+    setConfirmDelete(false);
   }, [editingPin, draftMemo, draftColor]);
 
   const handleDelete = useCallback(() => {
     if (!editingPin) return;
+    if (!confirmDelete) {
+      setConfirmDelete(true);
+      return;
+    }
     setPins((prev) => {
       const next = prev.filter((p) => p.id !== editingPin.id);
       syncPins(next);
       return next;
     });
     setEditingPin(null);
-  }, [editingPin]);
+    setConfirmDelete(false);
+  }, [editingPin, confirmDelete]);
+
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+    if (e.key === "Escape") {
+      setEditingPin(null);
+      setConfirmDelete(false);
+    }
+    if ((e.ctrlKey || e.metaKey) && e.key === "Enter") {
+      e.preventDefault();
+      handleSave();
+    }
+  }, [handleSave]);
 
   if (!editingPin) return null;
 
+  const isNew = !pins.find((p) => p.id === editingPin.id);
+
   return (
     <div
-      className="fixed inset-0 z-[2000] flex items-center justify-center"
-      onClick={() => setEditingPin(null)}
+      className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[2000] w-80"
+      onKeyDown={handleKeyDown}
     >
-      <div className="absolute inset-0 bg-black/20" />
-      <div
-        className="relative bg-white rounded-lg shadow-xl p-4 w-80"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <h4 className="text-sm font-bold text-gray-700 mb-3">
-          {pins.find((p) => p.id === editingPin.id) ? "메모 수정" : "새 핀 메모"}
-        </h4>
-
-        <textarea
-          value={draftMemo}
-          onChange={(e) => setDraftMemo(e.target.value)}
-          placeholder="메모를 입력하세요..."
-          className="w-full border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
-          rows={3}
-          autoFocus
-        />
-
-        <div className="flex gap-1.5 mt-2">
-          {PIN_COLORS.map((c) => (
-            <button
-              key={c}
-              className="w-6 h-6 rounded-full border-2 transition-transform"
-              style={{
-                backgroundColor: c,
-                borderColor: draftColor === c ? "#1F2937" : "transparent",
-                transform: draftColor === c ? "scale(1.2)" : "scale(1)",
-              }}
-              onClick={() => setDraftColor(c)}
-            />
-          ))}
+      <div className="bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden">
+        {/* 헤더: 색상 선택 + 닫기 */}
+        <div className="flex items-center justify-between px-3 py-2 bg-gray-50 border-b">
+          <div className="flex gap-1.5">
+            {PIN_COLORS.map((c) => (
+              <button
+                key={c}
+                className="w-5 h-5 rounded-full border-2 transition-all"
+                style={{
+                  backgroundColor: c,
+                  borderColor: draftColor === c ? "#1F2937" : "transparent",
+                  transform: draftColor === c ? "scale(1.15)" : "scale(1)",
+                }}
+                onClick={() => {
+                  setDraftColor(c);
+                  // 색상 변경 즉시 반영
+                  if (editingPin) {
+                    const updated = { ...editingPin, color: c };
+                    setEditingPin(updated);
+                    setPins((prev) => {
+                      const next = prev.map((p) => (p.id === updated.id ? updated : p));
+                      syncPins(next);
+                      return next;
+                    });
+                  }
+                }}
+              />
+            ))}
+          </div>
+          <button
+            onClick={() => { setEditingPin(null); setConfirmDelete(false); }}
+            className="text-gray-400 hover:text-gray-600 text-lg leading-none px-1"
+          >
+            &times;
+          </button>
         </div>
 
-        <div className="flex justify-between mt-3">
-          {pins.find((p) => p.id === editingPin.id) ? (
-            <button
-              onClick={handleDelete}
-              className="text-xs text-red-500 hover:text-red-700"
-            >
-              삭제
-            </button>
-          ) : (
-            <div />
-          )}
-          <div className="flex gap-2">
-            <button
-              onClick={() => setEditingPin(null)}
-              className="text-xs text-gray-500 hover:text-gray-700 px-3 py-1"
-            >
-              취소
-            </button>
-            <button
-              onClick={handleSave}
-              className="text-xs bg-blue-600 text-white px-3 py-1.5 rounded hover:bg-blue-700"
-            >
-              저장
-            </button>
+        {/* 메모 입력 */}
+        <div className="p-3">
+          <textarea
+            ref={textareaRef}
+            value={draftMemo}
+            onChange={(e) => setDraftMemo(e.target.value)}
+            placeholder="메모 입력 (선택)"
+            className="w-full border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+            rows={2}
+          />
+
+          {/* 하단 버튼 */}
+          <div className="flex items-center justify-between mt-2">
+            <div>
+              {!isNew && (
+                <button
+                  onClick={handleDelete}
+                  className={`text-xs px-2 py-1 rounded transition-colors ${
+                    confirmDelete
+                      ? "bg-red-600 text-white"
+                      : "text-red-500 hover:text-red-700"
+                  }`}
+                >
+                  {confirmDelete ? "정말 삭제" : "삭제"}
+                </button>
+              )}
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] text-gray-400 hidden sm:inline">
+                {navigator.platform.includes("Mac") ? "Cmd" : "Ctrl"}+Enter
+              </span>
+              <button
+                onClick={handleSave}
+                className="text-xs bg-blue-600 text-white px-3 py-1.5 rounded hover:bg-blue-700"
+              >
+                저장
+              </button>
+            </div>
           </div>
         </div>
       </div>
