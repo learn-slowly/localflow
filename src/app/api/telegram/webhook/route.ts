@@ -7,6 +7,7 @@ const redis = new Redis({
 });
 
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN!;
+const BOT_USERNAME = process.env.TELEGRAM_BOT_USERNAME?.toLowerCase() || "";
 const TELEGRAM_API = `https://api.telegram.org/bot${BOT_TOKEN}`;
 const PHOTOS_KEY = "photo-markers";
 const CAMPAIGN_KEY = "campaign-records";
@@ -311,11 +312,14 @@ export async function POST(req: NextRequest) {
       const msg = update.message;
       const isPrivate = msg.chat.type === "private";
       const isForward = !!(msg.forward_date || msg.forward_origin);
-      const botMentioned = msg.entities?.some(
-        (e: any) => e.type === "mention" && msg.text?.includes("@")
-      ) || msg.caption_entities?.some(
-        (e: any) => e.type === "mention"
-      );
+      // 봇 @멘션 여부: 엔티티에서 실제 username을 추출하여 비교
+      const extractMention = (text: string | undefined, entities: any[] | undefined) =>
+        (entities || []).some((e: any) => {
+          if (e.type !== "mention" || !text) return false;
+          const mentioned = text.slice(e.offset + 1, e.offset + e.length).toLowerCase();
+          return BOT_USERNAME && mentioned === BOT_USERNAME;
+        });
+      const botMentioned = extractMention(msg.text, msg.entities) || extractMention(msg.caption, msg.caption_entities);
 
       // 위치 공유 메시지 → 대기 중인 기록에 위치 업데이트
       if (msg.location && isPrivate) {
