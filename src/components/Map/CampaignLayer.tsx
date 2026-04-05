@@ -17,6 +17,8 @@ export interface CampaignRecord {
   address?: string;
   dong?: string;
   createdAt: string;
+  source?: string;
+  telegramPhoto?: string;
 }
 
 type RecordType = CampaignRecord["type"];
@@ -78,11 +80,16 @@ interface Props {
   editMode: boolean;
   statusFilter: Set<RecordStatus>;
   onRecordCount?: (count: number) => void;
+  onUnlocatedCount?: (count: number) => void;
+  showUnlocated?: boolean;
+  onShowUnlocatedChange?: (show: boolean) => void;
 }
 
-export default function CampaignLayer({ map, editMode, statusFilter, onRecordCount }: Props) {
+export default function CampaignLayer({ map, editMode, statusFilter, onRecordCount, onUnlocatedCount, showUnlocated, onShowUnlocatedChange }: Props) {
   const [records, setRecords] = useState<CampaignRecord[]>([]);
   const [editing, setEditing] = useState<CampaignRecord | null>(null);
+  const setShowUnlocated = onShowUnlocatedChange || (() => {});
+  const [placingRecord, setPlacingRecord] = useState<CampaignRecord | null>(null);
   const [draft, setDraft] = useState({
     title: "",
     type: "canvass" as RecordType,
@@ -105,6 +112,37 @@ export default function CampaignLayer({ map, editMode, statusFilter, onRecordCou
   useEffect(() => {
     onRecordCount?.(records.length);
   }, [records.length, onRecordCount]);
+
+  // 위치 미지정 개수 알림
+  const unlocatedRecords = records.filter((r) => !r.lat && !r.lng);
+  useEffect(() => {
+    onUnlocatedCount?.(unlocatedRecords.length);
+  }, [unlocatedRecords.length, onUnlocatedCount]);
+
+  // 위치 배치 모드: 지도 클릭으로 기록 위치 지정
+  useEffect(() => {
+    if (!map || !placingRecord) return;
+    const container = map.getNode();
+    container.style.cursor = "crosshair";
+
+    const handler = (e: any) => {
+      const latlng = e.latLng;
+      const updated = { ...placingRecord, lat: latlng.getLat(), lng: latlng.getLng() };
+      setRecords((prev) => {
+        const next = prev.map((r) => (r.id === updated.id ? updated : r));
+        syncRecords(next);
+        return next;
+      });
+      setPlacingRecord(null);
+      container.style.cursor = "";
+    };
+
+    kakao.maps.event.addListener(map, "click", handler);
+    return () => {
+      kakao.maps.event.removeListener(map, "click", handler);
+      container.style.cursor = "";
+    };
+  }, [map, placingRecord]);
 
   // 편집 모드: 지도 클릭으로 기록 추가
   useEffect(() => {
@@ -309,11 +347,89 @@ export default function CampaignLayer({ map, editMode, statusFilter, onRecordCou
     setEditing(null);
   }, [editing]);
 
-  if (!editing) return null;
+  if (!editing && !showUnlocated && !placingRecord) return null;
 
-  const isNew = !records.find((r) => r.id === editing.id);
+  const isNew = editing ? !records.find((r) => r.id === editing.id) : false;
 
   return (
+    <>
+    {/* 위치 배치 모드 안내 배너 */}
+    {placingRecord && (
+      <div className="fixed top-4 left-1/2 -translate-x-1/2 z-[2000] bg-emerald-600 text-white px-4 py-2 rounded-lg shadow-lg text-sm flex items-center gap-3">
+        <span>📍 &quot;{placingRecord.title || "기록"}&quot;의 위치를 지도에서 클릭하세요</span>
+        <button
+          onClick={() => { setPlacingRecord(null); if (map) map.getNode().style.cursor = ""; }}
+          className="text-white/80 hover:text-white text-xs underline"
+        >
+          취소
+        </button>
+      </div>
+    )}
+
+    {/* 위치 미지정 목록 패널 */}
+    {showUnlocated && !editing && !placingRecord && (
+      <div
+        className="fixed inset-0 z-[2000] flex items-center justify-center"
+        onClick={() => setShowUnlocated(false)}
+      >
+        <div className="absolute inset-0 bg-black/20" />
+        <div
+          className="relative bg-white rounded-lg shadow-xl p-4 w-96 max-h-[80vh] overflow-y-auto"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <h4 className="text-sm font-bold text-gray-700 mb-3">
+            📍 위치 미지정 기록 ({unlocatedRecords.length}건)
+          </h4>
+          {unlocatedRecords.length === 0 ? (
+            <p className="text-sm text-gray-400">모든 기록에 위치가 지정되어 있습니다.</p>
+          ) : (
+            <div className="space-y-2">
+              {unlocatedRecords.map((rec) => (
+                <div
+                  key={rec.id}
+                  className="flex items-center gap-2 p-2 rounded border border-gray-200 hover:bg-gray-50"
+                >
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm text-gray-700 truncate">{rec.title || rec.memo?.slice(0, 40) || "제목 없음"}</p>
+                    <p className="text-[10px] text-gray-400">{rec.date} · {rec.source === "telegram" ? "텔레그램" : "직접 입력"}</p>
+                  </div>
+                  <button
+                    className="text-xs bg-emerald-600 text-white px-2 py-1 rounded hover:bg-emerald-700 shrink-0"
+                    onClick={() => {
+                      setShowUnlocated(false);
+                      setPlacingRecord(rec);
+                    }}
+                  >
+                    위치 지정
+                  </button>
+                  <button
+                    className="text-xs text-gray-400 hover:text-red-500 shrink-0"
+                    onClick={() => {
+                      setRecords((prev) => {
+                        const next = prev.filter((r) => r.id !== rec.id);
+                        syncRecords(next);
+                        return next;
+                      });
+                    }}
+                  >
+                    삭제
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
+          <button
+            onClick={() => setShowUnlocated(false)}
+            className="mt-3 text-xs text-gray-500 hover:text-gray-700 w-full text-center py-1"
+          >
+            닫기
+          </button>
+        </div>
+      </div>
+    )}
+
+    {/* 기록 편집 모달 */}
+    {editing && (
     <div
       className="fixed inset-0 z-[2000] flex items-center justify-center"
       onClick={() => setEditing(null)}
@@ -467,5 +583,7 @@ export default function CampaignLayer({ map, editMode, statusFilter, onRecordCou
         </div>
       </div>
     </div>
+    )}
+    </>
   );
 }

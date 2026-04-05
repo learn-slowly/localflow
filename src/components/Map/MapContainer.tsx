@@ -22,6 +22,7 @@ import FacilitiesLayer, { FACILITY_GROUPS, ALL_CATEGORIES } from "./FacilitiesLa
 import PinMemoLayer from "./PinMemoLayer";
 import CampaignLayer from "./CampaignLayer";
 import type { CampaignRecord } from "./CampaignLayer";
+import PhotoLayer from "./PhotoLayer";
 import jinjuTransitUsage from "@/data/jinju-transit-usage.json";
 import jinjuDistricts from "@/data/jinju-districts.json";
 
@@ -241,6 +242,11 @@ export default function MapContainer() {
   const [campaignEditMode, setCampaignEditMode] = useState(false);
   const [campaignCount, setCampaignCount] = useState(0);
   const [campaignFilter, setCampaignFilter] = useState<Set<CampaignRecord["status"]>>(new Set(["planned", "done", "skipped"]));
+  const [unlocatedCount, setUnlocatedCount] = useState(0);
+  const [showUnlocatedPanel, setShowUnlocatedPanel] = useState(false);
+  const [showPhotos, setShowPhotos] = useState(false);
+  const [photoCount, setPhotoCount] = useState(0);
+  const photoInputRef = useRef<HTMLInputElement>(null);
   const [placeInfo, setPlaceInfo] = useState<any>(null);
   const [placeLoading, setPlaceLoading] = useState(false);
   const [locating, setLocating] = useState(false);
@@ -787,7 +793,10 @@ export default function MapContainer() {
         <PinMemoLayer map={map} editMode={pinEditMode} onPinCount={setPinCount} />
       )}
       {map && showCampaign && (
-        <CampaignLayer map={map} editMode={campaignEditMode} statusFilter={campaignFilter} onRecordCount={setCampaignCount} />
+        <CampaignLayer map={map} editMode={campaignEditMode} statusFilter={campaignFilter} onRecordCount={setCampaignCount} onUnlocatedCount={setUnlocatedCount} showUnlocated={showUnlocatedPanel} onShowUnlocatedChange={setShowUnlocatedPanel} />
+      )}
+      {map && showPhotos && (
+        <PhotoLayer map={map} onPhotoCount={setPhotoCount} fileInputRef={photoInputRef} />
       )}
       {map && isJinju && showBusStops && (
         <TransitHeatmapLayer
@@ -960,6 +969,39 @@ export default function MapContainer() {
             </div>
             <p className="text-[10px] text-gray-400 mt-1">
               {campaignEditMode ? "지도를 클릭하면 기록이 추가됩니다" : "기존 기록을 클릭하면 수정할 수 있습니다"}
+            </p>
+            {unlocatedCount > 0 && (
+              <button
+                className="mt-1.5 w-full text-xs px-2 py-1.5 rounded bg-amber-100 text-amber-800 hover:bg-amber-200 flex items-center justify-center gap-1"
+                onClick={() => setShowUnlocatedPanel(true)}
+              >
+                <span className="inline-block w-4 h-4 bg-amber-500 text-white rounded-full text-[10px] leading-4 text-center">{unlocatedCount}</span>
+                위치 미지정 기록
+              </button>
+            )}
+          </div>
+        )}
+
+        <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
+          <input
+            type="checkbox"
+            checked={showPhotos}
+            onChange={(e) => setShowPhotos(e.target.checked)}
+            className="accent-pink-600"
+          />
+          현장 사진{photoCount > 0 && showPhotos ? ` (${photoCount})` : ""}
+        </label>
+
+        {showPhotos && (
+          <div className="mt-2 border-t pt-2">
+            <button
+              className="text-xs px-2.5 py-1 rounded w-full bg-pink-600 text-white hover:bg-pink-700"
+              onClick={() => photoInputRef.current?.click()}
+            >
+              사진 업로드
+            </button>
+            <p className="text-[10px] text-gray-400 mt-1">
+              GPS 있는 사진은 자동 배치, 없으면 지도 클릭으로 위치 지정
             </p>
           </div>
         )}
