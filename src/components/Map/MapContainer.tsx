@@ -739,10 +739,10 @@ export default function MapContainer() {
       {map && showPinMemo && (
         <PinMemoLayer map={map} editMode={pinEditMode} onPinCount={setPinCount} />
       )}
-      {map && showPinMemo && showCampaign && (
+      {map && showPinMemo && (
         <CampaignLayer map={map} editMode={campaignEditMode} statusFilter={campaignFilter} onRecordCount={setCampaignCount} onUnlocatedCount={setUnlocatedCount} showUnlocated={showUnlocatedPanel} onShowUnlocatedChange={setShowUnlocatedPanel} />
       )}
-      {map && showPinMemo && showPhotos && (
+      {map && showPinMemo && (
         <PhotoLayer map={map} onPhotoCount={setPhotoCount} fileInputRef={photoInputRef} />
       )}
       {map && isJinju && showBusStops && (
