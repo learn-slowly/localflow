@@ -6,7 +6,6 @@ import { cities, DEFAULT_CITY, GYEONGNAM_VIEW } from "@/config/cities";
 import type { CityConfig } from "@/config/cities";
 import jinjuBoundary from "@/data/jinju-boundary.json";
 import jinjuLegalBoundary from "@/data/jinju-legal-boundary.json";
-import jinjuPollingStations from "@/data/jinju-polling-stations.json";
 import jinjuBusStops from "@/data/jinju-bus-stops.json";
 import PopulationPanel from "./PopulationPanel";
 import ElectionPanel from "./ElectionPanel";
@@ -220,7 +219,6 @@ export default function MapContainer() {
   const [showAdmin, setShowAdmin] = useState(true);
   const [showLegal, setShowLegal] = useState(false);
   const [showPopulation, setShowPopulation] = useState(false);
-  const [showPolling, setShowPolling] = useState(false);
   const [showBusStops, setShowBusStops] = useState(false);
   const [showDistricts, setShowDistricts] = useState(false);
   const [electionType, setElectionType] = useState<"local" | "provincial" | "mayor" | "assembly">("local");
@@ -281,8 +279,6 @@ export default function MapContainer() {
   const popTooltipRef = useRef<kakao.maps.CustomOverlay | null>(null);
   const distPolygonsRef = useRef<kakao.maps.Polygon[]>([]);
   const distTooltipRef = useRef<kakao.maps.CustomOverlay | null>(null);
-  const pollingOverlaysRef = useRef<kakao.maps.CustomOverlay[]>([]);
-  const pollingTooltipRef = useRef<kakao.maps.CustomOverlay | null>(null);
 
   // 시설 데이터 로딩
   useEffect(() => {
@@ -513,55 +509,6 @@ export default function MapContainer() {
     distTooltipRef.current = tooltip;
   }, [map, selectedCityKey, showDistricts, populationData, electionType, selectedDistrict, currentDistricts.length, JSON.stringify(dongToDistrict)]);
 
-  // ─── 투표소 오버레이 (진주 전용) ───
-  useEffect(() => {
-    for (const o of pollingOverlaysRef.current) o.setMap(null);
-    pollingOverlaysRef.current = [];
-    if (pollingTooltipRef.current) pollingTooltipRef.current.setMap(null);
-
-    if (!map || !isJinju || !showPolling) return;
-
-    const tooltip = new kakao.maps.CustomOverlay({ zIndex: 200, yAnchor: 1.5 });
-    pollingTooltipRef.current = tooltip;
-    const overlays: kakao.maps.CustomOverlay[] = [];
-
-    for (const st of jinjuPollingStations as any[]) {
-      const el = document.createElement("div");
-      el.style.cssText = `
-        width:12px;height:12px;border-radius:50%;
-        background:#8B5CF6;border:1.5px solid #7C3AED;
-        cursor:pointer;
-      `;
-
-      el.addEventListener("mouseenter", () => {
-        let html = `<strong>${st.name}</strong><br/>${st.place}`;
-        html += `<br/><span style="font-size:11px;color:#666">${st.addr}${st.floor ? ` (${st.floor})` : ""}</span>`;
-        tooltip.setContent(
-          `<div style="background:white;padding:4px 8px;border-radius:4px;font-size:12px;box-shadow:0 1px 4px rgba(0,0,0,.3);white-space:nowrap">${html}</div>`,
-        );
-        tooltip.setPosition(new kakao.maps.LatLng(st.lat, st.lng));
-        tooltip.setMap(map);
-      });
-      el.addEventListener("mouseleave", () => tooltip.setMap(null));
-
-      const overlay = new kakao.maps.CustomOverlay({
-        map,
-        position: new kakao.maps.LatLng(st.lat, st.lng),
-        content: el,
-        xAnchor: 0.5,
-        yAnchor: 0.5,
-        zIndex: 15,
-      });
-      overlays.push(overlay);
-    }
-
-    pollingOverlaysRef.current = overlays;
-
-    return () => {
-      for (const o of overlays) o.setMap(null);
-      tooltip.setMap(null);
-    };
-  }, [map, isJinju, showPolling]);
 
   // ─── 지도 클릭 → 장소 정보 조회 ───
   useEffect(() => {
@@ -792,10 +739,10 @@ export default function MapContainer() {
       {map && showPinMemo && (
         <PinMemoLayer map={map} editMode={pinEditMode} onPinCount={setPinCount} />
       )}
-      {map && showCampaign && (
+      {map && showPinMemo && showCampaign && (
         <CampaignLayer map={map} editMode={campaignEditMode} statusFilter={campaignFilter} onRecordCount={setCampaignCount} onUnlocatedCount={setUnlocatedCount} showUnlocated={showUnlocatedPanel} onShowUnlocatedChange={setShowUnlocatedPanel} />
       )}
-      {map && showPhotos && (
+      {map && showPinMemo && showPhotos && (
         <PhotoLayer map={map} onPhotoCount={setPhotoCount} fileInputRef={photoInputRef} />
       )}
       {map && isJinju && showBusStops && (
@@ -860,10 +807,6 @@ export default function MapContainer() {
               법정동 경계
             </label>
             <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
-              <input type="checkbox" checked={showPolling} onChange={(e) => setShowPolling(e.target.checked)} className="accent-violet-600" />
-              투표소
-            </label>
-            <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
               <input type="checkbox" checked={showBusStops} onChange={(e) => setShowBusStops(e.target.checked)} className="accent-cyan-600" />
               대중교통
             </label>
@@ -886,14 +829,18 @@ export default function MapContainer() {
           <input
             type="checkbox"
             checked={showPinMemo}
-            onChange={(e) => { setShowPinMemo(e.target.checked); if (!e.target.checked) setPinEditMode(false); }}
+            onChange={(e) => {
+              setShowPinMemo(e.target.checked);
+              if (!e.target.checked) { setPinEditMode(false); setCampaignEditMode(false); }
+            }}
             className="accent-orange-600"
           />
-          핀 메모{pinCount > 0 && showPinMemo ? ` (${pinCount})` : ""}
+          핀 메모
         </label>
 
         {showPinMemo && (
-          <div className="mt-2 border-t pt-2">
+          <div className="mt-2 border-t pt-2 space-y-2">
+            {/* 핀 추가 모드 */}
             <button
               className={`text-xs px-2.5 py-1 rounded w-full ${
                 pinEditMode
@@ -907,102 +854,98 @@ export default function MapContainer() {
             >
               {pinEditMode ? "지도 클릭하여 핀 추가 중..." : "핀 추가 모드"}
             </button>
-            <p className="text-[10px] text-gray-400 mt-1">
-              {pinEditMode ? "지도를 클릭하면 핀이 추가됩니다" : "기존 핀을 클릭하면 수정할 수 있습니다"}
-            </p>
-          </div>
-        )}
-
-        <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
-          <input
-            type="checkbox"
-            checked={showCampaign}
-            onChange={(e) => { setShowCampaign(e.target.checked); if (!e.target.checked) setCampaignEditMode(false); }}
-            className="accent-emerald-600"
-          />
-          선거운동 기록{campaignCount > 0 && showCampaign ? ` (${campaignCount})` : ""}
-        </label>
-
-        {showCampaign && (
-          <div className="mt-2 border-t pt-2">
-            <button
-              className={`text-xs px-2.5 py-1 rounded w-full ${
-                campaignEditMode
-                  ? "bg-emerald-600 text-white"
-                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-              }`}
-              onClick={() => {
-                setCampaignEditMode(!campaignEditMode);
-                if (!campaignEditMode) setPinEditMode(false);
-              }}
-            >
-              {campaignEditMode ? "지도 클릭하여 기록 추가 중..." : "기록 추가 모드"}
-            </button>
-            <div className="flex gap-1 mt-1.5">
-              {(["planned", "done", "skipped"] as const).map((s) => {
-                const labels = { planned: "예정", done: "완료", skipped: "건너뜀" };
-                const colors = { planned: "blue", done: "emerald", skipped: "gray" };
-                const isOn = campaignFilter.has(s);
-                return (
-                  <button
-                    key={s}
-                    className={`flex-1 text-[10px] py-0.5 rounded ${
-                      isOn ? `bg-${colors[s]}-100 text-${colors[s]}-700` : "bg-gray-50 text-gray-400"
-                    }`}
-                    style={{
-                      background: isOn ? (s === "planned" ? "#DBEAFE" : s === "done" ? "#D1FAE5" : "#F3F4F6") : "#FAFAFA",
-                      color: isOn ? (s === "planned" ? "#1D4ED8" : s === "done" ? "#047857" : "#6B7280") : "#D1D5DB",
-                    }}
-                    onClick={() => {
-                      setCampaignFilter((prev) => {
-                        const next = new Set(prev);
-                        if (next.has(s)) next.delete(s);
-                        else next.add(s);
-                        return next;
-                      });
-                    }}
-                  >
-                    {labels[s]}
-                  </button>
-                );
-              })}
-            </div>
-            <p className="text-[10px] text-gray-400 mt-1">
-              {campaignEditMode ? "지도를 클릭하면 기록이 추가됩니다" : "기존 기록을 클릭하면 수정할 수 있습니다"}
-            </p>
-            {unlocatedCount > 0 && (
-              <button
-                className="mt-1.5 w-full text-xs px-2 py-1.5 rounded bg-amber-100 text-amber-800 hover:bg-amber-200 flex items-center justify-center gap-1"
-                onClick={() => setShowUnlocatedPanel(true)}
-              >
-                <span className="inline-block w-4 h-4 bg-amber-500 text-white rounded-full text-[10px] leading-4 text-center">{unlocatedCount}</span>
-                위치 미지정 기록
-              </button>
+            {pinCount > 0 && (
+              <p className="text-[10px] text-gray-400">핀 {pinCount}개</p>
             )}
-          </div>
-        )}
 
-        <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
-          <input
-            type="checkbox"
-            checked={showPhotos}
-            onChange={(e) => setShowPhotos(e.target.checked)}
-            className="accent-pink-600"
-          />
-          현장 사진{photoCount > 0 && showPhotos ? ` (${photoCount})` : ""}
-        </label>
+            {/* 선거운동 기록 (서브 토글) */}
+            <label className="flex items-center gap-2 cursor-pointer text-xs text-gray-500 pl-1">
+              <input
+                type="checkbox"
+                checked={showCampaign}
+                onChange={(e) => { setShowCampaign(e.target.checked); if (!e.target.checked) setCampaignEditMode(false); }}
+                className="accent-emerald-600 w-3.5 h-3.5"
+              />
+              선거운동 기록{campaignCount > 0 && showCampaign ? ` (${campaignCount})` : ""}
+            </label>
 
-        {showPhotos && (
-          <div className="mt-2 border-t pt-2">
-            <button
-              className="text-xs px-2.5 py-1 rounded w-full bg-pink-600 text-white hover:bg-pink-700"
-              onClick={() => photoInputRef.current?.click()}
-            >
-              사진 업로드
-            </button>
-            <p className="text-[10px] text-gray-400 mt-1">
-              GPS 있는 사진은 자동 배치, 없으면 지도 클릭으로 위치 지정
-            </p>
+            {showCampaign && (
+              <div className="pl-3 space-y-1.5">
+                <button
+                  className={`text-xs px-2.5 py-1 rounded w-full ${
+                    campaignEditMode
+                      ? "bg-emerald-600 text-white"
+                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                  }`}
+                  onClick={() => {
+                    setCampaignEditMode(!campaignEditMode);
+                    if (!campaignEditMode) setPinEditMode(false);
+                  }}
+                >
+                  {campaignEditMode ? "기록 추가 중..." : "기록 추가 모드"}
+                </button>
+                <div className="flex gap-1">
+                  {(["planned", "done", "skipped"] as const).map((s) => {
+                    const labels = { planned: "예정", done: "완료", skipped: "건너뜀" };
+                    const isOn = campaignFilter.has(s);
+                    return (
+                      <button
+                        key={s}
+                        className="flex-1 text-[10px] py-0.5 rounded"
+                        style={{
+                          background: isOn ? (s === "planned" ? "#DBEAFE" : s === "done" ? "#D1FAE5" : "#F3F4F6") : "#FAFAFA",
+                          color: isOn ? (s === "planned" ? "#1D4ED8" : s === "done" ? "#047857" : "#6B7280") : "#D1D5DB",
+                        }}
+                        onClick={() => {
+                          setCampaignFilter((prev) => {
+                            const next = new Set(prev);
+                            if (next.has(s)) next.delete(s);
+                            else next.add(s);
+                            return next;
+                          });
+                        }}
+                      >
+                        {labels[s]}
+                      </button>
+                    );
+                  })}
+                </div>
+                {unlocatedCount > 0 && (
+                  <button
+                    className="w-full text-xs px-2 py-1 rounded bg-amber-100 text-amber-800 hover:bg-amber-200 flex items-center justify-center gap-1"
+                    onClick={() => setShowUnlocatedPanel(true)}
+                  >
+                    <span className="inline-block w-4 h-4 bg-amber-500 text-white rounded-full text-[10px] leading-4 text-center">{unlocatedCount}</span>
+                    위치 미지정 기록
+                  </button>
+                )}
+              </div>
+            )}
+
+            {/* 현장 사진 (서브 토글) */}
+            <label className="flex items-center gap-2 cursor-pointer text-xs text-gray-500 pl-1">
+              <input
+                type="checkbox"
+                checked={showPhotos}
+                onChange={(e) => setShowPhotos(e.target.checked)}
+                className="accent-pink-600 w-3.5 h-3.5"
+              />
+              현장 사진{photoCount > 0 && showPhotos ? ` (${photoCount})` : ""}
+            </label>
+
+            {showPhotos && (
+              <div className="pl-3 space-y-1">
+                <button
+                  className="text-xs px-2.5 py-1 rounded w-full bg-pink-600 text-white hover:bg-pink-700"
+                  onClick={() => photoInputRef.current?.click()}
+                >
+                  사진 업로드
+                </button>
+                <p className="text-[10px] text-gray-400">
+                  GPS 있는 사진은 자동 배치
+                </p>
+              </div>
+            )}
           </div>
         )}
 
