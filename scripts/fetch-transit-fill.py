@@ -163,7 +163,7 @@ def main():
 
     # 수집할 날짜 결정
     # 이미 완전 수집된 요일은 건너뜀 (API 쿼터 절약)
-    SKIP_DOWS = {"월요일", "화요일"}
+    SKIP_DOWS = {"월요일", "화요일", "수요일", "목요일"}
 
     dow_dates = defaultdict(list)
     for date, dow in ALL_DATES:
