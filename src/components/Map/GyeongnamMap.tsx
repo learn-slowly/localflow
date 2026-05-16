@@ -119,12 +119,26 @@ export default function GyeongnamMap() {
 
       {/* 우측 인구 범례 */}
       <div className="absolute bottom-4 right-4 z-10 bg-white/95 backdrop-blur rounded-lg shadow-md px-3 py-2 text-xs">
-        <div className="font-semibold text-gray-700 mb-1">인구</div>
-        <div className="flex items-center gap-1">
-          <span className="w-3 h-3 rounded" style={{ background: "#FEE2E2" }} /> ~4만
-          <span className="w-3 h-3 rounded ml-2" style={{ background: "#FCA5A5" }} /> ~15만
-          <span className="w-3 h-3 rounded ml-2" style={{ background: "#F87171" }} /> ~30만
-          <span className="w-3 h-3 rounded ml-2" style={{ background: "#DC2626" }} /> 30만+
+        <div className="font-semibold text-gray-700 mb-1.5">인구</div>
+        <div className="grid grid-cols-2 gap-x-3 gap-y-1 text-gray-700">
+          <div className="flex items-center gap-1.5">
+            <span className="w-3 h-3 rounded" style={{ background: "#FEE2E2" }} /> &lt;4만
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span className="w-3 h-3 rounded" style={{ background: "#FECACA" }} /> 4–8만
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span className="w-3 h-3 rounded" style={{ background: "#FCA5A5" }} /> 8–15만
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span className="w-3 h-3 rounded" style={{ background: "#F87171" }} /> 15–30만
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span className="w-3 h-3 rounded" style={{ background: "#DC2626" }} /> 30–50만
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span className="w-3 h-3 rounded" style={{ background: "#7F1D1D" }} /> 50만+
+          </div>
         </div>
       </div>
     </div>
