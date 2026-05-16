@@ -34,30 +34,42 @@ export default function DistrictPage({
 }) {
   const { city: cityKey, id } = use(params);
 
-  // 도시 가드 — hook 호출보다 먼저 처리 (Rules of Hooks 준수)
+  // 도시 가드
   if (!cities[cityKey]) notFound();
 
   // 진주 외 도시는 선거구 데이터가 없음 → 안내 화면
+  // 도시별로 hook 사용 여부가 달라지지 않도록 내부 컴포넌트로 분리하여 렌더링
   if (cityKey !== "jinju") {
-    return (
-      <main className="min-h-dvh flex items-center justify-center bg-gray-50">
-        <div className="text-center px-6">
-          <h1 className="text-xl font-bold text-gray-800">선거구 데이터 준비 중</h1>
-          <p className="text-sm text-gray-500 mt-2">
-            {cities[cityKey].name}의 선거구 상세 정보는 아직 제공되지 않습니다.
-          </p>
-          <Link
-            href={`/${cityKey}`}
-            className="inline-block mt-4 text-sm text-blue-600 hover:underline"
-          >
-            {cities[cityKey].name} 메인으로 돌아가기
-          </Link>
-        </div>
-      </main>
-    );
+    return <CityNotSupportedView cityKey={cityKey} />;
   }
 
-  // 이하 진주 전용 로직 (hook 호출들)
+  return <JinjuDistrictView id={id} cityKey={cityKey} />;
+}
+
+// ── 진주 외 도시 안내 화면 ──
+
+function CityNotSupportedView({ cityKey }: { cityKey: string }) {
+  return (
+    <main className="min-h-dvh flex items-center justify-center bg-gray-50">
+      <div className="text-center px-6">
+        <h1 className="text-xl font-bold text-gray-800">선거구 데이터 준비 중</h1>
+        <p className="text-sm text-gray-500 mt-2">
+          {cities[cityKey].name}의 선거구 상세 정보는 아직 제공되지 않습니다.
+        </p>
+        <Link
+          href={`/${cityKey}`}
+          className="inline-block mt-4 text-sm text-blue-600 hover:underline"
+        >
+          {cities[cityKey].name} 메인으로 돌아가기
+        </Link>
+      </div>
+    </main>
+  );
+}
+
+// ── 진주 선거구 상세 화면 ──
+
+function JinjuDistrictView({ id, cityKey }: { id: string; cityKey: string }) {
   const districtName = decodeURIComponent(id);
   const searchParams = useSearchParams();
   const electionType = searchParams.get("type") || "local";
@@ -100,7 +112,7 @@ export default function DistrictPage({
       <main className="min-h-dvh bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <p className="text-gray-500 mb-4">선거구를 찾을 수 없습니다</p>
-          <Link href="/" className="text-blue-600 hover:underline">돌아가기</Link>
+          <Link href={`/${cityKey}`} className="text-blue-600 hover:underline">돌아가기</Link>
         </div>
       </main>
     );
@@ -120,7 +132,7 @@ export default function DistrictPage({
         <div className="max-w-3xl mx-auto px-4 py-3">
           <div className="flex items-center gap-3">
             <Link
-              href="/"
+              href={`/${cityKey}`}
               className="text-gray-400 hover:text-gray-600 text-lg"
             >
               &larr;
@@ -130,7 +142,7 @@ export default function DistrictPage({
               <p className="text-xs text-gray-500">{briefing.description} · {briefing.seats}석</p>
             </div>
             <Link
-              href="/map"
+              href={`/${cityKey}`}
               className="text-xs px-3 py-1.5 bg-gray-100 hover:bg-gray-200 rounded-lg text-gray-600"
             >
               지도
