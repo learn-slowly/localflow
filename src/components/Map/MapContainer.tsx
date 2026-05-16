@@ -217,7 +217,7 @@ function clearPolygons(polygons: kakao.maps.Polygon[], tooltip?: kakao.maps.Cust
 type MapContainerProps = {
   cityCode?: string;  // 행정표준코드 5자리. 미지정 시 진주(기존 동작).
   // 드롭다운으로 도시가 바뀌었을 때 호출. 라우트 단(/[city])에서 router.push로 URL을 동기화하기 위함.
-  // 미지정 시 내부 상태로만 도시를 전환한다(/map 같은 단일 페이지 동작).
+  // 미지정 시 내부 상태로만 도시를 전환한다(라우트 비연동 단일 페이지 동작).
   onCityKeyChange?: (cityKey: string | null) => void;
 };
 

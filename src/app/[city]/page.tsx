@@ -17,13 +17,13 @@ export default function CityPage() {
   const city = cities[cityKey];
 
   // 드롭다운 변경 시 URL을 진실원천으로 두기 위해 라우터로 이동.
-  // "경남 전체"(빈 키)는 /map으로 (현행 단일 페이지 보기).
+  // "경남 전체"(빈 키)는 루트(/)로 — 경남 전역 지도 페이지.
   // useCallback으로 감싸 매 렌더 새 함수 생성을 막고, MapContainer
   // useEffect의 deps에 안정적으로 포함시킨다.
   const handleCityKeyChange = useCallback(
     (nextKey: string | null) => {
       if (!nextKey) {
-        router.push("/map");
+        router.push("/");
         return;
       }
       if (nextKey === cityKey) return;
