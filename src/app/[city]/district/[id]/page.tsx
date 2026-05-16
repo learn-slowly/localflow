@@ -119,7 +119,7 @@ function JinjuDistrictView({ id, cityKey }: { id: string; cityKey: string }) {
   const briefing = useMemo(() => {
     if (!districtDef || !transitData) return null;
     return buildDistrictBriefing(
-      districtDef as any,
+      districtDef,
       jinjuAgePopulation as any,
       transitData as any,
       jinjuSeniorCenters as any,

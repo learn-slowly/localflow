@@ -5,7 +5,9 @@ export type ElectionType = "local" | "provincial" | "assembly" | "mayor";
 
 export interface DistrictEntry {
   name: string;
+  seats: number;
   dongs: string[];
+  description: string;
 }
 
 export interface ElectionTypeConfig {

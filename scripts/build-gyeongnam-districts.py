@@ -68,9 +68,11 @@ def is_valid_dong(name: str) -> bool:
 
 
 def extract_districts_from_item(item: dict) -> tuple[str, list[dict]]:
-    """단일 elections 항목에서 (label, [{name, dongs[]}, ...])를 추출.
+    """단일 elections 항목에서 (label, [{name, seats, dongs[], description}, ...])를 추출.
 
-    dongResults를 district로 group by하고, 동 순서는 등장 순서 유지.
+    - dongResults를 district로 group by하고 동 순서는 등장 순서 유지.
+    - results[].seats가 있으면 그 값, 없으면 1 (시장·국회의원처럼 단일 의석).
+    - description은 dongs를 '·'로 join한 자동 생성 값.
     """
     by_district: dict[str, list[str]] = {}
     seen = set()
@@ -85,7 +87,23 @@ def extract_districts_from_item(item: dict) -> tuple[str, list[dict]]:
         seen.add(key)
         by_district.setdefault(district, []).append(dong)
 
-    districts = [{"name": k, "dongs": v} for k, v in by_district.items()]
+    # district명 → seats 매핑 (results[].seats가 비어 있으면 1로 fallback)
+    seats_by_district: dict[str, int] = {}
+    for r in item.get("results", []):
+        name = r.get("district")
+        if not name:
+            continue
+        s = r.get("seats")
+        seats_by_district[name] = int(s) if isinstance(s, (int, float)) and s else 1
+
+    districts = []
+    for name, dongs in by_district.items():
+        districts.append({
+            "name": name,
+            "seats": seats_by_district.get(name, 1),
+            "dongs": dongs,
+            "description": "·".join(dongs),
+        })
     return item.get("label", ""), districts
 
 
