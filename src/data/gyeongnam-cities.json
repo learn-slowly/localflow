@@ -1,0 +1,266 @@
+{
+  "changwon-uichang": {
+    "code": "48121",
+    "name": "창원시의창구",
+    "totalPopulation": 209732,
+    "households": 97185,
+    "male": 106619,
+    "female": 103113,
+    "center": [
+      35.2994,
+      128.6546
+    ]
+  },
+  "changwon-seongsan": {
+    "code": "48123",
+    "name": "창원시성산구",
+    "totalPopulation": 244262,
+    "households": 107367,
+    "male": 124629,
+    "female": 119633,
+    "center": [
+      35.2018,
+      128.6751
+    ]
+  },
+  "changwon-masanhappo": {
+    "code": "48125",
+    "name": "창원시마산합포구",
+    "totalPopulation": 178071,
+    "households": 86437,
+    "male": 88330,
+    "female": 89741,
+    "center": [
+      35.137,
+      128.5084
+    ]
+  },
+  "changwon-masanhoewon": {
+    "code": "48127",
+    "name": "창원시마산회원구",
+    "totalPopulation": 178806,
+    "households": 82915,
+    "male": 89184,
+    "female": 89622,
+    "center": [
+      35.2354,
+      128.5586
+    ]
+  },
+  "changwon-jinhae": {
+    "code": "48129",
+    "name": "창원시진해구",
+    "totalPopulation": 188528,
+    "households": 85767,
+    "male": 97075,
+    "female": 91453,
+    "center": [
+      35.1243,
+      128.7185
+    ]
+  },
+  "jinju": {
+    "code": "48170",
+    "name": "진주시",
+    "totalPopulation": 338449,
+    "households": 161144,
+    "male": 167242,
+    "female": 171207,
+    "center": [
+      35.1798,
+      128.1076
+    ]
+  },
+  "tongyeong": {
+    "code": "48220",
+    "name": "통영시",
+    "totalPopulation": 118250,
+    "households": 59329,
+    "male": 59380,
+    "female": 58870,
+    "center": [
+      34.7925,
+      128.3828
+    ]
+  },
+  "sacheon": {
+    "code": "48240",
+    "name": "사천시",
+    "totalPopulation": 108420,
+    "households": 55602,
+    "male": 55016,
+    "female": 53404,
+    "center": [
+      35.0335,
+      128.046
+    ]
+  },
+  "gimhae": {
+    "code": "48250",
+    "name": "김해시",
+    "totalPopulation": 531236,
+    "households": 234282,
+    "male": 268761,
+    "female": 262475,
+    "center": [
+      35.2642,
+      128.8448
+    ]
+  },
+  "miryang": {
+    "code": "48270",
+    "name": "밀양시",
+    "totalPopulation": 100544,
+    "households": 53987,
+    "male": 49771,
+    "female": 50773,
+    "center": [
+      35.489,
+      128.7744
+    ]
+  },
+  "geoje": {
+    "code": "48310",
+    "name": "거제시",
+    "totalPopulation": 232777,
+    "households": 106101,
+    "male": 122044,
+    "female": 110733,
+    "center": [
+      34.8731,
+      128.6132
+    ]
+  },
+  "yangsan": {
+    "code": "48330",
+    "name": "양산시",
+    "totalPopulation": 359920,
+    "households": 163406,
+    "male": 180253,
+    "female": 179667,
+    "center": [
+      35.3957,
+      129.0527
+    ]
+  },
+  "uiryeong": {
+    "code": "48720",
+    "name": "의령군",
+    "totalPopulation": 25094,
+    "households": 14883,
+    "male": 12532,
+    "female": 12562,
+    "center": [
+      35.3903,
+      128.2745
+    ]
+  },
+  "haman": {
+    "code": "48730",
+    "name": "함안군",
+    "totalPopulation": 58849,
+    "households": 30201,
+    "male": 30130,
+    "female": 28719,
+    "center": [
+      35.2914,
+      128.4374
+    ]
+  },
+  "changnyeong": {
+    "code": "48740",
+    "name": "창녕군",
+    "totalPopulation": 56040,
+    "households": 32004,
+    "male": 28092,
+    "female": 27948,
+    "center": [
+      35.4998,
+      128.4969
+    ]
+  },
+  "goseong": {
+    "code": "48820",
+    "name": "고성군",
+    "totalPopulation": 47913,
+    "households": 26326,
+    "male": 24262,
+    "female": 23651,
+    "center": [
+      35.0169,
+      128.2773
+    ]
+  },
+  "namhae": {
+    "code": "48840",
+    "name": "남해군",
+    "totalPopulation": 39730,
+    "households": 22219,
+    "male": 19343,
+    "female": 20387,
+    "center": [
+      34.8053,
+      127.9534
+    ]
+  },
+  "hadong": {
+    "code": "48850",
+    "name": "하동군",
+    "totalPopulation": 40679,
+    "households": 23424,
+    "male": 20348,
+    "female": 20331,
+    "center": [
+      35.1006,
+      127.8007
+    ]
+  },
+  "sancheong": {
+    "code": "48860",
+    "name": "산청군",
+    "totalPopulation": 33203,
+    "households": 19589,
+    "male": 16438,
+    "female": 16765,
+    "center": [
+      35.3846,
+      127.9092
+    ]
+  },
+  "hamyang": {
+    "code": "48870",
+    "name": "함양군",
+    "totalPopulation": 36002,
+    "households": 20435,
+    "male": 17561,
+    "female": 18441,
+    "center": [
+      35.5622,
+      127.7277
+    ]
+  },
+  "geochang": {
+    "code": "48880",
+    "name": "거창군",
+    "totalPopulation": 59514,
+    "households": 31098,
+    "male": 29241,
+    "female": 30273,
+    "center": [
+      35.7169,
+      127.9054
+    ]
+  },
+  "hapcheon": {
+    "code": "48890",
+    "name": "합천군",
+    "totalPopulation": 40133,
+    "households": 23668,
+    "male": 19738,
+    "female": 20395,
+    "center": [
+      35.5648,
+      128.1596
+    ]
+  }
+}
