@@ -151,6 +151,19 @@ export default function GyeongnamMap() {
           zIndex: 5, // 시군구 폴리곤 위에 표시
         });
         p.setMap(map);
+
+        // 진주 영역 클릭 시 /jinju로 이동 (시군구 폴리곤이 가려졌을 때 회귀 방지)
+        window.kakao.maps.event.addListener(p, "click", () => {
+          router.push("/jinju");
+        });
+        // 시군구 폴리곤(0.6→0.85)과 동일한 시각 패턴, 진주 동 폴리곤은 살짝 어둡게
+        window.kakao.maps.event.addListener(p, "mouseover", () => {
+          p.setOptions({ fillOpacity: 0.55 });
+        });
+        window.kakao.maps.event.addListener(p, "mouseout", () => {
+          p.setOptions({ fillOpacity: 0.35 });
+        });
+
         polygons.push(p);
       }
     }
@@ -158,7 +171,7 @@ export default function GyeongnamMap() {
     return () => {
       polygons.forEach((p) => p.setMap(null));
     };
-  }, [isLoaded, map, electionType]);
+  }, [isLoaded, map, electionType, router]);
 
   return (
     <div className="relative h-dvh w-full">
