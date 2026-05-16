@@ -50,6 +50,7 @@ function buildDongMappingFromElections(
   electionsData: any[],
   localElectionsData: any[],
   type: string,
+  isJinju: boolean,
 ) {
   const mapping: Record<string, { name: string; color: string }> = {};
   let entry: any;
@@ -64,7 +65,10 @@ function buildDongMappingFromElections(
       .sort((a: any, b: any) => (b.date || "").localeCompare(a.date || ""))[0];
   }
 
-  const staticDistricts = ((jinjuDistricts as any)?.types?.[type]?.districts || []);
+  // 진주 외 도시에서는 jinjuDistricts 정적 매핑을 사용하지 않는다.
+  const staticDistricts = isJinju
+    ? ((jinjuDistricts as any)?.types?.[type]?.districts || [])
+    : [];
   const districtOrder: string[] = staticDistricts.map((d: any) => d.name);
 
   if (entry?.dongResults) {
@@ -210,10 +214,23 @@ function clearPolygons(polygons: kakao.maps.Polygon[], tooltip?: kakao.maps.Cust
   if (tooltip) tooltip.setMap(null);
 }
 
-export default function MapContainer() {
-  const [selectedCityKey, setSelectedCityKey] = useState<string | null>("jinju");
+type MapContainerProps = {
+  cityCode?: string;  // 행정표준코드 5자리. 미지정 시 진주(기존 동작).
+};
+
+const JINJU_CODE = "48170";
+
+export default function MapContainer({ cityCode = JINJU_CODE }: MapContainerProps = {}) {
+  // 진주 여부는 prop으로 결정 — 진주 외 cityCode에서는 진주 전용 데이터·레이어가 비활성된다.
+  const isJinju = cityCode === JINJU_CODE;
+
+  // 도시 선택 드롭다운 상태. cityCode prop으로 초기값을 결정한다.
+  const initialCityKey = (() => {
+    const entry = Object.entries(cities).find(([, c]) => c.code === cityCode);
+    return entry ? entry[0] : "jinju";
+  })();
+  const [selectedCityKey, setSelectedCityKey] = useState<string | null>(initialCityKey);
   const selectedCity = selectedCityKey ? cities[selectedCityKey] : null;
-  const isJinju = selectedCityKey === "jinju";
 
   // 레이어 토글
   const [showAdmin, setShowAdmin] = useState(true);
@@ -335,10 +352,13 @@ export default function MapContainer() {
 
   // 선거구 매핑
   const dongToDistrict = selectedCity
-    ? buildDongMappingFromElections(electionsData, localElectionsData, electionType)
+    ? buildDongMappingFromElections(electionsData, localElectionsData, electionType, isJinju)
     : {};
   const currentDistricts = (() => {
-    const staticOrder = ((jinjuDistricts as any)?.types?.[electionType]?.districts || []).map((d: any) => d.name);
+    // 진주 외 도시에서는 jinjuDistricts 기반 정렬 순서를 적용하지 않는다.
+    const staticOrder: string[] = isJinju
+      ? ((jinjuDistricts as any)?.types?.[electionType]?.districts || []).map((d: any) => d.name)
+      : [];
     const seen = new Set<string>();
     const list = Object.values(dongToDistrict)
       .filter((d) => { if (seen.has(d.name)) return false; seen.add(d.name); return true; })
@@ -800,18 +820,32 @@ export default function MapContainer() {
           </label>
         )}
 
-        {isJinju && (
-          <>
-            <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
-              <input type="checkbox" checked={showLegal} onChange={(e) => setShowLegal(e.target.checked)} className="accent-red-600" />
-              법정동 경계
-            </label>
-            <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
-              <input type="checkbox" checked={showBusStops} onChange={(e) => setShowBusStops(e.target.checked)} className="accent-cyan-600" />
-              대중교통
-            </label>
-          </>
-        )}
+        <label className={`flex items-center gap-2 text-sm mt-1 ${isJinju ? "cursor-pointer text-gray-600" : "cursor-not-allowed text-gray-400"}`}>
+          <input
+            type="checkbox"
+            checked={isJinju && showLegal}
+            disabled={!isJinju}
+            onChange={(e) => setShowLegal(e.target.checked)}
+            className="accent-red-600"
+          />
+          법정동 경계
+          {!isJinju && (
+            <span className="ml-auto text-[10px] bg-gray-100 text-gray-400 px-1.5 py-0.5 rounded">준비 중</span>
+          )}
+        </label>
+        <label className={`flex items-center gap-2 text-sm mt-1 ${isJinju ? "cursor-pointer text-gray-600" : "cursor-not-allowed text-gray-400"}`}>
+          <input
+            type="checkbox"
+            checked={isJinju && showBusStops}
+            disabled={!isJinju}
+            onChange={(e) => setShowBusStops(e.target.checked)}
+            className="accent-cyan-600"
+          />
+          대중교통
+          {!isJinju && (
+            <span className="ml-auto text-[10px] bg-gray-100 text-gray-400 px-1.5 py-0.5 rounded">준비 중</span>
+          )}
+        </label>
         <label className="flex items-center gap-2 cursor-pointer text-sm text-gray-600 mt-1">
           <input type="checkbox" checked={showFacilities} onChange={(e) => setShowFacilities(e.target.checked)} className="accent-indigo-600" />
           주요시설
