@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useKakaoMap, toKakaoLevel } from "@/hooks/useKakaoMap";
-import { cities, DEFAULT_CITY, GYEONGNAM_VIEW } from "@/config/cities";
+import { cities, DEFAULT_CITY, GYEONGNAM_VIEW, JINJU } from "@/config/cities";
 import type { CityConfig } from "@/config/cities";
 import jinjuBoundary from "@/data/jinju-boundary.json";
 import jinjuLegalBoundary from "@/data/jinju-legal-boundary.json";
@@ -216,21 +216,31 @@ function clearPolygons(polygons: kakao.maps.Polygon[], tooltip?: kakao.maps.Cust
 
 type MapContainerProps = {
   cityCode?: string;  // 행정표준코드 5자리. 미지정 시 진주(기존 동작).
+  // 드롭다운으로 도시가 바뀌었을 때 호출. 라우트 단(/[city])에서 router.push로 URL을 동기화하기 위함.
+  // 미지정 시 내부 상태로만 도시를 전환한다(/map 같은 단일 페이지 동작).
+  onCityKeyChange?: (cityKey: string | null) => void;
 };
 
-const JINJU_CODE = "48170";
+const JINJU_CODE = JINJU.code;
 
-export default function MapContainer({ cityCode = JINJU_CODE }: MapContainerProps = {}) {
+export default function MapContainer({ cityCode = JINJU_CODE, onCityKeyChange }: MapContainerProps = {}) {
   // 진주 여부는 prop으로 결정 — 진주 외 cityCode에서는 진주 전용 데이터·레이어가 비활성된다.
   const isJinju = cityCode === JINJU_CODE;
 
   // 도시 선택 드롭다운 상태. cityCode prop으로 초기값을 결정한다.
-  const initialCityKey = (() => {
+  // useState lazy initializer로 첫 렌더 외에는 cities 순회를 회피한다.
+  const [selectedCityKey, setSelectedCityKey] = useState<string | null>(() => {
     const entry = Object.entries(cities).find(([, c]) => c.code === cityCode);
     return entry ? entry[0] : "jinju";
-  })();
-  const [selectedCityKey, setSelectedCityKey] = useState<string | null>(initialCityKey);
+  });
   const selectedCity = selectedCityKey ? cities[selectedCityKey] : null;
+
+  // cityCode prop이 외부에서 바뀌면(예: /[city] URL 변경) selectedCityKey도 따라간다.
+  useEffect(() => {
+    const entry = Object.entries(cities).find(([, c]) => c.code === cityCode);
+    const nextKey = entry ? entry[0] : "jinju";
+    setSelectedCityKey((prev) => (prev === nextKey ? prev : nextKey));
+  }, [cityCode]);
 
   // 레이어 토글
   const [showAdmin, setShowAdmin] = useState(true);
@@ -398,7 +408,10 @@ export default function MapContainer({ cityCode = JINJU_CODE }: MapContainerProp
           onClick: (feature) => {
             const sgg = feature?.properties?.sgg;
             const cityEntry = Object.entries(cities).find(([, c]) => c.code === sgg);
-            if (cityEntry) setSelectedCityKey(cityEntry[0]);
+            if (cityEntry) {
+              if (onCityKeyChange) onCityKeyChange(cityEntry[0]);
+              else setSelectedCityKey(cityEntry[0]);
+            }
           },
         },
       );
@@ -783,7 +796,15 @@ export default function MapContainer({ cityCode = JINJU_CODE }: MapContainerProp
         <div className="flex items-center gap-2 p-3 pb-0">
           <select
             value={selectedCityKey || ""}
-            onChange={(e) => setSelectedCityKey(e.target.value || null)}
+            onChange={(e) => {
+              const nextKey = e.target.value || null;
+              if (onCityKeyChange) {
+                // URL-bound 모드: 라우트가 cityCode를 다시 주입해 selectedCityKey를 동기화한다.
+                onCityKeyChange(nextKey);
+              } else {
+                setSelectedCityKey(nextKey);
+              }
+            }}
             className="flex-1 text-sm border rounded px-2 py-1.5 text-gray-700 bg-white focus:outline-none focus:ring-1 focus:ring-blue-500"
           >
             {cityOptions.map((opt) => (
