@@ -435,7 +435,7 @@ export default function MapContainer({ cityCode = JINJU_CODE, onCityKeyChange }:
       adminPolygonsRef.current = polygons;
       adminTooltipRef.current = tooltip;
     }
-  }, [map, boundaryData, selectedCityKey, showAdmin, showPopulation]);
+  }, [map, boundaryData, selectedCityKey, showAdmin, showPopulation, onCityKeyChange]);
 
   // ─── 법정동 경계 (진주 전용) ───
   useEffect(() => {
