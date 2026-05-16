@@ -5,15 +5,11 @@ import { useRouter } from "next/navigation";
 import { useKakaoMap, toKakaoLevel } from "@/hooks/useKakaoMap";
 import { GYEONGNAM_VIEW } from "@/config/cities";
 import gyeongnamCities from "@/data/gyeongnam-cities.json";
-import jinjuDistricts from "@/data/jinju-districts.json";
-
-type BoundaryFeature = {
-  properties: { name?: string };
-  geometry:
-    | { type: "Polygon"; coordinates: number[][][] }
-    | { type: "MultiPolygon"; coordinates: number[][][][] };
-};
-type BoundaryFeatureCollection = { features: BoundaryFeature[] };
+import {
+  buildDongDistrictMap,
+  type ElectionType,
+  type GyeongnamDistricts,
+} from "@/lib/district-mapping";
 
 // 선거 유형 탭
 const ELECTION_TYPES = [
@@ -33,48 +29,28 @@ function populationColor(p: number): string {
   return "#FEE2E2";
 }
 
-// 진주 선거구 색상 팔레트 (최대 8개 선거구)
-const DISTRICT_COLORS = [
-  "#2563EB", "#DC2626", "#16A34A", "#CA8A04",
-  "#9333EA", "#EA580C", "#0891B2", "#BE185D",
-];
-
-// 진주 행정동 → 선거구 색상 매핑 (electionType별)
-function jinjuDongDistrictMap(
-  electionType: string,
-): Record<string, { name: string; color: string }> {
-  const types = (jinjuDistricts as { types?: Record<string, { districts?: Array<{ name: string; dongs?: string[] }> }> }).types ?? {};
-  const districts = types[electionType]?.districts ?? [];
-  const result: Record<string, { name: string; color: string }> = {};
-  districts.forEach((d, idx) => {
-    const color = DISTRICT_COLORS[idx % DISTRICT_COLORS.length];
-    (d.dongs ?? []).forEach((dong: string) => {
-      result[dong] = { name: d.name, color };
-    });
-  });
-  return result;
-}
 
 export default function GyeongnamMap() {
   const mapRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const [electionType, setElectionType] = useState<string>("local");
-  const [jinjuBoundary, setJinjuBoundary] = useState<BoundaryFeatureCollection | null>(null);
+  const [gyeongnamDistricts, setGyeongnamDistricts] =
+    useState<GyeongnamDistricts | null>(null);
 
   const { map, isLoaded } = useKakaoMap(mapRef, {
     center: GYEONGNAM_VIEW.center,
     level: toKakaoLevel(GYEONGNAM_VIEW.zoom),
   });
 
-  // 진주 행정동 GeoJSON 한 번만 fetch (electionType 탭 변경 시 재요청 회피)
+  // 전국 매핑 데이터 fetch (한 번)
   useEffect(() => {
     let cancelled = false;
-    fetch("/data/jinju-boundary.json")
+    fetch("/data/gyeongnam-districts.json")
       .then((r) => r.json())
-      .then((data: BoundaryFeatureCollection) => {
-        if (!cancelled) setJinjuBoundary(data);
+      .then((data: GyeongnamDistricts) => {
+        if (!cancelled) setGyeongnamDistricts(data);
       })
-      .catch((e) => console.error("진주 경계 로드 실패:", e));
+      .catch((e) => console.error("경남 선거구 매핑 로드 실패:", e));
     return () => {
       cancelled = true;
     };
@@ -133,21 +109,45 @@ export default function GyeongnamMap() {
     };
   }, [isLoaded, map, router]);
 
-  // 진주 선거구 레이어: 행정동 폴리곤을 선거구별 색깔로 색칠
+  // 동 모드 레이어: 22개 시·군 행정동 폴리곤을 선거구별 색으로 색칠.
+  // 현재는 항상 동 폴리곤도 함께 그림 (다음 task에서 줌 임계값으로 전환).
+  const [dongGeo, setDongGeo] = useState<{
+    features: Array<{
+      geometry:
+        | { type: "Polygon"; coordinates: number[][][] }
+        | { type: "MultiPolygon"; coordinates: number[][][][] };
+      properties: { sgg: string; admName: string; cityKey: string };
+    }>;
+  } | null>(null);
+
   useEffect(() => {
-    if (!isLoaded || !map || !jinjuBoundary) return;
-    const mapping = jinjuDongDistrictMap(electionType);
+    let cancelled = false;
+    fetch("/data/gyeongnam-dong-boundary.json")
+      .then((r) => r.json())
+      .then((data) => {
+        if (!cancelled) setDongGeo(data);
+      })
+      .catch((e) => console.error("경남 행정동 GeoJSON 로드 실패:", e));
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isLoaded || !map || !dongGeo || !gyeongnamDistricts) return;
     const polygons: kakao.maps.Polygon[] = [];
 
-    for (const feat of jinjuBoundary.features) {
-      const dongName = feat.properties?.name;
-      if (!dongName) continue;
-      const entry = mapping[dongName];
+    for (const feat of dongGeo.features) {
+      const { cityKey, admName } = feat.properties;
+      const mapping = buildDongDistrictMap(
+        gyeongnamDistricts,
+        cityKey,
+        electionType as ElectionType,
+      );
+      const entry = mapping[admName];
       if (!entry) continue;
 
       const geom = feat.geometry;
-      // Polygon: coordinates = [outer, hole1, ...]
-      // MultiPolygon: coordinates = [[outer, hole1, ...], [outer2, ...]]
       const rings: number[][][][] =
         geom.type === "Polygon" ? [geom.coordinates] : geom.coordinates;
 
@@ -162,15 +162,13 @@ export default function GyeongnamMap() {
           strokeOpacity: 1.0,
           fillColor: entry.color,
           fillOpacity: 0.35,
-          zIndex: 5, // 시군구 폴리곤 위에 표시
+          zIndex: 5,
         });
         p.setMap(map);
 
-        // 진주 영역 클릭 시 /jinju로 이동 (시군구 폴리곤이 가려졌을 때 회귀 방지)
         window.kakao.maps.event.addListener(p, "click", () => {
-          router.push("/jinju");
+          router.push(`/${cityKey}`);
         });
-        // 시군구 위에 얹는 오버레이라 fillOpacity를 낮게 유지(시군구 0.6→0.85, 진주 동 0.35→0.55)
         window.kakao.maps.event.addListener(p, "mouseover", () => {
           p.setOptions({ fillOpacity: 0.55 });
         });
@@ -185,7 +183,7 @@ export default function GyeongnamMap() {
     return () => {
       polygons.forEach((p) => p.setMap(null));
     };
-  }, [isLoaded, map, electionType, router, jinjuBoundary]);
+  }, [isLoaded, map, dongGeo, gyeongnamDistricts, electionType, router]);
 
   return (
     <div className="relative h-dvh w-full">
