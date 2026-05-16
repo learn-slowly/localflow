@@ -1,5 +1,7 @@
 # 경남 22개 시·군구 선거구 매핑 확장 구현 계획
 
+> **Status (2026-05-16):** Task 1~9, 11 완료, origin/main 반영. Task 10(viewport culling)은 조건부 skip (성능 미흡 보고 없음). 시각적 확인은 사용자 차원에서 미진행. 후속 minor 3건은 메모리 `project_districts_expansion.md` 참조.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** 진주에만 표시되는 행정동 선거구 코로프레스를 경남 22개 시·군구 전체로 확장하고, 줌 레벨에 따라 시·군구 단위와 동 단위를 자동 전환한다.
