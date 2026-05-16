@@ -33,7 +33,7 @@ function populationColor(p: number): string {
 export default function GyeongnamMap() {
   const mapRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
-  const [electionType, setElectionType] = useState<string>("local");
+  const [electionType, setElectionType] = useState<ElectionType>("local");
   const [gyeongnamDistricts, setGyeongnamDistricts] =
     useState<GyeongnamDistricts | null>(null);
 
@@ -136,15 +136,19 @@ export default function GyeongnamMap() {
   useEffect(() => {
     if (!isLoaded || !map || !dongGeo || !gyeongnamDistricts) return;
     const polygons: kakao.maps.Polygon[] = [];
+    // 시·군별 매핑은 시·군당 한 번만 빌드해서 캐시 (305 features × 22 cities 대응)
+    const mappingsByCity: Record<string, ReturnType<typeof buildDongDistrictMap>> = {};
 
     for (const feat of dongGeo.features) {
       const { cityKey, admName } = feat.properties;
-      const mapping = buildDongDistrictMap(
-        gyeongnamDistricts,
-        cityKey,
-        electionType as ElectionType,
-      );
-      const entry = mapping[admName];
+      if (!mappingsByCity[cityKey]) {
+        mappingsByCity[cityKey] = buildDongDistrictMap(
+          gyeongnamDistricts,
+          cityKey,
+          electionType,
+        );
+      }
+      const entry = mappingsByCity[cityKey][admName];
       if (!entry) continue;
 
       const geom = feat.geometry;
