@@ -11,7 +11,7 @@ import {
   type DistrictTransitSummary,
   type DistrictCommerceSummary,
 } from "@/lib/district-aggregator";
-import jinjuDistricts from "@/data/jinju-districts.json";
+import type { GyeongnamDistricts } from "@/lib/district-mapping";
 import jinjuAgePopulation from "@/data/jinju-age-population.json";
 import jinjuCommerceDensity from "@/data/jinju-commerce-density.json";
 import ElectionPanel from "./ElectionPanel";
@@ -45,10 +45,33 @@ export default function DistrictDashboard({
 }: DistrictDashboardProps) {
   const [activeTab, setActiveTab] = useState<TabKey>("population");
 
+  // 경남 선거구 매핑 fetch
+  const [gyeongnamDistricts, setGyeongnamDistricts] =
+    useState<GyeongnamDistricts | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/data/gyeongnam-districts.json")
+      .then((r) => r.json())
+      .then((data: GyeongnamDistricts) => {
+        if (!cancelled) setGyeongnamDistricts(data);
+      })
+      .catch((e) => console.error("경남 선거구 매핑 로드 실패:", e));
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  // 현재 도시(진주)의 매핑. fetch 완료 전엔 null.
+  const cityDistricts =
+    gyeongnamDistricts && isJinju
+      ? gyeongnamDistricts.jinju ?? null
+      : null;
+
   // 선거구 정보
   const districtInfo = useMemo(
-    () => getDistrictInfo(districtName, jinjuDistricts, electionType),
-    [districtName, electionType],
+    () => getDistrictInfo(districtName, cityDistricts, electionType),
+    [districtName, cityDistricts, electionType],
   );
 
   const dongs = districtInfo?.dongs || [];
