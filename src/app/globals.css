@@ -2,7 +2,6 @@
 
 @layer base {
   html, body {
-    height: 100dvh;
-    overflow: hidden;
+    min-height: 100dvh;
   }
 }
