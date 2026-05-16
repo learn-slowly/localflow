@@ -21,7 +21,7 @@ import PinMemoLayer from "./PinMemoLayer";
 import CampaignLayer from "./CampaignLayer";
 import type { CampaignRecord } from "./CampaignLayer";
 import PhotoLayer from "./PhotoLayer";
-import jinjuDistricts from "@/data/jinju-districts.json";
+import type { GyeongnamDistricts, ElectionType } from "@/lib/district-mapping";
 
 // 경계 데이터를 API에서 fetch
 async function fetchBoundaryData(sggCode?: string): Promise<any> {
@@ -42,7 +42,7 @@ function buildDongMappingFromElections(
   electionsData: any[],
   localElectionsData: any[],
   type: string,
-  isJinju: boolean,
+  staticDistricts: { name: string; dongs?: string[] }[],
 ) {
   const mapping: Record<string, { name: string; color: string }> = {};
   let entry: any;
@@ -57,10 +57,6 @@ function buildDongMappingFromElections(
       .sort((a: any, b: any) => (b.date || "").localeCompare(a.date || ""))[0];
   }
 
-  // 진주 외 도시에서는 jinjuDistricts 정적 매핑을 사용하지 않는다.
-  const staticDistricts = isJinju
-    ? ((jinjuDistricts as any)?.types?.[type]?.districts || [])
-    : [];
   const districtOrder: string[] = staticDistricts.map((d: any) => d.name);
 
   if (entry?.dongResults) {
@@ -279,6 +275,21 @@ export default function MapContainer({ cityCode = JINJU_CODE, onCityKeyChange }:
   const [populationData, setPopulationData] = useState<any>(null);
   const [electionsData, setElectionsData] = useState<any[]>([]);
   const [localElectionsData, setLocalElectionsData] = useState<any[]>([]);
+  const [gyeongnamDistricts, setGyeongnamDistricts] =
+    useState<GyeongnamDistricts | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/data/gyeongnam-districts.json")
+      .then((r) => r.json())
+      .then((data: GyeongnamDistricts) => {
+        if (!cancelled) setGyeongnamDistricts(data);
+      })
+      .catch((e) => console.error("경남 선거구 매핑 로드 실패:", e));
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   // 카카오맵 초기화
   const mapContainerRef = useRef<HTMLDivElement>(null);
@@ -353,14 +364,15 @@ export default function MapContainer({ cityCode = JINJU_CODE, onCityKeyChange }:
   }, [map, selectedCityKey]);
 
   // 선거구 매핑
+  const _staticDistricts =
+    gyeongnamDistricts && selectedCityKey
+      ? gyeongnamDistricts[selectedCityKey]?.types?.[electionType as ElectionType]?.districts ?? []
+      : [];
   const dongToDistrict = selectedCity
-    ? buildDongMappingFromElections(electionsData, localElectionsData, electionType, isJinju)
+    ? buildDongMappingFromElections(electionsData, localElectionsData, electionType, _staticDistricts)
     : {};
   const currentDistricts = (() => {
-    // 진주 외 도시에서는 jinjuDistricts 기반 정렬 순서를 적용하지 않는다.
-    const staticOrder: string[] = isJinju
-      ? ((jinjuDistricts as any)?.types?.[electionType]?.districts || []).map((d: any) => d.name)
-      : [];
+    const staticOrder: string[] = _staticDistricts.map((d) => d.name);
     const seen = new Set<string>();
     const list = Object.values(dongToDistrict)
       .filter((d) => { if (seen.has(d.name)) return false; seen.add(d.name); return true; })
