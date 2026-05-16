@@ -42,6 +42,22 @@ export default function GyeongnamMap() {
     level: toKakaoLevel(GYEONGNAM_VIEW.zoom),
   });
 
+  // 카카오 level <= 8 (= 우리 zoom >= 12)일 때 동 모드.
+  const DONG_MODE_THRESHOLD_LEVEL = 8;
+  const [dongMode, setDongMode] = useState(false);
+
+  useEffect(() => {
+    if (!isLoaded || !map) return;
+    const update = () => {
+      setDongMode(map.getLevel() <= DONG_MODE_THRESHOLD_LEVEL);
+    };
+    update();
+    window.kakao.maps.event.addListener(map, "zoom_changed", update);
+    return () => {
+      window.kakao.maps.event.removeListener(map, "zoom_changed", update);
+    };
+  }, [isLoaded, map]);
+
   // 전국 매핑 데이터 fetch (한 번)
   useEffect(() => {
     let cancelled = false;
@@ -59,6 +75,7 @@ export default function GyeongnamMap() {
   // 시군구 폴리곤 로드·표시
   useEffect(() => {
     if (!isLoaded || !map) return;
+    if (dongMode) return; // 동 모드에선 시·군구 폴리곤 숨김
     let cancelled = false;
     const polygons: kakao.maps.Polygon[] = [];
 
@@ -107,10 +124,10 @@ export default function GyeongnamMap() {
       cancelled = true;
       polygons.forEach((p) => p.setMap(null));
     };
-  }, [isLoaded, map, router]);
+  }, [isLoaded, map, router, dongMode]);
 
   // 동 모드 레이어: 22개 시·군 행정동 폴리곤을 선거구별 색으로 색칠.
-  // 현재는 항상 동 폴리곤도 함께 그림 (다음 task에서 줌 임계값으로 전환).
+  // dongMode === true (카카오 level <= 8)일 때만 표시.
   const [dongGeo, setDongGeo] = useState<{
     features: Array<{
       geometry:
@@ -135,6 +152,7 @@ export default function GyeongnamMap() {
 
   useEffect(() => {
     if (!isLoaded || !map || !dongGeo || !gyeongnamDistricts) return;
+    if (!dongMode) return; // 시·군구 모드에선 동 폴리곤 숨김
     const polygons: kakao.maps.Polygon[] = [];
     // 시·군별 매핑은 시·군당 한 번만 빌드해서 캐시 (305 features × 22 cities 대응)
     const mappingsByCity: Record<string, ReturnType<typeof buildDongDistrictMap>> = {};
@@ -187,7 +205,7 @@ export default function GyeongnamMap() {
     return () => {
       polygons.forEach((p) => p.setMap(null));
     };
-  }, [isLoaded, map, dongGeo, gyeongnamDistricts, electionType, router]);
+  }, [isLoaded, map, dongGeo, gyeongnamDistricts, electionType, router, dongMode]);
 
   return (
     <div className="relative h-dvh w-full">
@@ -215,34 +233,41 @@ export default function GyeongnamMap() {
         <h1 className="text-base font-bold text-gray-900">경상남도 지방선거 분석</h1>
         <p className="text-xs text-gray-500 mt-1">시·군을 클릭하면 도시별 상세로 이동</p>
         <p className="text-[11px] text-gray-400 mt-1">
-          진주시는 선거 유형 탭에 따라 선거구별 색깔 표시 (다른 시·군 준비 중)
+          줌인하면 시·군의 선거구별 색깔이 보입니다
         </p>
       </div>
 
-      {/* 우측 인구 범례 */}
-      <div className="absolute bottom-4 right-4 z-10 bg-white/95 backdrop-blur rounded-lg shadow-md px-3 py-2 text-xs">
-        <div className="font-semibold text-gray-700 mb-1.5">인구</div>
-        <div className="grid grid-cols-2 gap-x-3 gap-y-1 text-gray-700">
-          <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded" style={{ background: "#FEE2E2" }} /> &lt;4만
-          </div>
-          <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded" style={{ background: "#FECACA" }} /> 4–8만
-          </div>
-          <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded" style={{ background: "#FCA5A5" }} /> 8–15만
-          </div>
-          <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded" style={{ background: "#F87171" }} /> 15–30만
-          </div>
-          <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded" style={{ background: "#DC2626" }} /> 30–50만
-          </div>
-          <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded" style={{ background: "#7F1D1D" }} /> 50만+
+      {/* 우측 범례 */}
+      {!dongMode && (
+        <div className="absolute bottom-4 right-4 z-10 bg-white/95 backdrop-blur rounded-lg shadow-md px-3 py-2 text-xs">
+          <div className="font-semibold text-gray-700 mb-1.5">인구</div>
+          <div className="grid grid-cols-2 gap-x-3 gap-y-1 text-gray-700">
+            <div className="flex items-center gap-1.5">
+              <span className="w-3 h-3 rounded" style={{ background: "#FEE2E2" }} /> &lt;4만
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="w-3 h-3 rounded" style={{ background: "#FECACA" }} /> 4–8만
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="w-3 h-3 rounded" style={{ background: "#FCA5A5" }} /> 8–15만
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="w-3 h-3 rounded" style={{ background: "#F87171" }} /> 15–30만
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="w-3 h-3 rounded" style={{ background: "#DC2626" }} /> 30–50만
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="w-3 h-3 rounded" style={{ background: "#7F1D1D" }} /> 50만+
+            </div>
           </div>
         </div>
-      </div>
+      )}
+      {dongMode && (
+        <div className="absolute bottom-4 right-4 z-10 bg-white/95 backdrop-blur rounded-lg shadow-md px-3 py-2 text-xs text-gray-700">
+          선거구별 색깔로 표시
+        </div>
+      )}
     </div>
   );
 }
