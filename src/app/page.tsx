@@ -117,7 +117,7 @@ function DistrictCard({
 
   return (
     <Link
-      href={`/district/${encodeURIComponent(b.name)}?type=${electionType}`}
+      href={`/jinju/district/${encodeURIComponent(b.name)}?type=${electionType}`}
       className="block bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 overflow-hidden"
     >
       {/* 상단 색상 바 */}

@@ -2,7 +2,8 @@
 
 import { use, useMemo, useState } from "react";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { notFound, useSearchParams } from "next/navigation";
+import { cities } from "@/config/cities";
 import { JINJU } from "@/config/cities/jinju";
 import jinjuDistricts from "@/data/jinju-districts.json";
 import jinjuAgePopulation from "@/data/jinju-age-population.json";
@@ -29,9 +30,34 @@ type TabKey = "overview" | "campaign" | "population" | "election";
 export default function DistrictPage({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ city: string; id: string }>;
 }) {
-  const { id } = use(params);
+  const { city: cityKey, id } = use(params);
+
+  // 도시 가드 — hook 호출보다 먼저 처리 (Rules of Hooks 준수)
+  if (!cities[cityKey]) notFound();
+
+  // 진주 외 도시는 선거구 데이터가 없음 → 안내 화면
+  if (cityKey !== "jinju") {
+    return (
+      <main className="min-h-dvh flex items-center justify-center bg-gray-50">
+        <div className="text-center px-6">
+          <h1 className="text-xl font-bold text-gray-800">선거구 데이터 준비 중</h1>
+          <p className="text-sm text-gray-500 mt-2">
+            {cities[cityKey].name}의 선거구 상세 정보는 아직 제공되지 않습니다.
+          </p>
+          <Link
+            href={`/${cityKey}`}
+            className="inline-block mt-4 text-sm text-blue-600 hover:underline"
+          >
+            {cities[cityKey].name} 메인으로 돌아가기
+          </Link>
+        </div>
+      </main>
+    );
+  }
+
+  // 이하 진주 전용 로직 (hook 호출들)
   const districtName = decodeURIComponent(id);
   const searchParams = useSearchParams();
   const electionType = searchParams.get("type") || "local";
