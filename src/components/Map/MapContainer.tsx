@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from "react";
 import { useKakaoMap, toKakaoLevel } from "@/hooks/useKakaoMap";
 import { cities, DEFAULT_CITY, GYEONGNAM_VIEW, JINJU } from "@/config/cities";
 import type { CityConfig } from "@/config/cities";
-import jinjuBoundary from "@/data/jinju-boundary.json";
 import jinjuLegalBoundary from "@/data/jinju-legal-boundary.json";
 import jinjuBusStops from "@/data/jinju-bus-stops.json";
 import PopulationPanel from "./PopulationPanel";
@@ -22,7 +21,6 @@ import PinMemoLayer from "./PinMemoLayer";
 import CampaignLayer from "./CampaignLayer";
 import type { CampaignRecord } from "./CampaignLayer";
 import PhotoLayer from "./PhotoLayer";
-import jinjuTransitUsage from "@/data/jinju-transit-usage.json";
 import jinjuDistricts from "@/data/jinju-districts.json";
 
 // 경계 데이터를 API에서 fetch
@@ -33,12 +31,6 @@ async function fetchBoundaryData(sggCode?: string): Promise<any> {
   const res = await fetch(`/api/boundary?${params}`);
   return res.json();
 }
-
-// 진주 전용: 정류장 ID로 이용량 데이터 검색
-const jinjuUsageById: Record<string, any> = {};
-(jinjuTransitUsage as any[]).forEach((s) => {
-  jinjuUsageById[s.sttn_id] = s;
-});
 
 // 선거구별 색상
 const DISTRICT_COLORS = [

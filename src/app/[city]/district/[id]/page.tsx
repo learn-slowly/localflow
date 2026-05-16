@@ -1,13 +1,12 @@
 "use client";
 
-import { use, useMemo, useState } from "react";
+import { use, useMemo, useState, useEffect } from "react";
 import Link from "next/link";
 import { notFound, useSearchParams } from "next/navigation";
 import { cities } from "@/config/cities";
 import { JINJU } from "@/config/cities/jinju";
 import jinjuDistricts from "@/data/jinju-districts.json";
 import jinjuAgePopulation from "@/data/jinju-age-population.json";
-import jinjuTransitUsage from "@/data/jinju-transit-usage.json";
 import jinjuSeniorCenters from "@/data/jinju-senior-centers.json";
 import jinjuCommerceDensity from "@/data/jinju-commerce-density.json";
 import {
@@ -82,18 +81,33 @@ function JinjuDistrictView({ id, cityKey }: { id: string; cityKey: string }) {
     return typeConfig.districts.find((d: any) => d.name === districtName) || null;
   }, [districtName, electionType]);
 
+  // 교통이용량 데이터 (5MB, dev 메모리 부담 회피 위해 fetch)
+  const [transitData, setTransitData] = useState<unknown[] | null>(null);
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/data/jinju-transit-usage.json")
+      .then((r) => r.json())
+      .then((data: unknown[]) => {
+        if (!cancelled) setTransitData(data);
+      })
+      .catch((e) => console.error("교통이용량 로드 실패:", e));
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   // 브리핑 생성
   const briefing = useMemo(() => {
-    if (!districtDef) return null;
+    if (!districtDef || !transitData) return null;
     return buildDistrictBriefing(
       districtDef,
       jinjuAgePopulation as any,
-      jinjuTransitUsage as any,
+      transitData as any,
       jinjuSeniorCenters as any,
       JINJU.code,
       JINJU.name,
     );
-  }, [districtDef]);
+  }, [districtDef, transitData]);
 
   // 인구 피라미드 데이터
   const popSummary = useMemo(() => {

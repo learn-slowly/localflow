@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { getDistrictInfo } from "@/lib/dong-mapping";
 import {
   aggregatePopulation,
@@ -14,7 +14,6 @@ import {
 import jinjuDistricts from "@/data/jinju-districts.json";
 import jinjuAgePopulation from "@/data/jinju-age-population.json";
 import jinjuCommerceDensity from "@/data/jinju-commerce-density.json";
-import jinjuTransitUsage from "@/data/jinju-transit-usage.json";
 import ElectionPanel from "./ElectionPanel";
 
 // ── 타입 ──
@@ -60,9 +59,24 @@ export default function DistrictDashboard({
     [dongs],
   );
 
+  const [transitData, setTransitData] = useState<TransitStation[] | null>(null);
+  useEffect(() => {
+    if (!isJinju) return;
+    let cancelled = false;
+    fetch("/data/jinju-transit-usage.json")
+      .then((r) => r.json())
+      .then((data: TransitStation[]) => {
+        if (!cancelled) setTransitData(data);
+      })
+      .catch((e) => console.error("교통이용량 로드 실패:", e));
+    return () => {
+      cancelled = true;
+    };
+  }, [isJinju]);
+
   const transitSummary = useMemo(
-    () => isJinju ? aggregateTransit(dongs, jinjuTransitUsage as TransitStation[], cityCode) : null,
-    [dongs, isJinju, cityCode],
+    () => (isJinju && transitData ? aggregateTransit(dongs, transitData, cityCode) : null),
+    [dongs, isJinju, cityCode, transitData],
   );
 
   const commerceSummary = useMemo(

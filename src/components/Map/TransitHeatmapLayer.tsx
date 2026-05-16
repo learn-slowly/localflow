@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useMemo } from "react";
-import jinjuTransitUsage from "@/data/jinju-transit-usage.json";
+import { useEffect, useRef, useMemo, useState } from "react";
 
 type HourData = { ride: number; goff: number };
 type StationUsage = {
@@ -64,7 +63,19 @@ export default function TransitHeatmapLayer({
   selectedHour,
   onStationClick,
 }: TransitHeatmapLayerProps) {
-  const stations = jinjuTransitUsage as StationUsage[];
+  const [stations, setStations] = useState<StationUsage[]>([]);
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/data/jinju-transit-usage.json")
+      .then((r) => r.json())
+      .then((data: StationUsage[]) => {
+        if (!cancelled) setStations(data);
+      })
+      .catch((e) => console.error("교통이용량 로드 실패:", e));
+    return () => {
+      cancelled = true;
+    };
+  }, []);
   const overlaysRef = useRef<kakao.maps.CustomOverlay[]>([]);
   const tooltipRef = useRef<kakao.maps.CustomOverlay | null>(null);
   const onClickRef = useRef(onStationClick);

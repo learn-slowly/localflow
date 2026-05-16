@@ -5,8 +5,15 @@ import { useRouter } from "next/navigation";
 import { useKakaoMap, toKakaoLevel } from "@/hooks/useKakaoMap";
 import { GYEONGNAM_VIEW } from "@/config/cities";
 import gyeongnamCities from "@/data/gyeongnam-cities.json";
-import jinjuBoundary from "@/data/jinju-boundary.json";
 import jinjuDistricts from "@/data/jinju-districts.json";
+
+type BoundaryFeature = {
+  properties: { name?: string };
+  geometry:
+    | { type: "Polygon"; coordinates: number[][][] }
+    | { type: "MultiPolygon"; coordinates: number[][][][] };
+};
+type BoundaryFeatureCollection = { features: BoundaryFeature[] };
 
 // 선거 유형 탭
 const ELECTION_TYPES = [
@@ -52,11 +59,26 @@ export default function GyeongnamMap() {
   const mapRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const [electionType, setElectionType] = useState<string>("local");
+  const [jinjuBoundary, setJinjuBoundary] = useState<BoundaryFeatureCollection | null>(null);
 
   const { map, isLoaded } = useKakaoMap(mapRef, {
     center: GYEONGNAM_VIEW.center,
     level: toKakaoLevel(GYEONGNAM_VIEW.zoom),
   });
+
+  // 진주 행정동 GeoJSON 한 번만 fetch (electionType 탭 변경 시 재요청 회피)
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/data/jinju-boundary.json")
+      .then((r) => r.json())
+      .then((data: BoundaryFeatureCollection) => {
+        if (!cancelled) setJinjuBoundary(data);
+      })
+      .catch((e) => console.error("진주 경계 로드 실패:", e));
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   // 시군구 폴리곤 로드·표시
   useEffect(() => {
@@ -113,19 +135,11 @@ export default function GyeongnamMap() {
 
   // 진주 선거구 레이어: 행정동 폴리곤을 선거구별 색깔로 색칠
   useEffect(() => {
-    if (!isLoaded || !map) return;
+    if (!isLoaded || !map || !jinjuBoundary) return;
     const mapping = jinjuDongDistrictMap(electionType);
     const polygons: kakao.maps.Polygon[] = [];
 
-    type BoundaryFeature = {
-      properties: { name?: string };
-      geometry:
-        | { type: "Polygon"; coordinates: number[][][] }
-        | { type: "MultiPolygon"; coordinates: number[][][][] };
-    };
-    const boundary = jinjuBoundary as { features: BoundaryFeature[] };
-
-    for (const feat of boundary.features) {
+    for (const feat of jinjuBoundary.features) {
       const dongName = feat.properties?.name;
       if (!dongName) continue;
       const entry = mapping[dongName];
@@ -156,7 +170,7 @@ export default function GyeongnamMap() {
         window.kakao.maps.event.addListener(p, "click", () => {
           router.push("/jinju");
         });
-        // 시군구 폴리곤(0.6→0.85)과 동일한 시각 패턴, 진주 동 폴리곤은 살짝 어둡게
+        // 시군구 위에 얹는 오버레이라 fillOpacity를 낮게 유지(시군구 0.6→0.85, 진주 동 0.35→0.55)
         window.kakao.maps.event.addListener(p, "mouseover", () => {
           p.setOptions({ fillOpacity: 0.55 });
         });
@@ -171,7 +185,7 @@ export default function GyeongnamMap() {
     return () => {
       polygons.forEach((p) => p.setMap(null));
     };
-  }, [isLoaded, map, electionType, router]);
+  }, [isLoaded, map, electionType, router, jinjuBoundary]);
 
   return (
     <div className="relative h-dvh w-full">
