@@ -5,7 +5,7 @@ import Link from "next/link";
 import { notFound, useSearchParams } from "next/navigation";
 import { cities } from "@/config/cities";
 import { JINJU } from "@/config/cities/jinju";
-import jinjuDistricts from "@/data/jinju-districts.json";
+import type { GyeongnamDistricts, ElectionType } from "@/lib/district-mapping";
 import jinjuAgePopulation from "@/data/jinju-age-population.json";
 import jinjuSeniorCenters from "@/data/jinju-senior-centers.json";
 import jinjuCommerceDensity from "@/data/jinju-commerce-density.json";
@@ -74,12 +74,31 @@ function JinjuDistrictView({ id, cityKey }: { id: string; cityKey: string }) {
   const electionType = searchParams.get("type") || "local";
   const [activeTab, setActiveTab] = useState<TabKey>("overview");
 
+  // 경남 선거구 매핑 (fetch)
+  const [gyeongnamDistricts, setGyeongnamDistricts] =
+    useState<GyeongnamDistricts | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/data/gyeongnam-districts.json")
+      .then((r) => r.json())
+      .then((data: GyeongnamDistricts) => {
+        if (!cancelled) setGyeongnamDistricts(data);
+      })
+      .catch((e) => console.error("경남 선거구 매핑 로드 실패:", e));
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const jinjuDistrictsData = gyeongnamDistricts?.jinju ?? null;
+
   // 선거구 찾기
   const districtDef = useMemo(() => {
-    const typeConfig = (jinjuDistricts as any)?.types?.[electionType];
+    const typeConfig = jinjuDistrictsData?.types?.[electionType as ElectionType];
     if (!typeConfig?.districts) return null;
     return typeConfig.districts.find((d: any) => d.name === districtName) || null;
-  }, [districtName, electionType]);
+  }, [districtName, electionType, jinjuDistrictsData]);
 
   // 교통이용량 데이터 (5MB, dev 메모리 부담 회피 위해 fetch)
   const [transitData, setTransitData] = useState<unknown[] | null>(null);
@@ -100,7 +119,7 @@ function JinjuDistrictView({ id, cityKey }: { id: string; cityKey: string }) {
   const briefing = useMemo(() => {
     if (!districtDef || !transitData) return null;
     return buildDistrictBriefing(
-      districtDef,
+      districtDef as any,
       jinjuAgePopulation as any,
       transitData as any,
       jinjuSeniorCenters as any,
